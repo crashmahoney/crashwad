@@ -1,0 +1,35 @@
+Fist/Swing 		DSFistGo	// fist redux sound
+
+aracnorb/sight		dsaracst	// Arachnorb enemy
+aracnorb/death		dsaracdt
+aracnorb/attack		dsaracfr
+aracnorb/melee		dsaracml
+
+fem/sight 		FEMZSIT		// Female Scientist
+fem/pain 		FEMZPAIN
+fem/death 		FEMZDHT
+fem/active 		FEMZACT
+KnifeHit 		DSKNIFE
+
+doors/dooropen		dooropen	// polyobj swinging doors
+doors/doorshut		doorshut
+
+break/vent		VENTBUST	// duke3d vent breaking
+break/glass		glass		// duke3d glass breaking
+bigsplash		bigsplash	// big splashing noise
+
+DSCHAFIR 		DSCHAFIR	// fire
+ambient/teleporter	tele		// teleporter hum
+ambient/alarm		ALARM		// emergency alarm
+ambient/rain		a_rain
+ambient/fanhum		fanhum		// computer fan?
+ambient/H2ORUSH2	H2ORUSH2	// duke3d water rushing
+ambient/H2Opipe		H2Opipe		// water running through pipe
+
+$ambient 1 ambient/teleporter point continuous 1.0   //teleporter continuous hum
+$ambient 2 ambient/alarm point periodic 1.0 1.0  // alarm plays every second
+$Ambient 3 ambient/rain point continuous 1.0
+$Ambient 4 ambient/rain continuous 1.0
+$Ambient 5 ambient/fanhum point continuous 1.0
+$Ambient 6 ambient/H2ORUSH2 point continuous 1.0
+$Ambient 7 ambient/H2Opipe point continuous 1.0

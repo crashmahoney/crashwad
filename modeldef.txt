@@ -1,0 +1,67 @@
+Model Torch
+{
+   Path "models"
+   Model 0 "torch.md3"
+   Skin 0 "torch.tga"
+   Scale 0.6 0.6 0.6
+
+   FrameIndex TORC1 A 0 0
+}
+
+Model CPU_Pickup
+{
+   Path "models"
+   Model 0 "cpu.md3"
+   Skin 0 "cpu.tga"
+   Scale 1.0 1.0 1.0
+   ZOffset 16.0
+   ROTATING
+   Rotation-Speed 1
+   Rotation-Vector 0 1.0 0
+   Rotation-Center 0 4 0
+
+   FrameIndex CPU11 A 0 0
+}
+
+Model CPU_In
+{
+   Path "models"
+   Model 0 "cpu.md3"
+   Skin 0 "cpu.tga"
+   Scale 1.0 1.0 1.0
+   inheritactorpitch
+
+   FrameIndex CPU11 A 0 0
+}
+
+Model PipeUp
+{
+   Path "models"
+   Model 0 "pipestra.md3"
+   Skin 0 "torch.tga"
+   Scale 1.0 1.0 1.0
+   inheritactorpitch
+
+   FrameIndex PIPE1 A 0 0
+}
+
+Model PipeSide
+{
+   Path "models"
+   Model 0 "pipestra.md3"
+   Skin 0 "torch.tga"
+   Scale 1.0 1.0 1.0
+   inheritactorpitch
+
+   FrameIndex PIPE1 A 0 0
+}
+
+Model PipeBendUp
+{
+   Path "models"
+   Model 0 "pipebend.md3"
+   Skin 0 "torch.tga"
+   Scale 1.0 1.0 1.0
+
+   FrameIndex PIPE1 A 0 0
+}

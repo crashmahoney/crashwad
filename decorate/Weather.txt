@@ -1,0 +1,227 @@
+Actor Moon 13028
+{
+  Radius 128
+  Height 128
+  +FORCEXYBILLBOARD
+  +NOBLOCKMAP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    MOON A -1 Bright
+    Loop
+  }
+}
+
+
+
+
+//**************** WEATHER ZONE BOUNDARY **********************
+//Boundary object for weather zones
+ACTOR WeatherSpot 30000
+{
+
+	+NOBLOCKMAP 
+	gravity 0
+	states
+	{
+	Spawn:
+		TNT1 A -1
+		Loop
+	}
+	
+}
+
+
+
+//**************** RAIN **********************
+
+//Basic rain spawner
+ACTOR RainSpawner
+{
+	+Missile
+	+NoClip
+	+NoGravity
+	+NoBlockMap
+	RenderStyle Translucent
+	Alpha 0
+ 	states
+ 	{
+ 	Spawn:
+		RAIN A 0 A_JumpIf(z >= ceilingz,1)
+		RAIN A 1 A_SpawnItemEx ("RainDrop", 0, 0, 0, random(0,1), random(0,1), -random(0,5), random(0,255), 0) 
+ 		Stop
+	}
+
+}
+
+//Heavy rain spawner
+ACTOR HardRainSpawner
+{
+	+Missile
+	+NoClip
+	+NoGravity
+	+NoBlockMap
+	RenderStyle Translucent
+	Alpha 0
+ 	states
+ 	{
+ 	Spawn:
+		RAIN A 0 A_JumpIf(z >= ceilingz,1)
+		RAIN A 1 A_SpawnItemEx ("RainDrop", 0, 0, 0, random(0,1), random(0,1), -random(5,20), random(0,255), 0) 
+ 		Stop
+	}
+
+}
+
+//Simple rain drop
+ACTOR RainDrop
+{
+
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+DontSplash
+	RenderStyle Add
+	Alpha .5
+	xscale 0.25
+	states
+	{
+	Spawn:
+		RAIN A 1 A_JumpIf(waterlevel >= 1, "Death")
+		Loop
+	Death:
+		TNT1 A 1
+		Stop
+	}
+
+}
+
+
+
+//**************** SNOW **********************
+
+//Basic snow spawner
+ACTOR SnowSpawner
+{
+	+Missile
+	+NoClip
+	+NoGravity
+	+NoBlockMap
+	RenderStyle Translucent
+	Alpha 0
+ 	states
+ 	{
+ 	Spawn:
+		RAIN A 0 A_JumpIf(z >= ceilingz,1)
+		RAIN A 1 A_SpawnItemEx ("SnowFlake", 0, 0, 0, random(0,5), random(0,5), -random(0,2), random(0,255), 0) 
+ 		Stop
+	}
+
+}
+
+//Hard snow spawner
+ACTOR HardSnowSpawner
+{
+	+Missile
+	+NoClip
+	+NoGravity
+	+NoBlockMap
+	RenderStyle Translucent
+	Alpha 0
+ 	states
+ 	{
+ 	Spawn:
+		RAIN A 0 A_JumpIf(z >= ceilingz,1)
+		RAIN A 1 A_SpawnItemEx ("HeavySnowFlake", 0, 0, 0, random(0,3), random(0,3), -random(5,10), random(0,255), 0) 
+ 		Stop
+	}
+
+}
+
+//Light, drifting snow flake
+ACTOR SnowFlake
+{
+
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+DontSplash
+	RenderStyle Translucent
+	Alpha 0.9
+	gravity 0.02
+	scale 0.5
+	states
+	{
+	Spawn:
+		SNOW A 1 A_JumpIf(waterlevel >= 1, "Death")
+		Loop
+	Death:
+		TNT1 A 1
+		Stop
+	}
+
+}
+
+//Heavy, wet snow flake
+ACTOR HeavySnowFlake
+{
+
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+DontSplash
+	RenderStyle Translucent
+	Alpha 0.9
+	gravity 0.1
+	scale 0.5
+	states
+	{
+	Spawn:
+		SNOW A 1 A_JumpIf(waterlevel >= 1, "Death")
+		Loop
+	Death:
+		TNT1 A 1
+		Stop
+	}
+
+}
+
+
+
+//**************** CONTROL OBJECTS **********************
+
+//Weather toggle effect
+ACTOR Action_WeatherToggle : CustomInventory 
+{ 
+   Inventory.Amount 1 
+   Inventory.MaxAmount 1 
+   -INVBAR
+   +UNDROPPABLE 
+
+   States
+   { 
+       Use:
+	   TNT1 A 0 A_JumpIfInventory("Flag_NoWeather",1,1)
+	   Goto StopEffects
+	   TNT1 A 0 A_Print("Weather effects ON")
+	   TNT1 A 1 A_TakeInventory("Flag_NoWeather",999)
+	   TNT1 A 1 ACS_ExecuteAlways(941,0,0,0,0)
+	   Fail
+	   StopEffects:
+	   TNT1 A 0 A_Print("Weather effects OFF")
+	   TNT1 A 1 A_GiveInventory("Flag_NoWeather",1)
+	   TNT1 A 1 ACS_ExecuteAlways(941,0,0,0,0)
+	   Fail
+   } 
+}
+
+ACTOR Flag_NoWeather : Inventory 
+{ 
+   Inventory.Amount 1 
+   Inventory.MaxAmount 1 
+   -INVBAR
+}

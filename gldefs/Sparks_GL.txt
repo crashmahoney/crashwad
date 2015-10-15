@@ -1,0 +1,22 @@
+flickerlight NJSPARKY
+{
+    color 0.5 0.5 0.0
+    size 8
+    secondarySize 12
+    chance 0.8
+}
+
+object NJDownSpark
+{
+    frame SPAR { light NJSPARKY }
+}
+
+object NJFrontSpark
+{
+    frame SPAR { light NJSPARKY }
+}
+
+object NJUpSpark
+{
+    frame SPAR { light NJSPARKY }
+}

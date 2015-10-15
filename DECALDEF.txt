@@ -1,0 +1,7 @@
+decal Shade 1
+   {
+       pic shade
+       translucent 0.75
+       x-scale 128.00
+       y-scale 1.00
+   }

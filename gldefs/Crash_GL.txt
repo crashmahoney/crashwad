@@ -1,0 +1,240 @@
+object TeleSpark
+{
+    frame TELE { light TeleLight }
+}
+
+pointlight TeleLight
+{
+    color 1.0 0.9 0.0
+    size 100
+}
+
+object Explosion
+{
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+object GasCan
+{
+    frame XCANB { light ROCKET_X1 }
+    frame XCANC { light ROCKET_X2 }
+    frame FEXTC { light ROCKET_X3 }
+    frame FEXTD { light ROCKET_X3 }
+}
+
+object FireExtinguisher
+{
+    frame FEXTB { light ROCKET_X1 }
+    frame FEXTC { light ROCKET_X2 }
+    frame FEXTD { light ROCKET_X3 }
+}
+
+object FireGenerator
+{
+    frame WFLR { light Candle }
+}
+
+object FireGeneratorNoSmoke
+{
+    frame WFLR { light Candle }
+}
+
+
+pointlight DeskLamp
+{
+   color 0.5 0.5 0.5
+   size 32
+}
+
+object DeskLamp
+{
+   frame DLMP {light DeskLamp}
+}
+
+
+// Torch Model
+pulselight Torch
+{
+    color 1.0 0.22 0.0
+    size 94
+    secondarySize 100
+    interval 0.1
+    offset 0 48 0
+}
+object Torch
+{
+   frame TORC {light Torch}
+}
+
+
+pointlight CPU
+{
+   color 0.5 0.5 0.5
+   size 32
+}
+
+object CPU_Pickup
+{
+   frame CPU1 {light CPU}
+}
+object FlashlightBeamClose
+{
+    frame FLIGA { light FlashlightA }
+
+}
+object FlashlightBeamMid
+{
+    frame FLIGA { light FlashlightA }
+    frame FLIGB { light FlashlightB }
+
+}
+
+object FlashlightBeam
+{
+    frame FLIGA { light FlashlightA }
+    frame FLIGB { light FlashlightB }
+    frame FLIGC { light FlashlightC }
+    frame FLIGD { light FlashlightD }
+    frame FLIGE { light FlashlightE }
+    frame FLIGF { light FlashlightF }
+    frame FLIGG { light FlashlightG }
+    frame FLIGH { light FlashlightH }
+    frame FLIGI { light FlashlightI }
+    frame FLIGJ { light FlashlightJ }
+    frame FLIGK { light FlashlightK }
+}
+
+pointlight FlashlightA
+{
+    color 0.9 0.9 0.8
+    size 16
+}
+pointlight FlashlightB
+{
+    color 0.85 0.85 0.75
+    size 32
+}
+pointlight FlashlightC
+{
+    color 0.8 0.8 0.7
+    size 48
+}
+pointlight FlashlightD
+{
+    color 0.75 0.75 0.65
+    size 64
+}
+pointlight FlashlightE
+{
+    color 0.7 0.7 0.6
+    size 80
+}
+pointlight FlashlightF
+{
+    color 0.65 0.65 0.55
+    size 96
+}
+pointlight FlashlightG
+{
+    color 0.6 0.6 0.5
+    size 112
+}
+pointlight FlashlightH
+{
+    color 0.55 0.55 0.45
+    size 128
+}
+pointlight FlashlightI
+{
+    color 0.5 0.5 0.4
+    size 144
+}
+pointlight FlashlightJ
+{
+    color 0.45 0.45 0.35
+    size 160
+}
+pointlight FlashlightK
+{
+    color 0.4 0.4 0.3
+    size 176
+}
+pointlight FlashlightL
+{
+    color 0.35 0.35 0.25
+    size 192
+}
+pointlight FlashlightM
+{
+    color 0.3 0.3 0.2
+    size 224
+}
+pointlight FlashlightN
+{
+    color 0.25 0.25 0.15
+    size 256
+}
+pointlight FlashlightO
+{
+    color 0.2 0.2 0.1
+    size 320
+}
+pointlight FlashlightP
+{
+    color 0.15 0.15 0.05
+    size 320
+}
+pointlight FlashlightQ
+{
+    color 0.1 0.1 0.0
+    size 384
+}
+
+
+// Floor lamp
+pointlight NeonPink
+{
+    color 1.0 0.3 0.9
+    size 56
+    offset 0 44 0
+}
+
+object NeonColumn
+{
+    frame COLPA { light NeonPink }
+	
+}
+
+pointlight NeonBlue
+{
+    color 0.5 1.0 1.0
+    size 56
+    offset 0 44 0
+}
+
+object NeonBlueColumn
+{
+    frame COLPB { light NeonBlue }
+	
+}
+
+
+
+
+Glow
+{
+	Flats
+	{
+		NUKAGE1
+		NUKAGE2
+		NUKAGE3
+		LAVA1
+		LAVA2
+		LAVA3
+		LAVA4
+	}
+}
+
+

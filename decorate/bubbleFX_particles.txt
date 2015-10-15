@@ -1,0 +1,320 @@
+//Bubble particles for JonnyFive's bubbleFX
+
+ACTOR BigBubble
+{
+	height 8
+	radius 8
+	mass 100
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+NOGRAVITY
+	+DontSplash
+	RenderStyle Translucent
+	Alpha .2
+	scale 0.5
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(200,"Move")
+		TNT1 A 0 A_Jump(5,"Split")
+		Loop
+	Move:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Spawn
+	Split:
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0,50)
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0)
+		Goto Death
+	Death:
+		TNT1 A 1
+		Stop
+	}
+
+}
+
+ACTOR MediumBubble
+{
+	height 5
+	radius 5
+	mass 100
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+NOGRAVITY
+	+DontSplash
+	RenderStyle Translucent
+	Alpha .4
+	scale 0.3
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(200,"Move")
+		TNT1 A 0 A_Jump(5,"Split")
+		Loop
+	Move:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Spawn
+	Split:
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0,50)
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0)
+		Goto Death
+	Death:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR SmallBubble
+{
+	height 2
+	radius 2
+	mass 100
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+NOGRAVITY
+	+DontSplash
+	RenderStyle Translucent
+	Alpha .6
+	scale 0.1
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(200,"Move")
+		TNT1 A 0 A_Jump(5,"Split")
+		Loop
+	Move:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Spawn
+	Split:
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0,50)
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0)
+		Goto Death
+	Death:
+		TNT1 A 1
+		Stop
+	}
+
+}
+
+ACTOR BigBubbleHorizontal
+{
+	height 8
+	radius 8
+	mass 100
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+NOGRAVITY
+	+DontSplash
+	RenderStyle Translucent
+	Alpha .2
+	scale 0.5
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(240,"Up")
+		TNT1 A 0 A_Jump(200,"MoveSide")
+		Loop
+	Check:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(200,"MoveUp")
+		TNT1 A 0 A_Jump(5,"Split")
+		Loop
+	Up:
+		TNT1 A 0 A_Stop
+		TNT1 A 0 ThrustThingZ(0,random(10,15),0,0)
+		Goto Check
+	MoveUp:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Check
+	MoveSide:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,random(0,10),0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Spawn
+	Split:
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0,50)
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0)
+		Goto Death
+	Death:
+		TNT1 A 1
+		Stop
+	}
+
+}
+
+ACTOR MediumBubbleHorizontal
+{
+	height 5
+	radius 5
+	mass 100
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+NOGRAVITY
+	+DontSplash
+	RenderStyle Translucent
+	Alpha .4
+	scale 0.3
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(240,"Up")
+		TNT1 A 0 A_Jump(200,"MoveSide")
+		Loop
+	Check:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(200,"MoveUp")
+		TNT1 A 0 A_Jump(5,"Split")
+		Loop
+	Up:
+		TNT1 A 0 A_Stop
+		TNT1 A 0 ThrustThingZ(0,random(10,15),0,0)
+		Goto Check
+	MoveUp:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Check
+	MoveSide:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,random(0,10),0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Spawn
+	Split:
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0,50)
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0)
+		Goto Death
+	Death:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR SmallBubbleHorizontal
+{
+	height 2
+	radius 2
+	mass 100
+	+NOBLOCKMAP 
+	+DROPOFF 
+	+MISSILE 
+	+NOTELEPORT
+	+NOGRAVITY
+	+DontSplash
+	RenderStyle Translucent
+	Alpha .6
+	scale 0.1
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(240,"Up")
+		TNT1 A 0 A_Jump(200,"MoveSide")
+		Loop
+	Check:
+		TNT1 A 0 A_JumpIf(waterlevel <= 2,"Death")
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 A_Jump(200,"MoveUp")
+		TNT1 A 0 A_Jump(5,"Split")
+		Loop
+	Up:
+		TNT1 A 0 A_Stop
+		TNT1 A 0 ThrustThingZ(0,random(10,15),0,0)
+		Goto Check
+	MoveUp:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Check
+	MoveSide:
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		TNT1 A 0 ThrustThingZ(0,random(0,10),0,0)
+		BUB1 AAAAAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(128,2,0,0)
+		TNT1 A 0 ThrustThing(192,2,0,0)
+		BUB1 AAAAA 2 A_JumpIf(waterlevel <= 2,"Death")
+		TNT1 A 0 ThrustThing(0,1,0,0)
+		TNT1 A 0 ThrustThing(64,1,0,0)
+		Goto Spawn
+	Split:
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0,50)
+		TNT1 A 0 A_SpawnItemEx("SmallBubble",random(-10,10)*.1,random(-10,10)*.1,0,random(0,2)*.1,random(0,2)*.1,momz,random(0,360),0)
+		Goto Death
+	Death:
+		TNT1 A 1
+		Stop
+	}
+
+}

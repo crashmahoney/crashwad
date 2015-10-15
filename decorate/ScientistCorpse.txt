@@ -1,0 +1,23 @@
+Actor DeadMaleScientist 13013
+{
+  Radius 16
+  Height 16
+  States
+  {
+  Spawn:
+    MSCI N -1
+    Loop
+  }
+}
+
+Actor DeadFemaleScientist 13014
+{
+  Radius 16
+  Height 16
+  States
+  {
+  Spawn:
+    FSCI N -1
+    Loop
+  }
+}

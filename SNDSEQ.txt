@@ -1,0 +1,18 @@
+:DoorOpen
+	//door 1
+	play doors/dooropen
+	nostopcutoff
+end
+
+:DoorShut
+	play doors/doorshut
+	nostopcutoff
+end
+
+[DoorSwing
+	Door 1
+	0  DoorOpen
+	1  DoorShut
+	2  DoorOpen
+	3  DoorShut
+]

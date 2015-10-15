@@ -1,0 +1,89 @@
+pointlight Chandelier
+{
+    color 0.7 0.5 0.1
+    size 72
+    offset 0 16 0
+}
+
+pointlight Chandelier2
+{
+    color 0.7 0.5 0.1
+    size 64
+    offset 0 16 0
+}
+
+pointlight Chandelier3
+{
+    color 0.7 0.5 0.1
+    size 52
+    offset 0 16 0
+}
+
+object Chandelier1Switchable
+{
+        frame CHANA { light Chandelier }
+	frame CHANB { light Chandelier2 }
+	frame CHANC { light Chandelier3 }
+}
+
+object Chandelier1On
+{
+        frame CHANE { light Chandelier }
+	frame CHANF { light Chandelier2 }
+	frame CHANG { light Chandelier3 }
+}
+
+object Chandelier2Switchable
+{
+        frame CHANE { light Chandelier }
+	frame CHANF { light Chandelier2 }
+	frame CHANG { light Chandelier3 }
+}
+
+
+
+// My Chandelier
+pulselight CHAND
+{
+    color 1.0 0.3 0.0
+    size 58
+    secondarySize 64
+    interval 0.1
+    offset 0 60 0
+}
+
+
+object Chandelier2On
+{
+        frame CHANE { light Chandelier }
+	frame CHANF { light Chandelier2 }
+	frame CHANG { light Chandelier3 }
+}
+
+object Chandelier3Switchable
+{
+        frame CHANI { light Chandelier }
+	frame CHANJ { light Chandelier2 }
+	frame CHANL { light Chandelier3 }
+}
+
+object Chandelier3On
+{
+        frame CHANI { light Chandelier }
+	frame CHANJ { light Chandelier2 }
+	frame CHANL { light Chandelier3 }
+}
+
+object Chandelier4Switchable
+{
+        frame CHANN { light Chandelier }
+	frame CHANO { light Chandelier2 }
+	frame CHANP { light Chandelier3 }
+}
+
+object Chandelier4On
+{
+        frame CHANN { light Chandelier }
+	frame CHANO { light Chandelier2 }
+	frame CHANP { light Chandelier3 }
+}

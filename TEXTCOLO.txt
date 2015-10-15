@@ -1,0 +1,7 @@
+NeonPink
+{
+	#FF0059  #EC75FF
+Console:
+	#000000  #007F00    0 127
+	#00FF00  #FEFFFE  128 256
+}

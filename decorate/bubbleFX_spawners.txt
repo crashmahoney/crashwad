@@ -1,0 +1,68 @@
+//Bubble spawners for JonnyFive's bubbleFX
+//Use 280xx numbering convention
+
+ACTOR BubbleSpawner : SwitchableDecoration 28000 //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
+{
+	+NoClip
+	+NoGravity
+	+NoBlockMap
+	RenderStyle Translucent
+	Alpha 0
+ 	states
+ 	{
+	Spawn:
+ 	Active:
+		TNT1 A 0 A_SpawnItemEx ("MediumBubble", random(-args[1]*10,args[1]*10)*.1, random(-args[1]*10,args[1]*10)*.1, 0, ((random(0,2))*.1), ((random(0,2))*.1), random(args[2]*10,args[3]*10)*.1, random(0,360), 0, (255-(args[0]*2.55))) 
+		TNT1 A 0 A_SpawnItemEx ("SmallBubble", random(-args[1]*10,args[1]*10)*.1, random(-args[1]*10,args[1]*10)*.1, 0, ((random(0,2))*.1), ((random(0,2))*.1), random(args[2]*10,args[3]*10)*.1, random(0,360), 0, (255-(args[0]*2.55))) 
+		TNT1 A 2 A_SpawnItemEx ("BigBubble", random(-args[1]*10,args[1]*10)*.1, random(-args[1]*10,args[1]*10)*.1, 0, ((random(0,2))*.1), ((random(0,2))*.1), random(args[2]*10,args[3]*10)*.1, random(0,360), 0, (255-(args[0]*2.55))) 
+		Loop
+	Inactive:
+		TNT1 A 1
+		Loop
+	}
+
+}
+
+ACTOR CeilingBubbleSpawner : SwitchableDecoration 28001 //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
+{
+	+NoClip
+	+NoGravity
+	+NoBlockMap
+	RenderStyle Translucent
+	Alpha 0
+ 	states
+ 	{
+	Spawn:
+ 	Active:
+		TNT1 A 0 A_SpawnItemEx ("MediumBubble", random(-args[1]*10,args[1]*10)*.1, random(-args[1]*10,args[1]*10)*.1, 0, ((random(0,2))*.1), ((random(0,2))*.1), -random(args[2]*10,args[3]*10)*.1, random(0,360), 0, (255-(args[0]*2.55))) 
+		TNT1 A 0 A_SpawnItemEx ("SmallBubble", random(-args[1]*10,args[1]*10)*.1, random(-args[1]*10,args[1]*10)*.1, 0, ((random(0,2))*.1), ((random(0,2))*.1), -random(args[2]*10,args[3]*10)*.1, random(0,360), 0, (255-(args[0]*2.55))) 
+		TNT1 A 2 A_SpawnItemEx ("BigBubble", random(-args[1]*10,args[1]*10)*.1, random(-args[1]*10,args[1]*10)*.1, 0, ((random(0,2))*.1), ((random(0,2))*.1), -random(args[2]*10,args[3]*10)*.1, random(0,360), 0, (255-(args[0]*2.55))) 
+		Loop
+	Inactive:
+		TNT1 A 1
+		Loop
+	}
+
+}
+
+ACTOR WallBubbleSpawner : SwitchableDecoration 28002 //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
+{
+	+NoClip
+	+NoGravity
+	+NoBlockMap
+	RenderStyle Translucent
+	Alpha 0
+ 	states
+ 	{
+	Spawn:
+ 	Active:
+		TNT1 A 0 A_SpawnItemEx ("MediumBubbleHorizontal", random(-args[1]*10,args[1]*10)*.1, 0, random(-args[1]*10,args[1]*10)*.1, ((random(0,2))*.1), random(args[2]*10,args[3]*10)*.1, ((random(0,2))*.1), 90, 0, (255-(args[0]*2.55))) 
+		TNT1 A 0 A_SpawnItemEx ("SmallBubbleHorizontal", random(-args[1]*10,args[1]*10)*.1, 0, random(-args[1]*10,args[1]*10)*.1, ((random(0,2))*.1), random(args[2]*10,args[3]*10)*.1, ((random(0,2))*.1), 90, 0, (255-(args[0]*2.55)))
+		TNT1 A 2 A_SpawnItemEx ("BigBubbleHorizontal", random(-args[1]*10,args[1]*10)*.1, 0, random(-args[1]*10,args[1]*10)*.1, ((random(0,2))*.1), random(args[2]*10,args[3]*10)*.1, ((random(0,2))*.1), 90, 0, (255-(args[0]*2.55)))
+		Loop
+	Inactive:
+		TNT1 A 1
+		Loop
+	}
+
+}

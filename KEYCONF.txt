@@ -1,0 +1,9 @@
+addkeysection "Crash's Wad" CrashWad
+
+addmenukey "Toggle weatherFX Effects" weather_toggle
+alias weather_toggle "Use Action_WeatherToggle"
+defaultbind F12 weather_toggle
+
+addmenukey "Toggle Flashlight" flashlight
+alias flashlight "Use FlashlightToggle"
+defaultbind f flashlight

@@ -1,0 +1,114 @@
+defaultmap
+{
+	sucktime = 1
+	LaxMonsterActivation
+}
+
+
+// -----------EPISODE SELECT----------
+clearepisodes
+
+episode SELECT
+{
+	name = "Episode Select"
+	key = "e"
+}
+
+map SELECT "Episode Select"
+{
+	levelnum = 0
+	music = "track09"
+	next = "MAP01"
+	secretnext = "80s"
+	par = 60
+}
+
+// -----------EPISODE 1----------
+cluster 1
+{
+}
+
+map MAP01 "Banger"
+{
+	levelnum = 1
+	next = "MAP02"
+	secretnext = "80s"
+	cluster = 1
+	par = 60
+	music = "track09"
+}
+
+map MAP02 "Do You Even Lift, Bro?"
+{
+	levelnum = 2
+	next = "MAP03"
+	cluster = 1
+	music = "D_DEAD"
+	sky1 = "SKY1", 0
+	par = 180
+}
+
+map MAP03 "The Gorge"
+{
+	levelnum = 3
+	next = "CITY2"
+	cluster = 1
+	music = "D_IN_CIT"
+	par = 240
+	sky1 = "SKY1", 0
+}
+
+map CITY2 "Hanging Garden"
+{
+	levelnum = 4
+	next = "HUB"
+	cluster = 1
+	music = "DARK"
+	par = 90
+}
+
+map HUB "UAC Research Centre"
+{
+	levelnum = 5
+	next = "SELECT"
+	cluster = 1
+	music = "metal1"
+	par = 90
+}
+map 80s "80s Level"
+{
+	levelnum = 6
+	next = "MAP02"
+	cluster = 1
+	music = "starcad"
+	par = 240
+}
+
+
+
+// -----------EPISODE 2----------
+cluster 2
+{
+}
+
+map MAP04 "Remote Laboratries"
+{
+	levelnum = 6
+	next = "MAP05"
+	cluster = 2
+	music = "DARK"
+}
+
+// -----------EPISODE 3----------
+cluster 3
+{
+}
+
+map E3M1 "Citadel"
+{
+	levelnum = 31
+	next = "MAP05"
+	cluster = 3
+	music = "DARK"
+	sky1 = "NIGHTSKY", 0
+}

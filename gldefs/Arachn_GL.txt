@@ -1,0 +1,12 @@
+object AracnorbBall
+{
+    frame ACNF { light ARACNORBLIGHT }
+}
+
+pulselight ARACNORBLIGHT
+{
+    color 1.0 1.0 0.0
+    size 48
+    secondarySize 24
+    interval 3.0
+}

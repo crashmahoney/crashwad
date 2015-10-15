@@ -1,0 +1,89 @@
+Actor Chair 13017
+{
+  +FloorClip
+  +Solid
+  +PUSHABLE
+  +SLIDESONWALLS
+  +WINDTHRUST
+  //+Shootable
+  +NODAMAGE
+  +NOTARGET
+  +NOBLOOD
+  Height 30
+  Radius 15
+  Mass 25
+  States
+  {
+  Spawn:
+    CHAI A 4
+    Loop
+  Pain:
+    CHAI A 0 A_FaceTarget
+    TNT1 A 0 A_Recoil(50)
+    Goto Spawn
+  }
+}
+
+// --------------------------------------------------------------------------
+Actor DeskLamp 13019
+{
+  Radius 16
+  Height 16
+  Scale 0.75
+  States
+  {
+  Spawn:
+//    DLMP A 0 A_CheckSight("NoLos")
+//    DLMP A 1 A_SpawnItem("WhiteCorona",0,24,0)
+//    Goto Spawn
+//  NoLOS:
+    DLMP A 1
+    Goto Spawn
+  }
+}
+
+// --------------------------------------------------------------------------
+Actor CoffeeMug 13023
+{
+  Radius 4
+  Height 4
+  Scale 0.25
+
+  States
+  {
+  Spawn:
+    COFF A 1
+    Loop
+  }
+}
+
+// --------------------------------------------------------------------------
+Actor PotPlant 13024
+{
+  Radius 16
+  Height 48
+  Scale 0.75
+  +Solid
+
+  States
+  {
+  Spawn:
+    POTP A 1
+    Loop
+  }
+}
+
+// --------------------------------------------------------------------------
+Actor Stapler 13025
+{
+  Radius 4
+  Height 4
+  Scale 0.25
+
+  States
+  {
+  Spawn:
+    STAP A 1
+    Loop
+  }
+}

@@ -1,0 +1,32 @@
+#library "Crash"
+#include "zcommon.acs"
+
+script 1000 ENTER
+{
+     GiveInventory("FlashlightToggle", 1);
+     int flframe =  (CheckInventory("Flashlight") / 100);
+     SetFont("FLFONT");
+
+       if (CheckInventory("Flashlight") == 0)             // if battery hits 0
+       {
+             GiveInventory("FlashlightState",1);          // switch torch off
+             ActivatorSound("weapons/sshoto",127);
+       }
+
+       if (CheckInventory("FlashlightState") == 0)        // if torch is on
+       {
+             UseInventory("Flashlight");                  // shoot out light
+             HudMessage(d:flframe,s:"-"; HUDMSG_PLAIN | HUDMSG_ALPHA, 1, CR_UNTRANSLATED, 0.25, 1.01, 0, 0.5);
+       }
+       else
+       {
+             GiveInventory("Flashlight", 1);              // otherwise recharge battery
+             HudMessage(d:flframe,s:"/"; HUDMSG_PLAIN | HUDMSG_ALPHA, 1, CR_UNTRANSLATED, 0.25, 1.01, 0, 0.3);
+       }
+       
+
+       
+
+     Delay(1);
+     Restart;
+}
