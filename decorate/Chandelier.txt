@@ -1,4 +1,4 @@
-Actor Chandelier1Switchable : SwitchableDecoration  13000
+Actor Chandelier1Switchable : SwitchableDecoration
 {
   Radius 10
   Height 21
@@ -22,21 +22,7 @@ Actor Chandelier1Switchable : SwitchableDecoration  13000
   }
 }
 
-Actor Chandelier1Off 13001
-{
-  Radius 10
-  Height 21
-  +NOGRAVITY
-  +SPAWNCEILING
-  States
-  {
-  Spawn:
-    CHAN D -1
-    Stop
-  }
-}
-
-Actor Chandelier1On 13002
+Actor Chandelier1On
 {
   Radius 10
   Height 21
@@ -52,7 +38,7 @@ Actor Chandelier1On 13002
   }
 }
 
-Actor Chandelier2Switchable : SwitchableDecoration  13003
+Actor Chandelier2Switchable : SwitchableDecoration
 {
   Radius 10
   Height 21
@@ -76,21 +62,8 @@ Actor Chandelier2Switchable : SwitchableDecoration  13003
   }
 }
 
-Actor Chandelier2Off  13004
-{
-  Radius 10
-  Height 21
-  +NOGRAVITY
-  +SPAWNCEILING
-  States
-  {
-  Spawn:
-    CHAN H -1
-    Stop
-  }
-}
 
-Actor Chandelier2On  13005
+Actor Chandelier2On
 {
   Radius 10
   Height 21
@@ -106,7 +79,7 @@ Actor Chandelier2On  13005
   }
 }
 
-Actor Chandelier3Switchable : SwitchableDecoration  13006
+Actor Chandelier3Switchable : SwitchableDecoration  
 {
   Radius 10
   Height 21
@@ -130,21 +103,7 @@ Actor Chandelier3Switchable : SwitchableDecoration  13006
   }
 }
 
-Actor Chandelier3Off  13007
-{
-  Radius 10
-  Height 21
-  +NOGRAVITY
-  +SPAWNCEILING
-  States
-  {
-  Spawn:
-    CHAN M -1
-    Stop
-  }
-}
-
-Actor Chandelier3On  13008
+Actor Chandelier3On
 {
   Radius 10
   Height 21
@@ -160,7 +119,7 @@ Actor Chandelier3On  13008
   }
 }
 
-Actor Chandelier4Switchable : SwitchableDecoration  13009
+Actor Chandelier4Switchable : SwitchableDecoration
 {
   Radius 10
   Height 21
@@ -184,21 +143,7 @@ Actor Chandelier4Switchable : SwitchableDecoration  13009
   }
 }
 
-Actor Chandelier4Off  13010
-{
-  Radius 10
-  Height 21
-  +NOGRAVITY
-  +SPAWNCEILING
-  States
-  {
-  Spawn:
-    CHAN Q -1
-    Stop
-  }
-}
-
-Actor Chandelier4On  13011
+Actor Chandelier4On  
 {
   Radius 10
   Height 21

@@ -9,7 +9,7 @@ Actor VisualSpecialEffect
 }
 
 // --------------------------------------------------------------------------
-Actor FireGenerator : SwitchableDecoration 13018
+Actor FireGenerator : SwitchableDecoration 
 {
   Height 20
   Radius 16
@@ -40,7 +40,7 @@ Actor FireGenerator : SwitchableDecoration 13018
   }
 }
 // --------------------------------------------------------------------------
-Actor FireGeneratorNoSmoke : FireGenerator 13026
+Actor FireGeneratorNoSmoke : FireGenerator 
 {  States
   {
      Spawn:
@@ -149,7 +149,7 @@ Actor SmokeParticle : VisualSpecialEffect
 
 
 // --------------------------------------------------------------------------
-Actor LightCoronaGenerator : VisualSpecialEffect 13050
+Actor LightCoronaGenerator : VisualSpecialEffect 
 {
 //  RenderStyle Add
 //  Scale 0.75
@@ -177,7 +177,7 @@ Actor WhiteCorona : VisualSpecialEffect
 }
 
 // --------------------------------------------------------------------------
-Actor RedCorona : WhiteCorona 13051
+Actor RedCorona : WhiteCorona 
 {
   States
   {
@@ -189,7 +189,7 @@ Actor RedCorona : WhiteCorona 13051
 
 // --------------------------------------------------------------------------
 
-Actor WaterSplashGenerator : SwitchableDecoration 13027
+Actor WaterSplashGenerator : SwitchableDecoration 
 {
   Height 16
   Radius 16

@@ -1,7 +1,7 @@
 //Bubble spawners for JonnyFive's bubbleFX
 //Use 280xx numbering convention
 
-ACTOR BubbleSpawner : SwitchableDecoration 28000 //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
+ACTOR BubbleSpawner : SwitchableDecoration //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
 {
 	+NoClip
 	+NoGravity
@@ -23,7 +23,7 @@ ACTOR BubbleSpawner : SwitchableDecoration 28000 //Parameters: % chance of spawn
 
 }
 
-ACTOR CeilingBubbleSpawner : SwitchableDecoration 28001 //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
+ACTOR CeilingBubbleSpawner : SwitchableDecoration //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
 {
 	+NoClip
 	+NoGravity
@@ -45,7 +45,7 @@ ACTOR CeilingBubbleSpawner : SwitchableDecoration 28001 //Parameters: % chance o
 
 }
 
-ACTOR WallBubbleSpawner : SwitchableDecoration 28002 //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
+ACTOR WallBubbleSpawner : SwitchableDecoration //Parameters: % chance of spawning, base, min vertical speed, max vertical speed
 {
 	+NoClip
 	+NoGravity

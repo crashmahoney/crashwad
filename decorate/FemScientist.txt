@@ -1,4 +1,4 @@
-ACTOR FemaleScientist 13015
+ACTOR FemaleScientist 
 {
   Game Doom
   obituary "%o was stabbed by a zombie scientist."

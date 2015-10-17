@@ -1,4 +1,4 @@
-Actor TeleSparkGenerator : SwitchableDecoration 13012
+Actor TeleSparkGenerator : SwitchableDecoration 
 {
   +NOBLOCKMAP 
   +NOGRAVITY

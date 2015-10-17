@@ -112,3 +112,78 @@ map E3M1 "Citadel"
 	music = "DARK"
 	sky1 = "NIGHTSKY", 0
 }
+
+DoomEdNums
+{
+	3141	=	Explosion				// Spawnable Explosion
+
+	10077	=	Aracnorb				// enemy
+
+	11000	=	GrassSpawn
+	11001	=	GrenadeInv				// Grenade pickup
+	11002	=	GrassSpawnDead
+
+	12450	=	SeaWeed
+	12451	=	Bush1
+	12452	=	Bush2
+	12453	=	Bush3
+	12454	=	BushTall1
+	12455	=	BushTall2
+	12456	=	BushTall3
+	12457	=	Waterlily
+	12458	=	Tree1
+	12459	=	Tree2
+	12460	=	Tree3
+
+	13000	=	Chandelier1Switchable
+	13002	=	Chandelier1On
+	13003	=	Chandelier2Switchable
+	13005	=	Chandelier2On
+	13006	=	Chandelier3Switchable
+	13008	=	Chandelier3On
+	13009	=	Chandelier4Switchable
+	13011	=	Chandelier4On
+	13012	=	TeleSparkGenerator
+	13013	=	DeadMaleScientist
+	13014	=	DeadFemaleScientist
+	13015	=	FemaleScientist
+	13016	=	ZombieScientist
+	13017	=	Chair
+	13018	=	FireGenerator
+	13019	=	DeskLamp
+	13020	=	Torch
+	13021	=	CPU_Pickup
+	13022	=	CPU_In
+	13023	=	CoffeeMug
+	13024	=	PotPlant
+	13025	=	Stapler
+	13026	=	FireGeneratorNoSmoke
+	13027	=	WaterSplashGenerator
+	13028	=	Moon
+	13030	=	PipeUp
+	13031	=	PipeSide
+	13032	=	PipeBendUp
+
+	13050	=	LightCoronaGenerator
+	13051	=	RedCorona
+
+// actors in this range are overwritten by DoomRPG actors and need changing
+	20000	=	WallBreaker				// actor that dies from explosions
+	20001	=	FireExtinguisher
+	20002	=	GasCan					// explosive gas cannister from duke3d
+	20050	=	NeonVert				// pink vertical glow line
+	20051	=	NeonPalm
+	20052	=	NeonColumn				// pink tech light
+	20053	=	NeonBlueColumn
+	20054	=	NeonVertBlue
+	20055	=	NeonVertYellow
+	20056	=	NeonVertRed
+
+	22321	=	NJUpSpark
+	22322	=	NJFrontSpark
+
+	28000	=	BubbleSpawner
+	28001	=	CeilingBubbleSpawner
+	28002	=	WallBubbleSpawner
+
+}

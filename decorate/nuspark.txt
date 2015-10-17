@@ -53,7 +53,7 @@
  
  //makes a short lived fountain of upward sparks
  
- Actor NJUpSpark : SwitchableDecoration 22321
+ Actor NJUpSpark : SwitchableDecoration
  {
  	Height 2
  	Radius 2
@@ -103,7 +103,7 @@
 
 
  //Briefly showers sparks forwards
- Actor NJFrontSpark : SwitchableDecoration 22322
+ Actor NJFrontSpark : SwitchableDecoration 
  {
  	Height 2
  	Radius 2

@@ -1,4 +1,4 @@
-actor Aracnorb  10077
+actor Aracnorb
 {
   MONSTER
   +NOGRAVITY

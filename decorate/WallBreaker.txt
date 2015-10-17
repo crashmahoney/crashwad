@@ -1,4 +1,4 @@
-actor WallBreaker  20000
+actor WallBreaker
 {
 Health 10
 Radius 0
@@ -28,7 +28,7 @@ Obituary "$OB_BARREL" // "%o went boom."
 	}
 }
 
-actor FireExtinguisher 20001
+actor FireExtinguisher
 {
 Health 1
 Radius 6
@@ -61,7 +61,7 @@ Obituary "$OB_BARREL" // "%o went boom."
      }
 }
 
-actor GasCan 20002
+actor GasCan
 {
 Health 20
 Radius 10

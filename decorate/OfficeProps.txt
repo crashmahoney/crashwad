@@ -1,4 +1,4 @@
-Actor Chair 13017
+Actor Chair
 {
   +FloorClip
   +Solid
@@ -25,7 +25,7 @@ Actor Chair 13017
 }
 
 // --------------------------------------------------------------------------
-Actor DeskLamp 13019
+Actor DeskLamp
 {
   Radius 16
   Height 16
@@ -43,7 +43,7 @@ Actor DeskLamp 13019
 }
 
 // --------------------------------------------------------------------------
-Actor CoffeeMug 13023
+Actor CoffeeMug 
 {
   Radius 4
   Height 4
@@ -58,7 +58,7 @@ Actor CoffeeMug 13023
 }
 
 // --------------------------------------------------------------------------
-Actor PotPlant 13024
+Actor PotPlant 
 {
   Radius 16
   Height 48
@@ -74,7 +74,7 @@ Actor PotPlant 13024
 }
 
 // --------------------------------------------------------------------------
-Actor Stapler 13025
+Actor Stapler 
 {
   Radius 4
   Height 4

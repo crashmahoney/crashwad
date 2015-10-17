@@ -16,7 +16,7 @@
 
 
 
-ACTOR Explosion 3141 //Spawnable Explosion
+ACTOR Explosion //Spawnable Explosion
 {
    SpawnID 200
    Radius 0
@@ -36,7 +36,7 @@ ACTOR Explosion 3141 //Spawnable Explosion
    }
 }
 
-ACTOR Torch 13020
+ACTOR Torch
 {
   height 32
   radius 16
@@ -57,7 +57,7 @@ ACTOR Torch 13020
 }
 
 
-ACTOR CPU_Pickup : PuzzleItem 13021
+ACTOR CPU_Pickup : PuzzleItem
 {
   height 24
   radius 16
@@ -72,7 +72,7 @@ ACTOR CPU_Pickup : PuzzleItem 13021
 }
 
 
-ACTOR CPU_In 13022
+ACTOR CPU_In
 {
   height 16
   radius 16
@@ -85,7 +85,7 @@ ACTOR CPU_In 13022
   }
 } 
 
-ACTOR PipeUp 13030
+ACTOR PipeUp
 {
   height 32
   radius 16
@@ -97,7 +97,7 @@ ACTOR PipeUp 13030
     loop
   }
 } 
-ACTOR PipeSide 13031
+ACTOR PipeSide
 {
   height 32
   radius 16
@@ -110,7 +110,7 @@ ACTOR PipeSide 13031
   }
 } 
 
-ACTOR PipeBendUp 13032
+ACTOR PipeBendUp
 {
   height 32
   radius 16
@@ -126,7 +126,7 @@ ACTOR PipeBendUp 13032
 
 
 
-ACTOR GrenadeInv : CustomInventory 11001
+ACTOR GrenadeInv : CustomInventory
 {
 	+INVENTORY.INVBAR
     //    +WEAPON.NOAUTOAIM
@@ -255,7 +255,7 @@ Actor FlashlightBeamMid : FlashlightBeam
          }
 }
 
-ACTOR NeonVert 20050
+ACTOR NeonVert
 {
 	Radius 0
 	Height 64
@@ -275,7 +275,7 @@ ACTOR NeonVert 20050
 
 
 
-ACTOR NeonPalm 20051
+ACTOR NeonPalm
 {
 	Radius 16
 	Height 128
@@ -291,7 +291,7 @@ ACTOR NeonPalm 20051
 
 // Column ------------------------------------------------------------------
 
-ACTOR NeonColumn : Column 20052
+ACTOR NeonColumn : Column
 {
 	States
 	{
@@ -303,7 +303,7 @@ ACTOR NeonColumn : Column 20052
 
 // Column ------------------------------------------------------------------
 
-ACTOR NeonBlueColumn : NeonColumn 20053
+ACTOR NeonBlueColumn : NeonColumn
 {
 	States
 	{
@@ -313,7 +313,7 @@ ACTOR NeonBlueColumn : NeonColumn 20053
 	}
 }
 
-ACTOR NeonVertBlue : NeonVert 20054
+ACTOR NeonVertBlue : NeonVert
 {
 	States
 	{
@@ -324,7 +324,7 @@ ACTOR NeonVertBlue : NeonVert 20054
 
 }
 
-ACTOR NeonVertYellow : NeonVert 20055
+ACTOR NeonVertYellow : NeonVert
 {
 	States
 	{
@@ -335,7 +335,7 @@ ACTOR NeonVertYellow : NeonVert 20055
 
 }
 
-ACTOR NeonVertRed : NeonVert 20056
+ACTOR NeonVertRed : NeonVert
 {
 	States
 	{

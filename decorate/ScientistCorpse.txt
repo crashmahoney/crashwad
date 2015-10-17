@@ -1,4 +1,4 @@
-Actor DeadMaleScientist 13013
+Actor DeadMaleScientist 
 {
   Radius 16
   Height 16
@@ -10,7 +10,7 @@ Actor DeadMaleScientist 13013
   }
 }
 
-Actor DeadFemaleScientist 13014
+Actor DeadFemaleScientist 
 {
   Radius 16
   Height 16
