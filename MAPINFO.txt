@@ -44,7 +44,7 @@ map MAP02 "Do You Even Lift, Bro?"
 	next = "MAP03"
 	cluster = 1
 	music = "D_DEAD"
-	sky1 = "SKY1", 0
+	sky1 = "NIGHTSKY", 0
 	par = 180
 }
 
