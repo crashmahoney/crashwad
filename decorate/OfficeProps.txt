@@ -5,13 +5,13 @@ Actor Chair
   +PUSHABLE
   +SLIDESONWALLS
   +WINDTHRUST
-  //+Shootable
-  +NODAMAGE
+  +Shootable
   +NOTARGET
   +NOBLOOD
   Height 30
   Radius 15
   Mass 25
+  PushFactor 0.75
   States
   {
   Spawn:
