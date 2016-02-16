@@ -6,6 +6,7 @@
 #include "gldefs/Chand_GL.txt"
 #include "gldefs/Crash_GL.txt"
 #include "gldefs/Sparks_GL.txt"
+#include "gldefs/Brightmaps.txt"
 
 // ------------------
 // -- Doom Weapons --
