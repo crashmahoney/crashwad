@@ -220,8 +220,60 @@ object NeonBlueColumn
 	
 }
 
+pointlight LightG
+{
+   color 0.5 1.0 0.5
+   size 64
+    offset 0 4 0
+}
+object LightGreen
+{
+   frame PIPE {light LightG}
+}
 
+pointlight LightP
+{
+    color 1.0 0.3 0.9
+    size 64
+    offset 0 4 0
+}
+object LightPink
+{
+   frame PIPE {light LightP}
+}
 
+pointlight LightB
+{
+    color 0.5 1.0 1.0
+    size 64
+    offset 0 4 0
+}
+object LightBlue
+{
+   frame PIPE {light LightB}
+}
+
+pointlight LightY
+{
+    color 1.0 0.8 0.0
+    size 64
+    offset 0 4 0
+}
+object LightYellow
+{
+   frame PIPE {light LightY}
+}
+
+pointlight LightR
+{
+    color 1.0 0.2 0.0
+    size 64
+    offset 0 4 0
+}
+object LightRed
+{
+   frame PIPE {light LightR}
+}
 
 Glow
 {

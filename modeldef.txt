@@ -5,7 +5,7 @@ Model Torch
    Skin 0 "torch.tga"
    Scale 0.6 0.6 0.6
 
-   FrameIndex TORC1 A 0 0
+   FrameIndex TORC A 0 0
 }
 
 Model CPU_Pickup
@@ -20,7 +20,7 @@ Model CPU_Pickup
    Rotation-Vector 0 1.0 0
    Rotation-Center 0 4 0
 
-   FrameIndex CPU11 A 0 0
+   FrameIndex CPU1 A 0 0
 }
 
 Model CPU_In
@@ -31,7 +31,7 @@ Model CPU_In
    Scale 1.0 1.0 1.0
    inheritactorpitch
 
-   FrameIndex CPU11 A 0 0
+   FrameIndex CPU1 A 0 0
 }
 
 Model PipeUp
@@ -42,7 +42,7 @@ Model PipeUp
    Scale 1.0 1.0 1.0
    inheritactorpitch
 
-   FrameIndex PIPE1 A 0 0
+   FrameIndex PIPE A 0 0
 }
 
 Model PipeSide
@@ -53,7 +53,7 @@ Model PipeSide
    Scale 1.0 1.0 1.0
    inheritactorpitch
 
-   FrameIndex PIPE1 A 0 0
+   FrameIndex PIPE A 0 0
 }
 
 Model PipeBendUp
@@ -63,5 +63,65 @@ Model PipeBendUp
    Skin 0 "torch.tga"
    Scale 1.0 1.0 1.0
 
-   FrameIndex PIPE1 A 0 0
+   FrameIndex PIPE A 0 0
+}
+
+Model LightGreen
+{
+   Path "models"
+   Model 0 "light.md3"
+   Skin 0 "lightg.tga"
+   Scale 1 1 1
+   inheritactorpitch
+   inheritactorroll
+
+   FrameIndex PIPE A 0 0
+}
+
+Model LightPink
+{
+   Path "models"
+   Model 0 "light.md3"
+   Skin 0 "lightp.tga"
+   Scale 1 1 1
+   inheritactorpitch
+   inheritactorroll
+
+   FrameIndex PIPE A 0 0
+}
+
+Model LightBlue
+{
+   Path "models"
+   Model 0 "light.md3"
+   Skin 0 "lightb.tga"
+   Scale 1 1 1
+   inheritactorpitch
+   inheritactorroll
+
+   FrameIndex PIPE A 0 0
+}
+
+Model LightYellow
+{
+   Path "models"
+   Model 0 "light.md3"
+   Skin 0 "lighty.tga"
+   Scale 1 1 1
+   inheritactorpitch
+   inheritactorroll
+
+   FrameIndex PIPE A 0 0
+}
+
+Model LightRed
+{
+   Path "models"
+   Model 0 "light.md3"
+   Skin 0 "lightr.tga"
+   Scale 1 1 1
+   inheritactorpitch
+   inheritactorroll
+
+   FrameIndex PIPE A 0 0
 }

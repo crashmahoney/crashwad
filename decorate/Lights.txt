@@ -1,0 +1,113 @@
+// --------------------------------------------------------------------------
+Actor LightGreen
+{
+  Radius 0
+  Height 0
++NOGRAVITY
+  States
+  {
+  Spawn:
+    PIPE A 4 A_SpawnItem("GreenCorona",0,0,0)
+    goto spawn
+  }
+}
+
+Actor GreenCorona : WhiteCorona
+{
+  Alpha 0.5
+  Scale 1.5
+  States
+  {
+  Spawn:
+    WFLR B 5 Bright 
+    Stop
+  }
+}
+
+Actor LightPink : LightGreen
+{
+States
+  {
+  Spawn:
+    PIPE A 4 A_SpawnItem("PinkCorona",0,0,0)
+    goto spawn
+  }
+}
+
+Actor PinkCorona : WhiteCorona
+{
+  Alpha 0.7
+  Scale 1.8
+  States
+  {
+  Spawn:
+    WFLR C 5 Bright 
+    Stop
+  }
+}
+
+Actor LightBlue : LightGreen
+{
+States
+  {
+  Spawn:
+    PIPE A 4 A_SpawnItem("BlueCorona",0,0,0)
+    goto spawn
+  }
+}
+
+Actor BlueCorona : WhiteCorona
+{
+  Alpha 0.5
+  Scale 1.8
+  States
+  {
+  Spawn:
+    WFLR D 5 Bright 
+    Stop
+  }
+}
+
+Actor LightYellow : LightGreen
+{
+States
+  {
+  Spawn:
+    PIPE A 4 A_SpawnItem("YellowCorona",0,0,0)
+    goto spawn
+  }
+}
+
+Actor YellowCorona : WhiteCorona
+{
+  Alpha 0.5
+  Scale 1.8
+  States
+  {
+  Spawn:
+    WFLR E 5 Bright 
+    Stop
+  }
+}
+
+Actor LightRed : LightGreen
+{
+States
+  {
+  Spawn:
+    PIPE A 4 A_SpawnItem("RedCorona2",0,0,0)
+    goto spawn
+  }
+}
+
+Actor RedCorona2 : WhiteCorona
+{
+  Alpha 0.5
+  Scale 1.8
+  States
+  {
+  Spawn:
+    WFLR F 5 Bright 
+    Stop
+  }
+}

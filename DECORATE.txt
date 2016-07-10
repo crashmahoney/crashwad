@@ -13,7 +13,7 @@
 #include "decorate/OfficeProps.txt"
 #include "decorate/Vegetation.txt"
 #include "decorate/WallBreaker.txt"
-
+#include "decorate/Lights.txt"
 
 
 ACTOR Explosion //Spawnable Explosion

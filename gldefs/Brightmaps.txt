@@ -1,4 +1,49 @@
-// Brightmaps
+brightmap sprite AMMOA0
+{
+	map "brightmaps/pickups/AMMOa0.png"
+	iwad
+}
+brightmap sprite BPAKA0
+{
+	map "brightmaps/pickups/BPAKa0.png"
+	iwad
+}
+brightmap sprite BROKA0
+{
+	map "brightmaps/pickups/BROKa0.png"
+	iwad
+}
+brightmap sprite CELLA0
+{
+	map "brightmaps/pickups/CELLa0.png"
+	iwad
+}
+brightmap sprite CELPA0
+{
+	map "brightmaps/pickups/CELPa0.png"
+	iwad
+}
+brightmap sprite CLIPA0
+{
+	map "brightmaps/pickups/CLIPa0.png"
+	iwad
+}
+brightmap sprite MEDIA0
+{
+	map "brightmaps/pickups/media0.png"
+	iwad
+}
+brightmap sprite STIMA0
+{
+	map "brightmaps/pickups/stima0.png"
+	iwad
+}
+
+
+
+
+
+// Demonsteele Brightmaps
 
 brightmap texture COMP2
 {

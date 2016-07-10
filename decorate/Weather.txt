@@ -13,3 +13,18 @@ Actor Moon
   }
 }
 
+Actor FogGreen
+{
+  Radius 128
+  Height 128
+  +FORCEXYBILLBOARD
+  +NOBLOCKMAP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    FOGG A -1
+    Loop
+  }
+}
+

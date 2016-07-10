@@ -164,8 +164,15 @@ DoomEdNums
 	13031	=	PipeSide
 	13032	=	PipeBendUp
 
+	13040	=	FogGreen
+
 	13050	=	LightCoronaGenerator
 	13051	=	RedCorona
+	13052	=	LightGreen
+	13053	=	LightPink
+	13054	=	LightBlue
+	13055	=	LightYellow
+	13056	=	LightRed
 
 // actors in this range are overwritten by DoomRPG actors and need changing
 	20000	=	WallBreaker				// actor that dies from explosions
