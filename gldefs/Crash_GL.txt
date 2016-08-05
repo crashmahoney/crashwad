@@ -286,6 +286,8 @@ Glow
 		LAVA2
 		LAVA3
 		LAVA4
+		TLAVFL0
+		LAVA01
 	}
 }
 

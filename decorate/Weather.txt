@@ -28,3 +28,17 @@ Actor FogGreen
   }
 }
 
+Actor FogRed
+{
+  Radius 128
+  Height 128
+  +FORCEXYBILLBOARD
+  +NOBLOCKMAP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    FOGR A -1
+    Loop
+  }
+}

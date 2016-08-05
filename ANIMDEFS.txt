@@ -59,6 +59,8 @@ warp flat HLTX0012  0.05
 
 texture WFAL_01 range WFAL_12 tics 1  // waterfall texture
 
+warp2 texture LAVA01		// my new lava texture
+
 texture STAT3_1                   // animated static
    pic STAT3_1 tics 2
    pic STAT3_2 tics 2

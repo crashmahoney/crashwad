@@ -165,6 +165,7 @@ DoomEdNums
 	13032	=	PipeBendUp
 
 	13040	=	FogGreen
+	13041	=	FogRed
 
 	13050	=	LightCoronaGenerator
 	13051	=	RedCorona
