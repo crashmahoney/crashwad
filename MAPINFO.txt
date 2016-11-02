@@ -26,6 +26,9 @@ map SELECT "Episode Select"
 // -----------EPISODE 1----------
 cluster 1
 {
+		pic = "NIGHTSKY",1
+		exittext = "Ok ya did it, Episode 1 down!"
+		music = "starcad"
 }
 
 map MAP01 "Banger"
@@ -55,29 +58,51 @@ map MAP03 "The Gorge"
 	cluster = 1
 	music = "D_IN_CIT"
 	par = 240
-	sky1 = "SKY1", 0
+	sky1 = "NIGHTSKY", 0
 }
 
 map CITY2 "Hanging Garden"
 {
 	levelnum = 4
-	next = "HUB"
+	next = "train"
 	cluster = 1
 	music = "DARK"
 	par = 90
 }
 
-map HUB "UAC Research Centre"
+map TRAIN "Crazy Train"
 {
 	levelnum = 5
+	next = "CITY3"
+	cluster = 1
+	music = "DARK"
+	par = 90
+	sky1 = "NIGHTSKY", 0
+	ForceFakeContrast
+}
+
+map CITY3 "Some Other City Block"
+{
+	levelnum = 6
+	next = "HUB"
+	cluster = 1
+	music = "track09"
+	par = 90
+}
+
+map HUB "UAC Research Centre"
+{
+	levelnum = 7
 	next = "SELECT"
 	cluster = 1
 	music = "metal1"
 	par = 90
 }
+
+
 map 80s "80s Level"
 {
-	levelnum = 6
+	levelnum = 8
 	next = "MAP02"
 	cluster = 1
 	music = "starcad"
@@ -93,7 +118,7 @@ cluster 2
 
 map MAP04 "Remote Laboratries"
 {
-	levelnum = 6
+	levelnum = 9
 	next = "MAP05"
 	cluster = 2
 	music = "DARK"
@@ -118,10 +143,12 @@ DoomEdNums
 	3141	=	Explosion				// Spawnable Explosion
 
 	10077	=	Aracnorb				// enemy
+	10078	=	DoomsphereST 
 
 	11000	=	GrassSpawn
 	11001	=	GrenadeInv				// Grenade pickup
 	11002	=	GrassSpawnDead
+	11003	=	SkyViewTID				// skybox viewpoint that changed it's tid after level start
 
 	12450	=	SeaWeed
 	12451	=	Bush1
@@ -134,6 +161,7 @@ DoomEdNums
 	12458	=	Tree1
 	12459	=	Tree2
 	12460	=	Tree3
+	12461	=	Wire		// hanging telegraph wire
 
 	13000	=	Chandelier1Switchable
 	13002	=	Chandelier1On
@@ -186,6 +214,8 @@ DoomEdNums
 	20054	=	NeonVertBlue
 	20055	=	NeonVertYellow
 	20056	=	NeonVertRed
+	
+	20060	=	GreyLamp
 
 	22321	=	NJUpSpark
 	22322	=	NJFrontSpark

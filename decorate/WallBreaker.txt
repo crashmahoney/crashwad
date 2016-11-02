@@ -1,8 +1,8 @@
 actor WallBreaker
 {
 Health 10
-Radius 0
-Height 0
+Radius 16
+Height 128
 Gravity 0
 +SHOOTABLE
 +VULNERABLE
@@ -53,7 +53,7 @@ Obituary "$OB_BARREL" // "%o went boom."
             FEXT B 0 Bright A_SetScale(1.0)
             FEXT B 0 Bright A_Explode
             FEXT B 8 Bright A_Scream
-            FEXT C 6 Bright 
+            FEXT C 6 Bright A_SpawnDebris("Shrapnel", 5,5)
             FEXT D 4 Bright
 	    TNT1 A 1050 BRIGHT A_BarrelDestroy
 	    TNT1 A 5 A_Respawn

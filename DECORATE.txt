@@ -345,3 +345,53 @@ ACTOR NeonVertRed : NeonVert
 	}
 
 }
+
+ACTOR Wire
+{
+ +WALLSPRITE
+ +ROLLSPRITE
+ +NOGRAVITY
+	States
+	{
+	Spawn:
+		WIRE A -1
+		Stop
+	}
+
+}
+
+Actor PowerQuadDamageST : PowerDamage
+{
+Damagefactor "Normal", 4
+}
+
+Actor DoomsphereST : PowerupGiver
+{
+  +CountItem
+  +NoGravity
+  +Inventory.AutoActivate
+  +Inventory.AlwaysPickup
+  Inventory.MaxAmount 0
+  Powerup.Type QuadDamageST
+  Powerup.Color 150 0 100 0.4
+  Inventory.PickupMessage "Doomsphere"
+  States
+  {
+  Spawn:
+    DOOM A 10 Bright
+    DOOM B 15 Bright
+    DOOM C 8 Bright
+    DOOM D 6 Bright
+    Loop
+  }
+}
+
+Actor SkyViewTID : SkyViewpoint
+{
+	States
+		{
+		Spawn:
+		TNT1 A 0 ACS_ExecuteAlways(666, 0)
+	//	goto Super::Spawn
+		}
+}

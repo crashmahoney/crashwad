@@ -159,3 +159,17 @@ Actor Chandelier4On
   }
 }
 
+Actor GreyLamp
+{
+  +Solid
+  +NOGRAVITY
+  +SPAWNCEILING  
+  Radius 8
+  Height 52
+  States
+  {
+  Spawn:
+    GLMP A -1 Bright
+    Loop
+  }
+}

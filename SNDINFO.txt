@@ -26,6 +26,8 @@ ambient/fanhum		fanhum		// computer fan?
 ambient/H2ORUSH2	H2ORUSH2	// duke3d water rushing
 ambient/H2Opipe		H2Opipe		// water running through pipe
 ambient/Lava		lava		// lava burn and bubble
+ambient/crickets	crickets	// crickets :P
+ambient/train		Train2		// train rumble
 
 $ambient 1 ambient/teleporter point continuous 1.0   //teleporter continuous hum
 $ambient 2 ambient/alarm point periodic 1.0 1.0  // alarm plays every second
@@ -35,3 +37,5 @@ $Ambient 5 ambient/fanhum point continuous 1.0
 $Ambient 6 ambient/H2ORUSH2 point continuous 1.0
 $Ambient 7 ambient/H2Opipe point continuous 1.0
 $Ambient 8 ambient/Lava point continuous 1.0
+$Ambient 9 ambient/crickets point continuous 1.0
+$Ambient 10 ambient/train surround continuous 0.7

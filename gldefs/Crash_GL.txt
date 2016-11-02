@@ -291,4 +291,28 @@ Glow
 	}
 }
 
+PulseLight DOOMSPHERE
+{
+Color 0.5 0.0 0.0
+Size 40
+SecondarySize 42
+Interval 2.0
+Offset 0 16 0
+}
 
+Object DoomSphereST
+{
+Frame DOOM { Light DOOMSPHERE }
+}
+
+PointLight GreyLamp
+{
+Color 0.6 0.4 0.6
+Size 56
+Offset 0 0 0
+}
+
+Object GreyLamp
+{
+Frame GLMP { Light GreyLamp }
+}
