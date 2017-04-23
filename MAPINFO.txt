@@ -116,9 +116,19 @@ cluster 2
 {
 }
 
-map MAP04 "Remote Laboratries"
+map SNOW1 "Snowy Shit"
 {
 	levelnum = 9
+	next = "MAP04"
+	cluster = 2
+	music = "starcad"
+	sky1 = "NIGHTSKY", 0
+	par = 180
+}
+
+map MAP04 "Remote Laboratries"
+{
+	levelnum = 10
 	next = "MAP05"
 	cluster = 2
 	music = "DARK"
@@ -143,7 +153,7 @@ DoomEdNums
 	3141	=	Explosion				// Spawnable Explosion
 
 	10077	=	Aracnorb				// enemy
-	10078	=	DoomsphereST 
+	10078	=	DoomsphereST
 
 	11000	=	GrassSpawn
 	11001	=	GrenadeInv				// Grenade pickup
@@ -214,7 +224,7 @@ DoomEdNums
 	20054	=	NeonVertBlue
 	20055	=	NeonVertYellow
 	20056	=	NeonVertRed
-	
+
 	20060	=	GreyLamp
 
 	22321	=	NJUpSpark
