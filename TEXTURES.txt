@@ -2376,11 +2376,6 @@ Texture YLIGHTY, 64, 64
 	Patch YLIGHTY, 0, 0
 }
 
-Texture TRUTWL04, 73, 70
-{
-	Patch TRUTWL04, 0, 0
-}
-
 Texture T2SW02B, 32, 32
 {
 	Patch T2SW02B, 0, 0

@@ -1,3 +1,5 @@
+cameratexture CAMERAT 128 96 fit 64 48
+
 texture COMERR1                   // animated computer screen
    pic COMERR1 tics 10
    pic COMERR2 tics 20

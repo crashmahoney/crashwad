@@ -26,7 +26,7 @@ map SELECT "Episode Select"
 // -----------EPISODE 1----------
 cluster 1
 {
-		pic = "NIGHTSKY",1
+		pic = "NIGHTSKY"
 		exittext = "Ok ya did it, Episode 1 down!"
 		music = "starcad"
 }

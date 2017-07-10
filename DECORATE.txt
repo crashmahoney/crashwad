@@ -130,7 +130,7 @@ ACTOR GrenadeInv : CustomInventory
 {
 	+INVENTORY.INVBAR
     //    +WEAPON.NOAUTOAIM
-	inventory.icon "MISLA0"
+	inventory.icon "SHRDA0"
         Inventory.Amount 1
         Inventory.MaxAmount 10
         Inventory.InterHubAmount 10
@@ -146,7 +146,8 @@ ACTOR GrenadeInv : CustomInventory
 		Stop
 	Use:
 		PISG B 6 A_FireCustomMissile("GrenadeProjectile",0,1,0,4,1,16)
-		Goto Ready
+		// Goto Ready
+    stop
 	}
 }
 
@@ -160,7 +161,7 @@ ACTOR GrenadeProjectile : Grenade Replaces Grenade
 Actor Flashlight : CustomInventory
 {
 	-INVENTORY.INVBAR
-	inventory.icon "MISLA0"
+	inventory.icon "SHRDA0"
 	Tag "Flashlight"
         +INVENTORY.UNDROPPABLE
         Inventory.MaxAmount 999
