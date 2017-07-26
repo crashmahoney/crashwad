@@ -212,6 +212,8 @@ DoomEdNums
 	13054	=	LightBlue
 	13055	=	LightYellow
 	13056	=	LightRed
+	
+	13060	=	ComputerCursor
 
 // actors in this range are overwritten by DoomRPG actors and need changing
 	20000	=	WallBreaker				// actor that dies from explosions

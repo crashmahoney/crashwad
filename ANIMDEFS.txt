@@ -67,3 +67,27 @@ texture STAT3_1                   // animated static
    pic STAT3_1 tics 2
    pic STAT3_2 tics 2
    pic STAT3_3 tics 2
+
+texture LMCP_1_1		// lameduke animated computers
+   pic LMCP_1_1 tics 10
+   pic LMCP_1_2 tics 10
+   pic LMCP_1_3 tics 10
+   pic LMCP_1_4 tics 10
+
+texture LMCP_2_1
+   pic LMCP_2_1 tics 10
+   pic LMCP_2_2 tics 10
+   pic LMCP_2_3 tics 10
+   pic LMCP_2_4 tics 10
+
+texture LMCP_3_1
+   pic LMCP_3_1 tics 10
+   pic LMCP_3_2 tics 10
+   pic LMCP_3_3 tics 10
+   pic LMCP_3_4 tics 10
+
+texture LMCP_4_1
+   pic LMCP_4_1 tics 10
+   pic LMCP_4_2 tics 10
+   pic LMCP_4_3 tics 10
+   pic LMCP_4_4 tics 10
