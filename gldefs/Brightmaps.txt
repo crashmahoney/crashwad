@@ -819,7 +819,35 @@ brightmap texture tekwall6
   iwad
 }
 
+
+
+
 brightmap texture BRKWINgl
 {
 	map "brightmaps/BRKWINgl.png"
+}	
+
+brightmap texture BRKWINgl
+{
+	map "brightmaps/BRKWINgl.png"
+}
+
+brightmap texture BRKWIN2
+{
+	map "brightmaps/BRKWIN2.png"
+}
+
+brightmap texture TCEMLite
+{
+	map "brightmaps/TCEMLite.png"
+}
+
+brightmap texture tmpbuild
+{
+	map "brightmaps/tmpbuild.png"
+}
+
+brightmap texture tmpbuil2
+{
+	map "brightmaps/tmpbuil2.png"
 }	
