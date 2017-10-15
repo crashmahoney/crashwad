@@ -837,9 +837,31 @@ brightmap texture BRKWIN2
 	map "brightmaps/BRKWIN2.png"
 }
 
+
+
+brightmap texture sign1
+{
+	map "brightmaps/sign1.png"
+}
+
+brightmap texture sign2
+{
+	map "brightmaps/sign2.png"
+}
+
+brightmap texture sign3
+{
+	map "brightmaps/sign3.png"
+}
+
 brightmap texture TCEMLite
 {
 	map "brightmaps/TCEMLite.png"
+}
+
+brightmap texture tech04
+{
+	map "brightmaps/tech04.png"
 }
 
 brightmap texture tmpbuild
@@ -850,4 +872,20 @@ brightmap texture tmpbuild
 brightmap texture tmpbuil2
 {
 	map "brightmaps/tmpbuil2.png"
-}	
+}
+	
+brightmap texture WHITE
+{
+	map "brightmaps/WHITE.png"
+}
+
+brightmap texture windows1
+{
+	map "brightmaps/windows1.png"
+}
+
+
+brightmap texture windows2
+{
+	map "brightmaps/windows2.png"
+}

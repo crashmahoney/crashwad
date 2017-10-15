@@ -116,9 +116,19 @@ cluster 2
 {
 }
 
+map CYBER "Cyber City"
+{
+	levelnum = 10
+	next = "SNOW1"
+	cluster = 2
+	music = "starcad"
+	sky1 = "NIGHTSKY", 0
+	par = 180
+}
+
 map SNOW1 "Snowy Shit"
 {
-	levelnum = 9
+	levelnum = 11
 	next = "MAP04"
 	cluster = 2
 	music = "starcad"
@@ -128,7 +138,7 @@ map SNOW1 "Snowy Shit"
 
 map MAP04 "Remote Laboratries"
 {
-	levelnum = 10
+	levelnum = 12
 	next = "MAP05"
 	cluster = 2
 	music = "DARK"
