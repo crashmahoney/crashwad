@@ -68,6 +68,11 @@ texture STAT3_1                   // animated static
    pic STAT3_2 tics 2
    pic STAT3_3 tics 2
 
+texture DNSCRN06                   // duke static tv
+   pic DNSCRN06 tics 2
+   pic DNSCRN07 tics 2
+   pic DNSCRN08 tics 2
+
 texture LMCP_1_1		// lameduke animated computers
    pic LMCP_1_1 tics 10
    pic LMCP_1_2 tics 10

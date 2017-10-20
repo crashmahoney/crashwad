@@ -837,7 +837,20 @@ brightmap texture BRKWIN2
 	map "brightmaps/BRKWIN2.png"
 }
 
+brightmap texture DNSCRN06
+{
+	map "brightmaps/DNSCRN06.png"
+}
 
+brightmap texture DNSCRN07
+{
+	map "brightmaps/DNSCRN06.png"
+}
+
+brightmap texture DNSCRN08
+{
+	map "brightmaps/DNSCRN06.png"
+}
 
 brightmap texture sign1
 {
@@ -883,7 +896,6 @@ brightmap texture windows1
 {
 	map "brightmaps/windows1.png"
 }
-
 
 brightmap texture windows2
 {
