@@ -901,3 +901,18 @@ brightmap texture windows2
 {
 	map "brightmaps/windows2.png"
 }
+
+brightmap texture frosted
+{
+	map "brightmaps/frosted.png"
+}
+
+brightmap texture window1
+{
+	map "brightmaps/window1.png"
+}
+
+brightmap texture window5
+{
+	map "brightmaps/window5.png"
+}

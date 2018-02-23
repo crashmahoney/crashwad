@@ -215,6 +215,7 @@ Actor Tree1
 Radius 8
 Height 46
 +SOLID
++NOGRAVITY
 States
 {
 Spawn:
@@ -228,6 +229,7 @@ Actor Tree2
 Radius 8
 Height 56
 +SOLID
++NOGRAVITY
 States
 {
 Spawn:
@@ -241,6 +243,7 @@ Actor Tree3
 Radius 8
 Height 72
 +SOLID
++NOGRAVITY
 States
 {
 Spawn:

@@ -34,19 +34,19 @@ cluster 1
 map MAP01 "Banger"
 {
 	levelnum = 1
-	next = "MAP02"
+	next = "DAM"
 	secretnext = "80s"
 	cluster = 1
 	par = 60
 	music = "track09"
 }
 
-map MAP02 "Do You Even Lift, Bro?"
+map DAM "God Dam"
 {
 	levelnum = 2
 	next = "MAP03"
 	cluster = 1
-	music = "D_DEAD"
+	music = "Escape"
 	sky1 = "NIGHTSKY", 0
 	par = 180
 }
@@ -151,11 +151,21 @@ cluster 3
 
 map E3M1 "Citadel"
 {
-	levelnum = 31
-	next = "MAP05"
+	levelnum = 20
+	next = "MAP02"
 	cluster = 3
 	music = "DARK"
 	sky1 = "NIGHTSKY", 0
+}
+
+map MAP02 "Do You Even Lift, Bro?"
+{
+	levelnum = 21
+	next = "MAP03"
+	cluster = 3
+	music = "D_DEAD"
+	sky1 = "NIGHTSKY", 0
+	par = 180
 }
 
 DoomEdNums
@@ -222,7 +232,7 @@ DoomEdNums
 	13054	=	LightBlue
 	13055	=	LightYellow
 	13056	=	LightRed
-	
+
 	13060	=	ComputerCursor
 
 // actors in this range are overwritten by DoomRPG actors and need changing
