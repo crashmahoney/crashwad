@@ -1,0 +1,215 @@
+//----------------------
+// Material Definitions
+//----------------------
+
+material texture BRKWINDW
+{
+    normal BRKWIN_n
+    metallic BRKWIN_m
+    roughness BRKWIN_r
+    ao BRKWIN_o
+}
+
+material texture BRKWIN2
+{
+    normal BRKWI2_n
+    metallic BRKWI2_m
+    roughness BRKWI2_r
+    ao BRKWI2_o
+    brightmap brightmaps\BRKWIN2
+}
+
+material texture DNCITY08
+{
+    normal DNCI08_n
+    specular DNCI08_s
+    specularlevel 1.0
+    glossiness 1.0
+}
+
+material texture DNVENT1
+{
+    normal DNVENT_n
+    metallic DNVENT_m
+    roughness DNVENT_r
+    ao DNVENT_o
+}
+
+material texture FLOOR4_8
+{
+    normal FLOOR4_n
+    metallic FLOOR4_m
+    roughness FLOOR4_r
+    ao FLOOR4_o
+}
+
+material texture GLASS
+{
+    normal Glass_n
+    metallic Glass_m
+    roughness Glass_r
+    ao Glass_o
+}
+
+material texture greypanl
+{
+    normal greypa_n
+    metallic greypa_m
+    roughness greypa_r
+    ao greypa_o
+}
+
+material texture H2WOOD6
+{
+    normal H2WOD6_n
+    metallic H2WOD6_m
+    roughness H2WOD6_r
+    ao H2WOD6_o
+}
+
+material texture Manhole1
+{
+    normal MANHOL_n
+    specular MANHOL_s
+    specularlevel 1.0
+    glossiness 1.0
+
+}
+
+material texture PanGry05
+{
+    normal PanG05_n
+    metallic PanG05_m
+    roughness PanG05_r
+    ao PanG05_o
+}
+
+material texture PanGry04
+{
+    normal PanG04_n
+    metallic PanG04_m
+    roughness PanG04_r
+    ao PanG04_o
+}
+
+material texture PanGry15
+{
+    normal PanG15_n
+    metallic PanG15_m
+    roughness PanG15_r
+    ao PanG15_o
+}
+
+material texture PanGry10
+{
+    normal PanG10_n
+    metallic PanG10_m
+    roughness PanG10_r
+    ao PanG10_o
+}
+
+material texture PanGry18
+{
+    normal PanG18_n
+    metallic PanG18_m
+    roughness PanG18_r
+    ao PanG18_o
+}
+
+material texture PanSte03
+{
+    normal PanSt3_n
+    metallic PanSt3_m
+    roughness PanSt3_r
+    ao PanSt3_o
+}
+
+material texture pinkpanl
+{
+    normal greypa_n
+    metallic greypa_m
+    roughness greypa_r
+    ao greypa_o
+}
+
+material texture Road2
+{
+    normal Road1_n
+
+    specular Road1_s
+    specularlevel 0.3
+    glossiness 1.0
+
+ //   metallic Road1_m
+ //   roughness Road1_r
+ //   ao Road1_o
+ //   brightmap <BRIGHTMAP>
+}
+
+material texture SHAWN2
+{
+    normal SHAWN_n
+    metallic SHAWN_m
+    roughness SHAWN_r
+    ao SHAWN_o
+}
+
+material texture SWGARAG
+{
+    normal SWGARA_n
+    specular SWGARA_s
+    specularlevel 1.0
+    glossiness 1.0
+}
+
+material texture TBRIWL10
+{
+    normal BRKWA1_n
+    specular BRKWA1_s
+    specularlevel 0.5
+    glossiness 0.2
+
+  //  metallic BRKWA1_m
+  //  roughness BRKWA1_r
+  //  ao BRKWA1_o
+}
+
+material texture TCEMWL14
+{
+    normal TCEM14_n
+    specular TCEM14_s
+    specularlevel 1.0
+    glossiness 1.0
+}
+
+material texture TDCMFL02
+{
+    normal TDCM02_n
+    specular TDCM02_s
+    specularlevel 1.0
+    glossiness 1.0
+}
+
+material texture Tile04
+{
+    normal Tile04_n
+    metallic Tile04_m
+    roughness Tile04_r
+    ao Tile04_o
+}
+
+material texture Tilewhit
+{
+    normal Tile04_n
+    metallic Tile04_m
+    roughness Tile04_r
+    ao Tile04_o
+}
+
+material texture Tile04wa
+{
+    normal Tile04_n
+    metallic Tile04_m
+    roughness Tile04_r
+    ao Tile04_o
+}

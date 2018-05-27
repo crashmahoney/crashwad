@@ -916,3 +916,8 @@ brightmap texture window5
 {
 	map "brightmaps/window5.png"
 }
+
+brightmap texture arrow
+{
+	map "brightmaps/arrow.png"
+}
