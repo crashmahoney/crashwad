@@ -49,7 +49,7 @@ brightmap texture COMP2
 {
 	map "brightmaps/comp2.png"
 	iwad
-}	
+}
 
 brightmap texture COMPSTA1
 {
@@ -475,7 +475,7 @@ brightmap flat  CEIL3_4
 {
 	map "brightmaps/ceil3_4.png"
 	iwad
-}	
+}
 
 brightmap flat  CEIL3_6
 {
@@ -487,7 +487,7 @@ brightmap flat  CONS1_1
 {
 	map "brightmaps/cons1_1.png"
 	iwad
-}	
+}
 
 brightmap flat  CONS1_5
 {
@@ -505,7 +505,7 @@ brightmap flat  RROCK01
 {
 	map "brightmaps/rrock01.png"
 	iwad
-}	
+}
 
 brightmap flat  RROCK02
 {
@@ -583,7 +583,7 @@ brightmap texture bricklit
 {
   map "brightmaps/bricklit.png"
   iwad
-}  
+}
 
 brightmap texture bronze4
 {
@@ -825,7 +825,7 @@ brightmap texture tekwall6
 brightmap texture BRKWINgl
 {
 	map "brightmaps/BRKWINgl.png"
-}	
+}
 
 brightmap texture BRKWINgl
 {
@@ -867,6 +867,11 @@ brightmap texture sign3
 	map "brightmaps/sign3.png"
 }
 
+brightmap texture sign6
+{
+	map "brightmaps/sign6.png"
+}
+
 brightmap texture TCEMLite
 {
 	map "brightmaps/TCEMLite.png"
@@ -886,7 +891,7 @@ brightmap texture tmpbuil2
 {
 	map "brightmaps/tmpbuil2.png"
 }
-	
+
 brightmap texture WHITE
 {
 	map "brightmaps/WHITE.png"

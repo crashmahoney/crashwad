@@ -2,6 +2,22 @@
 // Material Definitions
 //----------------------
 
+material texture BRASS1
+{
+    normal brass_n
+    metallic brass_m
+    roughness brass_r
+    ao brass_o
+}
+
+material texture BRASS2
+{
+    normal brass_n
+    metallic brass_m
+    roughness brass_r
+    ao brass_o
+}
+
 material texture BRKWINDW
 {
     normal BRKWIN_n
@@ -17,6 +33,30 @@ material texture BRKWIN2
     roughness BRKWI2_r
     ao BRKWI2_o
     brightmap brightmaps\BRKWIN2
+}
+
+material texture bumpsy_d
+{
+    normal bumpsy_n
+    metallic bumpsy_m
+    roughness bumpsy_r
+    ao bumpsy_o
+}
+
+material texture CEIL4_1
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
+
+material texture COMP1
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
 }
 
 material texture DNCITY08
@@ -59,6 +99,30 @@ material texture greypanl
     ao greypa_o
 }
 
+material texture H2CARP1
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
+
+material texture H2CARP2
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
+
+material texture H2CARP3
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
+
 material texture H2WOOD6
 {
     normal H2WOD6_n
@@ -74,6 +138,14 @@ material texture Manhole1
     specularlevel 1.0
     glossiness 1.0
 
+}
+
+material texture PanBlu01
+{
+    normal tile64_n
+    metallic tile64_m
+    roughness tile64_r
+    ao tile64_o
 }
 
 material texture PanGry05
@@ -124,12 +196,57 @@ material texture PanSte03
     ao PanSt3_o
 }
 
+material texture PanWhi01
+{
+    normal tile64_n
+    metallic tile64_m
+    roughness tile64_r
+    ao tile64_o
+}
+
+material texture PASTEL1
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
+
 material texture pinkpanl
 {
     normal greypa_n
     metallic greypa_m
     roughness greypa_r
     ao greypa_o
+}
+
+material texture REDGR1
+{
+    normal REDGR1_n
+    metallic REDGR1_m
+    roughness REDGR1_r
+    ao REDGR1_o
+}
+material texture REDGR2
+{
+    normal REDGR1_n
+    metallic REDGR1_m
+    roughness REDGR1_r
+    ao REDGR1_o
+}
+material texture REDGR3
+{
+    normal REDGR1_n
+    metallic REDGR1_m
+    roughness REDGR1_r
+    ao REDGR1_o
+}
+material texture REDGR4
+{
+    normal REDGR1_n
+    metallic REDGR1_m
+    roughness REDGR1_r
+    ao REDGR1_o
 }
 
 material texture Road2
@@ -144,6 +261,14 @@ material texture Road2
  //   roughness Road1_r
  //   ao Road1_o
  //   brightmap <BRIGHTMAP>
+}
+
+material texture SILVER1
+{
+    normal brass_n
+    metallic brass_m
+    roughness brass_r
+    ao brass_o
 }
 
 material texture SHAWN2
@@ -174,6 +299,15 @@ material texture TBRIWL10
   //  ao BRKWA1_o
 }
 
+
+material texture TCEMWL01
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
+
 material texture TCEMWL14
 {
     normal TCEM14_n
@@ -182,12 +316,36 @@ material texture TCEMWL14
     glossiness 1.0
 }
 
+material texture TCFLFL0
+{
+    normal Tile2x_n
+    metallic Tile2x_m
+    roughness Tile2x_r
+    ao Tile2x_o
+}
+
 material texture TDCMFL02
 {
     normal TDCM02_n
     specular TDCM02_s
     specularlevel 1.0
     glossiness 1.0
+}
+
+material texture TGRTFL12
+{
+    normal TGRT12_n
+    metallic TGRT12_m
+    roughness TGRT12_r
+    ao TGRT12_o
+}
+
+material texture TGRTWL12
+{
+    normal TGRT12_n
+    metallic TGRT12_m
+    roughness TGRT12_r
+    ao TGRT12_o
 }
 
 material texture Tile04
@@ -213,3 +371,20 @@ material texture Tile04wa
     roughness Tile04_r
     ao Tile04_o
 }
+
+material texture TRAINDOR
+{
+    normal brass_n
+    metallic brass_m
+    roughness brass_r
+    ao brass_o
+}
+
+material texture WALL1
+{
+    normal wall1_n
+    metallic wall1_m
+    roughness wall1_r
+    ao wall1_o
+}
+

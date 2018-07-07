@@ -1,3 +1,24 @@
+Skybox NIGHT1 fliptop
+{
+  NIGHT1_N
+  NIGHT1_E
+  NIGHT1_S
+  NIGHT1_W
+  NIGHT1_T
+  NIGHT1_B
+}
+
+Skybox NIGHT2 fliptop
+{
+  NIGHT2_N
+  NIGHT2_E
+  NIGHT2_S
+  NIGHT2_W
+  NIGHT2_T
+  NIGHT2_B
+}
+
+
 object TeleSpark
 {
     frame TELE { light TeleLight }
@@ -204,7 +225,7 @@ pointlight NeonPink
 object NeonColumn
 {
     frame COLPA { light NeonPink }
-	
+
 }
 
 pointlight NeonBlue
@@ -217,7 +238,7 @@ pointlight NeonBlue
 object NeonBlueColumn
 {
     frame COLPB { light NeonBlue }
-	
+
 }
 
 pointlight LightG

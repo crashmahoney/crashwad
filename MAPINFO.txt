@@ -38,6 +38,7 @@ map MAP01 "Banger"
 	secretnext = "80s"
 	cluster = 1
 	par = 60
+	sky1 = "NIGHT2", 0.01
 	music = "track09"
 }
 
@@ -47,7 +48,7 @@ map DAM "God Dam"
 	next = "MAP03"
 	cluster = 1
 	music = "Escape"
-	sky1 = "NIGHTSKY", 0
+	sky1 = "NIGHT2", 0
 	par = 180
 }
 
@@ -58,7 +59,7 @@ map MAP03 "The Gorge"
 	cluster = 1
 	music = "D_IN_CIT"
 	par = 240
-	sky1 = "NIGHTSKY", 0
+	sky1 = "NIGHT2", 0
 }
 
 map CITY2 "Hanging Garden"
@@ -67,6 +68,7 @@ map CITY2 "Hanging Garden"
 	next = "train"
 	cluster = 1
 	music = "DARK"
+	sky1 = "NIGHT2", 0
 	par = 90
 }
 
@@ -77,7 +79,7 @@ map TRAIN "Crazy Train"
 	cluster = 1
 	music = "DARK"
 	par = 90
-	sky1 = "NIGHTSKY", 0
+	sky1 = "NIGHT2", 0.01
 	ForceFakeContrast
 }
 
@@ -87,6 +89,7 @@ map CITY3 "Some Other City Block"
 	next = "HUB"
 	cluster = 1
 	music = "track09"
+	sky1 = "NIGHT2", 0.01
 	par = 90
 }
 
@@ -96,6 +99,7 @@ map HUB "UAC Research Centre"
 	next = "SELECT"
 	cluster = 1
 	music = "metal1"
+	sky1 = "NIGHT1", 0.01
 	par = 90
 }
 
@@ -122,7 +126,7 @@ map CYBER "Cyber City"
 	next = "SNOW1"
 	cluster = 2
 	music = "starcad"
-	sky1 = "NIGHTSKY", 0
+	sky1 = "NIGHT2", 0.01
 	par = 180
 }
 
