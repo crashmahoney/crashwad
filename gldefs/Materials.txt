@@ -2,6 +2,26 @@
 // Material Definitions
 //----------------------
 
+//--------------------------------------------------------------------------A
+//--------------------------------------------------------------------------B
+
+
+material texture binlid_d
+{
+    normal binlid_n
+    metallic binlid_m
+    roughness binlid_r
+    ao binlid_o
+}
+
+material texture binsid_d
+{
+    normal binsid_n
+    metallic binsid_m
+    roughness binsid_r
+    ao binsid_o
+}
+
 material texture BRASS1
 {
     normal brass_n
@@ -43,12 +63,22 @@ material texture bumpsy_d
     ao bumpsy_o
 }
 
+//--------------------------------------------------------------------------C
+
 material texture CEIL4_1
 {
     normal carpet_n
     metallic carpet_m
     roughness carpet_r
     ao carpet_o
+}
+
+material texture cemwa1_d
+{
+    normal cemwa1_n
+    metallic cemwa1_m
+    roughness cemwa1_r
+    ao cemwa1_o
 }
 
 material texture COMP1
@@ -58,6 +88,16 @@ material texture COMP1
     roughness carpet_r
     ao carpet_o
 }
+
+material texture cubdor_d
+{
+    normal cubdor_n
+    metallic cubdor_m
+    roughness cubdor_r
+    ao cubdor_o
+}
+
+//--------------------------------------------------------------------------D
 
 material texture DNCITY08
 {
@@ -75,6 +115,9 @@ material texture DNVENT1
     ao DNVENT_o
 }
 
+//--------------------------------------------------------------------------E
+//--------------------------------------------------------------------------F
+
 material texture FLOOR4_8
 {
     normal FLOOR4_n
@@ -83,6 +126,10 @@ material texture FLOOR4_8
     ao FLOOR4_o
 }
 
+//--------------------------------------------------------------------------G
+
+
+/*
 material texture GLASS
 {
     normal Glass_n
@@ -90,7 +137,7 @@ material texture GLASS
     roughness Glass_r
     ao Glass_o
 }
-
+*/
 material texture greypanl
 {
     normal greypa_n
@@ -98,6 +145,8 @@ material texture greypanl
     roughness greypa_r
     ao greypa_o
 }
+
+//--------------------------------------------------------------------------H
 
 material texture H2CARP1
 {
@@ -131,6 +180,21 @@ material texture H2WOOD6
     ao H2WOD6_o
 }
 
+//--------------------------------------------------------------------------I
+//--------------------------------------------------------------------------J
+//--------------------------------------------------------------------------K
+//--------------------------------------------------------------------------L
+
+material texture LEATHER1
+{
+    normal leathr_n
+    metallic leathr_m
+    roughness leathr_r
+    ao leathr_o
+}
+
+//--------------------------------------------------------------------------M
+
 material texture Manhole1
 {
     normal MANHOL_n
@@ -139,6 +203,18 @@ material texture Manhole1
     glossiness 1.0
 
 }
+
+material texture MIDSPACE
+{
+    normal midspa_n
+    metallic midspa_m
+    roughness midspa_r
+    ao midspa_o
+}
+
+//--------------------------------------------------------------------------N
+//--------------------------------------------------------------------------O
+//--------------------------------------------------------------------------P
 
 material texture PanBlu01
 {
@@ -220,6 +296,17 @@ material texture pinkpanl
     ao greypa_o
 }
 
+material texture pipes1
+{
+    normal pipes1_n
+    metallic pipes1_m
+    roughness pipes1_r
+    ao pipes1_o
+}
+
+//--------------------------------------------------------------------------Q
+//--------------------------------------------------------------------------R
+
 material texture REDGR1
 {
     normal REDGR1_n
@@ -263,6 +350,16 @@ material texture Road2
  //   brightmap <BRIGHTMAP>
 }
 
+material texture Road3_d
+{
+    normal Road3_n
+    metallic Road3_m
+    roughness Road3_r
+    ao Road3_o
+}
+
+//--------------------------------------------------------------------------S
+
 material texture SILVER1
 {
     normal brass_n
@@ -279,6 +376,15 @@ material texture SHAWN2
     ao SHAWN_o
 }
 
+
+material texture SUPPORT2
+{
+    normal suppor_n
+    metallic brass_m
+    roughness brass_r
+    ao suppor_o
+}
+
 material texture SWGARAG
 {
     normal SWGARA_n
@@ -286,6 +392,8 @@ material texture SWGARAG
     specularlevel 1.0
     glossiness 1.0
 }
+
+//--------------------------------------------------------------------------T
 
 material texture TBRIWL10
 {
@@ -380,6 +488,18 @@ material texture TRAINDOR
     ao brass_o
 }
 
+material texture TTILFL0
+{
+    normal Tile64_n
+    metallic Tile64_m
+    roughness Tile64_r
+    ao Tile64_o
+}
+
+//--------------------------------------------------------------------------U
+//--------------------------------------------------------------------------V
+//--------------------------------------------------------------------------W
+
 material texture WALL1
 {
     normal wall1_n
@@ -387,4 +507,8 @@ material texture WALL1
     roughness wall1_r
     ao wall1_o
 }
+
+//--------------------------------------------------------------------------X
+//--------------------------------------------------------------------------Y
+//--------------------------------------------------------------------------Z
 

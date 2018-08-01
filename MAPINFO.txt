@@ -17,7 +17,7 @@ episode SELECT
 map SELECT "Episode Select"
 {
 	levelnum = 0
-	music = "track09"
+	music = "Intense"
 	next = "MAP01"
 	secretnext = "80s"
 	par = 60
@@ -125,7 +125,7 @@ map CYBER "Cyber City"
 	levelnum = 10
 	next = "SNOW1"
 	cluster = 2
-	music = "starcad"
+	music = "80s"
 	sky1 = "NIGHT2", 0.01
 	par = 180
 }
@@ -252,6 +252,13 @@ DoomEdNums
 	20056	=	NeonVertRed
 
 	20060	=	GreyLamp
+	20061	=	Bottle1
+	20062	=	Bottle2
+	20063	=	Bottle3
+	20064	=	Glass1
+	20065	=	Glass2
+	20066	=	Glass3
+	20067	=	Glass4
 
 	22321	=	NJUpSpark
 	22322	=	NJFrontSpark

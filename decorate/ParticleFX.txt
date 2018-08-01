@@ -383,6 +383,7 @@ Actor GlassShrapnel
 {
 Radius 1
 Height 1
+Health 4 //number of pieces to spawn when created with A_SpawnDebris
 Gravity 2
 Scale 0.5
 RenderStyle Translucent
