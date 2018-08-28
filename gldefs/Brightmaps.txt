@@ -872,6 +872,10 @@ brightmap texture sign6
 	map "brightmaps/sign6.png"
 }
 
+brightmap texture sign_pnt
+{
+	map "brightmaps/sign_pnt.png"
+}
 brightmap texture TCEMLite
 {
 	map "brightmaps/TCEMLite.png"

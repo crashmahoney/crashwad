@@ -117,6 +117,29 @@ material texture DNVENT1
 
 //--------------------------------------------------------------------------E
 //--------------------------------------------------------------------------F
+material texture Flatred
+{
+    normal til128_n
+    metallic til128_m
+    roughness til128_r
+    ao til128_o
+}
+
+material texture Flatwhi
+{
+    normal til128_n
+    metallic til128_m
+    roughness til128_r
+    ao til128_o
+}
+
+material texture Flatyell
+{
+    normal til128_n
+    metallic til128_m
+    roughness til128_r
+    ao til128_o
+}
 
 material texture FLOOR4_8
 {
@@ -183,6 +206,14 @@ material texture H2WOOD6
 //--------------------------------------------------------------------------I
 //--------------------------------------------------------------------------J
 //--------------------------------------------------------------------------K
+material texture Keys
+{
+    normal Keys_n
+    metallic Keys_m
+    roughness Keys_r
+    ao Keys_o
+}
+
 //--------------------------------------------------------------------------L
 
 material texture LEATHER1

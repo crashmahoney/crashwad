@@ -118,11 +118,24 @@ map 80s "80s Level"
 // -----------EPISODE 2----------
 cluster 2
 {
+		pic = "NIGHTSKY"
+		exittext = "Ok ya did it, Episode 2 down!"
+		music = "starcad"
 }
 
 map CYBER "Cyber City"
 {
 	levelnum = 10
+	next = "CITY1"
+	cluster = 2
+	music = "80s"
+	sky1 = "NIGHT2", 0.01
+	par = 180
+}
+
+map CITY1 "Night Club"
+{
+	levelnum = 11
 	next = "SNOW1"
 	cluster = 2
 	music = "80s"
@@ -132,7 +145,7 @@ map CYBER "Cyber City"
 
 map SNOW1 "Snowy Shit"
 {
-	levelnum = 11
+	levelnum = 12
 	next = "MAP04"
 	cluster = 2
 	music = "starcad"
@@ -142,15 +155,29 @@ map SNOW1 "Snowy Shit"
 
 map MAP04 "Remote Laboratries"
 {
-	levelnum = 12
-	next = "MAP05"
+	levelnum = 13
+	next = "START"
 	cluster = 2
 	music = "DARK"
 }
 
+map START "Big Ol' Conveyor"
+{
+	levelnum = 14
+	next = "SELECT"
+	cluster = 2
+	music = "80s"
+	sky1 = "NIGHT2", 0.01
+	par = 180
+}
+
+
 // -----------EPISODE 3----------
 cluster 3
 {
+		pic = "NIGHTSKY"
+		exittext = "Ok ya did it, Episode 3 down!"
+		music = "starcad"
 }
 
 map E3M1 "Citadel"
