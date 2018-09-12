@@ -223,6 +223,10 @@ DoomEdNums
 	12459	=	Tree2
 	12460	=	Tree3
 	12461	=	Wire		// hanging telegraph wire
+	12462	=	Tree4
+	12463	=	Tree5
+	12464	=	Tree6
+	12465	=	Tree7
 
 	13000	=	Chandelier1Switchable
 	13002	=	Chandelier1On

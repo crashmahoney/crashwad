@@ -1,4 +1,4 @@
-ACTOR GrassSpawn 
+ACTOR GrassSpawn
    {
       // args[0]=spawn area size X; args[1]=spawn area size Y, args[2]=density of tufts
       Radius 8
@@ -55,7 +55,7 @@ ACTOR GrassTuft1
       }
 }
 
-ACTOR GrassSpawnDead 
+ACTOR GrassSpawnDead
    {
       // args[0]=spawn area size X; args[1]=spawn area size Y, args[2]=density of tufts
       Radius 8
@@ -115,7 +115,7 @@ ACTOR GrassTuft2
 
 
 
-ACTOR SeaWeed 
+ACTOR SeaWeed
 {
   States
   {
@@ -128,7 +128,7 @@ ACTOR SeaWeed
 
 
 
-Actor Bush1 
+Actor Bush1
 {
 Radius 12
 Height 24
@@ -141,7 +141,7 @@ Spawn:
 }
 }
 
-Actor Bush2 : Bush1 
+Actor Bush2 : Bush1
 {
 States
 {
@@ -151,7 +151,7 @@ Spawn:
 }
 }
 
-Actor Bush3 : Bush1 
+Actor Bush3 : Bush1
 {
 States
 {
@@ -161,7 +161,7 @@ Spawn:
 }
 }
 
-Actor BushTall1 
+Actor BushTall1
 {
 Radius 12
 Height 46
@@ -174,7 +174,7 @@ Spawn:
 }
 }
 
-Actor BushTall2 : Bush1 
+Actor BushTall2 : Bush1
 {
 States
 {
@@ -184,7 +184,7 @@ Spawn:
 }
 }
 
-Actor BushTall3 : BushTall1 
+Actor BushTall3 : BushTall1
 {
 States
 {
@@ -195,7 +195,7 @@ Spawn:
 }
 
 
-Actor Waterlily 
+Actor Waterlily
 {
 Radius 16
 Height 16
@@ -210,7 +210,7 @@ Spawn:
 }
 }
 
-Actor Tree1 
+Actor Tree1
 {
 Radius 8
 Height 46
@@ -224,7 +224,7 @@ Spawn:
 }
 }
 
-Actor Tree2 
+Actor Tree2
 {
 Radius 8
 Height 56
@@ -238,7 +238,7 @@ Spawn:
 }
 }
 
-Actor Tree3 
+Actor Tree3
 {
 Radius 8
 Height 72
@@ -251,5 +251,65 @@ Spawn:
 	Stop
 }
 }
+
+Actor Tree4
+{
+Radius 8
+Height 72
++SOLID
++NOGRAVITY
+States
+{
+Spawn:
+	TREE D -1
+	Stop
+}
+}
+
+
+Actor Tree5
+{
+Radius 8
+Height 72
++SOLID
++NOGRAVITY
+States
+{
+Spawn:
+	TREE E -1
+	Stop
+}
+}
+
+Actor Tree6
+{
+Radius 8
+Height 72
++SOLID
++NOGRAVITY
+States
+{
+Spawn:
+	TREE F -1
+	Stop
+}
+}
+
+
+Actor Tree7
+{
+Radius 8
+Height 72
++SOLID
++NOGRAVITY
+States
+{
+Spawn:
+	TREE G -1
+	Stop
+}
+}
+
+
 
 

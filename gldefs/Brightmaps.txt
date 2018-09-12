@@ -832,10 +832,6 @@ brightmap texture BRKWINgl
 	map "brightmaps/BRKWINgl.png"
 }
 
-brightmap texture BRKWIN2
-{
-	map "brightmaps/BRKWIN2.png"
-}
 
 brightmap texture DNSCRN06
 {

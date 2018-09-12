@@ -52,7 +52,7 @@ material texture BRKWIN2
     metallic BRKWI2_m
     roughness BRKWI2_r
     ao BRKWI2_o
-    brightmap brightmaps\BRKWIN2
+    brightmap "brightmaps/BRKWIN2.png"
 }
 
 material texture bumpsy_d
@@ -95,6 +95,14 @@ material texture cubdor_d
     metallic cubdor_m
     roughness cubdor_r
     ao cubdor_o
+}
+
+material texture curtn_d
+{
+    normal curtn_n
+    metallic curtn_m
+    roughness curtn_r
+    ao curtn_o
 }
 
 //--------------------------------------------------------------------------D
@@ -161,6 +169,15 @@ material texture GLASS
     ao Glass_o
 }
 */
+
+material texture GrdRai_d
+{
+    normal GrdRai_n
+    metallic GrdRai_m
+    roughness GrdRai_r
+    ao GrdRai_o
+}
+
 material texture greypanl
 {
     normal greypa_n
@@ -526,6 +543,14 @@ material texture TTILFL0
     roughness Tile64_r
     ao Tile64_o
 }
+material texture TTILFL02
+{
+    normal TTILFL_n
+    metallic TTILFL_m
+    roughness TTILFL_r
+    ao TTILFL_o
+}
+
 
 //--------------------------------------------------------------------------U
 //--------------------------------------------------------------------------V
