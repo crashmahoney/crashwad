@@ -822,6 +822,16 @@ brightmap texture tekwall6
 
 
 
+
+
+
+
+
+
+
+
+
+
 brightmap texture BRKWINgl
 {
 	map "brightmaps/BRKWINgl.png"
@@ -847,6 +857,12 @@ brightmap texture DNSCRN08
 {
 	map "brightmaps/DNSCRN06.png"
 }
+
+brightmap texture H2ROCK3G
+{
+	map "brightmaps/H2ROCK3G.png"
+}
+
 
 brightmap texture sign1
 {

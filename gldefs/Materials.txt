@@ -212,6 +212,22 @@ material texture H2CARP3
     ao carpet_o
 }
 
+material texture H2ROCK3
+{
+    normal h2roc3_n
+    metallic h2roc3_m
+    roughness h2roc3_r
+    ao h2roc3_o
+}
+
+material texture H2ROCK3G
+{
+    normal h2roc3_n
+    metallic h2roc3_m
+    roughness h2roc3_r
+    ao h2roc3_o
+}
+
 material texture H2WOOD6
 {
     normal H2WOD6_n
@@ -229,6 +245,22 @@ material texture Keys
     metallic Keys_m
     roughness Keys_r
     ao Keys_o
+}
+
+material texture KPBROWN
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
+
+material texture KPTX0598
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
 }
 
 //--------------------------------------------------------------------------L
@@ -404,6 +436,14 @@ material texture Road3_d
     metallic Road3_m
     roughness Road3_r
     ao Road3_o
+}
+
+material texture RROCK04
+{
+    normal rrock4_n
+    metallic rrock4_m
+    roughness rrock4_r
+    ao rrock4_o
 }
 
 //--------------------------------------------------------------------------S

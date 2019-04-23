@@ -290,6 +290,10 @@ DoomEdNums
 	20065	=	Glass2
 	20066	=	Glass3
 	20067	=	Glass4
+	20080	=	Glow1
+	20081	=	Glow3
+	20082	=	Glow1Ceiling
+	20083	=	Glow3Ceiling
 
 	22321	=	NJUpSpark
 	22322	=	NJFrontSpark

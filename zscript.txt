@@ -1,4 +1,4 @@
-version "2.5"
+version "4.0.0"
 
 // Computer Text Thing ---------------------------------------------------------
 
@@ -20,11 +20,11 @@ class ComputerText : Actor
 		{
 			frame = random(0,26);  // 65 = A, 90 = Z
 		}
-	Idle:	
+	Idle:
 		"####" "#" 4 A_SpawnItem("GreenCorona",0,0,0);
 		Loop;
-	
-	
+
+
 	XDeath: // unused state just to make sure the graphics are cached
 		FONT ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		Stop;
@@ -40,4 +40,148 @@ States
 		CURS B 4;
 		Loop;
 	}
+}
+
+
+
+
+
+
+
+//===========================================================================
+//
+// GENERIC PHYSICS CLASS
+//
+//===========================================================================
+
+// Written by ZZYZX
+// Modified by Nash Muhandes
+// Modified again by Crash ;)
+class Physics play
+{
+    static void AlignToSlope(Actor self, double dAng, double dPitch)
+    {
+        vector3 fNormal = self.CurSector.FloorPlane.Normal;
+        vector2 fNormalP1 = (fNormal.X != 0 || fNormal.Y != 0) ? (fNormal.X, fNormal.Y).Unit() : (0, 0);
+        vector2 fNormalP2 = ((fNormal.X, fNormal.Y).Length(), fNormal.Z);
+        double fAng = atan2(fNormalP1.Y, fNormalP1.X); // floor angle (not pitch!)
+        double fPitch = atan2(fNormalP2.X, fNormalP2.Y); // floor pitch
+        self.Pitch = fPitch;
+        self.Angle = fAng;
+		self.Roll = dAng;
+    }
+
+    static void AlignToSlopeCeiling(Actor self, double dAng, double dPitch)
+    {
+        vector3 fNormal = self.CurSector.CeilingPlane.Normal;
+        vector2 fNormalP1 = (fNormal.X != 0 || fNormal.Y != 0) ? (fNormal.X, fNormal.Y).Unit() : (0, 0);
+        vector2 fNormalP2 = ((fNormal.X, fNormal.Y).Length(), fNormal.Z);
+        double fAng = atan2(fNormalP1.Y, fNormalP1.X); // floor angle (not pitch!)
+        double fPitch = atan2(fNormalP2.X, fNormalP2.Y); // floor pitch
+        self.Pitch = fPitch;
+        self.Angle = fAng;
+		self.Roll = dAng;
+    }
+
+}
+
+
+
+
+
+class Glow1 : Actor
+
+{
+    bool bSloped;
+
+    override void Tick()
+    {
+        if (!bSloped)
+        {
+            Physics.AlignToSlope(self, self.Angle, 0.f);
+            bSloped = true;
+        }
+        Super.Tick();
+    }
+
+	Default
+	{
+		Radius 64;
+		+FLATSPRITE;
+		+ROLLSPRITE;
+		//+NOGRAVITY;
+	}
+	States
+	{
+	Spawn:
+		GLOW A -1 BRIGHT;
+		Stop;
+	}
+
+}
+
+
+class Glow3 : Glow1
+{
+Default
+	{
+		Radius 24;
+	}
+	States
+	{
+	Spawn:
+		GLOW B -1 BRIGHT;
+		Stop;
+	}
+
+}
+
+
+
+class Glow1Ceiling : Actor
+
+{
+    bool bSloped;
+
+    override void Tick()
+    {
+        if (!bSloped)
+        {
+            Physics.AlignToSlopeCeiling(self, self.Angle, 0.f);
+            bSloped = true;
+        }
+        Super.Tick();
+    }
+
+	Default
+	{
+		Radius 64;
+		Height 1;
+		+FLATSPRITE;
+		+ROLLSPRITE;
+		+NOGRAVITY;
+		+SPAWNCEILING;
+	}
+	States
+	{
+	Spawn:
+		GLOW A -1 BRIGHT;
+		Stop;
+	}
+
+}
+
+class Glow3Ceiling : Glow1Ceiling
+{
+Default
+	{
+		Radius 24;
+	}
+	States
+	{
+	Spawn:
+		GLOW B -1 BRIGHT;
+		Stop;
+	}
+
 }

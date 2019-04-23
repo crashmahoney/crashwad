@@ -1,4 +1,4 @@
-Actor Moon 
+Actor Moon
 {
   Radius 128
   Height 128
@@ -17,13 +17,15 @@ Actor FogGreen
 {
   Radius 128
   Height 128
+  Alpha 0.5
   +FORCEXYBILLBOARD
   +NOBLOCKMAP
   +NOGRAVITY
+  +ROLLSPRITE
   States
   {
   Spawn:
-    FOGG A -1
+    FOGG A 1 A_SetRoll(roll+0.03,SPF_INTERPOLATE)
     Loop
   }
 }
@@ -32,9 +34,11 @@ Actor FogRed
 {
   Radius 128
   Height 128
+  Alpha 0.5
   +FORCEXYBILLBOARD
   +NOBLOCKMAP
   +NOGRAVITY
+  +ROLLSPRITE
   States
   {
   Spawn:
