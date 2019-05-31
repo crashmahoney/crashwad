@@ -273,6 +273,14 @@ material texture LEATHER1
     ao leathr_o
 }
 
+material texture litedg_d
+{
+    normal litedg_n
+    metallic litedg_m
+    roughness litedg_r
+    ao litedg_o
+}
+
 //--------------------------------------------------------------------------M
 
 material texture Manhole1

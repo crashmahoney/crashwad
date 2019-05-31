@@ -146,16 +146,26 @@ map CITY1 "Night Club"
 map SNOW1 "Snowy Shit"
 {
 	levelnum = 12
-	next = "MAP04"
+	next = "CAVE1"
 	cluster = 2
 	music = "starcad"
 	sky1 = "NIGHTSKY", 0
 	par = 180
 }
 
-map MAP04 "Remote Laboratries"
+map CAVE1 "Thermal Activity"
 {
 	levelnum = 13
+	next = "MAP04"
+	cluster = 2
+	music = "80s"
+	sky1 = "NIGHT2", 0.01
+	par = 180
+}
+
+map MAP04 "Remote Laboratries"
+{
+	levelnum = 14
 	next = "START"
 	cluster = 2
 	music = "DARK"
@@ -163,7 +173,7 @@ map MAP04 "Remote Laboratries"
 
 map START "Big Ol' Conveyor"
 {
-	levelnum = 14
+	levelnum = 15
 	next = "SELECT"
 	cluster = 2
 	music = "80s"

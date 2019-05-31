@@ -21,8 +21,8 @@ Obituary "$OB_BARREL" // "%o went boom."
         Death:
             FEXT B 0 Bright A_Explode(64,64)
             FEXT B 0 Bright A_SpawnDebris("Shrapnel",3,3)
-            FEXT B 8 Bright A_Scream 
-            FEXT C 6 Bright 
+            FEXT B 8 Bright A_Scream
+            FEXT C 6 Bright
             FEXT D 4 Bright
             Stop
 	}
@@ -55,8 +55,7 @@ Obituary "$OB_BARREL" // "%o went boom."
             FEXT B 8 Bright A_Scream
             FEXT C 6 Bright A_SpawnDebris("Shrapnel", 5,5)
             FEXT D 4 Bright
-	    TNT1 A 1050 BRIGHT A_BarrelDestroy
-	    TNT1 A 5 A_Respawn
+			TNT1 A 1050  A_BarrelDestroy
             Stop
      }
 }
@@ -85,7 +84,7 @@ Obituary "$OB_BARREL" // "%o went boom."
             XCAN B 0 Bright A_Explode(128,192)
             XCAN B 0 Bright A_SpawnDebris("Shrapnel", 5,5)
             XCAN B 4 Bright A_Scream
-            XCAN C 4 Bright 
+            XCAN C 4 Bright
             FEXT C 4 Bright
             FEXT C 4 Bright A_SetScale(1.2)
             FEXT D 4 Bright

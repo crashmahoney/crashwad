@@ -837,12 +837,6 @@ brightmap texture BRKWINgl
 	map "brightmaps/BRKWINgl.png"
 }
 
-brightmap texture BRKWINgl
-{
-	map "brightmaps/BRKWINgl.png"
-}
-
-
 brightmap texture DNSCRN06
 {
 	map "brightmaps/DNSCRN06.png"
@@ -863,6 +857,10 @@ brightmap texture H2ROCK3G
 	map "brightmaps/H2ROCK3G.png"
 }
 
+brightmap texture litedg_d
+{
+	map "brightmaps/litedg_d.png"
+}
 
 brightmap texture sign1
 {
@@ -942,3 +940,40 @@ brightmap texture arrow
 {
 	map "brightmaps/arrow.png"
 }
+
+brightmap texture LITEBLUE
+{
+	map "brightmaps/sign_pnt.png"
+}
+
+brightmap texture LITEDBLU
+{
+	map "brightmaps/sign_pnt.png"
+}
+
+brightmap texture LITEGREN
+{
+	map "brightmaps/sign_pnt.png"
+}
+
+brightmap texture LITEORAN
+{
+	map "brightmaps/sign_pnt.png"
+}
+
+brightmap texture LITEPINK
+{
+	map "brightmaps/sign_pnt.png"
+}
+
+brightmap texture LITERED
+{
+	map "brightmaps/sign_pnt.png"
+}
+
+brightmap texture LITEYELL
+{
+	map "brightmaps/sign_pnt.png"
+}
+
+

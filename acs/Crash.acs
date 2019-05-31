@@ -1,6 +1,146 @@
 #library "Crash"
 #include "zcommon.acs"
 
+function int abs (int x)
+{
+    if (x < 0)
+        return -x;
+
+    return x;
+}
+
+script "CrashPlayerSetup" ENTER {
+	SetActorProperty(0, APROP_JUMPZ, 12.0);  			// player increased jump height
+	SetActorProperty(0, APROP_ViewHeight, 50.0);  	// player increased eye height (41 default)
+	SetActorProperty(0, APROP_AttackZOffset, 20.0);  	// player increased attack height
+	SetAirControl(0.6);
+}
+
+script "BreakVent" (int lineid) {
+    Line_SetBlocking(lineid,0,BLOCKF_EVERYTHING);
+    SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,"DNVENT5");
+    SetLineTexture(lineid,SIDE_BACK,TEXTURE_MIDDLE,"DNVENT5");
+    ThingSound(lineid,"break/vent",127);
+}
+
+script "BreakWall" (int id, int lastid, int time) {       // Remove midtexture based walls
+		SetLineTexture(id,SIDE_FRONT,TEXTURE_MIDDLE,"-");
+		SetLineTexture(id,SIDE_BACK,TEXTURE_MIDDLE,"-");
+		Line_SetBlocking(id,0,BLOCKF_EVERYTHING);
+		Thing_SpawnFacing(id,200,1,0);  // spawn explosion
+		Radius_Quake2(id,4,10,0,1000,0);
+
+	while (id <= lastid) {
+		id++;
+		delay(time);
+		SetLineTexture(id,SIDE_FRONT,TEXTURE_MIDDLE,"-");
+		SetLineTexture(id,SIDE_BACK,TEXTURE_MIDDLE,"-");
+		Line_SetBlocking(id,0,BLOCKF_EVERYTHING);
+		Thing_SpawnFacing(id,200,1,0);  // spawn explosion
+		Radius_Quake2(id,4,10,0,1000,0);
+	}
+
+}
+
+script "BreakWall3d" (int id, int lastid, int time) {
+    SetLineTexture(id,SIDE_FRONT,TEXTURE_MIDDLE,"-");
+    SetLineTexture(id,SIDE_BACK,TEXTURE_MIDDLE,"-");
+    Floor_LowerInstant(id,0,100);
+    Ceiling_LowerInstant(id,0,100);
+    Thing_SpawnFacing(id,200,1,0);  // spawn explosion
+	Radius_Quake2(id,4,10,0,1000,0);
+	
+	while (id <= lastid) {
+		id++;
+		delay(time);
+		SetLineTexture(id,SIDE_FRONT,TEXTURE_MIDDLE,"-");
+		SetLineTexture(id,SIDE_BACK,TEXTURE_MIDDLE,"-");
+		Floor_LowerInstant(id,0,100);
+		Ceiling_LowerInstant(id,0,100);
+		Thing_SpawnFacing(id,200,1,0);  // spawn explosion
+		Radius_Quake2(id,4,10,0,1000,0);		
+	}
+}
+
+script "BreakGlass" (int lineid) {
+
+	str texture[7] = {"DNXGLS02", "DNXGLS03", "DNXGLS04", "DNXGLS05", "DNXGLS06", "DNXGLS07", "-"};
+	int var0 = 0;
+    Line_SetBlocking(lineid,0,BLOCKF_EVERYTHING|BLOCKF_CREATURES|BLOCKF_MONSTERS|BLOCKF_PLAYERS|BLOCKF_FLOATERS);
+	ThingSound(lineid,"break/glass",127);
+
+		while(var0 < 7)
+		{
+			SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,texture[var0]);
+			SetLineTexture(lineid,SIDE_BACK,TEXTURE_MIDDLE,texture[var0]);
+			 var0++;
+			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+
+		 	Delay(1);
+		}
+
+}
+
+
+script "EnterLadderSector" (int Bottom, int Top)
+{
+	  //      Print (i:(GetActorZ(ActivatorTID()) >> 16)); //debug
+
+    if((GetActorZ(ActivatorTID()) >> 16) >= Bottom && (GetActorZ(ActivatorTID()) >> 16) < Top)
+        {
+        SetPlayerProperty(0, 1, PROP_FLY);
+        delay(1);
+        }
+        else
+         {
+		SetPlayerProperty (0, 0, PROP_FLY);
+        delay(1);
+   }
+       restart;
+}
+
+script "ExitLadderSector" (int Ladder)
+{
+SetPlayerProperty (0, 0, PROP_FLY);
+ACS_NamedTerminate("EnterLadderSector", 0);
+}
+
+script "BreakScreen" (int lineid) {
+	str texture[3] = {"DNSCRN17", "DNSCRN18", "DNSCRN19"};
+	int var0 = 0;
+	ThingSound(lineid,"break/glass",127);
+		while(var0 < 3)
+		{
+			SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,texture[var0]);
+			SetLineTexture(lineid,SIDE_BACK,TEXTURE_MIDDLE,texture[var0]);
+			 var0++;
+			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+
+		 	Delay(1);
+		}
+}
+
+script "BreakScreenLD" (int lineid, int textureindex) {
+	str texture[7] = {"-", "LMCP_1_B", "LMCP_2_B", "LMCP_3_B", "LMCP_4_B", "DNXGLS07", "-"};
+	ThingSound(lineid,"break/glass",127);
+	SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,texture[textureindex]);
+	SetLineTexture(lineid,SIDE_BACK,TEXTURE_MIDDLE,texture[textureindex]);
+	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+}
+
+/*
+
 script 1000 ENTER
 {
      GiveInventory("FlashlightToggle", 1);
@@ -30,3 +170,5 @@ script 1000 ENTER
      Delay(1);
      Restart;
 }
+
+*/
