@@ -161,6 +161,8 @@ map CAVE1 "Thermal Activity"
 	music = "80s"
 	sky1 = "NIGHT2", 0.01
 	par = 180
+//	SpiderMastermindSpecial
+//	SpecialAction_OpenDoor
 }
 
 map MAP04 "Remote Laboratries"
@@ -211,7 +213,7 @@ map MAP02 "Do You Even Lift, Bro?"
 
 DoomEdNums
 {
-	3141	=	Explosion				// Spawnable Explosion
+	3141	=	ExplosionCrash			// Spawnable Explosion
 
 	10077	=	Aracnorb				// enemy
 	10078	=	DoomsphereST

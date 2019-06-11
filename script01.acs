@@ -1,8 +1,0 @@
-#include "zcommon.acs"
-
-script 1 OPEN
-{
-thing_activate(Random(1,5));
-delay(8);
-restart;
-}

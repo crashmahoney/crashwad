@@ -115,14 +115,14 @@ script "BreakScreen" (int lineid) {
 		{
 			SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,texture[var0]);
 			SetLineTexture(lineid,SIDE_BACK,TEXTURE_MIDDLE,texture[var0]);
-			 var0++;
-			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-
+			var0++;
+			for(int i = 0; i < 7; i++)
+			{
+				SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+			}
 		 	Delay(1);
 		}
+	Thing_Deactivate(lineid); //turn off any light associated with the screen
 }
 
 script "BreakScreenLD" (int lineid, int textureindex) {
@@ -130,13 +130,12 @@ script "BreakScreenLD" (int lineid, int textureindex) {
 	ThingSound(lineid,"break/glass",127);
 	SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,texture[textureindex]);
 	SetLineTexture(lineid,SIDE_BACK,TEXTURE_MIDDLE,texture[textureindex]);
-	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-	SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+	for(int i = 0; i < 12; i++)
+	{
+		SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+	}
+	Thing_Deactivate(lineid); //turn off any light associated with the screen
+	
 }
 
 /*

@@ -8,7 +8,7 @@ texture COMOK1
    pic COMOK1 tics 10
    pic COMOK2 tics 20
 
-warp2 flat WATER   
+warp2 flat WATER
 
 Switch DNSW13OF on pic DNSW13ON tics 0               // Duke3d light switch
 
@@ -16,7 +16,7 @@ Switch DNSW13OF on pic DNSW13ON tics 0               // Duke3d light switch
 Switch TSW4A on pic TSW4B tics 0
 Switch TMTLSW1A on pic TMTLSW1B tics 0
 Switch TMTLSW2A on pic TMTLSW2B tics 0
-Switch TMTLSW3A on pic TMTLSW3B tics 0 
+Switch TMTLSW3A on pic TMTLSW3B tics 0
 Switch T2SW01A on pic T2SW01B tics 0
 Switch T2SW02A on pic T2SW02B tics 0
 
@@ -36,7 +36,7 @@ texture THEDWL1A
    pic THEDWL1D tics 5
    pic THEDWL1C tics 5
    pic THEDWL1B tics 5
-   
+
 texture TLIGWL1A
   allowdecals
   pic TLIGWL1A tics 5
@@ -72,6 +72,14 @@ texture DNSCRN06                   // duke static tv
    pic DNSCRN06 tics 2
    pic DNSCRN07 tics 2
    pic DNSCRN08 tics 2
+texture DNSCRN07                   // duke static tv
+   pic DNSCRN07 tics 2
+   pic DNSCRN08 tics 2
+   pic DNSCRN06 tics 2
+texture DNSCRN08                   // duke static tv
+   pic DNSCRN08 tics 2
+   pic DNSCRN06 tics 2
+   pic DNSCRN07 tics 2
 
 texture LMCP_1_1		// lameduke animated computers
    pic LMCP_1_1 tics 10
