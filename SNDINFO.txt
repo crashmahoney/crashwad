@@ -16,8 +16,9 @@ doors/doorshut		doorshut
 
 break/vent		VENTBUST	// duke3d vent breaking
 break/glass		glass		// duke3d glass breaking
+break/quake		quake		// earthquake
 bigsplash		bigsplash	// big splashing noise
-crash/ding		crash/ding		// elevator ding
+crash/ding		ding		// elevator ding
 
 DSCHAFIR 		DSCHAFIR	// fire
 ambient/teleporter	tele		// teleporter hum
