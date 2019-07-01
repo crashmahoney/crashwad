@@ -78,19 +78,21 @@ Obituary "$OB_BARREL" // "%o went boom."
     States
     {
         Spawn:
-            XCAN A 4
+            XCAN A 4 A_JumpIf(Args[0]=0, "LoopPoint")			// if arg1 is set in doombuilder
+            XCAN A 4 A_ChangeFlag("DONTTHRUST", TRUE)			// don't allow it to be pushed by explosions
+		LoopPoint:
+			XCAN A 4
             Loop
         Death:
-            XCAN B 0 Bright A_Explode(128,192)
-            XCAN B 0 Bright A_SpawnDebris("ShrapnelCrash", 5,5)
-            XCAN B 4 Bright A_Scream
-            XCAN C 4 Bright
-            FEXT C 4 Bright
-            FEXT C 4 Bright A_SetScale(1.2)
-            FEXT D 4 Bright
-            FEXT D 4 Bright A_SetScale(1.4)
-	    TNT1 A 1050 BRIGHT A_BarrelDestroy
-	    TNT1 A 5 A_Respawn
-            Stop
+            XCAN B 5 Bright A_Scream
+            XCAN C 5 Bright
+            FEXT C 1 Bright A_Explode//(128,192)
+            FEXT C 4 Bright A_SpawnDebris("ShrapnelCrash", 5,5)
+            FEXT C 5 Bright A_SetScale(1.2)
+            FEXT D 5 Bright
+            FEXT D 5 Bright A_SetScale(1.4)
+			TNT1 A 1050 BRIGHT A_BarrelDestroy
+			TNT1 A 5 A_Respawn
+            Wait
      }
 }

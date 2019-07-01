@@ -15,7 +15,6 @@
 #include "decorate/WallBreaker.txt"
 #include "decorate/Lights.txt"
 
-
 ACTOR ExplosionCrash //Spawnable Explosion
 {
    SpawnID 200

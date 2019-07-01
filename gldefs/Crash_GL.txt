@@ -219,8 +219,8 @@ pointlight FlashlightQ
 // Floor lamp
 pointlight NeonPink
 {
-    color 1.0 0.3 0.9
-    size 56
+    color 0.8 0.1 0.7
+    size 128
     offset 0 44 0
 }
 
@@ -232,8 +232,8 @@ object NeonColumn
 
 pointlight NeonBlue
 {
-    color 0.5 1.0 1.0
-    size 56
+    color 0.2 0.7 0.8
+    size 128
     offset 0 44 0
 }
 

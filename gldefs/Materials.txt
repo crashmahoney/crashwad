@@ -212,12 +212,29 @@ material texture H2CARP3
     ao carpet_o
 }
 
+material texture H2ROCK1
+{
+    normal h2roc1_n
+    specular h2roc1_s
+    specularlevel 1.0
+    glossiness 1.0
+}
+
+/*
 material texture H2ROCK3
 {
     normal h2roc3_n
     metallic h2roc3_m
     roughness h2roc3_r
     ao h2roc3_o
+}
+*/
+material texture H2ROCK3
+{
+    normal h2roc3_n
+    specular h2roc3_s
+    specularlevel 1.0
+    glossiness 1.0
 }
 
 material texture H2ROCK3G
@@ -494,7 +511,7 @@ material texture SWGARAG
 material texture TBRIWL10
 {
     normal BRKWA1_n
-    specular BRKWA1_s
+    specular BRKWA1_r
     specularlevel 0.5
     glossiness 0.2
 
@@ -503,6 +520,13 @@ material texture TBRIWL10
   //  ao BRKWA1_o
 }
 
+material texture TBRIWL16
+{
+    normal BRKWA1_n
+    specular BRKWA1_r
+    specularlevel 0.5
+    glossiness 0.2
+}
 
 material texture TCEMWL01
 {
