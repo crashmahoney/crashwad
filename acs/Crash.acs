@@ -49,7 +49,7 @@ script "BreakWall3d" (int id, int lastid, int time) {
     Ceiling_LowerInstant(id,0,100);
     Thing_SpawnFacing(id,200,1,0);  // spawn explosion
 	Radius_Quake2(id,4,10,0,1000,0);
-	
+
 	while (id <= lastid) {
 		id++;
 		delay(time);
@@ -58,7 +58,7 @@ script "BreakWall3d" (int id, int lastid, int time) {
 		Floor_LowerInstant(id,0,100);
 		Ceiling_LowerInstant(id,0,100);
 		Thing_SpawnFacing(id,200,1,0);  // spawn explosion
-		Radius_Quake2(id,4,10,0,1000,0);		
+		Radius_Quake2(id,4,10,0,1000,0);
 	}
 }
 
@@ -135,8 +135,16 @@ script "BreakScreenLD" (int lineid, int textureindex) {
 		SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
 	}
 	Thing_Deactivate(lineid); //turn off any light associated with the screen
-	
+
 }
+
+script "GetViewHeight" (void)
+{
+	SetResultValue(GetActorViewHeight(1000));
+	terminate;
+}
+
+
 
 /*
 

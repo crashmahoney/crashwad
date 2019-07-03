@@ -222,6 +222,7 @@ DoomEdNums
 	11001	=	GrenadeInv				// Grenade pickup
 	11002	=	GrassSpawnDead
 	11003	=	SkyViewTID				// skybox viewpoint that changed it's tid after level start
+	11004	=	SkyVPTrain
 
 	12450	=	SeaWeed
 	12451	=	Bush1

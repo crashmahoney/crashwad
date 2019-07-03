@@ -191,25 +191,25 @@ material texture greypanl
 material texture H2CARP1
 {
     normal carpet_n
-    metallic carpet_m
-    roughness carpet_r
-    ao carpet_o
+    specular carpet_r
+    specularlevel 0.4
+    glossiness 0.1
 }
 
 material texture H2CARP2
 {
     normal carpet_n
-    metallic carpet_m
-    roughness carpet_r
-    ao carpet_o
+    specular carpet_r
+    specularlevel 0.4
+    glossiness 0.1
 }
 
 material texture H2CARP3
 {
     normal carpet_n
-    metallic carpet_m
-    roughness carpet_r
-    ao carpet_o
+    specular carpet_r
+    specularlevel 0.4
+    glossiness 0.1
 }
 
 material texture H2ROCK1
@@ -220,15 +220,7 @@ material texture H2ROCK1
     glossiness 1.0
 }
 
-/*
-material texture H2ROCK3
-{
-    normal h2roc3_n
-    metallic h2roc3_m
-    roughness h2roc3_r
-    ao h2roc3_o
-}
-*/
+
 material texture H2ROCK3
 {
     normal h2roc3_n
@@ -275,9 +267,9 @@ material texture KPBROWN
 material texture KPTX0598
 {
     normal carpet_n
-    metallic carpet_m
-    roughness carpet_r
-    ao carpet_o
+    specular carpet_r
+    specularlevel 0.3
+    glossiness 0.2
 }
 
 //--------------------------------------------------------------------------L

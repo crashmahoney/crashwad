@@ -3,7 +3,8 @@ Actor LightGreen
 {
   Radius 0
   Height 0
-+NOGRAVITY
+	+NOGRAVITY
+	+FIXMAPTHINGPOS
   States
   {
   Spawn:

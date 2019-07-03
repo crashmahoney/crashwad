@@ -185,3 +185,97 @@ Default
 	}
 
 }
+
+
+
+class SkyVPTrain : SkyViewPoint
+{
+    PlayerPawn base;
+    Vector3 basepos;
+	double yspeed;
+	double ylength;
+	double zheight;
+	double xoffset;
+
+    Default
+    {
+        //$Arg1 "Skybox Speed"
+        //$Arg1Tooltip "The Speed the skybox moves at."
+        //$Arg2 "Skybox Loop Amount"
+        //$Arg2Tooltip "The distance the skybox jumps back when it reaches 0"
+	}
+
+    override void PostBeginPlay()
+    {
+		yspeed = args[1];			// speed train moves at
+		ylength = args[2];			// length of 1 loop of scenery
+
+        // Iterate through all of the possible players in the game
+        for (int i = 0; i < MAXPLAYERS; i++)
+        {
+            // If a player is in the game and has spawned...
+            if (playeringame[i] && players[i].mo)
+            {
+                if (!base) { base = players[i].mo; } 	// Set the skybox to follow the first player who is in the game
+                else { base = null; break; } 			// If there are multiple players, don't move the skybox
+            }
+        }
+	Super.PostBeginPlay();
+    }
+
+    override void Tick()
+    {
+        if (base)
+        {
+            Vector3 newvel;
+
+			xoffset =  base.pos.x - health;  // health is set by acs script to the required offset
+
+			// loop y position when it goes too far
+			double ypos = pos.y;
+			if (pos.y > 0) { ypos -= ylength; }
+            SetOrigin((pos.x, ypos, pos.z), false);
+
+            // Reset the viewpoint's height and x location
+            zheight = (base.player.viewz + 8);			// god it took me soooo long to figure out i just had to add player to get this to work
+            SetOrigin((xoffset, pos.y, zheight), true);
+
+            //if (basepos.y != base.pos.y) { newvel.y = base.vel.y; }		// add player speed if moving
+			newvel.y += yspeed;												// add train speed
+            A_ChangeVelocity(newvel.x, newvel.y, newvel.z, CVF_RELATIVE | CVF_REPLACE);
+
+            // Save the player's old position for the move checks
+            basepos = base.pos;
+        }
+
+        Super.Tick();
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

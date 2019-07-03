@@ -86,8 +86,8 @@ Obituary "$OB_BARREL" // "%o went boom."
         Death:
             XCAN B 5 Bright A_Scream
             XCAN C 5 Bright
-            FEXT C 1 Bright A_Explode//(128,192)
             FEXT C 4 Bright A_SpawnDebris("ShrapnelCrash", 5,5)
+            FEXT C 2 Bright A_Explode//(128,192)
             FEXT C 5 Bright A_SetScale(1.2)
             FEXT D 5 Bright
             FEXT D 5 Bright A_SetScale(1.4)
