@@ -5,6 +5,13 @@ defaultmap
 }
 
 
+gameinfo
+{
+	AddEventHandlers = "IncreaseMonsterScale"
+	PrecacheSounds = "break/vent", "break/glass"
+}
+
+
 // -----------EPISODE SELECT----------
 clearepisodes
 
@@ -161,8 +168,8 @@ map CAVE1 "Thermal Activity"
 	music = "80s"
 	sky1 = "NIGHT2", 0.01
 	par = 180
-//	SpiderMastermindSpecial
-//	SpecialAction_OpenDoor
+	PrecacheSounds = "crash/ding", "ambient/Lava", "break/quake", "doors/dooropen", "doors/doorshut"
+
 }
 
 map MAP04 "Remote Laboratries"

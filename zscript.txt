@@ -1,5 +1,18 @@
 version "4.0.0"
 
+class IncreaseMonsterScale : EventHandler
+	{
+	override void WorldThingSpawned (WorldEvent e)
+		{
+			// Make monsters slightly bigger to compensate for increased player view height
+			if (e.Thing.bIsMonster)
+			{
+				e.Thing.scale *= 1.15;
+			}
+
+		}
+	}
+
 // Computer Text Thing ---------------------------------------------------------
 
 class ComputerText : Actor

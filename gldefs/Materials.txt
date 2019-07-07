@@ -52,7 +52,6 @@ material texture BRKWIN2
     metallic BRKWI2_m
     roughness BRKWI2_r
     ao BRKWI2_o
-    brightmap "brightmaps/BRKWIN2.png"
 }
 
 material texture bumpsy_d
@@ -106,6 +105,14 @@ material texture curtn_d
 }
 
 //--------------------------------------------------------------------------D
+material texture DIRT3
+{
+    normal dirt3_n
+    specular dirt3_s
+    specularlevel 0.3
+    glossiness 0.05
+}
+
 
 material texture DNCITY08
 {
@@ -259,9 +266,9 @@ material texture Keys
 material texture KPBROWN
 {
     normal carpet_n
-    metallic carpet_m
-    roughness carpet_r
-    ao carpet_o
+    specular carpet_r
+    specularlevel 0.3
+    glossiness 0.2
 }
 
 material texture KPTX0598
@@ -299,6 +306,14 @@ material texture Manhole1
     specularlevel 1.0
     glossiness 1.0
 
+}
+
+material texture METAL
+{
+    normal carpet_n
+    specular carpet_r
+    specularlevel 0.3
+    glossiness 0.2
 }
 
 material texture MIDSPACE
@@ -361,6 +376,14 @@ material texture PanGry18
     ao PanG18_o
 }
 
+material texture PanSte02
+{
+    normal PanSt2_n
+    metallic PanSt2_m
+    roughness PanSt2_r
+    ao PanSt2_o
+}
+
 material texture PanSte03
 {
     normal PanSt3_n
@@ -383,6 +406,14 @@ material texture PASTEL1
     metallic carpet_m
     roughness carpet_r
     ao carpet_o
+}
+
+material texture PEELPNT3
+{
+    normal peelpn_n
+    specular peelpn_s
+    specularlevel 0.4
+    glossiness 2.0
 }
 
 material texture pinkpanl
@@ -592,12 +623,28 @@ material texture Tile04wa
     ao Tile04_o
 }
 
+material texture TMTLWL41
+{
+    normal carpet_n
+    specular carpet_r
+    specularlevel 0.3
+    glossiness 0.2
+}
+
 material texture TRAINDOR
 {
     normal brass_n
     metallic brass_m
     roughness brass_r
     ao brass_o
+}
+
+material texture TRUTWL11
+{
+    normal trut11_n
+    specular trut11_s
+    specularlevel 0.2
+    glossiness 0.0
 }
 
 material texture TTILFL0
