@@ -1,1 +1,2 @@
+floor WATER Water
 floor LAVA01 Lava

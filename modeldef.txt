@@ -125,3 +125,27 @@ Model LightRed
 
    FrameIndex PIPE A 0 0
 }
+
+Model CaveLadder1
+{
+	Path "models"
+	Model 0 "cavelad1.obj"
+	Scale 10 10 10
+	useactorpitch
+	useactorroll
+	AngleOffset 180
+
+	FrameIndex PIPE A 0 0
+}
+
+Model Rail1
+{
+	Path "models"
+	Model 0 "rail1.obj"
+	Scale 1 1 1
+	useactorpitch
+	useactorroll
+
+
+	FrameIndex PIPE A 0 0
+}

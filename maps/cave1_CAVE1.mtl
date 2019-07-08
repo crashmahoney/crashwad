@@ -1,0 +1,24 @@
+# MTL for cave1.wad, map CAVE1
+# Created by GZDoom Builder 2.3.0.3067
+
+newmtl PANBLU03
+Kd 1.0 1.0 1.0
+
+newmtl TMIDWL40
+Kd 1.0 1.0 1.0
+
+newmtl TWARWL02
+Kd 1.0 1.0 1.0
+
+newmtl F_SKY1
+Kd 1.0 1.0 1.0
+
+newmtl TILE02
+Kd 1.0 1.0 1.0
+
+newmtl TWARWL02
+Kd 1.0 1.0 1.0
+
+newmtl WATER
+Kd 1.0 1.0 1.0
+

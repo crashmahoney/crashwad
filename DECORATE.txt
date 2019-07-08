@@ -1,19 +1,20 @@
-#include "decorate/FistRedux.txt"
-#include "decorate/Aracnorb.txt"
-#include "decorate/Chandelier.txt"
-#include "decorate/TeleSpark.txt"
-#include "decorate/ScientistCorpse.txt"
-#include "decorate/FemScientist.txt"
-#include "decorate/MaleScientist.txt"
-#include "decorate/nuspark.txt"
 #include "decorate/ParticleFX.txt"
-#include "decorate/Weather.txt"
+#include "decorate/Aracnorb.txt"
 #include "decorate/bubbleFX_particles.txt"
 #include "decorate/bubbleFX_spawners.txt"
-#include "decorate/OfficeProps.txt"
-#include "decorate/Vegetation.txt"
-#include "decorate/WallBreaker.txt"
+#include "decorate/Chandelier.txt"
+#include "decorate/FistRedux.txt"
 #include "decorate/Lights.txt"
+#include "decorate/Models.txt"
+#include "decorate/nuspark.txt"
+#include "decorate/OfficeProps.txt"
+#include "decorate/Scientists.txt"
+#include "decorate/TeleSpark.txt"
+#include "decorate/Vegetation.txt"
+#include "decorate/Weather.txt"
+#include "decorate/WallBreaker.txt"
+
+
 
 ACTOR ExplosionCrash //Spawnable Explosion
 {

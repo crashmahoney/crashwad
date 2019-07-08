@@ -599,6 +599,14 @@ material texture TGRTWL12
     ao TGRT12_o
 }
 
+material texture TILE02
+{
+    normal Tile64_n
+    metallic Tile64_m
+    roughness Tile64_r
+    ao Tile64_o
+}
+
 material texture Tile04
 {
     normal Tile04_n

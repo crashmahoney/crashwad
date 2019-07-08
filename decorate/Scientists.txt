@@ -1,0 +1,136 @@
+ACTOR FemaleScientist 
+{
+  Game Doom
+  obituary "%o was stabbed by a zombie scientist."
+  health 15
+  mass 90
+  speed 10
+  Radius 19
+  Height 52
+  painchance 200
+  seesound "fem/sight"
+  painsound "fem/pain"
+  deathsound "fem/death"
+  activesound "fem/active"
+  MONSTER
+  +FLOORCLIP
+  States
+  {
+   Spawn:
+    FSZK AB 10 A_Look
+    loop
+  See:
+    FSZK AABBCCDD 4 A_Chase
+    loop
+  Melee:
+    FSZK E 4 A_FaceTarget
+    FSZK F 8 A_CustomMeleeAttack (random (2, 5) *3, "KnifeHit", "skeleton/swing")
+    FSZK E 4
+    goto See
+  Pain:
+    FSZK G 3
+    FSZK G 3 A_Pain
+    goto See
+  Death:
+    FSZK H 5
+    FSZK I 5 A_Scream
+    FSZK J 5 A_NoBlocking
+    FSZK K 5
+    FSZK L 5
+    FSZK M 5
+    FSZK N -1
+    stop
+  XDeath:
+    FSZK O 5
+    FSZK P 5 A_XScream
+    FSZK Q 5 A_NoBlocking
+    FSZK RSTUV 5
+    FSZK W -1
+    stop
+  Raise:
+    FSZK MLKJIH 5
+    goto See
+  }
+}
+
+
+
+ACTOR ZombieScientist 
+{
+  Game Doom
+  obituary "%o was axe-murdered by a zombie scientist."
+  health 20
+  mass 90
+  speed 8
+  Radius 20
+  Height 52
+  painchance 200
+  seesound "grunt/sight"
+  painsound "grunt/pain"
+  deathsound "grunt/death"
+  activesound "grunt/active"
+  MONSTER
+  +FLOORCLIP
+  States
+  {
+   Spawn:
+    SCZA AB 10 A_Look
+    loop
+  See:
+    SCZA AABBCCDD 4 A_Chase
+    loop
+  Melee:
+    SCZA E 8 A_FaceTarget
+    SCZA F 16 A_CustomMeleeAttack (random (2, 6) *4, "KnifeHit", "skeleton/swing")
+    SCZA E 4
+    goto See
+  Pain:
+    SCZA G 3
+    SCZA G 3 A_Pain
+    goto See
+  Death:
+    SCZA H 5
+    SCZA I 5 A_Scream
+    SCZA J 5 A_NoBlocking
+    SCZA K 5
+    SCZA L 5
+    SCZA M 5
+    SCZA N -1
+    stop
+  XDeath:
+    SCZA O 5
+    SCZA P 5 A_XScream
+    SCZA Q 5 A_NoBlocking
+    SCZA RSTUV 5
+    SCZA W -1
+    stop
+  Raise:
+    SCZA MLKJIH 5
+    goto See
+  }
+}
+
+
+Actor DeadMaleScientist 
+{
+  Radius 16
+  Height 16
+  States
+  {
+  Spawn:
+    MSCI N -1
+    Loop
+  }
+}
+
+Actor DeadFemaleScientist 
+{
+  Radius 16
+  Height 16
+  States
+  {
+  Spawn:
+    FSCI N -1
+    Loop
+  }
+}

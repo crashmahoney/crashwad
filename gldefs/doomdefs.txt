@@ -2,12 +2,6 @@
 // ------------------ DOOM GAME LIGHTS ------------------
 // ------------------------------------------------------
 
-#include "gldefs/arachn_GL.txt"
-#include "gldefs/Chand_GL.txt"
-#include "gldefs/Crash_GL.txt"
-#include "gldefs/Sparks_GL.txt"
-#include "gldefs/Brightmaps.txt"
-#include "gldefs/Materials.txt"
 // ------------------
 // -- Doom Weapons --
 // ------------------
@@ -1361,8 +1355,6 @@ object TeleportFog
     frame TFOGJ { light DTFOG3 }
 }
 
-
-
 // ------------------------------------------------------
 // ------------------ GLOWING FLATS ---------------------
 // ------------------------------------------------------
@@ -1373,3 +1365,4 @@ Glow
 		NUKAGE1
 	}
 }
+

@@ -1,0 +1,13 @@
+Gunna start putting some credits in here!
+
+
+ZZYZX and Nash - zscript examples
+Gutawer - underwater shader
+
+
+There's textures from duke3d, hexen2, system shock 2, kingpin
+mostly sourced from realm 667
+also the too much brown texture pack
+arachnorb enemy by Jimmy91
+doomsphere from skulltag
+brightmaps by Virtue

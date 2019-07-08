@@ -1,0 +1,18 @@
+Actor CaveLadder1
+{
+	Radius 20
+	Height 20
+	+NOINTERACTION
+
+	States
+	{
+		Spawn:
+		PIPE A -1
+		Stop
+	}
+
+}
+
+Actor Rail1 : CaveLadder1
+{
+}
