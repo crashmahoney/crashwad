@@ -1,0 +1,369 @@
+// Footsteps
+// Language Definitions
+
+// This is where the footstep sounds for each texture are defined.
+// The definition MUST be STEP_<texturename>
+
+[enu default]
+// Flats
+// This is a list of flats that have footstep sounds associated with them.
+// Items are separated by a colon ( : )
+// If a flat/texture is not present in this list, then only the default sound will be
+// played when it is walked on.
+STEP_FLATS =
+	"binlid_d:"
+	"BLACK:"
+	"BRASS1:"
+	"BRASS2:"
+	"bumpsy_d:"
+
+	"COMP1:"
+	"CONS1_1:"
+	"CONTAIN1:"
+
+	"DIRT1:"
+	"DIRT2:"
+	"DIRT3:"
+	"DNVENT1:"
+	"DNVENT2:"
+	"DNVENT4:"
+	"DNVENT6:"
+
+	"FILE2:"
+	"flatred:"
+	"flatwhi:"
+	"flatyell:"
+	"FLOOR4_8:"
+	"frosted:"
+	"F_SKY1:"
+
+	"GLASS:"
+	"GLASS2:"
+	"GRASS:"
+	"GRASSBRI:"
+	"GRASSBRO:"
+
+	"H2CARP1:"
+	"H2CARP2:"
+	"H2CARP3:"
+	"H2CRATE1:"
+	"H2CRATE2:"
+	"H2CRATE3:"
+	"H2CRATE4:"
+	"H2CRATE5:"
+	"H2DIRT1:"
+	"H2DIRT2:"
+	"H2DIRT3:"
+	"H2GRASS1:"
+	"H2GRASS2:"
+	"H2GRASS3:"
+	"H2GRASS4:"
+	"H2MARBL1:"
+	"H2MARBL2:"
+	"H2MARBL3:"
+	"H2MARBL4:"
+	"H2MARBL5:"
+	"H2MARBL6:"
+	"H2MARBL7:"
+	"H2MARBL8:"
+	"H2MARBL9:"
+	"H2MARBLA:"
+	"H2MARBLB:"
+	"H2MARBLC:"
+	"H2MARBLD:"
+	"H2MARBLE:"
+	"H2MARBLF:"
+	"H2ROCK1:"
+	"H2ROCK2:"
+	"H2ROCK3:"
+	"H2ROCK4:"
+	"H2ROCK5:"
+	"H2RUG1:"
+	"H2RUG2:"
+	"H2RUG3:"
+	"H2WOOD1:"
+	"H2WOOD2:"
+	"H2WOOD3:"
+	"H2WOOD4:"
+	"H2WOOD5:"
+	"H2WOOD6:"
+	"H2WOOD7:"
+	"H2WOOD8:"
+	"HLTX0012:"
+	"HOTCOALS:"
+
+	"KPBROWN:"
+	"KPTree2:"
+	"KPTX0598:"
+
+	"LAVA01:"
+	"LEATHER1:"
+	"LEATHER2:"
+	"LITEDG_D:"
+
+	"neonb:"
+	"neonblak:"
+	"neongrn:"
+	"neonred:"
+	"neony:"
+
+	"PASTEL1:"
+	"PEELPNT3:"
+
+	"REDDIRT:"
+	"REDDIRT1:"
+	"REDDIRT2:"
+	"REDGR1:"
+	"REDGR2:"
+	"REDGR3:"
+	"REDGR4:"
+	"REDROCK1:"
+	"ROAD2:"
+
+	"SHAWN2:"
+	"SNOW1:"
+
+	"TCRTFL0:"
+	"TCRTFL05:"
+	"TCRTFL6:"
+	"TCRTFL7:"
+	"TCRTWL01:"
+	"TCRTWL02:"
+	"TCRTWL03:"
+	"TCRTWL04:"
+	"TCRTWL05:"
+	"TCRTWL06:"
+	"TCRTWL07:"
+	"TCRTWL08:"
+	"TCRTWL15:"
+	"TCRTWL66:"
+	"TCRTWL67:"
+	"TCRTWL77:"
+	"TCRTWL78:"
+	"TGRTFL12:"
+	"TILE01:"
+	"TILE02:"
+	"TILE03:"
+	"TILE04:"
+	"TILE05:"
+	"TILE06:"
+	"TILE07:"
+	"TILE08:"
+	"TILE09:"
+	"TILE10:"
+	"TILE11:"
+	"TILE12:"
+	"TILE13:"
+	"TILEWHIT:"
+	"TMIDWL20:"
+	"TMIDWL21:"
+	"TMIDWL45:"
+	"TTIFL0:"
+	"TTIFL02:"
+	"TTIFL03:"
+	"TWCRFL0:"
+	"TWCRWL01:"
+	"TWCRWL02:"
+	"TWCRWL03:"
+	"TWCRWL04:"
+	"TWODWL01:"
+	"TWODWL02:"
+	"TWODWL03:"
+	"TWODWL04:"
+	"TWODWL19:"
+
+	"WATER:"
+	"Wood:"
+	"WoodV:"
+	"WoodVpan:"
+;
+
+
+// Sounds
+STEP_DEFAULT = "step/default";
+
+// Water
+STEP_WATER = "step/water";
+
+// Ground
+STEP_KPBROWN = "step/default";
+
+// Carpet
+STEP_COMP1 = "step/carpet";
+STEP_H2CARP1 = "step/carpet";
+STEP_H2CARP2 = "step/carpet";
+STEP_H2CARP3 = "step/carpet";
+STEP_H2RUG1 = "step/carpet";
+STEP_H2RUG2 = "step/carpet";
+STEP_H2RUG3 = "step/carpet";
+STEP_LEATHER1 = "step/carpet";
+STEP_LEATHER2 = "step/carpet";
+STEP_PASTEL1 = "step/carpet";
+
+// Dirt
+STEP_DIRT1 = "step/dirt";
+STEP_DIRT2 = "step/dirt";
+STEP_DIRT3 = "step/dirt";
+STEP_GRASS = "step/dirt";
+STEP_GRASSBRI = "step/dirt";
+STEP_GRASSBRO = "step/dirt";
+STEP_H2DIRT1 = "step/dirt";
+STEP_H2DIRT2 = "step/dirt";
+STEP_H2DIRT3 = "step/dirt";
+STEP_H2GRASS1 = "step/dirt";
+STEP_H2GRASS2 = "step/dirt";
+STEP_H2GRASS3 = "step/dirt";
+STEP_H2GRASS4 = "step/dirt";
+STEP_KPTree2 = "step/dirt";
+STEP_REDDIRT = "step/dirt";
+STEP_REDDIRT1 = "step/dirt";
+STEP_REDDIRT2 = "step/dirt";
+STEP_REDGR1 = "step/dirt";
+STEP_REDGR2 = "step/dirt";
+STEP_REDGR3 = "step/dirt";
+STEP_REDGR4 = "step/dirt";
+STEP_REDROCK1 = "step/dirt";
+
+// Gravel
+STEP_KPTX0598 = "step/gravel";
+
+// Hard
+STEP_bumpsy_d = "step/hard";
+STEP_frosted = "step/hard";
+STEP_GLASS = "step/hard";
+STEP_GLASS2 = "step/hard";
+STEP_PEELPNT3 = "step/hard";
+STEP_ROAD2 = "step/hard";
+
+// Metal A
+STEP_binlid_d = "step/metal/a";
+STEP_BRASS1 = "step/metal/a";
+STEP_BRASS2 = "step/metal/a";
+STEP_CONS1_1 = "step/metal/a";
+STEP_CONTAIN1 = "step/metal/a";
+STEP_DNVENT1 = "step/metal/a";
+STEP_DNVENT2 = "step/metal/a";
+STEP_DNVENT4 = "step/metal/a";
+STEP_DNVENT6 = "step/metal/a";
+STEP_FILE2 = "step/metal/a";
+STEP_LITEDG_D = "step/metal/a";
+STEP_TILE03 = "step/metal/a";
+STEP_TILE06 = "step/metal/a";
+STEP_TILE07 = "step/metal/a";
+STEP_TILE08 = "step/metal/a";
+STEP_TILE09 = "step/metal/a";
+STEP_TILE10 = "step/metal/a";
+STEP_TILE11 = "step/metal/a";
+STEP_TILE12 = "step/metal/a";
+STEP_TILE13 = "step/metal/a";
+STEP_TGRTFL12 = "step/metal/a";
+
+// Metal B
+STEP_SHAWN2 = "step/metal/b";
+STEP_TMIDWL20 = "step/metal/b";
+STEP_TMIDWL21 = "step/metal/b";
+STEP_TMIDWL45 = "step/metal/b";
+
+// Rock
+STEP_H2MARBL7 = "step/tile/b";
+STEP_H2MARBL8 = "step/tile/b";
+STEP_H2MARBLA = "step/tile/b";
+STEP_H2MARBLB = "step/tile/b";
+STEP_H2ROCK1 = "step/rock";
+STEP_H2ROCK2 = "step/rock";
+STEP_H2ROCK3 = "step/rock";
+STEP_H2ROCK4 = "step/rock";
+STEP_H2ROCK5 = "step/rock";
+
+// Snow
+STEP_SNOW1 = "step/snow";
+
+// Tile A
+STEP_TTILFL0 = "step/tile/a";
+STEP_TTILFL02 = "step/tile/a";
+STEP_TTILFL03 = "step/tile/a";
+
+// Tile B
+STEP_flatred = "step/tile/b";
+STEP_flatwhi = "step/tile/b";
+STEP_flatyell = "step/tile/b";
+STEP_H2MARBL1 = "step/tile/b";
+STEP_H2MARBL2 = "step/tile/b";
+STEP_H2MARBL3 = "step/tile/b";
+STEP_H2MARBL4 = "step/tile/b";
+STEP_H2MARBL5 = "step/tile/b";
+STEP_H2MARBL6 = "step/tile/b";
+STEP_H2MARBL9 = "step/tile/b";
+STEP_H2MARBLC = "step/tile/b";
+STEP_H2MARBLD = "step/tile/b";
+STEP_H2MARBLE = "step/tile/b";
+STEP_H2MARBLF = "step/tile/b";
+STEP_TILE01 = "step/tile/b";
+STEP_TILE02 = "step/tile/b";
+STEP_TILE04 = "step/tile/b";
+STEP_TILE05 = "step/tile/b";
+STEP_TILEWHIT = "step/tile/b";
+
+// Wood
+STEP_H2WOOD1 = "step/wood";
+STEP_H2WOOD2 = "step/wood";
+STEP_H2WOOD3 = "step/wood";
+STEP_H2WOOD4 = "step/wood";
+STEP_H2WOOD5 = "step/wood";
+STEP_H2WOOD6 = "step/wood";
+STEP_H2WOOD7 = "step/wood";
+STEP_H2WOOD8 = "step/wood";
+STEP_H2CRATE1 = "step/wood";
+STEP_H2CRATE2 = "step/wood";
+STEP_H2CRATE3 = "step/wood";
+STEP_H2CRATE4 = "step/wood";
+STEP_H2CRATE5 = "step/wood";
+STEP_TCRTFL0 = "step/wood";
+STEP_TCRTFL05 = "step/wood";
+STEP_TCRTFL6 = "step/wood";
+STEP_TCRTFL7 = "step/wood";
+STEP_TCRTWL01 = "step/wood";
+STEP_TCRTWL02 = "step/wood";
+STEP_TCRTWL03 = "step/wood";
+STEP_TCRTWL04 = "step/wood";
+STEP_TCRTWL05 = "step/wood";
+STEP_TCRTWL06 = "step/wood";
+STEP_TCRTWL07 = "step/wood";
+STEP_TCRTWL08 = "step/wood";
+STEP_TCRTWL15 = "step/wood";
+STEP_TCRTWL66 = "step/wood";
+STEP_TCRTWL67 = "step/wood";
+STEP_TCRTWL77 = "step/wood";
+STEP_TCRTWL78 = "step/wood";
+STEP_TWCRFL0 = "step/wood";
+STEP_TWCRWL01 = "step/wood";
+STEP_TWCRWL02 = "step/wood";
+STEP_TWCRWL03 = "step/wood";
+STEP_TWCRWL04 = "step/wood";
+STEP_TWODWL01 = "step/wood";
+STEP_TWODWL02 = "step/wood";
+STEP_TWODWL03 = "step/wood";
+STEP_TWODWL04 = "step/wood";
+STEP_TWODWL19 = "step/wood";
+STEP_Wood = "step/wood";
+STEP_WoodV = "step/wood";
+STEP_WoodVpan = "step/wood";
+
+// Slime
+STEP_NUKAGE1 = "step/slime";
+
+// Slimy
+STEP_HLTX0012 = "step/slimy";
+
+// Lava
+STEP_LAVA01 = "step/lava";
+STEP_HOTCOALS = "step/lava";
+
+// None
+STEP_BLACK = "";
+STEP_F_SKY1 = "";
+STEP_neonb = "";
+STEP_neonblak = "";
+STEP_neongrn = "";
+STEP_neonred = "";
+STEP_neony = "";
