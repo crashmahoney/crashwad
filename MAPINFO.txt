@@ -7,7 +7,7 @@ defaultmap
 
 gameinfo
 {
-	AddEventHandlers = "IncreaseMonsterScale", "WaterHandler"
+	AddEventHandlers = "IncreaseMonsterScale", "WaterHandler","DynamicDifficulty"
 	PrecacheSounds = "break/vent", "break/glass"
 }
 
@@ -324,5 +324,7 @@ DoomEdNums
 	28000	=	BubbleSpawner
 	28001	=	CeilingBubbleSpawner
 	28002	=	WallBubbleSpawner
+
+	28010	=	Crash_HealthSpawner
 
 }

@@ -1,1 +1,7 @@
 user float uw_effectsize = 0.01;
+
+server noarchive int crash_deaths		= 0;
+server noarchive int player_grade		= 0;
+server noarchive int spawn_level		= 0;
+
+server  int crash_debug		= 1;

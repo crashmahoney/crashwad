@@ -1,4 +1,5 @@
-version "4.0.0"
+version "4.2"
+#include "zscript/Dynamic Difficulty.zs"
 
 class IncreaseMonsterScale : EventHandler
 	{
@@ -9,7 +10,6 @@ class IncreaseMonsterScale : EventHandler
 			{
 				e.Thing.scale *= 1.15;
 			}
-
 		}
 	}
 
@@ -19,7 +19,7 @@ class WaterHandler : StaticEventHandler {
 		// set the player's timer up correctly (more-than-1-tick precision)
 		PlayerInfo p = players[consoleplayer];
 		Shader.SetUniform1f(p, "watershader", "timer", gametic + e.FracTic);
-		
+
 		if (p.mo.waterlevel >= 3) {
 			Shader.SetEnabled(p, "watershader", true);
 			Shader.SetEnabled(p, "waterzoomshader", true);
@@ -33,6 +33,32 @@ class WaterHandler : StaticEventHandler {
 		}
 	}
 }
+
+
+
+
+/*
+
+class Functions
+{
+	void SetPlayerPawn (string name)
+	{
+		// Iterate through all of the possible players in the game
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			// If a player is in the game and has spawned...
+			if (playeringame[i] && players[i].mo)
+			{
+				// set to the first player found
+				if (!name) { name = players[i].mo; }
+		 // 	else { name = null; break; }
+			}
+		}
+	}
+}
+
+*/
+
 
 // Computer Text Thing ---------------------------------------------------------
 
@@ -286,30 +312,3 @@ class SkyVPTrain : SkyViewPoint
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

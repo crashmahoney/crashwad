@@ -1,6 +1,12 @@
 #library "Crash"
 #include "zcommon.acs"
 
+
+//===============================================================
+//	functions
+//===============================================================
+
+// return the passed value with the sign removed
 function int abs (int x)
 {
     if (x < 0)
@@ -9,12 +15,45 @@ function int abs (int x)
     return x;
 }
 
+
+
+//===============================================================
+//	Player Setup
+//===============================================================
 script "CrashPlayerSetup" ENTER {
 	SetActorProperty(0, APROP_JUMPZ, 12.0);  			// player increased jump height
-	SetActorProperty(0, APROP_ViewHeight, 50.0);  	// player increased eye height (41 default)
+	SetActorProperty(0, APROP_ViewHeight, 50.0);  		// player increased eye height (41 default)
 	SetActorProperty(0, APROP_AttackZOffset, 20.0);  	// player increased attack height
 	SetAirControl(0.6);
 }
+
+//===============================================================
+//	Dynamic Difficulty
+//===============================================================
+
+
+script "PlayerGrade" ENTER {
+
+// debug display
+	HudMessage(s:"     grade ", d:GetCVar("player_grade"),
+			 s:"\n    damage ", f:GetActorProperty(0, APROP_DamageFactor),
+			 s:"\n    deaths ", d:GetCVar("crash_deaths"),
+			 s:"\n    spawns ", d:GetCVar("spawn_level");
+						HUDMSG_PLAIN | HUDMSG_LAYER_UNDERHUD,	// type
+						1,										// id
+						CR_PURPLE,								// colour
+						-0.6, 0.0,								// x,y
+						0);										// time
+
+	Delay(1);
+	Restart;
+}
+
+
+//=============================================================================
+//	Level interactivity/destruction
+//=============================================================================
+
 
 script "BreakVent" (int lineid) {
     Line_SetBlocking(lineid,0,BLOCKF_EVERYTHING);
@@ -143,7 +182,6 @@ script "GetViewHeight" (void)
 	SetResultValue(GetActorViewHeight(1000));
 	terminate;
 }
-
 
 
 /*
