@@ -396,3 +396,19 @@ Actor SkyViewTID : SkyViewpoint
 	//	goto Super::Spawn
 		}
 }
+
+
+Actor Rope
+{
+	Height 64
+	Radius 4
+	+Solid
+	+NOGRAVITY
+
+	States
+	{
+		Spawn:
+		ROPE A -1
+		Stop
+	}
+}

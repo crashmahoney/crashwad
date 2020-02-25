@@ -130,6 +130,14 @@ material texture DNVENT1
     ao DNVENT_o
 }
 
+material texture DNXGLS02
+{
+    normal white
+    specular white
+    specularlevel 5.0
+    glossiness 2.5
+}
+
 //--------------------------------------------------------------------------E
 //--------------------------------------------------------------------------F
 material texture Flatred
@@ -166,16 +174,18 @@ material texture FLOOR4_8
 
 //--------------------------------------------------------------------------G
 
-
-/*
-material texture GLASS
+material GLASS
 {
-    normal Glass_n
-    metallic Glass_m
-    roughness Glass_r
-    ao Glass_o
+    Shader "shaders/enviromap.fp"
+    texture enviromap "textures/glassenv.png"
+	Speed 1.0
 }
-*/
+
+material glassenv
+{
+    Shader "shaders/enviromap.fp"
+    Speed 1.0
+}
 
 material texture GrdRai_d
 {
@@ -300,6 +310,15 @@ material texture litedg_d
 //--------------------------------------------------------------------------M
 
 material texture Manhole1
+{
+    normal MANHOL_n
+    specular MANHOL_s
+    specularlevel 1.0
+    glossiness 1.0
+
+}
+
+material MANHA0
 {
     normal MANHOL_n
     specular MANHOL_s
@@ -629,6 +648,38 @@ material texture Tile04wa
     metallic Tile04_m
     roughness Tile04_r
     ao Tile04_o
+}
+
+material texture TMIDWL41
+{
+    normal tmidwl_n
+    metallic tmidwl_m
+    roughness tmidwl_r
+    ao tmidwl_o
+}
+
+material texture TRAINDOR
+{
+    normal brass_n
+    metallic brass_m
+    roughness brass_r
+    ao brass_o
+}
+
+material texture TPIPWL02
+{
+    normal pipewl_n
+    metallic pipewl_m
+    roughness pipewl_r
+    ao pipewl_o
+}
+
+material texture TPIPWL03
+{
+    normal pipewl_n
+    metallic pipewl_m
+    roughness pipewl_r
+    ao pipewl_o
 }
 
 material texture TMTLWL41

@@ -96,3 +96,33 @@ Obituary "$OB_BARREL" // "%o went boom."
             Wait
      }
 }
+
+actor ManholeCover
+{
+	Health 200
+	Radius 32
+	Height 2
+	+SOLID
+	+FLATSPRITE
+	+ROLLCENTER
+	+SHOOTABLE
+	+NOBLOOD	
+	+NOTARGET
+	+DONTTHRUST
+	+NOTAUTOAIMED
+	DeathSound "break/vent"
+
+	States
+	{
+		Spawn:
+			MANH A -1
+			Loop
+		Death:
+            MANH B 3 A_Scream		
+			MANH A 0 A_SpawnDebris("ShrapnelCrash", 5,5)
+			Stop
+	
+	}
+
+}
+

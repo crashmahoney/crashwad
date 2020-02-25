@@ -1,14 +1,13 @@
 //===============================================================
 //	Dynamic Difficulty
 //===============================================================
-
-struct Diff play
+struct DifficultyData
 {
 	int playergrade;
 	int playerlasthealth;
 	int monsterlastcount;
 	int spawnlevel;
-	double babyarmour;
+	float babyarmour;
 }
 
 
@@ -17,6 +16,7 @@ class DynamicDifficulty : EventHandler
 {
 //----------------------------------------------------------------
 	PlayerPawn pawn;
+	DifficultyData diff;
 
 
 //----------------------------------------------------------------
@@ -26,8 +26,8 @@ class DynamicDifficulty : EventHandler
 
 	const SPAWN_GRADE_DIV		= 7000;		// how much grade effects spawn level
 
-	const BBARMOUR_HP_MULT		= 200;			// how much current health affects damagefactor
-	const BBARMOUR_GRADE_DIV	= 16;			// how much grade affects damagefactor
+	const BBARMOUR_HP_MULT		= 200.0;			// how much current health affects damagefactor
+	const BBARMOUR_GRADE_DIV	= 16.0;			// how much grade affects damagefactor
 	const BBARMOUR_MAX			= 0.5;			// maximum percentage of damagefactor allowed
 //----------------------------------------------------------------
 
@@ -51,7 +51,7 @@ class DynamicDifficulty : EventHandler
         }
 
 
-		if (pawn.health <= 0)													// if player dead
+		if (pawn.health <= 0 && diff.playerlasthealth >= 0)						// if player dead
 		{
 			deaths.SetInt(deaths.GetInt() + 1);									// add 1 to death count
 		}
@@ -59,8 +59,8 @@ class DynamicDifficulty : EventHandler
 		{
 			int healthloss = diff.playerlasthealth - pawn.health;								// get health lost since last tic
 				if (healthloss < 0) { healthloss = 0; }  									// ignore if health increases
-			int monsterdeaths = level.killed_monsters - diff.monsterlastcount;	// get number of monsters killed since last tic
-			babyarmour = 1.0 - ((100 - pawn.health) * BBARMOUR_HP_MULT ) ;				// modify player damage taken (damagefactor) according to health
+			int monsterdeaths = level.killed_monsters - diff.monsterlastcount;				// get number of monsters killed since last tic
+			diff.babyarmour = 1.0 - ((100.0 - pawn.health) / BBARMOUR_HP_MULT ) ;				// modify player damage taken (damagefactor) according to health
 
 			// adjust grade according to performance
 				diff.playergrade = diff.playergrade - (healthloss * GRADE_HPLOSS_MULT) + (monsterdeaths * GRADE_KILLS_MULT);
@@ -69,7 +69,7 @@ class DynamicDifficulty : EventHandler
 					if (diff.playergrade < 0)
 						{
 							diff.playergrade = diff.playergrade + ((pawn.health / 6) * GRADE_DELAY);	// drift grade back towards 0 (faster if you have more health)
-				//			diff.babyarmour = diff.babyarmour + (diff.playergrade / BBARMOUR_GRADE_DIV);		// modify player damage taken (damagefactor) according to grade
+							diff.babyarmour = diff.babyarmour + (diff.playergrade / BBARMOUR_GRADE_DIV);		// modify player damage taken (damagefactor) according to grade
 						}
 
 					if (diff.playergrade > 0)
@@ -79,7 +79,7 @@ class DynamicDifficulty : EventHandler
 
 
 			// apply damage reduction
-		//			if (diff.babyarmour < BBARMOUR_MAX) { diff.babyarmour = BBARMOUR_MAX; }				// stop damagefactor getting too low
+					if (diff.babyarmour < BBARMOUR_MAX) { diff.babyarmour = BBARMOUR_MAX; }				// stop damagefactor getting too low
 					pawn.DamageFactor = diff.babyarmour;
 
 			}
@@ -99,10 +99,13 @@ class DynamicDifficulty : EventHandler
 
 
 
-		console.printf("%d %d",diff.spawnlevel, diff.playergrade);
+//		console.printf("%d %d %f",diff.spawnlevel, diff.playergrade, diff.babyarmour);
 
 
 	}
+
+
+
 }
 
 
@@ -169,7 +172,6 @@ class Crash_Spawner : Actor
 						0);					// flags
 
 	}
-
 }
 
 
@@ -224,4 +226,7 @@ class Crash_HealthSpawner : Crash_Spawner
 		stop;
 
 	}
+
 }
+
+

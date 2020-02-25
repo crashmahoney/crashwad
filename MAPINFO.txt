@@ -27,6 +27,7 @@ map SELECT "Episode Select"
 	music = "Intense"
 	next = "MAP01"
 	secretnext = "80s"
+	sky1 = "NIGHT1", 0.01
 	par = 60
 }
 
@@ -247,6 +248,7 @@ DoomEdNums
 	12463	=	Tree5
 	12464	=	Tree6
 	12465	=	Tree7
+	12467	=	ManholeCover
 
 	13000	=	Chandelier1Switchable
 	13002	=	Chandelier1On
@@ -288,10 +290,18 @@ DoomEdNums
 	13055	=	LightYellow
 	13056	=	LightRed
 
+	13059	=	Rope
 	13060	=	ComputerCursor
 	13061	=	CaveLadder1
 	13065	=	Rail1
-
+	13066	=	Crane1
+	13067	=	Crane2
+	13068	=	ContainerBlue1
+	13069	=	ContainerBlue2
+	13070	=	ContainerWire
+	13071	=	ContainerRed1
+	13072	=	ContainerRed2
+	13073	=	LampPost
 
 // actors in this range are overwritten by DoomRPG actors and need changing
 	20000	=	WallBreaker				// actor that dies from explosions

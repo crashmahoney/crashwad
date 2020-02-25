@@ -146,6 +146,97 @@ Model Rail1
 	useactorpitch
 	useactorroll
 
+	FrameIndex PIPE A 0 0
+}
+
+Model Crane1
+{
+	Path "models"
+	Model 0 "crane.obj"
+	Scale 1 1 1
+	useactorpitch
+	useactorroll
+
+	FrameIndex PIPE A 0 0
+}
+
+Model Crane2
+{
+	Path "models"
+	Model 0 "crane2.obj"
+	Scale 1 1 1
+	useactorpitch
+	useactorroll
+
+	FrameIndex PIPE A 0 0
+}
+
+
+Model ContainerBlue1
+{
+	Path "models"
+	Model 0 "contain1.obj"
+	Scale 1 1 1.2
+	useactorpitch
+	useactorroll
+
+	FrameIndex PIPE A 0 0
+}
+
+
+Model ContainerBlue2
+{
+	Path "models"
+	Model 0 "contain2.obj"
+	Scale 1 1 1.2
+	useactorpitch
+	useactorroll
+
+	FrameIndex PIPE A 0 0
+}
+
+
+Model ContainerWire
+{
+	Path "models"
+	Model 0 "containwire.obj"
+	Scale 1 1 1.2
+	useactorpitch
+	useactorroll
+
+	FrameIndex PIPE A 0 0
+}
+
+Model ContainerRed1
+{
+	Path "models"
+	Model 0 "contred1.obj"
+	Scale 1 1 1.2
+	useactorpitch
+	useactorroll
+
+	FrameIndex PIPE A 0 0
+}
+
+Model ContainerRed2
+{
+	Path "models"
+	Model 0 "contred2.obj"
+	Scale 1 1 1.2
+	useactorpitch
+	useactorroll
+
+	FrameIndex PIPE A 0 0
+}
+
+Model LampPost
+{
+	Path "models"
+	Model 0 "lamppost.obj"
+	Scale 1 1 1
+	useactorpitch
+	useactorroll
+	AngleOffset 180
 
 	FrameIndex PIPE A 0 0
 }

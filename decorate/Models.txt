@@ -13,6 +13,43 @@ Actor CaveLadder1
 
 }
 
-Actor Rail1 : CaveLadder1
+Actor Rail1 : CaveLadder1	{}
+
+Actor Crane1 : CaveLadder1
 {
+	Radius 64
+	Height 106
+	-NOINTERACTION
+	+SOLID
+	+NOGRAVITY
+}
+
+Actor Crane2 : CaveLadder1	{}
+
+Actor ContainerWire : CaveLadder1
+{
+	Height 256
+}
+
+Actor ContainerBlue1 : Crane1
+{
+	Radius 64
+	Height 128
+	-NOINTERACTION
+	+NOTARGET
+	+SOLID
+	+NOGRAVITY
+	+INVULNERABLE
+	+NODAMAGETHRUST
+	+NOTAUTOAIMED
+}
+
+Actor ContainerBlue2 : ContainerBlue1	{}
+Actor ContainerRed1 : ContainerBlue1	{}
+Actor ContainerRed2 : ContainerBlue1	{}
+
+Actor LampPost : ContainerBlue1
+{
+	Radius 8
+	Height 232
 }

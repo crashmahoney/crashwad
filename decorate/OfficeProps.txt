@@ -7,9 +7,11 @@ Actor Chair
   +WINDTHRUST
   +Shootable
   +NOTARGET
+  +NOTAUTOAIMED
   +NOBLOOD
   Height 30
   Radius 15
+  Scale 1.4
   Mass 25
   PushFactor 0.75
   States

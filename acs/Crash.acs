@@ -27,6 +27,10 @@ script "CrashPlayerSetup" ENTER {
 	SetAirControl(0.6);
 }
 
+script "CrashPlayerRespawn" RESPAWN {
+	ACS_NamedExecuteAlways("CrashPlayerSetup",0,0,0,0);
+}
+
 //===============================================================
 //	Dynamic Difficulty
 //===============================================================
