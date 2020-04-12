@@ -58,6 +58,10 @@ brightmap texture LITEYELL
 }
 
 
+brightmap texture SIGNATOM
+{
+	map "materials/brightmaps/auto/sign_pnt.png"
+}
 
 
 

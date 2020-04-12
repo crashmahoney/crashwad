@@ -13,7 +13,42 @@ class IncreaseMonsterScale : EventHandler
 		}
 	}
 
+/*
+class GlassSetup : EventHandler
+{
+	override void WorldLoaded(WorldEvent e)
+	{
+		// iterate through all lines in the current map
+		for (int i = 0; i < level.Lines.Size(); i++)
+		{
+			// get current line
+			Line l = level.Lines[i];
 
+			// get the special assigned to the current line
+			//int spec = l.special;
+
+			// if the line is an Exit_Normal line (243), overwrite it
+			// with a naughty ACS script (7777)
+			if (spec == 243)
+			{
+				// ACS_ExecuteAlways is special 226
+				l.special = 226;
+
+				// set the args
+				l.args[0] = 7777;
+				l.args[1] = 0;
+				l.args[2] = 0;
+				l.args[3] = 0;
+				l.args[4] = 0;
+
+				// be sure to make the line repeatable
+				l.flags |= Line.ML_REPEAT_SPECIAL;
+			}
+		}
+	}
+}
+
+*/
 class WaterHandler : StaticEventHandler {
 	override void RenderOverlay(RenderEvent e) {
 		// set the player's timer up correctly (more-than-1-tick precision)

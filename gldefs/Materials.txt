@@ -515,6 +515,30 @@ material texture RROCK04
 
 //--------------------------------------------------------------------------S
 
+material texture SIGNATO2
+{
+    normal brass_n
+    metallic binsid_m
+    roughness brass_r
+    ao brass_o
+}
+
+material texture SIGNATO4
+{
+    normal brass_n
+    metallic binsid_m
+    roughness brass_r
+    ao brass_o
+}
+
+material texture SIGNATO5
+{
+    normal brass_n
+    metallic binsid_m
+    roughness brass_r
+    ao brass_o
+}
+
 material texture SILVER1
 {
     normal brass_n

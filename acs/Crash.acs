@@ -110,7 +110,13 @@ script "BreakGlass" (int lineid) {
 	str texture[7] = {"DNXGLS02", "DNXGLS03", "DNXGLS04", "DNXGLS05", "DNXGLS06", "DNXGLS07", "-"};
 	int var0 = 0;
     Line_SetBlocking(lineid,0,BLOCKF_EVERYTHING|BLOCKF_CREATURES|BLOCKF_MONSTERS|BLOCKF_PLAYERS|BLOCKF_FLOATERS);
-	ThingSound(lineid,"break/glass",127);
+	SectorSound("break/glass",127);
+					// definition of these, cos it's hard to find online
+					//fixed GetLineX(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
+					//fixed GetLineY(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
+	SpawnForced("MapSpot",GetLineX(lineid,0.3,0),GetLineY(lineid,0.3,0),0,lineid,0); 
+	SpawnForced("MapSpot",GetLineX(lineid,0.6,0),GetLineY(lineid,0.6,0),0,lineid,0); 
+	// SetActorPosition(lineid,GetActorX(lineid),GetActorY(lineid),GetActorFloorZ(lineid)+( (GetActorCeilingZ(lineid)-GetActorFloorZ(lineid)/2) ),0); // set map spot height to half of sector height
 
 		while(var0 < 7)
 		{
@@ -120,6 +126,7 @@ script "BreakGlass" (int lineid) {
 			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
 			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
 			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+
 
 		 	Delay(1);
 		}
