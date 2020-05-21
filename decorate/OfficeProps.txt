@@ -45,21 +45,6 @@ Actor DeskLamp
 }
 
 // --------------------------------------------------------------------------
-Actor CoffeeMug
-{
-  Radius 4
-  Height 4
-  Scale 0.25
-
-  States
-  {
-  Spawn:
-    COFF A 1
-    Loop
-  }
-}
-
-// --------------------------------------------------------------------------
 Actor PotPlant
 {
   Radius 16
@@ -179,3 +164,20 @@ Actor Glass4 : Bottle1
 		loop
 	}
 }
+
+
+// --------------------------------------------------------------------------
+Actor CoffeeMug : Bottle1
+{
+  Radius 4
+  Height 4
+  Scale 0.4
+
+  States
+  {
+  Spawn:
+    COFF A 1
+    Loop
+  }
+}
+

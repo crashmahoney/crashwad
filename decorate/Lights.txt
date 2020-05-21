@@ -8,8 +8,8 @@ Actor LightGreen
   States
   {
   Spawn:
-    PIPE A 4 Bright A_SpawnItem("GreenCorona",0,0,0)
-    goto spawn
+    PIPE A 34 Bright A_SpawnItem("GreenCorona",0,0,0)
+    loop
   }
 }
 
@@ -20,7 +20,7 @@ Actor GreenCorona : WhiteCorona
   States
   {
   Spawn:
-    WFLR B 5 Bright
+    WFLR B 35 Bright
     Stop
   }
 }
@@ -30,8 +30,8 @@ Actor LightPink : LightGreen
 States
   {
   Spawn:
-    PIPE A 4 Bright A_SpawnItem("PinkCorona",0,0,0)
-    goto spawn
+    PIPE A 34 Bright A_SpawnItem("PinkCorona",0,0,0)
+    loop
   }
 }
 
@@ -42,7 +42,7 @@ Actor PinkCorona : WhiteCorona
   States
   {
   Spawn:
-    WFLR C 5 Bright
+    WFLR C 35 Bright
     Stop
   }
 }
@@ -52,8 +52,8 @@ Actor LightBlue : LightGreen
 States
   {
   Spawn:
-    PIPE A 4 Bright A_SpawnItem("BlueCorona",0,0,0)
-    goto spawn
+    PIPE A 34 Bright A_SpawnItem("BlueCorona",0,0,0)
+    loop
   }
 }
 
@@ -64,7 +64,7 @@ Actor BlueCorona : WhiteCorona
   States
   {
   Spawn:
-    WFLR D 5 Bright
+    WFLR D 35 Bright
     Stop
   }
 }
@@ -74,8 +74,8 @@ Actor LightYellow : LightGreen
 States
   {
   Spawn:
-    PIPE A 4 Bright A_SpawnItem("YellowCorona",0,0,0)
-    goto spawn
+    PIPE A 34 Bright A_SpawnItem("YellowCorona",0,0,0)
+    loop
   }
 }
 
@@ -86,7 +86,7 @@ Actor YellowCorona : WhiteCorona
   States
   {
   Spawn:
-    WFLR E 5 Bright
+    WFLR E 35 Bright
     Stop
   }
 }
@@ -96,8 +96,8 @@ Actor LightRed : LightGreen
 States
   {
   Spawn:
-    PIPE A 4 Bright A_SpawnItem("RedCorona2",0,0,0)
-    goto spawn
+    PIPE A 34 Bright A_SpawnItem("RedCorona2",0,0,0)
+    loop
   }
 }
 
@@ -108,7 +108,7 @@ Actor RedCorona2 : WhiteCorona
   States
   {
   Spawn:
-    WFLR F 5 Bright
+    WFLR F 35 Bright
     Stop
   }
 }

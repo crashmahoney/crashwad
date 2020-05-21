@@ -281,6 +281,8 @@ DoomEdNums
 
 	13040	=	FogGreen
 	13041	=	FogRed
+	13042	=	Fog
+	13043	=	SteamSpawner
 
 	13050	=	LightCoronaGenerator
 	13051	=	RedCorona

@@ -172,7 +172,30 @@ material texture FLOOR4_8
     ao FLOOR4_o
 }
 
+material texture food1
+{
+    normal food1_n
+    specular food1_r
+    specularlevel 1.5
+    glossiness 1.5
+}
+
+material texture food2
+{
+    normal food2_n
+    specular food2_r
+    specularlevel 1.5
+    glossiness 1.5
+}
 //--------------------------------------------------------------------------G
+
+material texture galvmet1
+{
+    normal brass_n
+    metallic brass_m
+    roughness brass_o
+    ao brass_o
+}
 
 material GLASS
 {

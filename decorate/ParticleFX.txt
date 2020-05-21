@@ -412,3 +412,21 @@ BounceFactor 0.5
 
 
 }
+
+
+Actor SteamSpawner
+{
+	Radius 8
+	Height 16
+	
+	States
+	{
+	Spawn:
+	//	TNT1 A 1 A_CheckSight("Spawn")	// if no line of sight to a player, don't spawn particles
+		TNT1 A 8 A_SpawnItemEx("Fog",frandom(-3.0,3.0),frandom(-3.0,3.0),0,frandom(-0.2,1.0),frandom(-0.2,1.0),frandom(1.0,3.0),0,SXF_NOCHECKPOSITION,0,0)
+		Loop
+	}
+
+
+}
+

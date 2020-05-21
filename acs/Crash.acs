@@ -34,7 +34,7 @@ script "CrashPlayerRespawn" RESPAWN {
 //===============================================================
 //	Dynamic Difficulty
 //===============================================================
-
+/*
 
 script "PlayerGrade" ENTER {
 
@@ -52,7 +52,7 @@ script "PlayerGrade" ENTER {
 	Delay(1);
 	Restart;
 }
-
+*/
 
 //=============================================================================
 //	Level interactivity/destruction
@@ -160,7 +160,12 @@ ACS_NamedTerminate("EnterLadderSector", 0);
 script "BreakScreen" (int lineid) {
 	str texture[3] = {"DNSCRN17", "DNSCRN18", "DNSCRN19"};
 	int var0 = 0;
-	ThingSound(lineid,"break/glass",127);
+	SectorSound("break/glass",127);
+					// definition of these, cos it's hard to find online
+					//fixed GetLineX(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
+					//fixed GetLineY(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
+	SpawnForced("MapSpot",GetLineX(lineid,0.3,0),GetLineY(lineid,0.3,0),0,lineid,0); 
+	SpawnForced("MapSpot",GetLineX(lineid,0.6,0),GetLineY(lineid,0.6,0),0,lineid,0); 	
 		while(var0 < 3)
 		{
 			SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,texture[var0]);
