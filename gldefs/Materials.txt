@@ -175,7 +175,7 @@ material texture FLOOR4_8
 material texture food1
 {
     normal food1_n
-    specular food1_r
+    specular food1_s
     specularlevel 1.5
     glossiness 1.5
 }
@@ -183,7 +183,15 @@ material texture food1
 material texture food2
 {
     normal food2_n
-    specular food2_r
+    specular food2_s
+    specularlevel 1.5
+    glossiness 1.5
+}
+
+material texture food3
+{
+    normal food3_n
+    specular food3_s
     specularlevel 1.5
     glossiness 1.5
 }
@@ -250,6 +258,14 @@ material texture H2CARP3
     specular carpet_r
     specularlevel 0.4
     glossiness 0.1
+}
+
+material texture H2MARBLD
+{
+    normal Glass_n
+    specular MARBLE01
+    specularlevel 3.0
+    glossiness 3.0
 }
 
 material texture H2ROCK1
@@ -338,7 +354,6 @@ material texture Manhole1
     specular MANHOL_s
     specularlevel 1.0
     glossiness 1.0
-
 }
 
 material MANHA0
@@ -347,7 +362,14 @@ material MANHA0
     specular MANHOL_s
     specularlevel 1.0
     glossiness 1.0
+}
 
+material texture MARBLE01
+{
+    normal Glass_n
+    specular MARBLE01
+    specularlevel 3.0
+    glossiness 3.0
 }
 
 material texture METAL
@@ -356,6 +378,14 @@ material texture METAL
     specular carpet_r
     specularlevel 0.3
     glossiness 0.2
+}
+
+material texture MICROWAV
+{
+    normal Microw_n
+    specular Microw_s
+    specularlevel 3.0
+    glossiness 3.0
 }
 
 material texture MIDSPACE
@@ -771,6 +801,15 @@ material texture TTILFL02
 
 //--------------------------------------------------------------------------U
 //--------------------------------------------------------------------------V
+
+material texture VENT1
+{
+    normal DNVENT_n
+    metallic DNVENT_m
+    roughness DNVENT_r
+    ao DNVENT_o
+}
+
 //--------------------------------------------------------------------------W
 
 material texture WALL1
@@ -781,6 +820,13 @@ material texture WALL1
     ao wall1_o
 }
 
+material texture wood
+{
+    normal wood_n
+    specular wood_s
+    specularlevel 1.0
+    glossiness 0.5
+}
 //--------------------------------------------------------------------------X
 //--------------------------------------------------------------------------Y
 //--------------------------------------------------------------------------Z

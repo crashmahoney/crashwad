@@ -24,6 +24,11 @@ Actor GreenCorona : WhiteCorona
     Stop
   }
 }
+Actor GreenCoronaFaded : GreenCorona
+{
+  Alpha 0.1
+  Scale 0.8
+}
 
 Actor LightPink : LightGreen
 {

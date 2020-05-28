@@ -65,13 +65,13 @@ object FireGeneratorNoSmoke
 
 pointlight DeskLamp
 {
-   color 0.5 0.5 0.5
-   size 32
+   color 0.7 0.7 0.6
+   size 48
 }
 
 object DeskLamp
 {
-   frame DLMP {light DeskLamp}
+   frame DLMPA {light DeskLamp}
 }
 
 

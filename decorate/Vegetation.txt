@@ -1,6 +1,8 @@
 ACTOR GrassSpawn
    {
-      // args[0]=spawn area size X; args[1]=spawn area size Y, args[2]=density of tufts
+      //$arg0 spawn area size X
+	  //$arg1 spawn area size Y
+	  //$arg2 density of tufts
       Radius 8
       Scale 0.3
       States

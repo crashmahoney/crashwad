@@ -8,7 +8,7 @@ class IncreaseMonsterScale : EventHandler
 			// Make monsters slightly bigger to compensate for increased player view height
 			if (e.Thing.bIsMonster)
 			{
-				e.Thing.scale *= 1.15;
+				e.Thing.scale *= 1.2;
 			}
 		}
 	}
@@ -116,7 +116,7 @@ class ComputerText : Actor
 			frame = random(0,26);  // 65 = A, 90 = Z
 		}
 	Idle:
-		"####" "#" 4 A_SpawnItem("GreenCorona",0,0,0);
+		"####" "#" 34 A_SpawnItem("GreenCoronaFaded",0,0,0);
 		Loop;
 
 
@@ -131,7 +131,13 @@ class ComputerCursor : ComputerText
 States
 	{
 	Spawn:
-		CURS A 4 A_SpawnItem("GreenCorona",0,0,0);
+		CURS A 4 A_SpawnItem("GreenCoronaFaded",0,0,0);
+		CURS B 4;
+		CURS A 4;
+		CURS B 4;
+		CURS A 4;
+		CURS B 4;
+		CURS A 4;
 		CURS B 4;
 		Loop;
 	}

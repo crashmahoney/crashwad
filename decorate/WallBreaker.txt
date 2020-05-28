@@ -99,7 +99,7 @@ Obituary "$OB_BARREL" // "%o went boom."
 
 actor ManholeCover
 {
-	Health 200
+	Health 100
 	Radius 32
 	Height 2
 	+SOLID
@@ -116,12 +116,32 @@ actor ManholeCover
 	{
 		Spawn:
 			MANH A -1
-			Loop
+			Stop
 		Death:
             MANH B 3 A_Scream		
 			MANH A 0 A_SpawnDebris("ShrapnelCrash", 5,5)
 			Stop
 	
+	}
+
+}
+
+actor GlassFlat : ManholeCover
+{
+	Health 1
+	Alpha 0.2
+	+NOGRAVITY
+	DeathSound "break/glass"
+
+	States
+	{
+		Spawn:
+			GLAS A -1
+			Stop	
+		Death:
+            GLAS B 3 A_Scream		
+			GLAS A 0 A_SpawnDebris("GlassShrapnel",FALSE,2,2)
+			Stop			
 	}
 
 }

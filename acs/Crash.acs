@@ -22,8 +22,8 @@ function int abs (int x)
 //===============================================================
 script "CrashPlayerSetup" ENTER {
 	SetActorProperty(0, APROP_JUMPZ, 12.0);  			// player increased jump height
-	SetActorProperty(0, APROP_ViewHeight, 50.0);  		// player increased eye height (41 default)
-	SetActorProperty(0, APROP_AttackZOffset, 20.0);  	// player increased attack height
+	SetActorProperty(0, APROP_ViewHeight, 54.0);  		// player increased eye height (41 default)
+	SetActorProperty(0, APROP_AttackZOffset, 25.0);  	// player increased attack height
 	SetAirControl(0.6);
 }
 
@@ -108,26 +108,25 @@ script "BreakWall3d" (int id, int lastid, int time) {
 script "BreakGlass" (int lineid) {
 
 	str texture[7] = {"DNXGLS02", "DNXGLS03", "DNXGLS04", "DNXGLS05", "DNXGLS06", "DNXGLS07", "-"};
+	int pos[5] = {0.1,0.25,0.5,0.75,0.9};
 	int var0 = 0;
     Line_SetBlocking(lineid,0,BLOCKF_EVERYTHING|BLOCKF_CREATURES|BLOCKF_MONSTERS|BLOCKF_PLAYERS|BLOCKF_FLOATERS);
 	SectorSound("break/glass",127);
 					// definition of these, cos it's hard to find online
 					//fixed GetLineX(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
 					//fixed GetLineY(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
-	SpawnForced("MapSpot",GetLineX(lineid,0.3,0),GetLineY(lineid,0.3,0),0,lineid,0); 
-	SpawnForced("MapSpot",GetLineX(lineid,0.6,0),GetLineY(lineid,0.6,0),0,lineid,0); 
-	// SetActorPosition(lineid,GetActorX(lineid),GetActorY(lineid),GetActorFloorZ(lineid)+( (GetActorCeilingZ(lineid)-GetActorFloorZ(lineid)/2) ),0); // set map spot height to half of sector height
-
+			SpawnForced("MapSpot",GetLineX(lineid,0.25,0),GetLineY(lineid,0.25,0),0,lineid,0); 
 		while(var0 < 7)
 		{
 			SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,texture[var0]);
 			SetLineTexture(lineid,SIDE_BACK,TEXTURE_MIDDLE,texture[var0]);
 			 var0++;
-			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-			SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
-
-
+			for (int i = 0; i < 5; i++)
+				{
+				// set map spot to a position along the line, and spawn shrapnel there
+				SetActorPosition(lineid,GetLineX(lineid,pos[i],0),GetLineY(lineid,pos[i],0),GetActorZ(lineid) + random(0,32),0);
+				SpawnProjectile(lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0);
+				}
 		 	Delay(1);
 		}
 

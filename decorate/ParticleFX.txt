@@ -387,27 +387,37 @@ Height 1
 Health 4 //number of pieces to spawn when created with A_SpawnDebris
 Gravity 2
 Scale 0.5
-RenderStyle Translucent
+RenderStyle "Add"
 Alpha 0.7
 BounceType Grenade
 BounceFactor 0.5
++ROLLSPRITE
++FORCEXYBILLBOARD
 	States
 	{
 		Spawn:
-			GLsS A 0 A_Jump(256,"Frame1","Frame2","Frame3")
+			GLsS A 0 NoDelay {	A_SetRoll(random(0,359));
+								A_Jump(256,"Frame1","Frame2","Frame3");
+							 }
 
 		Frame1:
-			GLsS ABCABCABCABC 2
-			Goto Death
+			GLsS ABCABCABCABC 3
+			GLsS A -1
+			Stop
+//			Goto Death
 		Frame2:
-			GLsS BCABCABCABCA 2
-			Goto Death
+			GLsS BCABCABCABCA 3
+			GLsS B -1
+			Stop
+//			Goto Death
 		Frame3:
-			GLsS CABCABCABCAB 2
-			Goto Death
-		Death:
-    			"----" A 1 A_FadeOut(0.06)
-    			Wait
+			GLsS CABCABCABCAB 3
+			GLsS C -1
+			Stop
+//			Goto Death
+//		Death:
+//    			"----" A 1 A_FadeOut(0.06)
+ //   			Wait
 	}
 
 
@@ -416,14 +426,29 @@ BounceFactor 0.5
 
 Actor SteamSpawner
 {
+	//$arg0 spawn area mult /10
+	//$arg0default 10
+	//$arg1 speed mult /10
+	//$arg1default 10
+	//$arg2 tics between spawns
+	//$arg2default 8	
+	
 	Radius 8
 	Height 16
 	
 	States
 	{
 	Spawn:
-	//	TNT1 A 1 A_CheckSight("Spawn")	// if no line of sight to a player, don't spawn particles
-		TNT1 A 8 A_SpawnItemEx("Fog",frandom(-3.0,3.0),frandom(-3.0,3.0),0,frandom(-0.2,1.0),frandom(-0.2,1.0),frandom(1.0,3.0),0,SXF_NOCHECKPOSITION,0,0)
+		TNT1 A 8 {	A_SetTics(Args[2]);		
+					A_SpawnItemEx("Fog",
+								frandom(-3.0,3.0) * (Args[0] / 10.0),
+								frandom(-3.0,3.0) * (Args[0] / 10.0),
+								0,
+								frandom(-0.2,1.0) * (Args[1] / 10.0),
+								frandom(-0.2,1.0) * (Args[1] / 10.0),
+								frandom(1.0,3.0) * (Args[1] / 10.0),
+								0,SXF_NOCHECKPOSITION|SXF_TRANSFERSCALE|SXF_TRANSFERALPHA,0,0);
+				}
 		Loop
 	}
 

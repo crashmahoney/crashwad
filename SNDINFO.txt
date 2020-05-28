@@ -19,6 +19,10 @@ break/glass		glass		// duke3d glass breaking
 break/quake		quake		// earthquake
 bigsplash		bigsplash	// big splashing noise
 crash/ding		ding		// elevator ding
+crash/bell		bell		// bell ding
+
+switch/lampon	switchon
+switch/lampoff	switchoff
 
 DSCHAFIR 		DSCHAFIR	// fire
 ambient/teleporter	tele		// teleporter hum

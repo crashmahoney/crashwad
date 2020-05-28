@@ -52,4 +52,31 @@ Actor LampPost : ContainerBlue1
 {
 	Radius 8
 	Height 232
+	
+	States
+	{
+		Spawn:
+		PIPE A 70 A_SpawnItem("LampPostGlow",65,92,0)
+		loop
+	}
+
+}
+
+Actor LampPostGlow
+{
+	Radius 32
+	Height 200
+	
+	+NOGRAVITY
+	+NOINTERACTION
+	RenderStyle "Add"
+	Alpha 0.2
+	States
+	{
+		Spawn:
+		LITE A 71 Bright
+		stop
+	}
+
+
 }
