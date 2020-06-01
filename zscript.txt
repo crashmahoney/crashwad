@@ -1,5 +1,9 @@
 version "4.2"
 #include "zscript/Dynamic Difficulty.zs"
+#include "zscript/c_player.zs"
+#include "zscript/c_weapon_base.zs"
+#include "zscript/c_weapon_pistol.zs"
+#include "zscript/c_monster_base.zs"
 
 class IncreaseMonsterScale : EventHandler
 	{
@@ -113,7 +117,11 @@ class ComputerText : Actor
 	Spawn:
 		FONT A 0 NoDelay
 		{
-			frame = random(0,26);  // 65 = A, 90 = Z
+			frame = tid - 9000;
+			if (tid == 255)
+			{
+				frame = random(0,26);  // 65 = A, 90 = Z
+			}
 		}
 	Idle:
 		"####" "#" 34 A_SpawnItem("GreenCoronaFaded",0,0,0);
@@ -387,5 +395,14 @@ Default
 
 }
 
+class Smoulder : Fog
+{
+Default
+	{
+	Alpha 0.5;
+	Scale 0.07;	
+	}
+	
 
+}
 

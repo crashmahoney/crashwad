@@ -24,6 +24,9 @@ crash/bell		bell		// bell ding
 switch/lampon	switchon
 switch/lampoff	switchoff
 
+taser/tasshot	tasshot
+taser/zap1		zap1
+
 DSCHAFIR 		DSCHAFIR	// fire
 ambient/teleporter	tele		// teleporter hum
 ambient/alarm		ALARM		// emergency alarm

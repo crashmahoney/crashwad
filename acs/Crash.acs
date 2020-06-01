@@ -34,25 +34,28 @@ script "CrashPlayerRespawn" RESPAWN {
 //===============================================================
 //	Dynamic Difficulty
 //===============================================================
-/*
+
 
 script "PlayerGrade" ENTER {
 
 // debug display
-	HudMessage(s:"     grade ", d:GetCVar("player_grade"),
-			 s:"\n    damage ", f:GetActorProperty(0, APROP_DamageFactor),
-			 s:"\n    deaths ", d:GetCVar("crash_deaths"),
-			 s:"\n    spawns ", d:GetCVar("spawn_level");
-						HUDMSG_PLAIN | HUDMSG_LAYER_UNDERHUD,	// type
-						1,										// id
-						CR_PURPLE,								// colour
-						-0.6, 0.0,								// x,y
-						0);										// time
-
+	
+	if ( GetCVar("crash_debug") != 0 )
+	{
+		HudMessage(s:"     grade ", d:GetCVar("player_grade"),
+				s:"\n    damage ", f:GetActorProperty(0, APROP_DamageFactor),
+				s:"\n    deaths ", d:GetCVar("crash_deaths"),
+				s:"\n    spawns ", d:GetCVar("spawn_level");
+							HUDMSG_PLAIN | HUDMSG_LAYER_UNDERHUD,	// type
+							1,										// id
+							CR_PURPLE,								// colour
+							-0.6, 0.0,								// x,y
+							0);										// time
+	}
 	Delay(1);
 	Restart;
 }
-*/
+
 
 //=============================================================================
 //	Level interactivity/destruction

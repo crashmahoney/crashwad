@@ -56,8 +56,10 @@ Actor LampPost : ContainerBlue1
 	States
 	{
 		Spawn:
+		PIPE A 1
+		PIPE A 1 A_SpawnItem("InvisibleBridge16",58,244,0)
 		PIPE A 70 A_SpawnItem("LampPostGlow",65,92,0)
-		loop
+		wait
 	}
 
 }

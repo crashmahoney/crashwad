@@ -7,6 +7,7 @@ defaultmap
 
 gameinfo
 {
+	playerclasses = "CrashPlayer"
 	AddEventHandlers = "IncreaseMonsterScale", "WaterHandler","DynamicDifficulty"
 	PrecacheSounds = "break/vent", "break/glass"
 }
@@ -221,6 +222,10 @@ map MAP02 "Do You Even Lift, Bro?"
 
 DoomEdNums
 {
+	//67		=	CrashFatso
+	//3001	=	CrashImp
+	//3002	=	CrashDemon
+	
 	3141	=	ExplosionCrash			// Spawnable Explosion
 
 	10077	=	Aracnorb				// enemy
@@ -231,6 +236,7 @@ DoomEdNums
 	11002	=	GrassSpawnDead
 	11003	=	SkyViewTID				// skybox viewpoint that changed it's tid after level start
 	11004	=	SkyVPTrain
+	11010	=	TaserPistol
 
 	12450	=	SeaWeed
 	12451	=	Bush1
