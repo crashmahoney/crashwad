@@ -26,6 +26,7 @@ switch/lampoff	switchoff
 
 taser/tasshot	tasshot
 taser/zap1		zap1
+taser/zapsmall		zapsmall
 
 DSCHAFIR 		DSCHAFIR	// fire
 ambient/teleporter	tele		// teleporter hum

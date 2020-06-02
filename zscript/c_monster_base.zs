@@ -17,6 +17,7 @@ mixin class CrashMonsterBase
 		if ( PoisonDamageReceived > 0 && PoisonDamageTypeReceived == "Electric" )
 		{
 			zap_timer --;
+			self.PainChance = 200;
 			
 			if ( zap_timer <= 0 )
 			{
@@ -39,10 +40,10 @@ mixin class CrashMonsterBase
 				A_SpawnItemEx( "Smoulder",
 								frandom( -3.0, 3.0 ),
 								frandom( -3.0, 3.0 ),
-								0,
-								frandom( -0.2, 1.0 ),
-								frandom( -0.2, 1.0 ),
-								frandom( 0.5, 1.5 ),
+								4.0,
+								frandom( -0.4, 0.4 ),
+								frandom( -0.4, 0.4 ),
+								frandom( 0.6, 0.8 ),
 								0,SXF_NOCHECKPOSITION,0,0);
 			}
 		}

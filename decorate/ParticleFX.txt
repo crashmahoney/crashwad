@@ -422,36 +422,3 @@ BounceFactor 0.5
 
 
 }
-
-
-Actor SteamSpawner
-{
-	//$arg0 spawn area mult /10
-	//$arg0default 10
-	//$arg1 speed mult /10
-	//$arg1default 10
-	//$arg2 tics between spawns
-	//$arg2default 8	
-	
-	Radius 8
-	Height 16
-	
-	States
-	{
-	Spawn:
-		TNT1 A 8 {	A_SetTics(Args[2]);		
-					A_SpawnItemEx("Fog",
-								frandom(-3.0,3.0) * (Args[0] / 10.0),
-								frandom(-3.0,3.0) * (Args[0] / 10.0),
-								0,
-								frandom(-0.2,1.0) * (Args[1] / 10.0),
-								frandom(-0.2,1.0) * (Args[1] / 10.0),
-								frandom(1.0,3.0) * (Args[1] / 10.0),
-								0,SXF_NOCHECKPOSITION|SXF_TRANSFERSCALE|SXF_TRANSFERALPHA,0,0);
-				}
-		Loop
-	}
-
-
-}
-

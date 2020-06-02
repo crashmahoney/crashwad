@@ -4,6 +4,7 @@ version "4.2"
 #include "zscript/c_weapon_base.zs"
 #include "zscript/c_weapon_pistol.zs"
 #include "zscript/c_monster_base.zs"
+#include "zscript/c_particles.zs"
 
 class IncreaseMonsterScale : EventHandler
 	{
@@ -359,50 +360,6 @@ class SkyVPTrain : SkyViewPoint
 
         Super.Tick();
     }
-
-}
-
-class Fog : Actor
-{
-Default
-	{
-	Radius 32;
-	Height 64;
-	RenderStyle "Add";
-	Alpha 0.4;
-	+NOINTERACTION;
-	+FORCEXYBILLBOARD;
-	+ROLLSPRITE;
-	+ROLLCENTER;
-	}
-	
-	States
-	{
-		Spawn:
-			FOGW A 0 NoDelay {	self.roll = random(0,359);
-								A_SetScale(frandom(0.1,0.2));
-								A_FadeOut(frandom(0.0,0.2));
-
-							}
-
-		Roll:
-			FOGW A 1 {	A_SetRoll(self.roll + 1,SPF_INTERPOLATE);
-						A_SetScale(scale.x + 0.005);
-						A_FadeOut(0.005);
-					}
-			Loop;
-	}
-
-}
-
-class Smoulder : Fog
-{
-Default
-	{
-	Alpha 0.5;
-	Scale 0.07;	
-	}
-	
 
 }
 

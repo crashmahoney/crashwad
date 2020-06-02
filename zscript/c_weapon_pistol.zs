@@ -84,18 +84,18 @@ class TaserProjectile : FastProjectile
 	Crash:
 		PUFF A 0 
 		{
-			A_StartSound("weapons/pistol/hitwall", CHAN_BODY, frandom(0.5,1.0));
+			A_StartSound("taser/zapsmall", CHAN_BODY, frandom(0.5,1.0));
 			
 			// GROSS hack to activate hitscan impact triggers
 			A_CustomBulletAttack (0, 0, 1, 0, "Actor", 4, CBAF_AIMFACING|CBAF_NOPITCH|CBAF_NORANDOM, AAPTR_TARGET, null, 0, 0);
 			A_SprayDecal("BulletChip",4);
 		}
-		PUFF A 2 BRIGHT A_SpawnDebris("PistolTracerSpark");
+		PUFF A 2 BRIGHT A_SpawnDebris("ZappySmall");
 		PUFF B 2 BRIGHT A_SetTranslucent(0.9,0);
 		PUFF CD 2 BRIGHT;
 		Stop;
 	XDeath:
-		TNT1 A 3 A_StartSound("weapons/pistol/hit");
+		TNT1 A 3 A_StartSound("taser/zapsmall");
 		Stop;
 	}
 }
@@ -146,7 +146,7 @@ class MetaZappy : Actor
 		Projectile;
 		+RANDOMIZE
 		//+NOCLIP
-		+MISSILE
+		+BLOODSPLATTER;
 		+CLIENTSIDEONLY
 		+FORCEXYBILLBOARD
 		+ROLLSPRITE
@@ -170,4 +170,22 @@ class MetaZappy : Actor
 		}
 		loop;
 	}
+}
+
+class ZappySmall :MetaZappy
+{
+	Default
+	{
+		Scale 0.1;
+		Damage 0;
+		Health 4;
+		Radius 3;
+		Height 6;
+		Mass 0;
+		-NOGRAVITY
+		+doombounce
+		+FLOORCLIP
+		+DONTSPLASH
+	}
+
 }
