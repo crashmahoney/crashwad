@@ -19,7 +19,7 @@ class DynamicDifficulty : EventHandler
 	DifficultyData diff;
 
 
-//----------------------------------------------------------------
+//--------------------------------------------------------------
 	const GRADE_DELAY			= 1;			// number of tics between running this script
 	const GRADE_HPLOSS_MULT		= 200;			// health lost * this amount is subtracted from grade
 	const GRADE_KILLS_MULT		= 1000;		// each monster killed adds this much to grade

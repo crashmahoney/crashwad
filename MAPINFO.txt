@@ -312,6 +312,10 @@ DoomEdNums
 	13071	=	ContainerRed1
 	13072	=	ContainerRed2
 	13073	=	LampPost
+	13074	=	Toilet
+	13075	=	Chair1
+	13076	=	VendingMachine1
+	13077	=	Chair2
 
 // actors in this range are overwritten by DoomRPG actors and need changing
 	20000	=	WallBreaker				// actor that dies from explosions

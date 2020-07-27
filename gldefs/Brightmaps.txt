@@ -3,7 +3,10 @@
 // i use for more than one texture, so the game obviously won't do them
 // automatically, so they're here!
 
-
+brightmap texture COLA1
+{
+	map "textures/COLA1.png"
+}
 
 brightmap texture DNSCRN06
 {

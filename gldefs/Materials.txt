@@ -64,6 +64,14 @@ material texture bumpsy_d
 
 //--------------------------------------------------------------------------C
 
+material texture CARPRED
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
+
 material texture CEIL4_1
 {
     normal carpet_n

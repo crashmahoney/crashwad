@@ -339,3 +339,18 @@ Object GreyLamp
 {
 Frame GLMP { Light GreyLamp }
 }
+
+
+
+pointlight VEND1
+{
+    color 0.3 0.9 0.0
+    size 72
+    attenuate 1
+	Offset 48 64 0
+}
+
+Object VendingMachine1
+{
+Frame PLAY { Light VEND1 }
+}
