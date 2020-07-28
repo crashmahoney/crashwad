@@ -1,5 +1,14 @@
 //--------------------------------------------------------------------------A
 //--------------------------------------------------------------------------B
+Model BedH1
+{
+	Model 0 "models/BedH1.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
 //--------------------------------------------------------------------------C
 Model CaveLadder1
 {
@@ -16,7 +25,7 @@ Model Chair1
 {
 	Path "models"
 	Model 0 "chair1.obj"
-	Scale 1 1 0.8
+	Scale 1 1 1
 
 	USEACTORPITCH
 	USEACTORROLL
@@ -28,7 +37,7 @@ Model Chair2
 {
 	Path "models"
 	Model 0 "chair2.obj"
-	Scale 1 1 0.8
+	Scale 1 1 1
 
 	USEACTORPITCH
 	USEACTORROLL
@@ -112,7 +121,7 @@ Model CPU_In
    Model 0 "cpu.md3"
    Skin 0 "cpu.tga"
    Scale 1.0 1.0 1.0
-   inheritactorpitch
+   useactorpitch
 
    FrameIndex CPU1 A 0 0
 }
@@ -145,6 +154,16 @@ Model Crane2
 //--------------------------------------------------------------------------G
 //--------------------------------------------------------------------------H
 //--------------------------------------------------------------------------I
+
+Model IVStand
+{
+	Model 0 "models/IVStand.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
 //--------------------------------------------------------------------------J
 //--------------------------------------------------------------------------K
 //--------------------------------------------------------------------------L
@@ -167,8 +186,8 @@ Model LightBlue
    Model 0 "light.md3"
    Skin 0 "lightb.tga"
    Scale 1 1 1
-   inheritactorpitch
-   inheritactorroll
+   useactorpitch
+   useactorroll
 
    FrameIndex PIPE A 0 0
 }
@@ -179,8 +198,8 @@ Model LightGreen
    Model 0 "light.md3"
    Skin 0 "lightg.tga"
    Scale 1 1 1
-   inheritactorpitch
-   inheritactorroll
+   useactorpitch
+   useactorroll
 
    FrameIndex PIPE A 0 0
 }
@@ -191,8 +210,8 @@ Model LightPink
    Model 0 "light.md3"
    Skin 0 "lightp.tga"
    Scale 1 1 1
-   inheritactorpitch
-   inheritactorroll
+   useactorpitch
+   useactorroll
 
    FrameIndex PIPE A 0 0
 }
@@ -203,8 +222,8 @@ Model LightRed
    Model 0 "light.md3"
    Skin 0 "lightr.tga"
    Scale 1 1 1
-   inheritactorpitch
-   inheritactorroll
+   useactorpitch
+   useactorroll
 
    FrameIndex PIPE A 0 0
 }
@@ -215,8 +234,8 @@ Model LightYellow
    Model 0 "light.md3"
    Skin 0 "lighty.tga"
    Scale 1 1 1
-   inheritactorpitch
-   inheritactorroll
+   useactorpitch
+   useactorroll
 
    FrameIndex PIPE A 0 0
 }
@@ -241,7 +260,7 @@ Model PipeSide
    Model 0 "pipestra.md3"
    Skin 0 "torch.tga"
    Scale 1.0 1.0 1.0
-   inheritactorpitch
+   useactorpitch
 
    FrameIndex PIPE A 0 0
 }
@@ -252,7 +271,7 @@ Model PipeUp
    Model 0 "pipestra.md3"
    Skin 0 "torch.tga"
    Scale 1.0 1.0 1.0
-   inheritactorpitch
+   useactorpitch
 
    FrameIndex PIPE A 0 0
 }
@@ -279,7 +298,8 @@ Model Toilet
 	Scale 0.8 0.8 0.8
 	USEACTORPITCH
 	USEACTORROLL
-   
+	Scale 1.05 1.05 1.0
+
 	FrameIndex PLAY A 0 0
 }
 

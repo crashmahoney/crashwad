@@ -16,7 +16,7 @@ class IncreaseMonsterScale : EventHandler
 			// Make monsters slightly bigger to compensate for increased player view height
 			if (e.Thing.bIsMonster)
 			{
-				e.Thing.scale *= 1.2;
+				e.Thing.scale *= 1.3;
 			}
 		}
 	}

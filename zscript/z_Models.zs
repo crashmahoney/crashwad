@@ -20,6 +20,23 @@ Class SolidModelBase : Actor {
 }
 //=======================================================
 
+Class BedH1 : SolidModelBase {
+	Default {
+		Radius 33;
+		Height 37;
+		
+		-NODAMAGETHRUST
+
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+//=======================================================
+
 Class Chair1 : SolidModelBase {
 	Default {
 		Radius 34;
@@ -40,6 +57,24 @@ Class Chair2 : Chair1 {
 	Default {
 		Radius 34;
 		Height 24;
+		
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+
+//=======================================================
+
+
+Class IVStand : SolidModelBase {
+	Default {
+		Radius 8;
+		Height 64;
+		RenderStyle "Translucent";
 		
 	}
 
