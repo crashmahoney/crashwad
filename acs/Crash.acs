@@ -14,7 +14,22 @@ function int abs (int x)
 
     return x;
 }
+// return the least of two parameters
+function int min (int a, int b)
+{
+	if (a < b)
+		return a;
 
+	return b;
+}
+// return the greatest of two parameters
+function int max (int a, int b)
+{
+	if (a > b)
+		return a;
+
+	return b;
+}
 
 
 //===============================================================
@@ -119,6 +134,7 @@ script "BreakGlass" (int lineid) {
 					//fixed GetLineY(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
 	SpawnForced( "MapSpot", GetLineX(lineid,0.5,0), GetLineY(lineid,0.5,0), 0, lineid, 0 ); 
 	PlaySound( lineid, "break/glass", 4, 1.0 );
+	SetLineActivation(lineid,0);						// remove activation from all lines with tag
 
 		while(var0 < 7)
 		{

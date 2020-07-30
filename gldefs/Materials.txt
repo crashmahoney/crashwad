@@ -4,14 +4,25 @@
 
 //--------------------------------------------------------------------------A
 //--------------------------------------------------------------------------B
-
+material texture "BIGDOOR1"
+{
+	shader "shaders/displacement.fp"
+	normal "textures/normals/BIGDO1_n.png"
+	specular "textures/normals/BIGDO1_s.png"
+	texture displacement "textures/normals/BIGDO1_h.png"
+	glossiness 10.0
+	specularlevel 0.5
+}
 
 material texture binlid_d
 {
-    normal binlid_n
-    metallic binlid_m
-    roughness binlid_r
-    ao binlid_o
+//	shader 					"shaders/displacement.fp"
+    normal 					binlid_n
+    metallic 				binlid_m
+    roughness 				binlid_r
+    ao 						binlid_o
+//	texture displacement 	"textures/normals/binlid_h.png"
+
 }
 
 material texture binsid_d
@@ -103,7 +114,7 @@ material texture cubdor_d
     roughness cubdor_r
     ao cubdor_o
 }
-
+/*
 material texture curtn_d
 {
     normal curtn_n
@@ -111,7 +122,16 @@ material texture curtn_d
     roughness curtn_r
     ao curtn_o
 }
-
+*/
+material texture "curtn_d"
+{
+	//shader "shaders/displacement.fp"
+	normal "textures/normals/curtn_n.png"
+	specular "textures/normals/curtn_r.png"
+	//texture displacement "textures/normals/curtn_h.png"
+	glossiness 10.0
+	specularlevel 0.5
+}
 //--------------------------------------------------------------------------D
 material texture DIRT3
 {
@@ -158,10 +178,13 @@ material texture Flatred
 
 material texture Flatwhi
 {
-    normal til128_n
-    metallic til128_m
-    roughness til128_r
-    ao til128_o
+	normal til128_n
+	metallic til128_m
+	roughness til128_r
+	ao til128_o
+	//shader 					"shaders/para_pbr.fp"
+	//texture displacement 	"textures/normals/til128_h.png"
+	
 }
 
 material texture Flatyell
@@ -280,6 +303,8 @@ material texture H2ROCK1
 {
     normal h2roc1_n
     specular h2roc1_s
+	shader 					"shaders/displacement.fp"
+	texture displacement 	"textures/normals/h2roc1_h.png"
     specularlevel 1.0
     glossiness 1.0
 }
@@ -289,6 +314,8 @@ material texture H2ROCK3
 {
     normal h2roc3_n
     specular h2roc3_s
+	shader 					"shaders/displacement.fp"
+	texture displacement 	"textures/normals/h2roc3_h.png"
     specularlevel 1.0
     glossiness 1.0
 }
@@ -657,10 +684,12 @@ material texture TBRIWL16
 
 material texture TCEMWL01
 {
-    normal carpet_n
-    metallic carpet_m
-    roughness carpet_r
-    ao carpet_o
+    normal tcemw1_n
+    specular tcemw1_s
+	shader 					"shaders/displacement.fp"
+	texture displacement 	"textures/normals/tcemw1_h.png"
+    specularlevel 0.3
+    glossiness 0.1
 }
 
 material texture TCEMWL14
@@ -826,6 +855,29 @@ material texture WALL1
     metallic wall1_m
     roughness wall1_r
     ao wall1_o
+}
+
+
+material texture "windows3"
+{
+	normal 					"textures/normals/windo3_n.png"
+	specular 				"textures/normals/windo3_s.png"
+	shader 					"shaders/displacement.fp"
+	texture displacement 	"textures/normals/windo3_h.png"
+	brightmap				"materials/brightmaps/auto/windows2.png"
+	glossiness 10.0
+	specularlevel 0.5
+}
+
+material texture "WINDOWE3"
+{
+	normal 					"textures/normals/windo3_n.png"
+	specular 				"textures/normals/windo3_s.png"
+	shader 					"shaders/displacement.fp"
+	texture displacement 	"textures/normals/wind3e_h.png"
+	brightmap				"materials/brightmaps/auto/windows2.png"
+	glossiness 10.0
+	specularlevel 0.5
 }
 
 material texture wood
