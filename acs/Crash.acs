@@ -1,6 +1,7 @@
 #library "Crash"
 #include "zcommon.acs"
 
+global int 0: lightanimtablebuffer[];
 
 //===============================================================
 //	functions
@@ -252,3 +253,92 @@ script 1000 ENTER
 }
 
 */
+
+
+
+//=============================================================================
+//	Scripted animation of neon lights
+//=============================================================================
+
+// where things are located in sequence header
+#define FRAME_SIZE		0
+#define FRAME_AMOUNT	1
+#define LIGHT_ON_SPEED	2
+#define LIGHT_OFF_SPEED	3
+#define DELAY_MULT		4
+#define ADDITIVE		5
+#define FIRST_FRAME		6
+
+
+script "NeonAnimationSequence" (int firsttag) {
+	int delaytime = 0;
+	int animpos = FIRST_FRAME;
+	int lightstate[20] = {};
+	int lightlevel[20] = {};
+	int lightanimtable[200];
+
+	
+		for ( int element; element <= 200; element++ )
+		{
+			lightanimtable[element] = lightanimtablebuffer[element];
+		}
+	
+// run animation sequence
+
+	while (1)
+	{
+
+		if (delaytime == 0)
+		{
+			// loop through each element in frame
+
+			for ( int i = 0; i < lightanimtable[FRAME_SIZE] - 1; i++ )
+			{
+				// set new state of light
+
+				lightstate[i] = lightanimtable[animpos];
+				animpos ++;
+			}
+
+		// set delay time
+
+		delaytime = (lightanimtable[animpos] * lightanimtable[DELAY_MULT]);
+		animpos ++;
+
+			// if at end of sequence, set postition back to start
+
+			if (animpos >= FIRST_FRAME + lightanimtable[FRAME_AMOUNT] * lightanimtable[FRAME_SIZE])
+			{
+				animpos = FIRST_FRAME;
+			}
+		}
+		else
+		{
+			delaytime --;
+		}
+
+
+
+	// set light transparency values
+		for ( int j = 0; j < lightanimtable[FRAME_SIZE] - 1; j++ )
+		{
+
+			if (lightstate[j] == 0)
+			{
+				lightlevel[j] = max(lightlevel[j] - lightanimtable[LIGHT_OFF_SPEED], 0);
+			}
+			else
+			{
+				lightlevel[j] = min(lightlevel[j] + lightanimtable[LIGHT_ON_SPEED], 255);
+			}
+
+		TranslucentLine(firsttag + j,lightlevel[j], lightanimtable[ADDITIVE]);
+
+		}
+
+		Delay(1);
+	}
+}
+
+
+
