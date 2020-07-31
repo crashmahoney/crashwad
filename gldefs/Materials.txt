@@ -688,8 +688,8 @@ material texture TCEMWL01
     specular tcemw1_s
 	shader 					"shaders/displacement.fp"
 	texture displacement 	"textures/normals/tcemw1_h.png"
-    specularlevel 0.3
-    glossiness 0.1
+    specularlevel -1
+    glossiness 0.0
 }
 
 material texture TCEMWL14
@@ -857,6 +857,16 @@ material texture WALL1
     ao wall1_o
 }
 
+material texture "windows1"
+{
+	normal 					"textures/normals/carpet_n.png"
+	specular 				"textures/normals/carpet_r.png"
+	shader 					"shaders/displacement.fp"
+	texture displacement 	"textures/normals/windo1_h.png"
+	brightmap				"materials/brightmaps/auto/windows1.png"
+	glossiness 10.0
+	specularlevel 0.1
+}
 
 material texture "windows3"
 {
@@ -866,7 +876,7 @@ material texture "windows3"
 	texture displacement 	"textures/normals/windo3_h.png"
 	brightmap				"materials/brightmaps/auto/windows2.png"
 	glossiness 10.0
-	specularlevel 0.5
+	specularlevel 0.1
 }
 
 material texture "WINDOWE3"
@@ -877,7 +887,7 @@ material texture "WINDOWE3"
 	texture displacement 	"textures/normals/wind3e_h.png"
 	brightmap				"materials/brightmaps/auto/windows2.png"
 	glossiness 10.0
-	specularlevel 0.5
+	specularlevel 0.1
 }
 
 material texture wood
