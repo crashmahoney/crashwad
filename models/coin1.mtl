@@ -1,0 +1,14 @@
+# Blender MTL File: 'coinv002.blend'
+# Material Count: 1
+
+newmtl COIN1
+Ns 380.249972
+Ka 0.881818 0.881818 0.881818
+Kd 0.800000 0.800000 0.800000
+Ks 0.659091 0.659091 0.659091
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd D:\\Games\\Doom\\crashwad\\textures\\skins\\coin1.png
+map_d D:\\Games\\Doom\\crashwad\\textures\\skins\\coin1.png

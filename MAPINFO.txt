@@ -286,6 +286,8 @@ DoomEdNums
 	13031	=	PipeSide
 	13032	=	PipeBendUp
 	13033	=	DingBell
+	13034	=	Cash
+	13035	=	NoteBundle
 
 	13040	=	FogGreen
 	13041	=	FogRed

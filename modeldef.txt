@@ -45,6 +45,20 @@ Model Chair2
 	FrameIndex PLAY A 0 0
 }
 
+Model Cash
+{
+	Path "models"
+	Model 0 "coin1.obj"
+	Scale 2.5 2.5 8.0
+	ZOffset 0.0
+
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex COIN A 0 0
+}
+
 Model ContainerBlue1
 {
 	Path "models"
@@ -242,6 +256,19 @@ Model LightYellow
 
 //--------------------------------------------------------------------------M
 //--------------------------------------------------------------------------N
+Model NoteBundle
+{
+	Path "models"
+	Model 0 "notebundle.obj"
+	Scale 2.5 2.5 2.5
+	ZOffset 0.0
+
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex PIPE A 0 0
+}
 //--------------------------------------------------------------------------O
 //--------------------------------------------------------------------------P
 Model PipeBendUp

@@ -98,7 +98,25 @@ material texture cemwa1_d
     roughness cemwa1_r
     ao cemwa1_o
 }
-
+/*
+material texture Coin1
+{
+    normal Coin1_n
+    metallic brass_m
+    roughness brass_o
+    ao coin1_o
+}
+*/
+material texture Coin1
+{
+    normal Coin1_n
+    specular coin1_o
+    specularlevel 50.0
+    glossiness 50.0
+	//shader "shaders/displacement.fp"
+	//texture displacement coin1_h	
+}
+	
 material texture COMP1
 {
     normal carpet_n
@@ -114,7 +132,7 @@ material texture cubdor_d
     roughness cubdor_r
     ao cubdor_o
 }
-/*
+
 material texture curtn_d
 {
     normal curtn_n
@@ -122,7 +140,7 @@ material texture curtn_d
     roughness curtn_r
     ao curtn_o
 }
-*/
+/*
 material texture "curtn_d"
 {
 	//shader "shaders/displacement.fp"
@@ -131,7 +149,7 @@ material texture "curtn_d"
 	//texture displacement "textures/normals/curtn_h.png"
 	glossiness 10.0
 	specularlevel 0.5
-}
+}*/
 //--------------------------------------------------------------------------D
 material texture DIRT3
 {
@@ -666,7 +684,7 @@ material texture TBRIWL10
 {
     normal BRKWA1_n
     specular BRKWA1_r
-    specularlevel 0.5
+    specularlevel 0.2
     glossiness 0.2
 
   //  metallic BRKWA1_m
@@ -678,7 +696,7 @@ material texture TBRIWL16
 {
     normal BRKWA1_n
     specular BRKWA1_r
-    specularlevel 0.5
+    specularlevel 0.2
     glossiness 0.2
 }
 

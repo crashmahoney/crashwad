@@ -5,6 +5,7 @@ version "4.2"
 #include "zscript/c_weapon_pistol.zs"
 #include "zscript/c_monster_base.zs"*/
 #include "zscript/c_particles.zs"
+#include "zscript/c_money.zs"
 
 #include "zscript/z_Models.zs"
 
@@ -172,6 +173,7 @@ States
 // Modified again by Crash ;)
 class Physics play
 {
+/*
     static void AlignToSlope(Actor self, double dAng, double dPitch)
     {
         vector3 fNormal = self.CurSector.FloorPlane.Normal;
@@ -182,6 +184,20 @@ class Physics play
         self.Pitch = fPitch;
         self.Angle = fAng;
 		self.Roll = dAng;
+    }
+*/
+	static void AlignToSlope(Actor self, double dAng, double dPitch)
+    {
+        vector3 fNormal = self.CurSector.FloorPlane.Normal;
+        vector2 fNormalP1 = (fNormal.X != 0 || fNormal.Y != 0) ? (fNormal.X, fNormal.Y).Unit() : (0, 0);
+        vector2 fNormalP2 = ((fNormal.X, fNormal.Y).Length(), fNormal.Z);
+        double fAng = atan2(fNormalP1.Y, fNormalP1.X); // floor angle (not pitch!)
+        double fPitch = -atan2(fNormalP2.X, fNormalP2.Y); // floor pitch
+        double dDiff1 = sin(fAng - (dAng + dPitch));
+        double dDiff2 = cos(fAng - dAng);
+        self.Pitch = fPitch * dDiff2 + dPitch;
+        self.Roll = fPitch * dDiff1;
+        self.Angle = dAng;
     }
 
     static void AlignToSlopeCeiling(Actor self, double dAng, double dPitch)
