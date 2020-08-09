@@ -51,8 +51,45 @@ mixin class CrashMonsterBase
 		Super.Tick();
 	}
 	
+	static void SpawnCash(Actor self, string spawnclass)
+	{
+		actor child = actor.Spawn( spawnclass, (self.pos.x, self.pos.y, self.pos.z + 24), NO_REPLACE );
+		child.Angle = self.angle;
+		child.vel.x = frandom(-3.0, 3.0);
+		child.vel.y = frandom(-3.0, 3.0);
+		child.vel.z = frandom(5.0, 10.0);
+	}
 	
-	
+	override void Die(Actor source, Actor inflictor, int dmgflags)
+	{
+
+		switch (random(0,19))
+		{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			SpawnCash(self, "Cash");
+			break;
+		case 10:
+		case 11:
+		case 12:
+			SpawnCash(self, "Cash");
+			SpawnCash(self, "Cash");
+			break;
+		case 19:
+			SpawnCash(self, "NoteBundle");
+			break;
+		default:
+			break;		
+		}
+
+		Super.Die(source, inflictor, dmgflags);
+
+	}
 	
 }
 

@@ -1,9 +1,9 @@
 version "4.2"
 #include "zscript/Dynamic Difficulty.zs"
-/*#include "zscript/c_player.zs"
+#include "zscript/c_player.zs"
 #include "zscript/c_weapon_base.zs"
 #include "zscript/c_weapon_pistol.zs"
-#include "zscript/c_monster_base.zs"*/
+#include "zscript/c_monster_base.zs"
 #include "zscript/c_particles.zs"
 #include "zscript/c_money.zs"
 

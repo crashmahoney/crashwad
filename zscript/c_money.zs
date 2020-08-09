@@ -5,9 +5,10 @@ class Cash : Inventory
 	Default
 	{
 		Radius 8;
-		Height 8;
+		Height 20;
 		Inventory.Amount 1;
 		Inventory.MaxAmount 20000;
+		Inventory.InterHubAmount 20000;
 		+INVENTORY.INVBAR
 		Inventory.Icon "COINA0";
 		Inventory.PickupMessage "Picked up 1 dollar";
@@ -19,13 +20,29 @@ class Cash : Inventory
 	int cointoss;
 	int groundtime;
     bool bSloped;
-
+	PlayerPawn target;
 
 	override void PostBeginPlay()
 		{
 	//	angle = random(0,359);
 		cointoss = random(0,1);		
+		
+	// Iterate through all of the possible players in the game
+        for (int i = 0; i < MAXPLAYERS; i++)
+        {
+            // If a player is in the game and has spawned...
+            if (playeringame[i] && players[i].mo)
+            {
+                if (!target) { target = players[i].mo; } 	// Set the skybox to follow the first player who is in the game
+                else { target = null; break; } 			// If there are multiple players, don't move the skybox
+            }
+        }
+		
+		
+		
 		Super.PostBeginPlay();
+		
+	
 		}
 
 
@@ -57,7 +74,15 @@ class Cash : Inventory
 
 
         }
-        Super.Tick();
+        
+		
+		if ( Distance3d(target) < 128 )
+		{
+			Vector3 thrust = Vec3To(target);
+			self.Vel += (thrust.Unit() * 2.0);// * 255.0 * 1 / max(target.Mass, 1));
+		}
+		
+		Super.Tick();
     }
 
 	override bool HandlePickup (Inventory item)

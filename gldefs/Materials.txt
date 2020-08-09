@@ -919,3 +919,11 @@ material texture wood
 //--------------------------------------------------------------------------Y
 //--------------------------------------------------------------------------Z
 
+
+material texture 10Bucks
+{
+    normal carpet_n
+    metallic carpet_m
+    roughness carpet_r
+    ao carpet_o
+}
