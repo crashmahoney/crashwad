@@ -7,7 +7,7 @@ defaultmap
 
 gameinfo
 {
-	//playerclasses = "CrashPlayer"
+	playerclasses = "CrashPlayer"
 	AddEventHandlers = "IncreaseMonsterScale", "WaterHandler","DynamicDifficulty"
 	PrecacheSounds = "break/vent", "break/glass"
 }

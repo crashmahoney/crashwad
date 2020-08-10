@@ -14,7 +14,7 @@ class TaserPistol : DoomWeapon
 		Weapon.AmmoType "Clip";
 		Obituary "$OB_MPPISTOL";
 		+WEAPON.WIMPY_WEAPON
-		Inventory.Pickupmessage "$PICKUP_PISTOL_DROPPED";
+		Inventory.Pickupmessage "$GOTTASER";
 		Tag "$TAG_PISTOL";
 	}
 	States

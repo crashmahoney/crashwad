@@ -1,89 +1,110 @@
 
-
+//===========================================================================
 class Cash : Inventory
 {
+	int groundtime;
+	bool bHoming;
+    bool bSloped;
+	PlayerPawn player;
+	
+	//---------------------------------------------------------------------------
+	const HOMING_RANGE = 128;
+	const HOMING_MAX_TURN = 20;
+	const HOMING_MAX_PITCH = 20;
+	const HOMING_SPEED = 1.0;
+	//---------------------------------------------------------------------------
+	
 	Default
 	{
-		Radius 8;
+		Radius 12;
 		Height 20;
 		Inventory.Amount 1;
 		Inventory.MaxAmount 20000;
 		Inventory.InterHubAmount 20000;
 		+INVENTORY.INVBAR
+		+INVENTORY.KEEPDEPLETED;
 		Inventory.Icon "COINA0";
-		Inventory.PickupMessage "Picked up 1 dollar";
+		Inventory.PickupMessage "$GOTCASH";
 		BounceType "Grenade";
 		BounceFactor 0.6;
 
 	}
+	//---------------------------------------------------------------------------
 	
-	int cointoss;
-	int groundtime;
-    bool bSloped;
-	PlayerPawn target;
-
 	override void PostBeginPlay()
-		{
-	//	angle = random(0,359);
-		cointoss = random(0,1);		
-		
+	{		
 	// Iterate through all of the possible players in the game
         for (int i = 0; i < MAXPLAYERS; i++)
         {
             // If a player is in the game and has spawned...
             if (playeringame[i] && players[i].mo)
             {
-                if (!target) { target = players[i].mo; } 	// Set the skybox to follow the first player who is in the game
-                else { target = null; break; } 			// If there are multiple players, don't move the skybox
+                if (!player) { player = players[i].mo; } 	// Set the skybox to follow the first player who is in the game
+                else { player = null; break; } 			// If there are multiple players, don't move the skybox
             }
         }
-		
-		
 		
 		Super.PostBeginPlay();
 		
 	
-		}
-
+	}
+	//---------------------------------------------------------------------------
 
     override void Tick()
     {
-        if (!bSloped)
+		//----------------------------------------------------------------------
+        // set actor angle / pitch / roll when not homing
+		//----------------------------------------------------------------------
+        if (!bSloped && !bHoming)				// if not already matched to floor slope or homing towards player
         {
-         
-		 if ( Pos.z - FloorZ == 0 )
-		 {
-			Physics.AlignToSlope(self, self.Angle, 0.f);
-			groundtime ++;
+			if ( Pos.z - FloorZ < 2 )			// if close to floor
+			{
+				Physics.AlignToSlope(self, self.Angle, 0.f);	// align
+				groundtime ++;					// add to timer
 			
-			if (groundtime > 10 )
-			{
-				bSloped = true;
+				if (groundtime > 10 )			// if timer expired
+				{
+					bSloped = true;				// flag as already matched to the floor
+				}
 			}
-/*			
-			if ( cointoss == 1 )
+			
+			else								// else if in the air
 			{
-				self.roll += 180.0;
+				self.roll += 15.0;				// speeeen
 			}
-*/
+		}
+		
+		//----------------------------------------------------------------------
+        // if under max amount of cash, home in on player
+		//----------------------------------------------------------------------
+		if ( player.CountInv("Cash") < self.MaxAmount - self.Amount )
+		{
+			if (!bHoming && Distance3d(player) < HOMING_RANGE )	// if within range of player
+			{
+				bHoming = true;									// set homing flag
+				A_Face( player, 360, 30, 0, 0, 0, 16);			// face player
+				self.bNoclip = true;							// set noclip
+			}
+			//----------------------------------------------------------------------
+			if ( bHoming )										// if homing flag set
+			{
+				self.speed += HOMING_SPEED;
+				A_Face( player, HOMING_MAX_TURN, HOMING_MAX_PITCH, 0, 0, 0, 16);	// face player
+				Vel3DFromAngle( self.speed, self.angle, self.pitch );	//thrust towards player			
+			}
 		}
 		else
 		{
-			self.roll += 15.0;
+			self.bNoclip = false;
+			self.bHoming = false;
 		}
-
-
-        }
-        
-		
-		if ( Distance3d(target) < 128 )
-		{
-			Vector3 thrust = Vec3To(target);
-			self.Vel += (thrust.Unit() * 2.0);// * 255.0 * 1 / max(target.Mass, 1));
-		}
+		//----------------------------------------------------------------------
 		
 		Super.Tick();
     }
+	
+	
+	//---------------------------------------------------------------------------
 
 	override bool HandlePickup (Inventory item)
 	{
@@ -105,6 +126,7 @@ class Cash : Inventory
 		}
 		return false;
 	}
+	//---------------------------------------------------------------------------
 
 	override Inventory CreateCopy (Actor other)
 	{
@@ -118,6 +140,7 @@ class Cash : Inventory
 		GoAwayAndDie ();
 		return copy;
 	}
+	//---------------------------------------------------------------------------
 
 	States
 	{
@@ -128,14 +151,17 @@ class Cash : Inventory
 }
 
 
+//===========================================================================
+
 class NoteBundle : Cash
 {
 	Default
 	{
-		Inventory.Amount 100;
-		Inventory.PickupMessage "Picked up a fat stack";
+		Inventory.Amount 50;
+		Inventory.PickupMessage "$GOTNOTEBUNDLE";
 	}
-
+	
+	//---------------------------------------------------------------------------
 	States
 	{
 	Spawn:

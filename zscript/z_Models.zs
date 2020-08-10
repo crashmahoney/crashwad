@@ -56,8 +56,11 @@ Class Chair1 : SolidModelBase {
 		Actor.Spawn("InvisibleBridge32", Vec3Angle( 64, self.Angle - 90.0, 16, false ), NO_REPLACE);
 		Actor.Spawn("InvisibleBridge32", Vec3Angle( -64, self.Angle - 90.0, 16, false ), NO_REPLACE);
 		
-		actor chairback = Actor.Spawn("Chairback1", Vec3Angle( -24, self.Angle, 24, false ), NO_REPLACE);
-		chairback.Angle = self.Angle;
+		actor mo = Actor.Spawn("Chairback1", Vec3Angle( -24, self.Angle, 24, false ), NO_REPLACE);
+		if (mo)
+		{
+			mo.Angle = self.Angle;
+		}
 		Super.PostBeginPlay();
 	}
 	
@@ -95,8 +98,12 @@ Class Chair2 : SolidModelBase {
 	
 	override void PostBeginPlay()
 	{		
-		actor chairback = Actor.Spawn("Chairback2", Vec3Angle( -24, self.Angle, 24, false ), NO_REPLACE);
-		chairback.Angle = self.Angle;
+		actor mo = Actor.Spawn("Chairback2", Vec3Angle( -24, self.Angle, 24, false ), NO_REPLACE);
+		if (mo)
+		{
+			mo.Angle = self.Angle;
+		}
+		
 		Super.PostBeginPlay();
 	}
 	

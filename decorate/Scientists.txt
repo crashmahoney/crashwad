@@ -1,7 +1,7 @@
 ACTOR FemaleScientist 
 {
   Game Doom
-  obituary "%o was stabbed by a zombie scientist."
+  obituary "$OB_FEM_SCI"
   health 15
   mass 90
   speed 10
@@ -58,7 +58,7 @@ ACTOR FemaleScientist
 ACTOR ZombieScientist 
 {
   Game Doom
-  obituary "%o was axe-murdered by a zombie scientist."
+  obituary "$OB_MALE_SCI"
   health 20
   mass 90
   speed 8

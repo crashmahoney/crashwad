@@ -7,8 +7,13 @@
 mixin class CrashMonsterBase
 {
 	int zap_timer;
+	
+		const CASH_THROW_MAX_DIST = 3.0;
+		const CASH_THROW_MIN_HEIGHT = 8.0;
+		const CASH_THROW_MAX_HEIGHT = 15.0;
+		const CASH_SPAWN_OFFSET = 24.0;
 
-
+	//---------------------------------------------------------------------------
 	// Do things that should happen every single gametic.
 	override void Tick()
 	{
@@ -51,15 +56,24 @@ mixin class CrashMonsterBase
 		Super.Tick();
 	}
 	
+	//---------------------------------------------------------------------------
+	// function to spawn and throw cash actor
+	//---------------------------------------------------------------------------	
 	static void SpawnCash(Actor self, string spawnclass)
 	{
-		actor child = actor.Spawn( spawnclass, (self.pos.x, self.pos.y, self.pos.z + 24), NO_REPLACE );
-		child.Angle = self.angle;
-		child.vel.x = frandom(-3.0, 3.0);
-		child.vel.y = frandom(-3.0, 3.0);
-		child.vel.z = frandom(5.0, 10.0);
+		
+		let mo = actor.Spawn( spawnclass, (self.pos.x, self.pos.y, self.pos.z + CASH_SPAWN_OFFSET), NO_REPLACE );
+		if (mo)
+		{
+			mo.Angle = self.angle;
+			mo.vel.x = frandom( - CASH_THROW_MAX_DIST, CASH_THROW_MAX_DIST );
+			mo.vel.y = frandom( - CASH_THROW_MAX_DIST, CASH_THROW_MAX_DIST );
+			mo.vel.z = frandom( CASH_THROW_MIN_HEIGHT, CASH_THROW_MAX_HEIGHT );
+		}
 	}
-	
+	//---------------------------------------------------------------------------
+	// do stuff when dying
+	//---------------------------------------------------------------------------
 	override void Die(Actor source, Actor inflictor, int dmgflags)
 	{
 

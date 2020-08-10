@@ -18,8 +18,8 @@ actor Aracnorb
   MeleeDamage 6
   MissileHeight 36
   MissileType AracnorbBall
-  Obituary "%o suffered psychic trauma from an aracnorb's brainwaves."
-  HitObituary "%o had %p skull chewed by an aracnorb."
+  Obituary "$OB_ARACHNORB"
+  HitObituary "OB_ARACHNORB_HIT"
   Scale 0.85
   States
   {
