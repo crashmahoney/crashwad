@@ -20,8 +20,7 @@ class TaserPistol : DoomWeapon
 	States
 	{
 	Ready:
-		TNT1 A 30 A_WeaponReady;
-		TNT1 B 30 A_WeaponReady;
+		TNT1 AB 120 A_WeaponReady;
 		Loop;
 	Deselect:
 		TNT1 A 1 A_Lower;
@@ -30,21 +29,40 @@ class TaserPistol : DoomWeapon
 		TNT1 A 1 A_Raise;
 		Loop;
 	Fire:
-		TNT1 A 2;
-		PISG B 1
+		TNT1 A 1;
+		TNT1 C 1
 			{
-				A_GunFlash(); 
-				A_FireProjectile("TaserProjectile", 0, true, 6.0, 0);
+				A_GunFlash();
+				A_FireProjectile("TaserProjectile", 0, true, 8.0, 0);
 				A_StartSound("taser/tasshot", CHAN_WEAPON, 0, 0.7, ATTN_NORM, frandom(0.9,1.1));
 			}
-		PISG C 8;
-		PISG B 8;
-		TNT1 B 8 A_Refire; 
+		TNT1 D 3;
+		TNT1 E 8;
+		TNT1 B 3; 
+		TNT1 A 3 A_Refire; 
 		Goto Ready;
 	Flash:
-		PISF A 7 Bright A_Light1;
-		Goto LightDone;
-		PISF A 7 Bright A_Light1;
+		PISF A 1 Bright
+		{
+			let psp = player.GetPSprite(PSP_FLASH);
+			psp.frame = random(0,6);  // 65 = A, 90 = Z
+			A_OverlayFlags(PSP_FLASH,PSPF_RENDERSTYLE|PSPF_FORCESTYLE|PSPF_ALPHA,true);
+			A_OverlayRenderStyle(PSP_FLASH,STYLE_Add);
+			A_OverlayAlpha(PSP_FLASH,0.5); 
+			A_ZoomFactor(0.98,ZOOM_INSTANT);
+			A_ZoomFactor(1.0);
+			A_Light0();
+		}
+		"####" "#" 1 Bright
+		{
+			A_OverlayAlpha(PSP_FLASH,0.3); 
+			A_Light1();
+		}
+		"####" "#" 1 Bright
+		{
+			A_OverlayAlpha(PSP_FLASH,0.1); 
+			A_Light2();
+		}
 		Goto LightDone;
  	Spawn:
 		TASR A -1;
@@ -76,13 +94,13 @@ class TaserProjectile : FastProjectile
 		//Decal "BulletChip";
 		Obituary "$OB_METAPISTOL";
 	}
-	
+/*	
 override void PostBeginPlay()
 	{
 		Actor.Spawn("PistolFlash", Vec3Angle( 0,0,0 ), NO_REPLACE);
 		Super.PostBeginPlay();
 	}
-	
+*/	
 	States
 	{
 	Spawn:
@@ -199,10 +217,13 @@ class ZappySmall :MetaZappy
 }
 
 
-class PistolFlash : Actor
+class PistolFlash : TaserProjectile
 {
 	Default
 	{
+	
+		Speed 1;
+
 	//	RenderStyle "Add";
 		+NOGRAVITY;
 		+NOINTERACTION;
@@ -210,13 +231,14 @@ class PistolFlash : Actor
 		+NOTELEPORT;
 		+ForceXYBillboard;
 		+CLIENTSIDEONLY;
+		
 	}
 
 	States
 	{
 	
-	    WFLR A -1 Bright;
-		Stop;
+	    WFLR A 1 Bright;
+		loop;
 	//	BAL2 BCDE 5 Bright;
 	//	loop;
 	

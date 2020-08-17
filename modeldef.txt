@@ -350,12 +350,34 @@ Model TaserPistol // 1st person
 
 	FrameIndex TNT1 A 0 0 // idle1
 	FrameIndex TNT1 B 0 1 // idle2
-	FrameIndex PISG B 0 2 // fire
-	FrameIndex PISG C 0 3
-	FrameIndex PISG D 0 3
-	FrameIndex PISG E 0 3
+	FrameIndex TNT1 C 0 2 // fire
+	FrameIndex TNT1 D 0 3
+	FrameIndex TNT1 E 0 4
+//	FrameIndex TNT1 F 0 5 
 	
 	
+}
+
+Model TaserPistol // overlay
+{
+	Model 1 "models/overlay.md3"
+	Skin 1 "textures/skins/flash1.png"
+	//Scale -5 0.5 1.0
+	Offset 72 -128 -32 
+	RollOffset 0
+	FrameIndex PISF A 1 0
+	RollOffset 45
+	FrameIndex PISF B 1 0
+	RollOffset 90
+	FrameIndex PISF C 1 0
+	RollOffset 135
+	FrameIndex PISF D 1 0
+	RollOffset 180
+	FrameIndex PISF E 1 0
+	RollOffset 215
+	FrameIndex PISF F 1 0
+	RollOffset 250
+	FrameIndex PISF G 1 0
 }
 
 

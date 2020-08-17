@@ -393,6 +393,8 @@ BounceType Grenade
 BounceFactor 0.5
 +ROLLSPRITE
 +FORCEXYBILLBOARD
++NOBLOCKMAP
++NOCLIP
 	States
 	{
 		Spawn:

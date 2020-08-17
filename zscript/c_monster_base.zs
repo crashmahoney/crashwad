@@ -107,7 +107,7 @@ mixin class CrashMonsterBase
 	
 }
 
-class C_Arachnotron : DoomImp replaces Arachnotron { mixin CrashMonsterBase; }
+class C_Arachnotron : Arachnotron replaces Arachnotron { mixin CrashMonsterBase; }
 
 class C_Archvile : Archvile replaces Archvile { mixin CrashMonsterBase; }
 
