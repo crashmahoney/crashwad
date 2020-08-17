@@ -14,6 +14,9 @@ Exported 10 frame(s) for trigger
 Exporting handR
 Exported UVMap coordinates for handR
 Exported 10 frame(s) for handR
+Exporting handL
+Exported UVMap coordinates for handL
+Exported 10 frame(s) for handL
 Header Information
 Ident: IDP3
 Version: 15
@@ -21,14 +24,14 @@ Name:
 Flags: 0
 Number of Frames: 11
 Number of Tags: 0
-Number of Surfaces: 5
+Number of Surfaces: 6
 Number of Skins: 0
 Offset Frames: 108
-Offset Tags: 3188
-Offset Surfaces: 3188
-Offset end: 194088
-Total Shaders: 5
-Total Triangles: 1843
-Total Vertices: 1749
+Offset Tags: 3804
+Offset Surfaces: 3804
+Offset end: 302544
+Total Shaders: 6
+Total Triangles: 3055
+Total Vertices: 2719
 MD3 saved to D:\Games\Doom\crashwad\models\pistol1.md3
-Elapsed 0.7489 seconds
+Elapsed 1.08491 seconds

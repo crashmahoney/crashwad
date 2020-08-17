@@ -20,7 +20,8 @@ class TaserPistol : DoomWeapon
 	States
 	{
 	Ready:
-		TNT1 AB 120 A_WeaponReady;
+		TNT1 ABAB 80 A_WeaponReady;
+		TNT1 FGHGF 20 A_WeaponReady;
 		Loop;
 	Deselect:
 		TNT1 A 1 A_Lower;
