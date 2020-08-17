@@ -10,6 +10,16 @@ Model BedH1
 	FrameIndex PLAY A 0 0
 }
 //--------------------------------------------------------------------------C
+Model CashRegister
+{
+	Model 0 "models/cashregister.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
+
 Model CaveLadder1
 {
 	Path "models"
@@ -319,10 +329,39 @@ Model Rail1
 //--------------------------------------------------------------------------S
 //--------------------------------------------------------------------------T
 
+Model TaserPistol // pickup
+{
+	Model 0 "models/Pistol.obj"
+	Scale 1.0 1.0 1.0
+	ZOffset 8.0
+	USEACTORPITCH
+	USEACTORROLL
+	ROTATING
+	Offset 0 0 -2
+	
+	FrameIndex TASR A 0 0
+
+}
+
+Model TaserPistol // 1st person
+{
+	Model 0 "models/Pistol1.md3"
+	Scale -1 1 1.0
+
+	FrameIndex TNT1 A 0 0 // idle1
+	FrameIndex TNT1 B 0 1 // idle2
+	FrameIndex PISG B 0 2 // fire
+	FrameIndex PISG C 0 3
+	FrameIndex PISG D 0 3
+	FrameIndex PISG E 0 3
+	
+	
+}
+
+
 Model Toilet
 {
 	Model 0 "models/Toilet.obj"
-	Scale 0.8 0.8 0.8
 	USEACTORPITCH
 	USEACTORROLL
 	Scale 1.05 1.05 1.0

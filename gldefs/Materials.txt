@@ -541,6 +541,17 @@ material texture PEELPNT3
     glossiness 2.0
 }
 
+material texture "textures/skins/pistol_skin.png"
+{
+  //  shader "shaders/simsun.fp"
+
+    normal carpet_n
+    metallic "textures/skins/pistol_metal.png"
+    roughness "textures/skins/pistol_rough.png"
+    ao carpet_o
+
+}
+
 material texture pinkpanl
 {
     normal greypa_n

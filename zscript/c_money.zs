@@ -81,9 +81,14 @@ class Cash : Inventory
 		{
 			if (!bHoming && Distance3d(player) < HOMING_RANGE )	// if within range of player
 			{
-				bHoming = true;									// set homing flag
-				A_Face( player, 360, 30, 0, 0, 0, 16);			// face player
-				self.bNoclip = true;							// set noclip
+			
+				if ( CheckSight(player) )
+				{
+					bHoming = true;									// set homing flag
+					A_Face( player, 360, 30, 0, 0, 0, 16);			// face player
+					self.bNoclip = true;							// set noclip
+				}
+				
 			}
 			//----------------------------------------------------------------------
 			if ( bHoming )										// if homing flag set
@@ -169,3 +174,21 @@ class NoteBundle : Cash
 		stop;
 	}
 }
+
+//===========================================================================
+
+Class CashRegister : SolidModelBase {
+	Default {
+		Radius 12;
+		Height 13;
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+
+
+

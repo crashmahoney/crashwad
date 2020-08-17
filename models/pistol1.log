@@ -1,0 +1,34 @@
+########################BEGIN########################
+Exporting frame
+Exported UVMap coordinates for frame
+Exported 10 frame(s) for frame
+Exporting Magazine
+Exported UVMap coordinates for Magazine
+Exported 10 frame(s) for Magazine
+Exporting slide
+Exported UVMap coordinates for slide
+Exported 10 frame(s) for slide
+Exporting trigger
+Exported UVMap coordinates for trigger
+Exported 10 frame(s) for trigger
+Exporting handR
+Exported UVMap coordinates for handR
+Exported 10 frame(s) for handR
+Header Information
+Ident: IDP3
+Version: 15
+Name: 
+Flags: 0
+Number of Frames: 11
+Number of Tags: 0
+Number of Surfaces: 5
+Number of Skins: 0
+Offset Frames: 108
+Offset Tags: 3188
+Offset Surfaces: 3188
+Offset end: 194232
+Total Shaders: 5
+Total Triangles: 1847
+Total Vertices: 1750
+MD3 saved to D:\Games\Doom\crashwad\models\pistol1.md3
+Elapsed 0.76627 seconds

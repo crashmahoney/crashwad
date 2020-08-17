@@ -20,24 +20,26 @@ class TaserPistol : DoomWeapon
 	States
 	{
 	Ready:
-		PISG A 1 A_WeaponReady;
+		TNT1 A 30 A_WeaponReady;
+		TNT1 B 30 A_WeaponReady;
 		Loop;
 	Deselect:
-		PISG A 1 A_Lower;
+		TNT1 A 1 A_Lower;
 		Loop;
 	Select:
-		PISG A 1 A_Raise;
+		TNT1 A 1 A_Raise;
 		Loop;
 	Fire:
-		PISG A 4;
-		PISG B 6
+		TNT1 A 2;
+		PISG B 1
 			{
-				A_GunFlash();
-				A_FireProjectile("TaserProjectile");
+				A_GunFlash(); 
+				A_FireProjectile("TaserProjectile", 0, true, 6.0, 0);
 				A_StartSound("taser/tasshot", CHAN_WEAPON, 0, 0.7, ATTN_NORM, frandom(0.9,1.1));
 			}
-		PISG C 3;
-		PISG B 5 A_Refire;
+		PISG C 8;
+		PISG B 8;
+		TNT1 B 8 A_Refire; 
 		Goto Ready;
 	Flash:
 		PISF A 7 Bright A_Light1;
@@ -45,7 +47,7 @@ class TaserPistol : DoomWeapon
 		PISF A 7 Bright A_Light1;
 		Goto LightDone;
  	Spawn:
-		ZHR3 F -1;
+		TASR A -1;
 		Stop;
 	}
 }
@@ -73,6 +75,12 @@ class TaserProjectile : FastProjectile
 		MissileHeight 8;
 		//Decal "BulletChip";
 		Obituary "$OB_METAPISTOL";
+	}
+	
+override void PostBeginPlay()
+	{
+		Actor.Spawn("PistolFlash", Vec3Angle( 0,0,0 ), NO_REPLACE);
+		Super.PostBeginPlay();
 	}
 	
 	States
@@ -189,3 +197,31 @@ class ZappySmall :MetaZappy
 	}
 
 }
+
+
+class PistolFlash : Actor
+{
+	Default
+	{
+	//	RenderStyle "Add";
+		+NOGRAVITY;
+		+NOINTERACTION;
+		+NOBLOCKMAP;
+		+NOTELEPORT;
+		+ForceXYBillboard;
+		+CLIENTSIDEONLY;
+	}
+
+	States
+	{
+	
+	    WFLR A -1 Bright;
+		Stop;
+	//	BAL2 BCDE 5 Bright;
+	//	loop;
+	
+	}
+}
+
+
+
