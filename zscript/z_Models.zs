@@ -153,6 +153,20 @@ Class IVStand : SolidModelBase {
 	}
 }
 //=======================================================
+
+Class Keyboard : SolidModelBase {
+	Default {
+		Radius 12;
+		Height 3;
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+//=======================================================
 Class Stool1 : SolidModelBase {
 	Default
 	{
@@ -168,6 +182,11 @@ Class Stool1 : SolidModelBase {
 		+NOTARGET;
 		+NOTAUTOAIMED;
 		+NOBLOOD;
+		+NODROPOFF;
+		-NOGRAVITY;
+		-NODAMAGETHRUST
+
+		MaxDropOffHeight 999999;
 	}
 
 	States

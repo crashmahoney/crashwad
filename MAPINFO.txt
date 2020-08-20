@@ -323,6 +323,7 @@ DoomEdNums
 	13080	=	CashRegister
 	13081	=	Table1
 	13082	=	Stool1
+	13083	=	Keyboard
 
 // actors in this range are overwritten by DoomRPG actors and need changing
 	20000	=	WallBreaker				// actor that dies from explosions
