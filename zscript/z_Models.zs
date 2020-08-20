@@ -153,6 +153,75 @@ Class IVStand : SolidModelBase {
 	}
 }
 //=======================================================
+Class Stool1 : SolidModelBase {
+	Default
+	{
+		Radius 10;
+		Height 32;
+		Mass 25;
+		PushFactor 0.75;	
+		
+		+PUSHABLE;
+		+SLIDESONWALLS;
+		+WINDTHRUST;
+		+Shootable;
+		+NOTARGET;
+		+NOTAUTOAIMED;
+		+NOBLOOD;
+	}
+
+	States
+	{
+	Spawn:
+		PLAY A -1;
+		Stop;
+		
+	Pain:
+		PLAY A 0 A_FaceTarget;
+		PLAY A 0 A_Recoil(20); 
+		Goto Spawn;
+	}
+}
+//=======================================================
+
+
+Class Table1 : SolidModelBase {
+	Default {
+		Radius 4;
+		Height 36;
+		
+		
+		+SOLID
+		+INVULNERABLE
+		+NODAMAGE
+		+SHOOTABLE
+		+NOTAUTOAIMED
+		+NEVERTARGET
+		+DONTTHRUST
+	}
+	
+	override void PostBeginPlay()
+	{
+		actor mo = Actor.Spawn("InvisibleBridgeTable1", Vec3Angle( 0, 0, 32, false ), NO_REPLACE);
+		Super.PostBeginPlay();
+	}
+	
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+
+class InvisibleBridgeTable1 : InvisibleBridge
+{
+	Default
+	{
+		Radius 48;
+		Height 8;
+	}
+}
+//=======================================================
 
 Class Toilet : SolidModelBase {
 	Default

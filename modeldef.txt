@@ -327,7 +327,29 @@ Model Rail1
 	FrameIndex PIPE A 0 0
 }
 //--------------------------------------------------------------------------S
+Model Stool1
+{
+	Model 0 "models/Stool1.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+    Scale 0.70 0.70 1.0
+  
+	FrameIndex PLAY A 0 0
+}
+
 //--------------------------------------------------------------------------T
+Model Table1
+{
+	Model 0 "models/Table1.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+	Scale 0.9 0.9 1.2
+   
+	FrameIndex PLAY A 0 0
+}
+
 
 Model TaserPistol // pickup
 {

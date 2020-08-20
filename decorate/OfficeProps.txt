@@ -96,6 +96,7 @@ Actor Bottle1
 	Radius 4
 	Height 16
 	Health 1
+	Scale 0.7
 	+SOLID
 	+SHOOTABLE
 	+NOBLOOD
@@ -150,6 +151,8 @@ Actor Glass1 : Bottle1
 
 Actor Glass2 : Bottle1
 {
+	Scale 1
+
 	States
 	{
 	Spawn:
@@ -160,6 +163,8 @@ Actor Glass2 : Bottle1
 
 Actor Glass3 : Bottle1
 {
+	Scale 1
+
 	States
 	{
 	Spawn:
@@ -170,6 +175,8 @@ Actor Glass3 : Bottle1
 
 Actor Glass4 : Bottle1
 {
+	Scale 1
+
 	States
 	{
 	Spawn:
