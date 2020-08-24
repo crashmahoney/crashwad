@@ -1,0 +1,87 @@
+
+
+//=============================================================================
+//	Scripted animation of neon lights
+//=============================================================================
+
+// where things are located in sequence header
+#define FRAME_SIZE		0
+#define FRAME_AMOUNT	1
+#define LIGHT_ON_SPEED	2
+#define LIGHT_OFF_SPEED	3
+#define DELAY_MULT		4
+#define ADDITIVE		5
+#define FIRST_FRAME		6
+
+
+script "NeonAnimationSequence" (int firsttag, int sequenceNum) {
+	int delaytime = 0;
+	int animpos = FIRST_FRAME;
+	int lightstate[20] = {};
+	int lightlevel[20] = {};
+
+// run animation sequence
+
+	while (1)
+	{
+
+		if (delaytime == 0)
+		{
+		
+		
+			// loop through each element in frame
+
+			for ( int i = 0; i < lightsequence[sequenceNum][FRAME_SIZE] - 1; i++ )
+			{
+				// set new state of light
+
+				lightstate[i] = lightsequence[sequenceNum][animpos];
+				animpos ++;
+			}
+
+		// set delay time
+
+		delaytime = (lightsequence[sequenceNum][animpos] * lightsequence[sequenceNum][DELAY_MULT]);
+		animpos ++;
+
+			// if at end of sequence, set postition back to start
+
+			if (animpos >= FIRST_FRAME + lightsequence[sequenceNum][FRAME_AMOUNT] * lightsequence[sequenceNum][FRAME_SIZE])
+			{
+				animpos = FIRST_FRAME;
+			}
+		}
+		else
+		{
+			delaytime --;
+		}
+
+
+
+	// set light transparency values
+		for ( int j = 0; j < lightsequence[sequenceNum][FRAME_SIZE] - 1; j++ )
+		{
+
+			if (lightstate[j] == 0)
+			{
+				lightlevel[j] = max(lightlevel[j] - lightsequence[sequenceNum][LIGHT_OFF_SPEED], 0);
+			}
+			else
+			{
+				lightlevel[j] = min(lightlevel[j] + lightsequence[sequenceNum][LIGHT_ON_SPEED], 255);
+			}
+
+		TranslucentLine(firsttag + j,lightlevel[j], lightsequence[sequenceNum][ADDITIVE]);
+
+		}
+
+		Delay(1);
+	}
+}
+
+
+
+
+
+
+

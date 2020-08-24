@@ -222,9 +222,6 @@ map MAP02 "Do You Even Lift, Bro?"
 
 DoomEdNums
 {
-	//67		=	CrashFatso
-	//3001	=	CrashImp
-	//3002	=	CrashDemon
 	
 	3141	=	ExplosionCrash			// Spawnable Explosion
 
