@@ -179,6 +179,7 @@ class Crash_Spawner : Actor
 
 class Crash_HealthSpawner : Crash_Spawner
 {
+	PlayerPawn player;
 
 //	const SPAWN_LIST_SIZE = 8; // number of items in the spawnlist -1
 	static const string spawnlist[] = {
@@ -210,20 +211,46 @@ class Crash_HealthSpawner : Crash_Spawner
 			else break;
 		}
 
+//-----
+	// Iterate through all of the possible players in the game
+        for (int i = 0; i < MAXPLAYERS; i++)
+        {
+            // If a player is in the game and has spawned...
+            if (playeringame[i] && players[i].mo)
+            {
+                if (!player) { player = players[i].mo; } 	// Set the skybox to follow the first player who is in the game
+                else { player = null; break; } 			// If there are multiple players, don't move the skybox
+            }
+        }
+//-----		
+
 		Super.PostBeginPlay();
     }
-
 	States
 	{
 	Spawn:
 		SPWN A 0 BRIGHT;
-		TNT1 A 1 ;
-		"####" "#" 0 BRIGHT A_CheckProximity("InRange", "PlayerPawn", 512, 1, CPXF_ANCESTOR);
-		"####" "#" 0 BRIGHT A_CheckProximity("InRange", "PlayerPawn", 2048, 1, CPXF_ANCESTOR | CPXF_CHECKSIGHT);
-		Loop;
-	InRange:
-		"####" "#" 1  { GetItemToSpawn(); console.printf("Spawned %s(%d)", spawns[spawnquality], spawnquality); }
-		stop;
+		TNT1 A 5 
+		{	
+			if (Distance3d(player) < 2048 )	// if within range of player
+				{		
+				if ( self.CheckSight(player) )  // if visible
+					{
+						GetItemToSpawn();
+						console.printf("Visibly Spawned %s(%d)", spawns[spawnquality], spawnquality);
+						self.Destroy();
+					}				
+				else if (Distance3d(player) < 512 )	// if not visible, check closer
+					{
+						GetItemToSpawn();
+						console.printf("Inisibly Spawned %s(%d)", spawns[spawnquality], spawnquality);
+						self.Destroy();
+					}
+				}  
+		}
+
+		Wait;
+
 
 	}
 

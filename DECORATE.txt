@@ -404,6 +404,7 @@ Actor Rope
 	Radius 4
 	+Solid
 	+NOGRAVITY
+	+NOCLIP
 
 	States
 	{

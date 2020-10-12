@@ -42,6 +42,7 @@ Actor ContainerBlue1 : Crane1
 	+INVULNERABLE
 	+NODAMAGETHRUST
 	+NOTAUTOAIMED
+// +NOCLIP
 }
 
 Actor ContainerBlue2 : ContainerBlue1	{}

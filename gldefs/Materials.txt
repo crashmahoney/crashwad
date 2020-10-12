@@ -4,6 +4,37 @@
 
 //--------------------------------------------------------------------------A
 //--------------------------------------------------------------------------B
+material texture Beam64_Y
+{
+    normal Beam64_n
+    specular tcemw1_s
+	shader 					"shaders/displacement.fp" 
+	texture displacement 	"textures/normals/Beam64_h.png"
+    specularlevel 0.3
+    glossiness 0.3
+}
+
+material texture BeaY64_Y
+{
+    normal BeaY64_n
+    specular tcemw1_s
+	shader 					"shaders/displacement.fp" 
+	texture displacement 	"textures/normals/BeaY64_h.png"
+    specularlevel 0.3
+    glossiness 0.3
+}
+
+material texture Bebm64_Y
+{
+    normal Bebm64_n
+    specular tcemw1_s
+	shader 					"shaders/displacement.fp" 
+	texture displacement 	"textures/normals/Bebm64_h.png"
+    specularlevel 0.3
+    glossiness 0.3
+}
+
+
 material texture "BIGDOOR1"
 {
 	shader "shaders/displacement.fp"
@@ -458,7 +489,6 @@ material texture MIDSPACE
 //--------------------------------------------------------------------------N
 //--------------------------------------------------------------------------O
 //--------------------------------------------------------------------------P
-
 material texture PanBlu01
 {
     normal tile64_n

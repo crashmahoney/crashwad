@@ -22,19 +22,13 @@ episode SELECT
 	key = "e"
 }
 
-map SELECT "Episode Select"
-{
-	levelnum = 0
-	music = "Intense"
-	next = "MAP01"
-	secretnext = "80s"
-	sky1 = "NIGHT1", 0.01
-	par = 60
-}
+
 
 // -----------EPISODE 1----------
 cluster 1
 {
+		hub
+		
 		pic = "NIGHTSKY"
 		exittext = "Ok ya did it, Episode 1 down!"
 		music = "starcad"
@@ -50,6 +44,43 @@ map MAP01 "Banger"
 	sky1 = "NIGHT2", 0.01
 	music = "track09"
 }
+
+map SELECT "Episode Select"
+{
+	levelnum = 100
+	music = "Intense"
+	next = "MAP01"
+	secretnext = "80s"
+	sky1 = "NIGHT1", 0.01
+	par = 60
+	cluster = 1
+
+}
+
+map STAT1 "Arena"
+{
+	levelnum = 99
+	next = "DAM"
+	secretnext = "80s"
+	cluster = 1
+	par = 60
+	sky1 = "NIGHT1", 0.01
+	music = "track09"
+}
+
+map UAC01 "UAC Building"
+{
+	levelnum = 101
+	next = "DAM"
+	secretnext = "80s"
+	cluster = 1
+	par = 60
+	sky1 = "NIGHT1", 0.01
+	music = "Intense"
+}
+
+
+
 
 map DAM "God Dam"
 {
@@ -321,6 +352,9 @@ DoomEdNums
 	13081	=	Table1
 	13082	=	Stool1
 	13083	=	Keyboard
+	13084	=	LiteF
+	13085	=	Crane3
+	13086	=	Grate128
 
 // actors in this range are overwritten by DoomRPG actors and need changing
 	20000	=	WallBreaker				// actor that dies from explosions

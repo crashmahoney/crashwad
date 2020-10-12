@@ -1,0 +1,54 @@
+# MTL for cave1.wad, map CAVE1
+# Created by Ultimate Doom Builder 3.0.0.3539
+
+newmtl BEAM64_Y
+Kd 1.0 1.0 1.0
+
+newmtl BEAY64_Y
+Kd 1.0 1.0 1.0
+
+newmtl BEBM64_Y
+Kd 1.0 1.0 1.0
+
+newmtl PAINTYEL
+Kd 1.0 1.0 1.0
+
+newmtl PANBLU02
+Kd 1.0 1.0 1.0
+
+newmtl SHAWN2
+Kd 1.0 1.0 1.0
+
+newmtl TCEMLITE
+Kd 1.0 1.0 1.0
+
+newmtl TCEMWL01
+Kd 1.0 1.0 1.0
+
+newmtl BEAM64_Y
+Kd 1.0 1.0 1.0
+
+newmtl FWATER1
+Kd 1.0 1.0 1.0
+
+newmtl PAINTYEL
+Kd 1.0 1.0 1.0
+
+newmtl PANBLU02
+Kd 1.0 1.0 1.0
+
+newmtl PANGRY15
+Kd 1.0 1.0 1.0
+
+newmtl TCEMWL01
+Kd 1.0 1.0 1.0
+
+newmtl TILE04
+Kd 1.0 1.0 1.0
+
+newmtl TILEWHIT
+Kd 1.0 1.0 1.0
+
+newmtl TWINWL02
+Kd 1.0 1.0 1.0
+

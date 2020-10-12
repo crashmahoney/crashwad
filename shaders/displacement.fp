@@ -83,7 +83,7 @@ vec2 ParallaxMap(mat3 tbn)
 #elif defined(RELIEF_PARALLAX)
 vec2 ParallaxMap(mat3 tbn)
 {
-    const float parallaxScale = 0.04;
+    const float parallaxScale = 0.06;   // 0.04;
     const float minLayers = 16.0;
     const float maxLayers = 32.0;
 

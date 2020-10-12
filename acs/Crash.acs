@@ -79,10 +79,16 @@ script "PlayerGrade" ENTER {
 
 
 script "BreakVent" (int lineid) {
-    Line_SetBlocking(lineid,0,BLOCKF_EVERYTHING);
+    Line_SetBlocking( lineid, 0, BLOCKF_EVERYTHING|BLOCKF_CREATURES|BLOCKF_MONSTERS|BLOCKF_PLAYERS|BLOCKF_FLOATERS );
+					// definition of these, cos it's hard to find online
+					//fixed GetLineX(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
+					//fixed GetLineY(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
+	SpawnForced( "MapSpot", GetLineX(lineid,0.5,0), GetLineY(lineid,0.5,0), 0, lineid, 0 ); 	
     SetLineTexture(lineid,SIDE_FRONT,TEXTURE_MIDDLE,"DNVENT5");
     SetLineTexture(lineid,SIDE_BACK,TEXTURE_MIDDLE,"DNVENT5");
     ThingSound(lineid,"break/vent",127);
+	SetLineActivation(lineid,0);						// remove activation from all lines with tag
+
 }
 
 script "BreakWall" (int id, int lastid, int time) {       // Remove midtexture based walls
@@ -124,33 +130,66 @@ script "BreakWall3d" (int id, int lastid, int time) {
 	}
 }
 
-script "BreakGlass" (int lineid) {
 
-	str texture[7] = {"DNXGLS02", "DNXGLS03", "DNXGLS04", "DNXGLS05", "DNXGLS06", "DNXGLS07", "-"};
-	int pos[5] = {0.1,0.25,0.5,0.75,0.9};
+// glass animation frames
+str glass_texture[7] = {"DNXGLS02", "DNXGLS03", "DNXGLS04", "DNXGLS05", "DNXGLS06", "DNXGLS07", "-"};
+// glass shrapnel spawn positions along line
+int glass_pos[5] = {0.1,0.25,0.5,0.75,0.9};
+
+
+
+script "BreakGlass" (int lineid, int shrapnelheight) {
+
 	int var0 = 0;
     Line_SetBlocking( lineid, 0, BLOCKF_EVERYTHING|BLOCKF_CREATURES|BLOCKF_MONSTERS|BLOCKF_PLAYERS|BLOCKF_FLOATERS );
 					// definition of these, cos it's hard to find online
 					//fixed GetLineX(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
 					//fixed GetLineY(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
-	SpawnForced( "MapSpot", GetLineX(lineid,0.5,0), GetLineY(lineid,0.5,0), 0, lineid, 0 ); 
+	SpawnForced( "MapSpot", GetLineX(lineid,0.5,0), GetLineY(lineid,0.5,0), shrapnelheight << 16, lineid, 0 ); 
 	PlaySound( lineid, "break/glass", 4, 1.0 );
 	SetLineActivation(lineid,0);						// remove activation from all lines with tag
 
 		while(var0 < 7)
 		{
-			SetLineTexture( lineid, SIDE_FRONT,TEXTURE_MIDDLE, texture[var0] );
-			SetLineTexture( lineid, SIDE_BACK,TEXTURE_MIDDLE, texture[var0] );
+			SetLineTexture( lineid, SIDE_FRONT,TEXTURE_MIDDLE, glass_texture[var0] );
+			SetLineTexture( lineid, SIDE_BACK,TEXTURE_MIDDLE, glass_texture[var0] );
 			 var0++;
 			for ( int i = 0; i < 5; i++ )
 				{
 				// set map spot to a position along the line, and spawn shrapnel there
-				SetActorPosition( lineid, GetLineX( lineid,pos[i], 0 ), GetLineY( lineid, pos[i], 0 ), GetActorZ(lineid) + random( 0, 32 ),0 );
+				SetActorPosition( lineid, GetLineX( lineid,glass_pos[i], 0 ), GetLineY( lineid, glass_pos[i], 0 ), GetActorZ(lineid), 0 );
 				SpawnProjectile( lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0 );
 				}
 		 	Delay(1);
 		}
 
+}
+
+
+script "BreakGlass3d" ( int lineid, int sectorid, int shrapnelheight ) {
+	int var0 = 0;
+	//raise glass by 28 to allow map spot to fit under it
+	FloorAndCeiling_RaiseByValue(sectorid,9999,28);
+					// definition of these, cos it's hard to find online
+					//fixed GetLineX(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
+					//fixed GetLineY(int lineID, fixed ratioAlongLine, fixed distanceFromLine)
+	SpawnForced( "MapSpot", GetLineX(lineid,0.5,0), GetLineY(lineid,0.5,0), shrapnelheight << 16, lineid, 0 ); 
+	PlaySound( lineid, "break/glass", 4, 1.0 );
+		while(var0 < 7)
+		{
+			SetLineTexture( sectorid, SIDE_FRONT,TEXTURE_MIDDLE, glass_texture[var0] );
+			SetLineTexture( sectorid, SIDE_BACK,TEXTURE_MIDDLE, glass_texture[var0] );
+			 var0++;
+			for ( int i = 0; i < 5; i++ )
+				{
+				// set map spot to a position along the line, and spawn shrapnel there
+				SetActorPosition( lineid, GetLineX( lineid,glass_pos[i], 0 ), GetLineY( lineid, glass_pos[i], 0 ), shrapnelheight << 16, 0 );
+				SpawnProjectile( lineid,"GlassShrapnel", random(0, 255), random(10, 80), random(50, 100), 1.5, 0 );
+				}
+		 	Delay(1);
+		}
+	// remove glass by dropping it down super low	
+	FloorAndCeiling_LowerByValue(sectorid,9999,9999);		
 }
 
 
@@ -253,5 +292,70 @@ script 1000 ENTER
 }
 
 */
+
+
+
+
+
+
+/*=======================================================
+=
+=    Level Transitions
+=
+=========================================================*/
+
+int savedOffsetX;
+int savedOffsetY;
+int savedOffsetZ;
+int savedPlayerVelX;
+int savedPlayerVelY;
+int savedPlayerVelZ;
+
+script "LevelTransition_SaveState" (int targetmap, int spotTID)
+{
+	int playerTID = ActivatorTID();
+
+	int OffsetX = GetActorX(spotTID) - GetActorX(playerTID);
+	int OffsetY = GetActorY(spotTID) - GetActorY(playerTID);
+	int OffsetZ = GetActorZ(spotTID) - GetActorZ(playerTID);
+// pass position values to script in new map
+	ACS_NamedExecute("LevelTransition_PassPosition", targetmap, OffsetX, OffsetY, OffsetZ);
+
+// pass velocity values to script in new map
+	ACS_NamedExecute("LevelTransition_PassVelocity", targetmap, GetActorVelX(playerTID), GetActorVelY(playerTID), GetActorVelZ(playerTID));
+	
+// apply values inside new map
+	ACS_NamedExecute("LevelTransition_LoadState", targetmap, spotTID);
+}
+
+
+script "LevelTransition_PassPosition" (int OffsetX, int OffsetY, int OffsetZ)
+{
+	savedOffsetX = OffsetX;
+	savedOffsetY = OffsetY;
+	savedOffsetZ = OffsetZ;
+}
+
+script "LevelTransition_PassVelocity" (int VelX, int VelY, int VelZ)
+{
+	savedPlayerVelX = VelX;
+	savedPlayerVelY = VelY;
+	savedPlayerVelZ = VelZ;
+}
+
+script "LevelTransition_LoadState" (int spotTID)
+{
+	int playerTID = ActivatorTID();
+
+	int restoredX = GetActorX(spotTID) + savedOffsetX;
+	int restoredY = GetActorY(spotTID) - savedOffsetY;
+	int restoredZ = GetActorZ(spotTID) + savedOffsetZ;
+	
+	SetActorPosition(playerTID, restoredX, restoredY, restoredZ, 0);
+	SetActorVelocity(playerTID, savedPlayerVelX, savedPlayerVelY, savedPlayerVelZ, 0, 0);
+}
+
+
+
 
 

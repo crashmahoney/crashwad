@@ -172,10 +172,34 @@ Model Crane2
 
 	FrameIndex PIPE A 0 0
 }
+
+Model crane3
+{
+	Model 0 "models/crane3.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
+
+
 //--------------------------------------------------------------------------D
 //--------------------------------------------------------------------------E
 //--------------------------------------------------------------------------F
 //--------------------------------------------------------------------------G
+
+Model Grate128
+{
+	Model 0 "models/Grate128.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
+
+
 //--------------------------------------------------------------------------H
 //--------------------------------------------------------------------------I
 
@@ -272,6 +296,16 @@ Model LightYellow
    useactorroll
 
    FrameIndex PIPE A 0 0
+}
+
+Model LiteF
+{
+	Model 0 "models/LiteF.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
 }
 
 //--------------------------------------------------------------------------M

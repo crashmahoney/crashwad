@@ -34,13 +34,6 @@ Class BedH1 : SolidModelBase {
 		Actor.Spawn("InvisibleBridge32", Vec3Angle( -32, self.Angle, 24, false ), NO_REPLACE);
 		Super.PostBeginPlay();
 	}
-	
-	States
-	{
-	Spawn:
-		PLAY A -1;
-		Stop;
-	}
 }
 //=======================================================
 
@@ -106,13 +99,6 @@ Class Chair2 : SolidModelBase {
 		
 		Super.PostBeginPlay();
 	}
-	
-	States
-	{
-	Spawn:
-		PLAY A -1;
-		Stop;
-	}
 }
 
 Class Chairback2 : InvisibleBridge8
@@ -131,7 +117,22 @@ Class Chairback2 : InvisibleBridge8
 	}
 }
 //=======================================================
-
+Class Crane3 : SolidModelBase {
+	Default
+	{
+		Radius 78;
+		Height 64;
+	}
+}
+//=======================================================
+Class Grate128 : SolidModelBase {
+	Default
+	{
+		Radius 64;
+		Height 3;
+	}
+}
+//=======================================================
 
 Class IVStand : SolidModelBase {
 	Default
@@ -155,17 +156,24 @@ Class IVStand : SolidModelBase {
 //=======================================================
 
 Class Keyboard : SolidModelBase {
-	Default {
+	Default
+	{
 		Radius 12;
 		Height 3;
 	}
-
-	States {
-		Spawn:
-			PLAY A -1;
-			Stop;
+}
+//=======================================================
+Class LiteF : SolidModelBase {
+	Default
+	{
+		Radius 0;
+		Height 0;
+		+NOGRAVITY
+		+NOCLIP
+		-SOLID
 	}
 }
+
 //=======================================================
 Class Stool1 : SolidModelBase {
 	Default
@@ -205,18 +213,10 @@ Class Stool1 : SolidModelBase {
 
 
 Class Table1 : SolidModelBase {
-	Default {
+	Default
+	{
 		Radius 4;
 		Height 36;
-		
-		
-		+SOLID
-		+INVULNERABLE
-		+NODAMAGE
-		+SHOOTABLE
-		+NOTAUTOAIMED
-		+NEVERTARGET
-		+DONTTHRUST
 	}
 	
 	override void PostBeginPlay()
@@ -224,12 +224,7 @@ Class Table1 : SolidModelBase {
 		actor mo = Actor.Spawn("InvisibleBridgeTable1", Vec3Angle( 0, 0, 32, false ), NO_REPLACE);
 		Super.PostBeginPlay();
 	}
-	
-	States {
-		Spawn:
-			PLAY A -1;
-			Stop;
-	}
+
 }
 
 class InvisibleBridgeTable1 : InvisibleBridge
@@ -254,26 +249,14 @@ Class Toilet : SolidModelBase {
 		Actor.Spawn("InvisibleBridge16", Vec3Angle( -24, self.Angle, 46, false ), NO_REPLACE);
 		Super.PostBeginPlay();
 	}
-
-	States
-	{
-	Spawn:
-		PLAY A -1;
-		stop;
-	}
 }
 //=======================================================
 
 Class VendingMachine1 : SolidModelBase {
-	Default {
+	Default
+	{
 		Radius 32;
 		Height 96;
-	}
-
-	States {
-		Spawn:
-			PLAY A -1;
-			Stop;
 	}
 }
 

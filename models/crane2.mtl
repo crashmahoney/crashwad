@@ -1,7 +1,7 @@
 # Blender MTL File: 'crane.blend'
 # Material Count: 2
 
-newmtl BRASS2
+newmtl Beam64_Y
 Ns 323.999994
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
