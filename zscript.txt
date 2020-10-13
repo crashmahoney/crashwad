@@ -1,5 +1,6 @@
 version "4.2"
 #include "zscript/Dynamic Difficulty.zs"
+#include "zscript/Level Transitions.zs"
 #include "zscript/c_player.zs"
 #include "zscript/c_weapon_base.zs"
 #include "zscript/c_weapon_pistol.zs"

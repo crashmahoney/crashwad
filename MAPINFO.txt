@@ -8,8 +8,16 @@ defaultmap
 gameinfo
 {
 	playerclasses = "CrashPlayer"
-	AddEventHandlers = "IncreaseMonsterScale", "WaterHandler","DynamicDifficulty"
-	PrecacheSounds = "break/vent", "break/glass"
+	
+	AddEventHandlers = "IncreaseMonsterScale", "WaterHandler", "DynamicDifficulty",
+						"LevelTrans_Load"
+						
+	PrecacheSounds = "break/vent", "break/glass", "taser/tasshot", "taser/zap1",
+						"taser/zapsmall", "fem/sight", "fem/pain", "fem/death",
+						"fem/active", "KnifeHit"	
+						
+	PrecacheTextures = "DNXGLS02", "DNXGLS03", "DNXGLS04", "DNXGLS05", "DNXGLS06", "DNXGLS07",
+						"DNVENT5"
 }
 
 
