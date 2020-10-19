@@ -301,8 +301,8 @@ material glass2
 
 material glassenv
 {
-	shader					"shaders/spheremap.fp"
-	texture enviromap		"textures/spheremap4.png"
+	shader					"shaders/paraboloid.fp"
+	texture enviromap		"textures/spheremap5.png"
 	texture enviromask		"textures/white.png"
 }
 
