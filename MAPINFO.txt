@@ -62,7 +62,10 @@ map SELECT "Episode Select"
 	sky1 = "NIGHT1", 0.01
 	par = 60
 	cluster = 1
-
+	
+	//outsidefog = "20 00 18"
+	//fogdensity  = 8
+	lightmode = 3
 }
 
 map STAT1 "Arena"
@@ -363,6 +366,7 @@ DoomEdNums
 	13084	=	LiteF
 	13085	=	Crane3
 	13086	=	Grate128
+	13087	=	Rail_B
 
 // actors in this range are overwritten by DoomRPG actors and need changing
 	20000	=	WallBreaker				// actor that dies from explosions

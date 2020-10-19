@@ -370,6 +370,19 @@ Model Rail1
 
 	FrameIndex PIPE A 0 0
 }
+
+Model Rail_B
+{
+	Model 0 "models/Rail_B.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
+
+
+
 //--------------------------------------------------------------------------S
 Model Stool1
 {

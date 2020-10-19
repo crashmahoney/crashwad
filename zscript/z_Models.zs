@@ -173,6 +173,23 @@ Class LiteF : SolidModelBase {
 		-SOLID
 	}
 }
+//=======================================================
+Class Rail_B : SolidModelBase {
+	Default {
+		Radius 2;
+		Height 3;
+		+NOGRAVITY
+		
+		-SOLID
+
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
 
 //=======================================================
 Class Stool1 : SolidModelBase {

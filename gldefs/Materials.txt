@@ -287,15 +287,30 @@ material texture galvmet1
 
 material GLASS
 {
-    Shader "shaders/enviromap.fp"
-    texture enviromap "textures/glassenv.png"
-	Speed 1.0
+	shader					"shaders/spheremap.fp"
+	texture enviromap		"textures/spheremap4.png"
+	texture enviromask		"textures/white.png"
+}
+
+material glass2
+{
+	shader					"shaders/spheremap.fp"
+	texture enviromap		"textures/spheremap4.png"
+	texture enviromask		"textures/white.png"
 }
 
 material glassenv
 {
-    Shader "shaders/enviromap.fp"
-    Speed 1.0
+	shader					"shaders/spheremap.fp"
+	texture enviromap		"textures/spheremap4.png"
+	texture enviromask		"textures/white.png"
+}
+
+material glasrail
+{
+	shader					"shaders/spheremap.fp"
+	texture enviromap		"textures/spheremap4.png"
+	texture enviromask		"textures/masks/glasrail_m.png"
 }
 
 material texture GrdRai_d
