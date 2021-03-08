@@ -34,12 +34,16 @@ function int max (int a, int b)
 //===============================================================
 //	Player Setup
 //===============================================================
+
 script "CrashPlayerSetup" ENTER {
+/*
 	SetActorProperty(0, APROP_JUMPZ, 12.0);  			// player increased jump height
 	SetActorProperty(0, APROP_ViewHeight, 60.0);  		// player increased eye height (41 default)  blegh 54.0
 	SetActorProperty(0, APROP_AttackZOffset, 32.0);  	// player increased attack height
+*/
 	SetAirControl(0.6);
 }
+
 
 script "CrashPlayerRespawn" RESPAWN {
 	ACS_NamedExecuteAlways("CrashPlayerSetup",0,0,0,0);

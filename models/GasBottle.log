@@ -1,0 +1,22 @@
+########################BEGIN########################
+Exporting CylMesh
+Exported UVMap coordinates for CylMesh
+Exported 250 frame(s) for CylMesh
+Header Information
+Ident: IDP3
+Version: 15
+Name: 
+Flags: 0
+Number of Frames: 250
+Number of Tags: 0
+Number of Surfaces: 1
+Number of Skins: 0
+Offset Frames: 108
+Offset Tags: 14108
+Offset Surfaces: 14108
+Offset end: 860240
+Total Shaders: 1
+Total Triangles: 551
+Total Vertices: 418
+MD3 saved to D:\Games\Doom\crashwad\models\GasBottle.md3
+Elapsed 2.25587 seconds

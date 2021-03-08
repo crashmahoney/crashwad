@@ -49,3 +49,14 @@ $Ambient 7 ambient/H2Opipe point continuous 1.0
 $Ambient 8 ambient/Lava point continuous 1.0
 $Ambient 9 ambient/crickets point continuous 1.0
 $Ambient 10 ambient/train surround continuous 0.7
+
+
+
+
+
+
+
+
+
+
+player/slide	CORZSLID	// slide from high noon drifter

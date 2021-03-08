@@ -173,6 +173,28 @@ Class LiteF : SolidModelBase {
 		-SOLID
 	}
 }
+
+//=======================================================
+Class Monkey : SolidModelBase {
+	Default
+	{
+		Radius 32;
+		Height 56;
+	}
+}
+//=======================================================
+Class Orb : SolidModelBase {
+	Default
+	{
+		Radius 72;
+		Height 128;
+	}
+}
+
+Class Orb2 : Orb {
+
+}
+
 //=======================================================
 Class Rail_B : SolidModelBase {
 	Default {

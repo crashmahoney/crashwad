@@ -1,0 +1,808 @@
+/*
+----------------------------
+MetaDoom
+Sound Definitions
+Actors & Such
+----------------------------
+*/
+
+// Player Noises
+// Male
+$playersound	player	male	*death		pdie
+$playersound	player	male	*xdeath		pdiehi
+$playeralias	player	male	*pain100	player/hurtsmall
+$playeralias	player	male	*pain75		player/hurtmedium
+$playeralias	player	male	*pain50		player/hurtmedium
+$playeralias	player	male	*pain25		player/hurtlarge
+$playeralias	player	male	*grunt		player/land
+$playeralias	player	male	*land		player/feet
+$playeralias	player	male	*jump		player/jump
+$playersound	player	male	*usefail	pnoway
+$playersound	player	male	*hurtslime	painslim
+$playersound	player	male	*crushed	pcrush
+$playersound	player	male	*ext1		playext1
+$playersound	player	male	*ext2		playext2
+
+// Female
+$playersound	player	female	*death		fdie
+$playersound	player	female	*xdeath		fdiehi
+$playeralias	player	female	*pain100	fplayer/hurtsmall
+$playeralias	player	female	*pain75		fplayer/hurtmedium
+$playeralias	player	female	*pain50		fplayer/hurtmedium
+$playeralias	player	female	*pain25		fplayer/hurtlarge
+$playeralias	player	female	*grunt		fplayer/land
+$playeralias	player	female	*land		player/feet
+$playeralias	player	female	*jump		fplayer/jump
+$playersound	player	female	*usefail	fnoway
+$playersound	player	female	*hurtslime	fainslim
+$playersound	player	female	*crushed	fcrush
+$playersound	player	female	*ext1		flayext1
+$playersound	player	female	*ext2		flayext2
+
+// Cyborg
+$playersound	player	other	*death		cdie
+$playersound	player	other	*xdeath		cdiehi
+$playeralias	player	other	*pain100	cplayer/hurtsmall
+$playeralias	player	other	*pain75		cplayer/hurtmedium
+$playeralias	player	other	*pain50		cplayer/hurtmedium
+$playeralias	player	other	*pain25		cplayer/hurtlarge
+$playeralias	player	other	*grunt		cplayer/land
+$playeralias	player	other	*land		player/feet
+$playersound	player	other	*jump		cjump
+$playersound	player	other	*usefail	cnoway
+$playersound	player	other	*hurtslime	cainslim
+$playersound	player	other	*crushed	ccrush
+$playersound	player	other	*ext1		clayext1
+$playersound	player	other	*ext2		clayext2
+
+$random player/hurtsmall	{ player/hurtsmall1 player/hurtsmall2 player/hurtsmall3 }
+player/hurtsmall1		painsml1
+player/hurtsmall2		painsml2
+player/hurtsmall3		painsml3
+
+$random player/hurtmedium	{ player/hurtmedium1 player/hurtmedium2 player/hurtmedium3 player/hurtmedium4 }
+player/hurtmedium1		painmed1
+player/hurtmedium2		painmed2
+player/hurtmedium3		painmed3
+player/hurtmedium4		painmed4
+
+$random player/hurtlarge	{ player/hurtlarge1 player/hurtlarge2 player/hurtlarge3 }
+player/hurtlarge1		painbig1
+player/hurtlarge2		painbig2
+player/hurtlarge3		painbig3
+
+$random player/land			{ player/land1 player/land2 player/land3 player/land4 }
+player/land1			pland1
+player/land2			pland2
+player/land3			pland3
+player/land4			pland4
+
+$random player/feet			{ player/feet1 player/feet2 player/feet3 }
+player/feet1			pfeet1
+player/feet2			pfeet2
+player/feet3			pfeet3
+
+$random player/jump			{ player/jump1 player/jump2 player/jump3 }
+player/jump1			pjump1
+player/jump2			pjump2
+player/jump3			pjump3
+
+$random fplayer/hurtsmall	{ fplayer/hurtsmall1 fplayer/hurtsmall2 fplayer/hurtsmall3 }
+fplayer/hurtsmall1		fainsml1
+fplayer/hurtsmall2		fainsml2
+fplayer/hurtsmall3		fainsml3
+
+$random fplayer/hurtmedium	{ fplayer/hurtmedium1 fplayer/hurtmedium2 fplayer/hurtmedium3 fplayer/hurtmedium4 }
+fplayer/hurtmedium1		fainmed1
+fplayer/hurtmedium2		fainmed2
+fplayer/hurtmedium3		fainmed3
+fplayer/hurtmedium4		fainmed4
+
+$random fplayer/hurtlarge	{ fplayer/hurtlarge1 fplayer/hurtlarge2 fplayer/hurtlarge3 }
+fplayer/hurtlarge1		fainbig1
+fplayer/hurtlarge2		fainbig2
+fplayer/hurtlarge3		fainbig3
+
+$random fplayer/land			{ fplayer/land1 fplayer/land2 fplayer/land3 fplayer/land4 }
+fplayer/land1			fland1
+fplayer/land2			fland2
+fplayer/land3			fland3
+fplayer/land4			fland4
+
+$random fplayer/jump			{ fplayer/jump1 fplayer/jump2 fplayer/jump3 }
+fplayer/jump1			fjump1
+fplayer/jump2			fjump2
+fplayer/jump3			fjump3
+
+$random cplayer/hurtsmall	{ cplayer/hurtsmall1 cplayer/hurtsmall2 cplayer/hurtsmall3 }
+cplayer/hurtsmall1		cainsml1
+cplayer/hurtsmall2		cainsml2
+cplayer/hurtsmall3		cainsml3
+
+$random cplayer/hurtmedium	{ cplayer/hurtmedium1 cplayer/hurtmedium2 cplayer/hurtmedium3 }
+cplayer/hurtmedium1		cainmed1
+cplayer/hurtmedium2		cainmed2
+cplayer/hurtmedium3		cainmed3
+
+$random cplayer/hurtlarge	{ cplayer/hurtlarge1 cplayer/hurtlarge2 cplayer/hurtlarge3 }
+cplayer/hurtlarge1		cainbig1
+cplayer/hurtlarge2		cainbig2
+cplayer/hurtlarge3		cainbig3
+
+$random cplayer/land			{ cplayer/land1 cplayer/land2 cplayer/land3 }
+cplayer/land1			cland1
+cplayer/land2			cland2
+cplayer/land3			cland3
+
+//player/hurtslime		painslim
+//player/deathcrush		pcrush
+
+//player/extinguishself/start		playext1
+//player/extinguishself/end		playext2
+
+player/healthwarning			lifewarn
+$volume player/healthwarning 2.0
+
+player/burn						playburn
+player/zap						playzap
+
+$random player/helmetgib		{ player/helmetgib1 player/helmetgib2 }
+player/helmetgib1		pgib1
+player/helmetgib2		pgib2
+
+player/berserk			pbzrk
+
+// Gibs
+$random gibbage/gib			{gibbage/gib1 gibbage/gib2 gibbage/gib3 gibbage/gib4 gibbage/gib5 gibbage/gib6 gibbage/gib7 gibbage/gib8}
+gibbage/gib1				gib1
+gibbage/gib2				gib2
+gibbage/gib3				gib3
+gibbage/gib4				gib4
+gibbage/gib5				gib5
+gibbage/gib6				gib6
+gibbage/gib7				gib7
+gibbage/gib8				gib8
+
+$random gibbage/gibphys			{ gibbage/gibphys1 gibbage/gibphys2 gibbage/gibphys3 }
+gibbage/gibphys1				gibphys1
+gibbage/gibphys2				gibphys2
+gibbage/gibphys3				gibphys3
+
+// Body Falls
+$random bodyfalls/medium { bodyfalls/medium1 bodyfalls/medium2 bodyfalls/medium3 }
+bodyfalls/medium1		bdmd1
+bodyfalls/medium2		bdmd2
+bodyfalls/medium3		bdmd3
+
+$random bodyfalls/heavy { bodyfalls/heavy1 bodyfalls/heavy2 bodyfalls/heavy3 }
+bodyfalls/heavy1		bdhv1
+bodyfalls/heavy2		bdhv2
+bodyfalls/heavy3		bdhv3
+
+$random bodyfalls/revenant { bodyfalls/revenant1 bodyfalls/revenant2 bodyfalls/revenant3 }
+bodyfalls/revenant1		bdrv1
+bodyfalls/revenant2		bdrv2
+bodyfalls/revenant3		bdrv3
+
+bodyfalls/cacodemon		bdca1
+
+// Status Effects, for lack of a better name
+monsters/bleed			actbleed
+monsters/crushed		actcrush
+monsters/vamped			actvamp
+monsters/shocked		actshok
+
+// zombieman
+$random monsters/zombieman/see 	{ monsters/zombieman/see1 monsters/zombieman/see2 monsters/zombieman/see3 }
+monsters/zombieman/see1			zombsee1
+monsters/zombieman/see2			zombsee2
+monsters/zombieman/see3			zombsee3
+
+$random monsters/zombieman/die 	{ monsters/zombieman/die1 monsters/zombieman/die2 monsters/zombieman/die3 }
+monsters/zombieman/die1			zombdie1
+monsters/zombieman/die2			zombdie2
+monsters/zombieman/die3			zombdie3
+
+monsters/zombieman/idle			zombidle
+monsters/zombieman/fire			zombfire
+monsters/zombieman/pain			zombpain
+
+// shotgun guy
+$random monsters/shotgunguy/see 	{ monsters/shotgunguy/see1 monsters/shotgunguy/see2 monsters/shotgunguy/see3 }
+monsters/shotgunguy/see1			zsggsee1
+monsters/shotgunguy/see2			zsggsee2
+monsters/shotgunguy/see3			zsggsee3
+
+$random monsters/shotgunguy/die 	{ monsters/shotgunguy/die1 monsters/shotgunguy/die2 monsters/shotgunguy/die3 }
+monsters/shotgunguy/die1			zsggdie1
+monsters/shotgunguy/die2			zsggdie2
+monsters/shotgunguy/die3			zsggdie3
+
+monsters/shotgunguy/idle			zsggidle
+monsters/shotgunguy/fire			zsggfire
+monsters/shotgunguy/pain			zsggpain
+
+// machinegunner
+$random monsters/machinegunner/see 	{ monsters/machinegunner/see1 monsters/machinegunner/see2 monsters/machinegunner/see3 }
+monsters/machinegunner/see1			zmggsee1
+monsters/machinegunner/see2			zmggsee2
+monsters/machinegunner/see3			zmggsee3
+
+$random monsters/machinegunner/die 	{ monsters/machinegunner/die1 monsters/machinegunner/die2 monsters/machinegunner/die3 }
+monsters/machinegunner/die1			zmggdie1
+monsters/machinegunner/die2			zmggdie2
+monsters/machinegunner/die3			zmggdie3
+
+monsters/machinegunner/idle			zmggidle
+monsters/machinegunner/pain			zmggpain
+
+// Imp
+$random monsters/imp/see 	{ monsters/imp/see1 monsters/imp/see2 }
+monsters/imp/see1			imp1see1
+monsters/imp/see2			imp1see2
+
+$random monsters/imp/die 	{ monsters/imp/die1 monsters/imp/die2 }
+monsters/imp/die1			imp1die1
+monsters/imp/die2			imp1die2
+
+monsters/imp/idle			imp1idle
+monsters/imp/pain			imp1pain
+monsters/imp/shoot			imp1sht
+monsters/imp/claw			imp1claw
+
+monsters/imp/fireball/loop		fballoop
+$random monsters/imp/fireball/hit	{ monsters/imp/fireball/hit1 monsters/imp/fireball/hit2 monsters/imp/fireball/hit3 }
+monsters/imp/fireball/hit1		fball1
+monsters/imp/fireball/hit2		fball2
+monsters/imp/fireball/hit3		fball3
+
+// pinky demon / spectre
+monsters/pinky/see			pinksee
+monsters/pinky/pain			pinkpain
+monsters/pinky/attack		pinkattk
+monsters/pinky/die			pinkdie
+
+$random monsters/pinky/idle { monsters/pinky/idle1 monsters/pinky/idle2 }
+monsters/pinky/idle1		pinkact1
+monsters/pinky/idle2		pinkact2
+
+// Cacodemon
+monsters/caco/see		cacosee
+monsters/caco/pain		cacopain
+monsters/caco/idle		cacoidle
+monsters/caco/die		cacodie
+
+monsters/caco/lightningball/fire		lballfir
+monsters/caco/lightningball/loop		lballoop
+$random monsters/caco/lightningball/hit	{ monsters/caco/lightningball/hit1 monsters/caco/lightningball/hit2 monsters/caco/lightningball/hit3 }
+monsters/caco/lightningball/hit1		lball1
+monsters/caco/lightningball/hit2		lball2
+monsters/caco/lightningball/hit3		lball3
+
+monsters/caco/gib						cacogib
+
+// malwraith
+monsters/malwraith/see		malwsee
+monsters/malwraith/idle		malwidle
+monsters/malwraith/pain		malwpain
+monsters/malwraith/die		malwdie
+monsters/malwraith/attack	malwattk
+
+// wretched!
+monsters/wretched/see		wretsee
+monsters/wretched/pain		wretpain
+monsters/wretched/die		wretdie
+monsters/wretched/tongue	wrettung
+monsters/wretched/pull		wretpull
+$random monsters/wretched/idle { monsters/wretched/idle1 monsters/wretched/idle2 }
+monsters/wretched/idle1		wretidl1
+monsters/wretched/idle2		wretidl2
+
+// Pain Elemental
+monsters/painelemental/see		pelesee
+monsters/painelemental/pain 	pelepain
+monsters/painelemental/die		peledie
+monsters/painelemental/idle		peleidle
+monsters/painelemental/bite		pelebite
+
+// Revenant
+monsters/revenant/missile/beep			dsbeep!
+monsters/revenant/see		revesee
+monsters/revenant/idle		reveidle
+monsters/revenant/pain		revepain
+monsters/revenant/death		revedie
+monsters/revenant/boned		revebone
+monsters/revenant/fire		revefire
+monsters/revenant/wiff		revewiff
+$random monsters/revenant/hit		{ monsters/revenant/hit1 monsters/revenant/hit2 monsters/revenant/hit3 monsters/revenant/hit4 }
+monsters/revenant/hit1		revehit1
+monsters/revenant/hit2		revehit2
+monsters/revenant/hit3		revehit3
+monsters/revenant/hit4		revehit4
+
+// dag
+monsters/hellhound/see		dog1reco
+monsters/hellhound/pain		dog1pain
+monsters/hellhound/bite		dog1bite
+monsters/hellhound/die		dog1die
+
+$random monsters/hellhound/bark { monsters/hellhound/bark1 monsters/hellhound/bark2 monsters/hellhound/bark3 }
+monsters/hellhound/bark1	dog1brk1
+monsters/hellhound/bark2	dog1brk2
+monsters/hellhound/bark3	dog1brk3
+
+monsters/demondog/see		dog2reco
+
+$random monsters/demondog/bark { monsters/demondog/bark1 monsters/demondog/bark2 monsters/demondog/bark3 }
+monsters/demondog/bark1	dog2brk1
+monsters/demondog/bark2	dog2brk2
+monsters/demondog/bark3	dog2brk3
+
+monsters/cerberus/see		dog3reco
+monsters/cerberus/jump		dog3jump
+monsters/cerberus/land		dog3land
+
+$random monsters/cerberus/bark { monsters/cerberus/bark1 monsters/cerberus/bark2 monsters/cerberus/bark3 }
+monsters/cerberus/bark1	dog3brk1
+monsters/cerberus/bark2	dog3brk2
+monsters/cerberus/bark3	dog3brk3
+
+// nightmare spectre
+monsters/nightmarespectre/see		nmspsee
+monsters/nightmarespectre/bite		nmspbite
+monsters/nightmarespectre/pain		nmsppain
+monsters/nightmarespectre/die		nmspdie
+monsters/nightmarespectre/act		nmspact
+
+// z-sec
+$random monsters/zsec/see { monsters/zsec/see1 monsters/zsec/see2 monsters/zsec/see3 }
+monsters/zsec/see1		zsecsee1
+monsters/zsec/see2		zsecsee2
+monsters/zsec/see3		zsecsee3
+
+monsters/zsec/idle		zsecidle
+monsters/zsec/pain		zsecpain
+monsters/zsec/roll		zsecroll
+
+$random monsters/zsec/die { monsters/zsec/die1 monsters/zsec/die2 monsters/zsec/die3 }
+monsters/zsec/die1		zsecdie1
+monsters/zsec/die2		zsecdie2
+monsters/zsec/die3		zsecdie3
+
+// nightmare imp
+$random monsters/nightmareimp/see { monsters/nightmareimp/see1 monsters/nightmareimp/see2 }
+monsters/nightmareimp/see1		nimpsit1
+monsters/nightmareimp/see2		nimpsit2
+
+$random monsters/nightmareimp/die { monsters/nightmareimp/die1 monsters/nightmareimp/die2 }
+monsters/nightmareimp/die1		nimpdth1
+monsters/nightmareimp/die2		nimpdth2
+
+monsters/nightmareimp/pain		nimppain
+monsters/nightmareimp/act		nimpact
+monsters/nightmareimp/shoot		nimpsht
+monsters/nightmareimp/explode	nimpxpl
+monsters/nightmareimp/claw		nimpclaw
+
+// Lost Soul
+monsters/lostsoul/idle			soulidle
+monsters/lostsoul/attack		soulattk
+monsters/lostsoul/pain			soulpain
+monsters/lostsoul/die1			souldie1
+monsters/lostsoul/die2			souldie2
+monsters/lostsoul/extinguish	soulxtng
+
+// Phantom
+monsters/phantom/fireballshoot	phanfire
+monsters/phantom/fireballhit	phanball
+monsters/phantom/idle			phanidle
+monsters/phantom/attack			phanattk
+monsters/phantom/pain			phanpain
+monsters/phantom/die1			phandie1
+monsters/phantom/die2			phandie2
+monsters/phantom/die3			phandie3
+monsters/phantom/extinguish		phanxtng
+monsters/phantom/break			phanbrk
+
+// Bruisers
+monsters/bruisers/fireball		brusball
+$random monsters/bruisers/fireballhit { monsters/bruisers/fireballhit1 monsters/bruisers/fireballhit2 monsters/bruisers/fireballhit3 }
+monsters/bruisers/fireballhit1	brusbax1
+monsters/bruisers/fireballhit2	brusbax2
+monsters/bruisers/fireballhit3	brusbax3
+monsters/bruisers/fireballsplit		brusplt
+
+// Hell Knight
+monsters/hellknight/see		hngtsee
+monsters/hellknight/idle	hngtidle
+monsters/hellknight/pain	hngtpain
+monsters/hellknight/die		hngtdie
+monsters/hellknight/jump	hngtjump
+monsters/hellknight/land	hngtland
+
+// arch-vile
+monsters/archvile/flames		archflam
+monsters/archvile/magic			archmagi
+monsters/archvile/resurrect		archres
+monsters/archvile/boom			archboom
+monsters/archvile/dud			archdud
+$random monsters/archvile/gib { monsters/archvile/gib1 monsters/archvile/gib2 }
+monsters/archvile/gib1	archgib1
+monsters/archvile/gib2	archgib2
+
+$volume monsters/archvile/boom 2.0
+$volume monsters/archvile/dud 2.0
+
+monsters/archvile/see			archsee
+monsters/archvile/idle			archidle
+monsters/archvile/pain			archpain
+monsters/archvile/die			archdie
+
+// Hell Razer
+$random monsters/hellrazer/see	{ monsters/hellrazer/see1 monsters/hellrazer/see2 monsters/hellrazer/see3 }
+monsters/hellrazer/see1			hrazsee1
+monsters/hellrazer/see2			hrazsee2
+monsters/hellrazer/see3			hrazsee3
+
+$random monsters/hellrazer/idle	{ monsters/hellrazer/idle1 monsters/hellrazer/idle2 monsters/hellrazer/idle3 }
+monsters/hellrazer/idle1			hrazidl1
+monsters/hellrazer/idle2			hrazidl2
+monsters/hellrazer/idle3			hrazidl3
+
+$random monsters/hellrazer/die	{ monsters/hellrazer/die1 monsters/hellrazer/die2 monsters/hellrazer/die3 }
+monsters/hellrazer/die1			hrazdie1
+monsters/hellrazer/die2			hrazdie2
+monsters/hellrazer/die3			hrazdie3
+
+monsters/hellrazer/pain			hrazpain
+monsters/hellrazer/charge		hrazchrg
+monsters/hellrazer/fire			hrazfire
+
+$random monsters/hellrazer/armgib		{ player/helmetgib1 player/helmetgib2 }
+$volume monsters/hellrazer/armgib 0.5
+
+// Baron of Hell
+monsters/baron/see		barnsee
+monsters/baron/pain		barnpain
+monsters/baron/die		barndie
+$random monsters/baron/idle { monsters/baron/idle1 monsters/baron/idle2 }
+monsters/baron/idle1	barnidl1
+monsters/baron/idle2	barnidl2
+monsters/baron/jump		barnjump
+
+// Cyberdemon!
+monsters/cyberdemon/see				cybrsee
+monsters/cyberdemon/pain			cybrpain
+monsters/cyberdemon/die1			cybrdie1
+monsters/cyberdemon/die2			cybrdie2
+monsters/cyberdemon/switch			cybrswtc
+monsters/cyberdemon/charge			cybrchrg
+monsters/cyberdemon/chargebrake		cybrchrb
+
+$random monsters/cyberdemon/idle		{ monsters/cyberdemon/idle1 monsters/cyberdemon/idle2 monsters/cyberdemon/idle3 monsters/cyberdemon/idle4 }
+monsters/cyberdemon/idle1		cybridl1
+monsters/cyberdemon/idle2		cybridl2
+monsters/cyberdemon/idle3		cybridl3
+monsters/cyberdemon/idle4		cybridl4
+
+$random monsters/cyberdemon/hoof 		{ monsters/cyberdemon/hoof1 monsters/cyberdemon/hoof2 monsters/cyberdemon/hoof3 monsters/cyberdemon/hoof4 }
+monsters/cyberdemon/hoof1		dshoof1
+monsters/cyberdemon/hoof2		dshoof2
+monsters/cyberdemon/hoof3		dshoof3
+monsters/cyberdemon/hoof4		dshoof4
+
+$random monsters/cyberdemon/fire		{ monsters/cyberdemon/fire1 monsters/cyberdemon/fire2 }
+monsters/cyberdemon/fire1		cybrfir1
+monsters/cyberdemon/fire2		cybrfir2
+
+// fatso
+monsters/mancubus/see		mancsee
+monsters/mancubus/pain		mancpain
+monsters/mancubus/attack	mancatk1
+monsters/mancubus/die		mancdie
+monsters/mancubus/body		mancbody
+monsters/mancubus/melt		mancmelt
+monsters/mancubus/fire		mancfire
+monsters/mancubus/boom		mancboom
+
+$random monsters/mancubus/idle { monsters/mancubus/idle1 monsters/mancubus/idle2 }
+monsters/mancubus/idle1		mancidl1
+monsters/mancubus/idle2		mancidl2
+
+// Beholder
+monsters/beholder/see		behosee
+monsters/beholder/pain		behopain
+monsters/beholder/fire		behofire
+monsters/beholder/die		behodie
+
+$random monsters/forgottenone/attack { monsters/forgottenone/attack1 monsters/forgottenone/attack2 }
+monsters/forgottenone/attack1	frgtn1
+monsters/forgottenone/attack2	frgtn2
+
+// Rahovart - apparently these definitions went missing for quite a while?!
+monsters/rahovart/see		rahosee
+monsters/rahovart/pain		rahopain
+monsters/rahovart/die		rahodie
+
+// fiend
+monsters/fiend/see			fiensee
+monsters/fiend/idle			fienidle
+monsters/fiend/pain			fienpain
+monsters/fiend/die			fiendie
+monsters/fiend/jet			fienjet
+monsters/fiend/land			fienland
+monsters/fiend/arm			fienarm
+
+// former assassin
+$random monsters/d3chaingunner/see { monsters/d3chaingunner/see1 monsters/d3chaingunner/see2 monsters/d3chaingunner/see3 }
+monsters/d3chaingunner/see1		d3cgsee1
+monsters/d3chaingunner/see2		d3cgsee2
+monsters/d3chaingunner/see3		d3cgsee3
+
+$random monsters/d3chaingunner/idle { monsters/d3chaingunner/idle1 monsters/d3chaingunner/idle2 monsters/d3chaingunner/idle3 monsters/d3chaingunner/idle4 }
+monsters/d3chaingunner/idle1		d3cgidl1
+monsters/d3chaingunner/idle2		d3cgidl2
+monsters/d3chaingunner/idle3		d3cgidl3
+monsters/d3chaingunner/idle4		d3cgidl4
+
+$random monsters/d3chaingunner/die { monsters/d3chaingunner/die1 monsters/d3chaingunner/die2 monsters/d3chaingunner/die3 }
+monsters/d3chaingunner/die1		d3cgdie1
+monsters/d3chaingunner/die2		d3cgdie2
+monsters/d3chaingunner/die3		d3cgdie3
+
+monsters/d3chaingunner/tentacle		d3cgtent
+monsters/d3chaingunner/pain		d3cgpain
+
+// imp lord
+$random monsters/implord/see	{ monsters/implord/see1 monsters/implord/see2 monsters/implord/see3 }
+monsters/implord/see1			imldsee1
+monsters/implord/see2			imldsee2
+monsters/implord/see3			imldsee3
+
+$random monsters/implord/idle	{ monsters/implord/idle1 monsters/implord/idle2 }
+monsters/implord/idle1			imldidl1
+monsters/implord/idle2			imldidl2
+
+$random monsters/implord/die	{ monsters/implord/die1 monsters/implord/die2 monsters/implord/die3 }
+monsters/implord/die1			imlddie1
+monsters/implord/die2			imlddie2
+monsters/implord/die3			imlddie3
+
+monsters/implord/jump			imldjump
+monsters/implord/pain			imldpain
+monsters/implord/tele			imldtele
+
+// arachnotron
+monsters/arachnotron/see			aracsee
+monsters/arachnotron/walk			aracwalk
+monsters/arachnotron/idle			aracidle
+monsters/arachnotron/fire			aracfire
+monsters/arachnotron/pain			aracpain
+monsters/arachnotron/die1			aracdie1
+monsters/arachnotron/die2			aracdie2
+monsters/arachnotron/body			aracbody
+
+// bull demon
+monsters/bulldemon/see			buldsee
+monsters/bulldemon/bite			buldbite
+monsters/bulldemon/pain			buldpain
+monsters/bulldemon/charge		buldchrg
+monsters/bulldemon/die			bulddie
+
+$random monsters/bulldemon/step 	{ monsters/bulldemon/step1 monsters/bulldemon/step2 monsters/bulldemon/step3 monsters/bulldemon/step4 }
+monsters/bulldemon/step1			buldstp1
+monsters/bulldemon/step2			buldstp2
+monsters/bulldemon/step3			buldstp3
+monsters/bulldemon/step4			buldstp4
+
+$random monsters/bulldemon/body 	{ monsters/bulldemon/body1 monsters/bulldemon/body2 }
+monsters/bulldemon/body1			buldbod1
+monsters/bulldemon/body2			buldbod2
+
+// behemoth
+monsters/behemoth/see		behesee
+monsters/behemoth/attack	beheatk1
+monsters/behemoth/pain		behepain
+monsters/behemoth/die		behedie
+monsters/behemoth/melt		behemelt
+
+$random monsters/behemoth/fire		{ monsters/behemoth/fire1 monsters/behemoth/fire2 }
+monsters/behemoth/fire1		behefir1
+monsters/behemoth/fire2		behefir2
+
+$random monsters/behemoth/missilehit 	{ monsters/behemoth/missilehit1 monsters/behemoth/missilehit2 monsters/behemoth/missilehit3 monsters/behemoth/missilehit4 }
+monsters/behemoth/missilehit1	behemis1
+monsters/behemoth/missilehit2	behemis2
+monsters/behemoth/missilehit3	behemis3
+monsters/behemoth/missilehit4	behemis4
+
+monsters/behemoth/missileloop	beheloop
+
+// spiborg
+monsters/spiborg/see		sprgsee
+monsters/spiborg/idle		sprgact
+monsters/spiborg/walk		sprgwalk
+monsters/spiborg/charge		sprgchrg
+monsters/spiborg/fire		sprgfire
+monsters/spiborg/brainpop	sprgboom
+monsters/spiborg/die		sprgdie
+
+$attenuation monsters/spiborg/brainpop 0.5
+
+// trite
+$random monsters/trite/squeak	{ monsters/trite/squeak1 monsters/trite/squeak2 }
+monsters/trite/squeak1		tritact1
+monsters/trite/squeak2		tritact2
+
+monsters/trite/bite			tritbite
+monsters/trite/die			tritdie
+monsters/trite/walk			tritwalk
+monsters/trite/jump			tritjump
+monsters/trite/land			tritland
+
+// summoner
+monsters/summoner/see		summsee
+monsters/summoner/pain		summpain
+monsters/summoner/popcorn	summpopc
+monsters/summoner/die		summdie
+monsters/summoner/idle		summidle
+
+$random monsters/summoner/warp		{ monsters/summoner/warp1 monsters/summoner/warp2 monsters/summoner/warp3 }
+monsters/summoner/warp1		summwrp1
+monsters/summoner/warp2		summwrp2
+monsters/summoner/warp3		summwrp3
+
+// cyber-manc
+monsters/cybermanc/see				cfatsee
+monsters/cybermanc/idle				cfatidle
+monsters/cybermanc/pain				cfatpain
+monsters/cybermanc/die1				cfatdie1
+monsters/cybermanc/die2				cfatdie2
+monsters/cybermanc/die3				cfatdie3
+monsters/cybermanc/boop				cfatboop
+monsters/cybermanc/purge			cfatpurg
+monsters/cybermanc/stomp			cfatstmp
+monsters/cybermanc/attack			cfatattk
+
+$random monsters/cybermanc/fire 	{ monsters/cybermanc/fire1 monsters/cybermanc/fire2 monsters/cybermanc/fire3 }
+monsters/cybermanc/fire1			cfatfir1
+monsters/cybermanc/fire2			cfatfir2
+monsters/cybermanc/fire3			cfatfir3
+
+$random monsters/cybermanc/hit 		{ monsters/cybermanc/hit1 monsters/cybermanc/hit2 }
+monsters/cybermanc/hit1				cfathit1
+monsters/cybermanc/hit2				cfathit2
+
+$random monsters/cybermanc/bomb 	{ monsters/cybermanc/bomb1 monsters/cybermanc/bomb2 }
+monsters/cybermanc/bomb1			cfatbom1
+monsters/cybermanc/bomb2			cfatbom2
+
+// spider mastermind
+monsters/spidermastermind/see		mspisee
+monsters/spidermastermind/pain		mspipain
+monsters/spidermastermind/die1		mspidie1
+monsters/spidermastermind/die2		mspidie2
+monsters/spidermastermind/ready1		mspirdy1
+monsters/spidermastermind/ready2		mspirdy2
+
+monsters/spidermastermind/tkwave		mspitkw
+
+$random monsters/spidermastermind/idle  { monsters/spidermastermind/idle1 monsters/spidermastermind/idle2 }
+monsters/spidermastermind/idle1		mspiidl1
+monsters/spidermastermind/idle2		mspiidl2
+
+$random monsters/spidermastermind/fire 	{ monsters/spidermastermind/fire1 monsters/spidermastermind/fire2 monsters/spidermastermind/fire3 monsters/spidermastermind/fire4 }
+monsters/spidermastermind/fire1		mspifir1
+monsters/spidermastermind/fire2		mspifir2
+monsters/spidermastermind/fire3		mspifir3
+monsters/spidermastermind/fire4		mspifir4
+monsters/spidermastermind/firehit		mspifirh
+
+$random monsters/spidermastermind/walk 		{ monsters/spidermastermind/walk1 monsters/spidermastermind/walk2 monsters/spidermastermind/walk3 }
+monsters/spidermastermind/walk1		mspiwlk1
+monsters/spidermastermind/walk2		mspiwlk2
+monsters/spidermastermind/walk3		mspiwlk3
+
+// unwilling - the popcorn monster
+$random monsters/unwilling/see 	{ monsters/unwilling/see1 monsters/unwilling/see2 monsters/unwilling/see3}
+monsters/unwilling/see1			unwisee1
+monsters/unwilling/see2			unwisee2
+monsters/unwilling/see3			unwisee3
+
+monsters/unwilling/idle			unwiidle
+monsters/unwilling/pain			unwipain
+monsters/unwilling/punch		unwipnch
+
+$random monsters/unwilling/attack 	{ monsters/unwilling/attack1 monsters/unwilling/attack2 monsters/unwilling/attack3 }
+monsters/unwilling/attack1			unwiatk1
+monsters/unwilling/attack2			unwiatk2
+monsters/unwilling/attack3			unwiatk3
+
+$random monsters/unwilling/fire 	{ monsters/unwilling/fire1 monsters/unwilling/fire2 }
+monsters/unwilling/fire1			unwifir1
+monsters/unwilling/fire2			unwifir2
+
+$random monsters/unwilling/die 	{ monsters/unwilling/die1 monsters/unwilling/die2 monsters/unwilling/die3 }
+monsters/unwilling/die1			unwidie1
+monsters/unwilling/die2			unwidie2
+monsters/unwilling/die3			unwidie3
+
+$random monsters/unwilling/gib 	{ monsters/unwilling/gib1 monsters/unwilling/gib2 }
+monsters/unwilling/gib1			unwigib1
+monsters/unwilling/gib2			unwigib2
+
+// sawcubus
+monsters/chainsawgoblin/see			goblsee
+monsters/chainsawgoblin/pain		goblpain
+monsters/chainsawgoblin/die			gobldie
+monsters/chainsawgoblin/attack		goblattk
+monsters/chainsawgoblin/loop		goblloop
+
+// motherdemon
+monsters/motherdemon/see		rectsee
+monsters/motherdemon/idle		rectidle
+monsters/motherdemon/pain		rectpain
+monsters/motherdemon/die		rectdie1
+monsters/motherdemon/gib		rectdie2
+monsters/motherdemon/attack		rectattk
+
+$random monsters/motherdemon/fire { monsters/motherdemon/fire1 monsters/motherdemon/fire2 monsters/motherdemon/fire3 }
+monsters/motherdemon/fire1		rectfir1
+monsters/motherdemon/fire2		rectfir2
+monsters/motherdemon/fire3		rectfir3
+
+$random monsters/motherdemon/magic { monsters/motherdemon/magic1 monsters/motherdemon/magic2 monsters/motherdemon/magic3 }
+monsters/motherdemon/magic1		rectmgk1
+monsters/motherdemon/magic2		rectmgk2
+monsters/motherdemon/magic3		rectmgk3
+
+$random monsters/motherdemon/flare { monsters/motherdemon/flare1 monsters/motherdemon/flare2 monsters/motherdemon/flare3 }
+monsters/motherdemon/flare1		rectfla1
+monsters/motherdemon/flare2		rectfla2
+monsters/motherdemon/flare3		rectfla3
+
+// hell guard
+$random monsters/hellguard/see 		{ monsters/hellguard/see1 monsters/hellguard/see2 monsters/hellguard/see3 }
+monsters/hellguard/see1		hgarsee1
+monsters/hellguard/see2		hgarsee2
+monsters/hellguard/see3		hgarsee3
+
+$random monsters/hellguard/idle 	{ monsters/hellguard/idle1 monsters/hellguard/idle2 monsters/hellguard/idle3 }
+monsters/hellguard/idle1	hgaract1
+monsters/hellguard/idle2	hgaract2
+monsters/hellguard/idle3	hgaract3
+
+$random monsters/hellguard/fire 	{ monsters/hellguard/fire1 monsters/hellguard/fire2 monsters/hellguard/fire3 }
+monsters/hellguard/fire1	hgarfir1
+monsters/hellguard/fire2	hgarfir2
+monsters/hellguard/fire3	hgarfir3
+
+$random monsters/hellguard/step { monsters/hellguard/step1 monsters/hellguard/step2 monsters/hellguard/step3 monsters/hellguard/step4 monsters/hellguard/step5 monsters/hellguard/step6 }
+monsters/hellguard/step1	hgarstp1
+monsters/hellguard/step2	hgarstp2
+monsters/hellguard/step3	hgarstp3
+monsters/hellguard/step4	hgarstp4
+monsters/hellguard/step5	hgarstp5
+monsters/hellguard/step6	hgarstp6
+
+monsters/hellguard/die		hgardie1
+monsters/hellguard/gib		hgardie2
+monsters/hellguard/pain		hgarpain
+monsters/hellguard/roll		hgarroll
+
+monsters/hellguard/fastfire	hgarfasf
+
+// harbinger of doom
+monsters/harbinger/see			harbsee
+monsters/harbinger/laugh		harblaff
+monsters/harbinger/fire			harbfire
+monsters/harbinger/pain			harbpain
+monsters/harbinger/die			harbdie
+monsters/harbinger/moan			harbmoan
+monsters/harbinger/teleport		harbtele
+
+// kronos
+monsters/kronos/see				kronsee
+monsters/kronos/attack			kronattk
+monsters/kronos/pain			kronpain
+monsters/kronos/die				krondie

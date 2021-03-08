@@ -285,11 +285,32 @@ material texture galvmet1
     ao brass_o
 }
 
+
+
+material texture "textures/GasBot.png"
+{
+	shader					"shaders/paraboloid.fp"
+	texture enviromap		"textures/spheremap8.png"
+	texture enviromask		"textures/normals/brass_m.png"
+	texture sunmask			"textures/white.png"
+
+}
+
+/*
+material GLASA0
+{
+	shader					"shaders/spheremap.fp"
+	texture enviromap		"textures/spheremap4.png"
+	texture enviromask		"textures/white.png"
+	texture sunmask			"textures/black.png"
+}
+*/
 material GLASS
 {
 	shader					"shaders/spheremap.fp"
 	texture enviromap		"textures/spheremap4.png"
 	texture enviromask		"textures/white.png"
+	texture sunmask			"textures/white.png"
 }
 
 material glass2
@@ -297,20 +318,49 @@ material glass2
 	shader					"shaders/spheremap.fp"
 	texture enviromap		"textures/spheremap4.png"
 	texture enviromask		"textures/white.png"
+	texture sunmask			"textures/white.png"
+}
+
+material glascopy
+{
+/*
+	shader					"shaders/spheremap.fp"
+	texture enviromap		"textures/spheremap4.png"
+	texture enviromask		"textures/white.png"
+	texture sunmask			"textures/white.png"
+*/
+
+	shader					"shaders/paraboloid.fp"
+	texture enviromap		"textures/spheremap8.png"
+	texture enviromask		"textures/white.png"
+	texture sunmask			"textures/flatred.png"
+	
 }
 
 material glassenv
 {
 	shader					"shaders/paraboloid.fp"
-	texture enviromap		"textures/spheremap5.png"
+	texture enviromap		"textures/spheremap8.png"
 	texture enviromask		"textures/white.png"
+	texture sunmask			"textures/white.png"
 }
+
+/*
+material glassenv
+{
+	shader					"shaders/spheremap.fp"
+	texture enviromap		"textures/spheremap9.png"
+	texture enviromask		"textures/white.png"
+	texture sunmask			"textures/white.png"
+}	
+*/
 
 material glasrail
 {
-	shader					"shaders/spheremap.fp"
-	texture enviromap		"textures/spheremap4.png"
+	shader					"shaders/paraboloid.fp"
+	texture enviromap		"textures/spheremap5.png"
 	texture enviromask		"textures/masks/glasrail_m.png"
+	texture sunmask			"textures/white.png"
 }
 
 material texture GrdRai_d
@@ -594,13 +644,19 @@ material texture PEELPNT3
 
 material texture "textures/skins/pistol_skin.png"
 {
-    shader "shaders/simsun.fp"
+//    shader "shaders/simsun.fp"
 /*
     normal carpet_n
     metallic "textures/skins/pistol_metal.png"
     roughness "textures/skins/pistol_rough.png"
     ao carpet_o
 */
+
+	shader					"shaders/paraboloid.fp"
+	texture enviromap		"textures/spheremap6.png"
+	texture enviromask		"textures/skins/pistol_spec.png"
+	texture sunmask			"textures/black.png"
+
 }
 
 material texture pinkpanl

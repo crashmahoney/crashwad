@@ -188,6 +188,17 @@ Model crane3
 //--------------------------------------------------------------------------E
 //--------------------------------------------------------------------------F
 //--------------------------------------------------------------------------G
+Model GasCan
+{
+	Path "models"
+	Model 0 "GasBottle.md3"
+	Skin 0 "textures/GasBot.png"
+	Scale 1 1 1
+	useactorpitch
+	useactorroll
+
+	FrameIndex XCAN A 0 0
+}
 
 Model Grate128
 {
@@ -309,6 +320,15 @@ Model LiteF
 }
 
 //--------------------------------------------------------------------------M
+Model Monkey
+{
+	Model 0 "models/monkey.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
 //--------------------------------------------------------------------------N
 Model NoteBundle
 {
@@ -324,6 +344,24 @@ Model NoteBundle
 	FrameIndex PIPE A 0 0
 }
 //--------------------------------------------------------------------------O
+Model Orb
+{
+	Model 0 "models/orb.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
+Model Orb2
+{
+	Model 0 "models/orb2.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
 //--------------------------------------------------------------------------P
 Model PipeBendUp
 {

@@ -3,8 +3,25 @@
 // Player
 //
 //===========================================================================
+
 class CrashPlayer : PlayerPawn
 {
+	const DASH_VEL			= 50;
+	const DASH_TIME			= 1;
+	const DASH_COOLDOWN		= 40;
+	const SLIDE_TIME		= 20;
+	const DASH_BACK_JUMP	= 8;
+    int maxdash;
+	int cooldash;
+	bool sounddash;
+	int slidetime;
+	
+    Override void Tick()
+    {
+        Super.Tick();
+        If(health>0){DoDash();}
+    }
+
 	Default
 	{
 		Speed 1;
@@ -26,6 +43,15 @@ class CrashPlayer : PlayerPawn
 		Player.WeaponSlot 5, "RocketLauncher";
 		Player.WeaponSlot 6, "PlasmaRifle";
 		Player.WeaponSlot 7, "BFG9000";
+		
+		Player.AttackZOffset 32;
+		Player.JumpZ 12;
+		Player.GruntSpeed 12;
+		Player.FallingScreamSpeed 35, 40;
+		Player.ViewHeight 60;
+		Player.UseRange 64;
+		Player.ForwardMove 2,1;
+		Player.SideMove 2,1;
 		
 		Player.ColorRange 112, 127;
 		Player.Colorset 0, "$TXT_COLOR_GREEN",		0x70, 0x7F,  0x72;
@@ -91,4 +117,111 @@ class CrashPlayer : PlayerPawn
 		PLAY Y -1;
 		Stop;
 	}
+	
+	
+// Dash
+// https://forum.zdoom.org/viewtopic.php?f=122&t=70570
+
+	void DoDash()
+    {
+	
+		int xvel;
+		int yvel;
+		int zvel;
+		
+	//	A_log(String.Format("%i %i, %i %i", xvel, yvel, GetPlayerInput(MODINPUT_FORWARDMOVE), GetPlayerInput(MODINPUT_SIDEMOVE)));
+	
+        If(GetPlayerInput(MODINPUT_BUTTONS)&BT_SPEED && maxdash<DASH_TIME) //If player is holding BT_SPEED, aka [Run]
+        {
+			// set dash properties according to which direction the player is pressing
+			if (GetPlayerInput(MODINPUT_FORWARDMOVE) > 0 )
+			{
+				xvel = DASH_VEL;
+				if (IsPlayerStanding())
+				{
+					slidetime = SLIDE_TIME;
+					A_StartSound("player/slide",CHAN_AUTO);				
+				}
+			}
+			
+			if (GetPlayerInput(MODINPUT_FORWARDMOVE) < 0 )
+			{
+				xvel = -DASH_VEL * 0.5;
+				if (IsPlayerStanding())
+				{
+					zvel = DASH_BACK_JUMP;
+					A_StartSound("*jump",CHAN_AUTO);
+				}
+			}
+			
+			if (GetPlayerInput(MODINPUT_SIDEMOVE) < 0 )
+			{
+				yvel = DASH_VEL;
+			}
+			
+			if (GetPlayerInput(MODINPUT_SIDEMOVE) > 0 )	
+			{
+				yvel = -DASH_VEL;
+			}
+
+			// if player is moving forward and strafing at the same time, reduce speeds a bit
+			if (xvel != 0 && yvel != 0) { xvel = xvel * 0.707; yvel = yvel * 0.707; }
+		
+			// if no directions pressed, dash forwards
+			if (xvel == 0 && yvel == 0) { xvel = DASH_VEL; }	
+		
+		If(sounddash)
+			{
+				A_StartSound("skeleton/swing",CHAN_AUTO);
+				sounddash=0;
+			} //To play a sound when dashing
+            A_ChangeVelocity(xvel,yvel,zvel,CVF_RELATIVE|CVF_REPLACE); //Replace third zero with vel.z to make the player subject to gravity
+            maxdash++;
+			cooldash=0;
+			
+		
+		
+      //      bTHRUACTORS=1;
+      /*      If(FindInventory("PowerStrength")) //Berserk effects
+            {
+                A_Explode(10,64,XF_NOTMISSILE);
+                A_SpawnItemEx("ArchvileFire");
+            }*/
+        }
+        Else
+        {
+            If(cooldash>=DASH_COOLDOWN) //Cooldown on dash recharge
+            {
+                If(!sounddash){A_StartSound("misc/i_pkup"); sounddash=1;} //Sound when recharging
+                maxdash=0;
+            }
+            Else{cooldash++; maxdash=DASH_TIME;}
+       //     bTHRUACTORS=0;
+        }
+		
+			
+		if (slidetime > 0)
+		{
+			slidetime --;
+			Player.ViewHeight = 0;
+		//	Player.AttackZOffset = -16;
+			if (slidetime & 7 == 0) { A_Punch(); }
+		}
+		
+    }
+
+// returns true if actor is either standing on the ground or on top of another actor
+	bool IsPlayerStanding()
+	{
+		bool ok; Actor below;
+		[ok, below] = TestMobjZ(true);
+		if (below || abs(pos.z - GetZAt()) <= 1)
+		{
+			return (true);
+		}
+		
+		return (null);
+	}
+	
 }
+
