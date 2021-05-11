@@ -49,38 +49,3 @@ Actor ContainerBlue2 : ContainerBlue1	{}
 Actor ContainerRed1 : ContainerBlue1	{}
 Actor ContainerRed2 : ContainerBlue1	{}
 
-Actor LampPost : ContainerBlue1
-{
-	Radius 8
-	Height 232
-	
-	States
-	{
-		Spawn:
-		PIPE A 1
-		PIPE A 1 A_SpawnItem("InvisibleBridge16",58,244,0)
-		PIPE A 1 A_SpawnItem("LampPostGlow",65,92,0)
-		PIPE A -1
-		stop
-	}
-
-}
-
-Actor LampPostGlow
-{
-	Radius 32
-	Height 200
-	
-	+NOGRAVITY
-	+NOINTERACTION
-	RenderStyle "Add"
-	Alpha 0.2
-	States
-	{
-		Spawn:
-		LITE A -1 Bright
-		stop
-	}
-
-
-}

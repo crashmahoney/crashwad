@@ -338,7 +338,7 @@ DoomEdNums
 	13043	=	SteamSpawner
 
 	13050	=	LightCoronaGenerator
-	13051	=	RedCorona
+	13051	=	CoronaRed
 	13052	=	LightGreen
 	13053	=	LightPink
 	13054	=	LightBlue

@@ -299,6 +299,7 @@ Model LightBlue
    Model 0 "light.md3"
    Skin 0 "lightb.tga"
    Scale 1 1 1
+   PitchOffset 180.0
    useactorpitch
    useactorroll
 
@@ -311,6 +312,7 @@ Model LightGreen
    Model 0 "light.md3"
    Skin 0 "lightg.tga"
    Scale 1 1 1
+   PitchOffset 180.0
    useactorpitch
    useactorroll
 
@@ -323,6 +325,7 @@ Model LightPink
    Model 0 "light.md3"
    Skin 0 "lightp.tga"
    Scale 1 1 1
+   PitchOffset 180.0
    useactorpitch
    useactorroll
 
@@ -335,6 +338,7 @@ Model LightRed
    Model 0 "light.md3"
    Skin 0 "lightr.tga"
    Scale 1 1 1
+   PitchOffset 180.0
    useactorpitch
    useactorroll
 
@@ -347,6 +351,7 @@ Model LightYellow
    Model 0 "light.md3"
    Skin 0 "lighty.tga"
    Scale 1 1 1
+   PitchOffset 180.0
    useactorpitch
    useactorroll
 

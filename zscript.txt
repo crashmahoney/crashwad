@@ -9,8 +9,12 @@ version "4.2"
 #include "zscript/c_money.zs"
 #include "zscript/c_food.zs"
 
+#include "zscript/z_Props.zs"
+#include "zscript/z_Props_Explosive.zs"
+#include "zscript/z_Props_Furniture.zs"
+#include "zscript/z_Props_Glass.zs"
+#include "zscript/z_Props_Lights.zs"
 #include "zscript/z_Models.zs"
-
 
 class IncreaseMonsterScale : EventHandler
 	{
@@ -132,7 +136,7 @@ class ComputerText : Actor
 			}
 		}
 	Idle:
-		"####" "#" 4 A_SpawnItemEx("GreenCoronaFaded",0,0,4,0,0,0,0,SXF_NOCHECKPOSITION ,0,tid);
+		"####" "#" 4 A_SpawnItemEx("CoronaGreenFaded",0,0,4,0,0,0,0,SXF_NOCHECKPOSITION ,0,tid);
 		Loop;
 
 
@@ -147,7 +151,7 @@ class ComputerCursor : ComputerText
 States
 	{
 	Spawn:
-		CURS A 4 A_SpawnItemEx("GreenCoronaFaded",0,0,4,0,0,0,0,SXF_NOCHECKPOSITION ,0,9000);
+		CURS A 4 A_SpawnItemEx("CoronaGreenFaded",0,0,4,0,0,0,0,SXF_NOCHECKPOSITION ,0,9000);
 		CURS B 4;
 		Loop;
 	}
