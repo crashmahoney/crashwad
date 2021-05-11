@@ -20,6 +20,67 @@ Class SolidModelBase : Actor {
 }
 //=======================================================
 
+Class ATM : Actor {
+	Default {
+		Radius 28;
+		Height 120;
+		+NOGRAVITY
+		+SOLID
+		  
+		//Activation THINGSPEC_Switch|THINGSPEC_Deactivate
+		+USESPECIAL
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+
+//=======================================================
+Class Barrier1 : Actor {
+	Default {
+		Radius 32;
+		Height 64;
+		
+		
+		+SOLID
+		+INVULNERABLE
+		+NODAMAGE
+		+SHOOTABLE
+		+NOTAUTOAIMED
+		+NEVERTARGET
+		+DONTTHRUST
+	}
+
+	override void PostBeginPlay()
+	{
+		Physics.AlignToSlope(self, self.Angle, self.Pitch);	// align
+		Actor.Spawn("InvisibleBridgeBarrier1", Vec3Angle( 32, self.Angle - 90.f, 24, false ), NO_REPLACE);
+		Actor.Spawn("InvisibleBridgeBarrier1", Vec3Angle( -32, self.Angle - 90.f, 24, false ), NO_REPLACE);
+		Super.PostBeginPlay();
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+
+class InvisibleBridgeBarrier1 : InvisibleBridge
+{
+	Default
+	{
+		Radius 32;
+		Height 64;
+	}
+}
+
+
+//=======================================================
+
 Class BedH1 : SolidModelBase {
 	Default
 	{
@@ -116,6 +177,43 @@ Class Chairback2 : InvisibleBridge8
 		Height 24;
 	}
 }
+
+//=======================================================
+Class Chair3 : SolidModelBase {
+	Default
+	{
+		Radius 13;
+		Height 24;
+	}
+	
+	override void PostBeginPlay()
+	{		
+		actor mo = Actor.Spawn("Chairback3", Vec3Angle( -16, self.Angle, 24, false ), NO_REPLACE);
+		if (mo)
+		{
+			mo.Angle = self.Angle;
+		}
+		
+		Super.PostBeginPlay();
+	}
+}
+
+Class Chairback3 : InvisibleBridge8
+{
+	override void PostBeginPlay()
+	{
+		for ( int i = -14; i <14; i += 7 )
+		{
+			actor mo = Actor.Spawn("InvisibleBridge8", Vec3Angle( i, self.Angle - 90.0, 0, false ), NO_REPLACE);
+		}
+		Super.PostBeginPlay();
+	}
+	Default
+	{
+		Radius 4;
+		Height 24;
+	}
+}
 //=======================================================
 Class Crane3 : SolidModelBase {
 	Default
@@ -166,12 +264,63 @@ Class Keyboard : SolidModelBase {
 Class LiteF : SolidModelBase {
 	Default
 	{
-		Radius 0;
-		Height 0;
+		Radius 1;
+		Height 1;
 		+NOGRAVITY
 		+NOCLIP
 		-SOLID
 	}
+}
+//=======================================================
+Class LiteR : Actor {
+	Default {
+		Radius 18;
+		Height 2;
+		+NOGRAVITY
+		+SPAWNCEILING
+		
+	}
+
+	override void PostBeginPlay()
+	{		
+
+		actor mo = Actor.Spawn("LampPostGlow", Vec3Angle( 0, self.Angle, -80, false ), NO_REPLACE);
+		if (mo)
+		{
+			mo.Scale.x = 0.5;
+			mo.Scale.y = 0.5;
+			mo.Alpha = 0.1;
+		}
+		mo = Actor.Spawn("LiteRSpotlight", Vec3Angle( 0, self.Angle, -8, false ), NO_REPLACE);
+		if (mo)
+		{
+			mo.Angle = self.Angle;
+			mo.Pitch = 90.0;
+		}
+		
+		Super.PostBeginPlay();
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+
+
+Class LiteRSpotlight : SpotLightAttenuated
+{
+	override void PostBeginPlay()
+   {
+      args[LIGHT_RED] = 100;
+      args[LIGHT_GREEN] = 100;
+      args[LIGHT_BLUE] = 100;
+      args[LIGHT_INTENSITY] = 192;
+      SpotInnerAngle = 30;
+      SpotOuterAngle = 60;
+      Super.PostBeginPlay();
+   }
 }
 
 //=======================================================

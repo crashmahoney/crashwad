@@ -202,6 +202,8 @@ map SNOW1 "Snowy Shit"
 	music = "starcad"
 	sky1 = "NIGHTSKY", 0
 	par = 180
+	fogdensity  = 128
+
 }
 
 map CAVE1 "Thermal Activity"
@@ -327,6 +329,8 @@ DoomEdNums
 	13033	=	DingBell
 	13034	=	Cash
 	13035	=	NoteBundle
+	13036	=	Soy
+	13037	=	Can1
 
 	13040	=	FogGreen
 	13041	=	FogRed
@@ -370,6 +374,10 @@ DoomEdNums
 	13088	=	Orb
 	13089	=	Monkey
 	13090	=	Orb2
+	13091	=	ATM
+	13092	=	LiteR
+	13093	=	Barrier1
+	13094	=	Chair3
 
 // actors in this range are overwritten by DoomRPG actors and need changing
 	20000	=	WallBreaker				// actor that dies from explosions

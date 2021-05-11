@@ -4,14 +4,24 @@
 //
 // --------------------------------------------------------------------------
 
-class TaserPistol : DoomWeapon
+class TaserPistol : CrashWeapon
 {
+	float bobeaseamount;
+
+	const BOB_RANGE_X_DEFAULT = 0.6;
+	const BOB_RANGE_Y_DEFAULT = 0.4;
+	
+
 	Default
 	{
 		Weapon.SelectionOrder 1900;
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 20;
 		Weapon.AmmoType "Clip";
+		Weapon.BobRangeX BOB_RANGE_X_DEFAULT;
+		Weapon.BobRangeY BOB_RANGE_Y_DEFAULT;
+		Weapon.BobSpeed 1.2;
+		Weapon.BobStyle "Smooth";
 		Obituary "$OB_MPPISTOL";
 		+WEAPON.WIMPY_WEAPON
 		Inventory.Pickupmessage "$GOTTASER";
@@ -20,15 +30,18 @@ class TaserPistol : DoomWeapon
 	States
 	{
 	Ready:
+		Ready:
 		TNT1 ABAB 80 A_WeaponReady;
-		TNT1 FGHGF 20 A_WeaponReady;
+		TNT1 FGHGF 5 A_WeaponReady;
 		Loop;
 	Deselect:
-		TNT1 A 1 A_Lower;
+		TNT1 A 1 A_Lower(24);
 		Loop;
 	Select:
-		TNT1 A 1 A_Raise;
-		Loop;
+		TNT1 H 1;	
+		TNT1 HGF 1 A_Raise(24);
+		TNT1 AAAAAAAAAAAAA 1 A_Raise(24);
+		Wait;
 	Fire:
 		TNT1 A 1;
 		TNT1 C 1
@@ -36,12 +49,46 @@ class TaserPistol : DoomWeapon
 				A_GunFlash();
 				A_FireProjectile("TaserProjectile", 0, true, 8.0, 0);
 				A_StartSound("taser/tasshot", CHAN_WEAPON, 0, 0.7, ATTN_NORM, frandom(0.9,1.1));
+				// we're gonna avoid the weird snap back to the bob position when firing has finished
+				invoker.BobRangeX = 0.0;
+				invoker.BobRangeY = 0.0;				
 			}
 		TNT1 D 3;
-		TNT1 E 8;
-		TNT1 B 3; 
-		TNT1 A 3 A_Refire; 
+		TNT1 E 4;
+		TNT1 F 6;
+		TNT1 AAAAAAAA 1
+			{
+				A_WeaponReady();	
+				// slowly let the bob come back
+				if ( invoker.BobRangeX < BOB_RANGE_X_DEFAULT ) invoker.BobRangeX += 0.1;
+				if ( invoker.BobRangeY < BOB_RANGE_Y_DEFAULT ) invoker.BobRangeY += 0.1;
+/*				return (invoker.BobRangeX < BOB_RANGE_X_DEFAULT
+						&& invoker.BobRangeY < BOB_RANGE_Y_DEFAULT)
+								? invoker.resolveState("Ready") : null;*/
+			}
 		Goto Ready;
+		
+		
+		
+/*		old version of bob snap removal
+		TNT1 F 1
+			{
+				invoker.bobeaseamount = 0.001;
+				player.bob = 0.0;
+				A_WeaponReady(WRF_NOBOB|WRF_NOFIRE|WRF_NOSWITCH);
+			}
+	FireBobEase:		
+		TNT1 A 1 
+				{
+				let player = self.player;
+				player.bob = player.bob * invoker.bobeaseamount;
+				invoker.bobeaseamount = invoker.bobeaseamount + invoker.bobeaseamount;
+				A_WeaponReady(WRF_NOFIRE|WRF_NOSWITCH);
+				return (invoker.bobeaseamount > 1.0) ? invoker.resolveState("Ready") : null;
+				}
+		//wait;
+		Goto FireBobEase;
+*/
 	Flash:
 		PISF A 1 Bright
 		{

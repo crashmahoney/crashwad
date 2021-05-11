@@ -59,8 +59,9 @@ Actor LampPost : ContainerBlue1
 		Spawn:
 		PIPE A 1
 		PIPE A 1 A_SpawnItem("InvisibleBridge16",58,244,0)
-		PIPE A 70 A_SpawnItem("LampPostGlow",65,92,0)
-		wait
+		PIPE A 1 A_SpawnItem("LampPostGlow",65,92,0)
+		PIPE A -1
+		stop
 	}
 
 }
@@ -77,7 +78,7 @@ Actor LampPostGlow
 	States
 	{
 		Spawn:
-		LITE A 71 Bright
+		LITE A -1 Bright
 		stop
 	}
 

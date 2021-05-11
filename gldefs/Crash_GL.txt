@@ -355,6 +355,19 @@ Object VendingMachine1
 Frame PLAY { Light VEND1 }
 }
 
+pointlight ATMScreen
+{
+    color 0.8 1.0 0.8
+    size 64
+    attenuate 0
+	Offset 0 64 16
+}
+
+
+Object ATM
+{
+Frame PLAY { Light ATMScreen }
+}
 
 pointlight LiteF1
 {

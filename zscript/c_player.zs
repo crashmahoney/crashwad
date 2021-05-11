@@ -18,6 +18,10 @@ class CrashPlayer : PlayerPawn
 	
     Override void Tick()
     {
+//		CVar weapbobspeed = CVar.GetCVar('wbobspeed',self);
+//		CVar firebobspeed = CVar.GetCVar('wbobfire ',self);
+//		firebobspeed.SetFloat(weapbobspeed.GetFloat());
+	
         Super.Tick();
         If(health>0){DoDash();}
     }

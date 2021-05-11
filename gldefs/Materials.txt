@@ -105,7 +105,19 @@ material texture bumpsy_d
 }
 
 //--------------------------------------------------------------------------C
+brightmap texture CAMERAT
+{
+	map "textures/white.png"
+}
 
+material texture can
+{
+    shader                  "shaders/paraboloid.fp"
+    texture enviromap       "textures/spheremap8.png"
+    texture enviromask      "textures/normals/brass_m.png"
+    texture sunmask         "textures/white.png"
+
+}
 material texture CARPRED
 {
     normal carpet_n
@@ -417,6 +429,16 @@ material texture H2MARBLD
     specular MARBLE01
     specularlevel 3.0
     glossiness 3.0
+}
+
+material texture H2PAVEX
+{
+    normal h2pavx_n
+    specular h2pavx_s
+	shader 					"shaders/displacement.fp"
+	texture displacement 	"textures/normals/h2pavx_h.png"
+    specularlevel 1.0
+    glossiness 1.0
 }
 
 material texture H2ROCK1
@@ -779,6 +801,14 @@ material texture SHAWN2
     ao SHAWN_o
 }
 
+material texture soy
+{
+    shader                  "shaders/paraboloid.fp"
+    texture enviromap       "textures/spheremap8.png"
+    texture enviromask      "textures/normals/brass_m.png"
+    texture sunmask         "textures/white.png"
+
+}
 
 material texture SUPPORT2
 {

@@ -1,5 +1,27 @@
 //--------------------------------------------------------------------------A
+Model ATM
+{
+	Model 0 "models/ATM.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
+
+
 //--------------------------------------------------------------------------B
+
+Model Barrier1
+{
+	Model 0 "models/Barrier1.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
+
 Model BedH1
 {
 	Model 0 "models/BedH1.obj"
@@ -9,7 +31,18 @@ Model BedH1
    
 	FrameIndex PLAY A 0 0
 }
+
 //--------------------------------------------------------------------------C
+Model Can1
+{
+	Model 0 "models/can.md3"
+	Rotation-Center 0.0 0.0 6.0
+
+	USEACTORPITCH
+	USEACTORROLL
+	FrameIndex STIM A 0 0
+}
+
 Model CashRegister
 {
 	Model 0 "models/cashregister.obj"
@@ -55,6 +88,17 @@ Model Chair2
 	FrameIndex PLAY A 0 0
 }
 
+Model Chair3
+{
+	Path "models"
+	Model 0 "chair3.obj"
+	Scale 1 1 1
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex PLAY A 0 0
+}
 Model Cash
 {
 	Path "models"
@@ -319,6 +363,16 @@ Model LiteF
 	FrameIndex PLAY A 0 0
 }
 
+Model LiteR
+{
+	Model 0 "models/LiteR.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+}
+
 //--------------------------------------------------------------------------M
 Model Monkey
 {
@@ -419,6 +473,17 @@ Model Rail_B
 	FrameIndex PLAY A 0 0
 }
 
+//--------------------------------------------------------------------------S
+Model Soy
+{
+	Model 0 "models/soy.md3"
+	Rotation-Center 0.0 0.0 1.5
+
+	USEACTORPITCH
+	USEACTORROLL
+	USEROTATIONCENTER
+	FrameIndex STIM A 0 0
+}
 
 
 //--------------------------------------------------------------------------S

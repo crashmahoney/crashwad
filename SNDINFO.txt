@@ -21,6 +21,11 @@ bigsplash		bigsplash	// big splashing noise
 crash/ding		ding		// elevator ding
 crash/bell		bell		// bell ding
 
+atm/logon		"sounds/atmlogon.ogg"
+atm/select		"sounds/atmselect.ogg"
+atm/no			"sounds/atmno.ogg"
+atm/success		"sounds/atmsuccess.ogg"
+
 switch/lampon	switchon
 switch/lampoff	switchoff
 

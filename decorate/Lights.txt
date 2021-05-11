@@ -20,14 +20,16 @@ Actor GreenCorona : WhiteCorona
   States
   {
   Spawn:
-    WFLR B 35 Bright
+    WFLR B 5 Bright
     Stop
   }
 }
 Actor GreenCoronaFaded : GreenCorona
 {
-  Alpha 0.1
-  Scale 0.8
+  Alpha 0.3
+  Scale 0.7
+    +NoClip
+	+WallSprite
 }
 
 Actor LightPink : LightGreen
