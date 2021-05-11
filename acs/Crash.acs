@@ -298,3 +298,216 @@ script 1000 ENTER
 */
 
 
+
+
+
+//============================================================
+// ATM Menu
+//============================================================
+//------------------------
+str IntroText = "
+     WELCOME CITIZEN#
+#
+     YOU ARE BANKING#
+     WITH INTRACORP#
+#
+PLEASE PRESENT YOUR WRIST#
+TO THE READER TO LOG ON#
+#
+#
+";
+//------------------------
+ str BaseMenuText = "####
+PLEASE SELECT AN OPTION#
+#
+  WITHDRAW CREDITS#
+  DEPOSIT CREDITS#
+  EXIT
+";
+//------------------------
+str GoodbyeText = "########
+        GOOD BYE
+";
+//------------------------
+
+#define atm_intro 1
+#define atm_menu 2
+
+
+
+int cursorXstart;
+int cursorYstart;
+int cursorZstart;
+int StringPos;
+int MenuState;
+int StillDrawing;
+int SelectedItem;
+
+
+script "UseATM" (int mapspotid)
+{
+// Freeze Player
+	SetPlayerProperty(0,1,PROP_FROZEN);					// Freeze the player's movement
+	SetActorVelocity(0,0,0,0,0,0);						// Set player speed to 0
+	int JumpBackup = GetActorProperty(0, APROP_JUMPZ);	// remember player jump strength
+	SetActorProperty(0, APROP_JUMPZ, 0.0);  			// prevent player from jumping
+	int AtmAngle = GetActorAngle(mapspotid);
+	AtmAngle = (AtmAngle < 0.5) ? AtmAngle + 0.5 : AtmAngle - 0.5; // reverse angle
+	Warp(mapspotid, -46.0, 0, 0, 0.5, WARPF_INTERPOLATE);	// move player in front of atm
+
+// Set up menu
+	PlaySound(mapspotid, "atm/logon");
+	MenuState = atm_intro;
+	StringPos = 0;
+	StillDrawing = 1;
+
+
+	while (MenuState > 0)
+	{
+		// restrict player view angle
+		if ( GetActorAngle(0) < (AtmAngle - 0.15) ) { ChangeActorAngle(0,AtmAngle - 0.15,TRUE);	}
+		if ( GetActorAngle(0) > (AtmAngle + 0.15) ) { ChangeActorAngle(0,AtmAngle + 0.15,TRUE);	}
+		
+		int buttons = GetPlayerInput(-1, INPUT_BUTTONS);
+		if (buttons & BT_JUMP && MenuState < 99)
+		{
+			MenuState = 99;
+			StringPos = 0;
+			StillDrawing = 1;
+		}
+
+		switch(MenuState)
+		{
+
+//0
+			case 99:
+			// ---------------
+			// exit menu, restore player movement
+				if (StillDrawing == 1)
+				{
+					PlaySound(mapspotid, "atm/no");
+					SetPlayerProperty(0,0,PROP_FROZEN);					// unfreeze player
+					SetActorProperty(0, APROP_JUMPZ, JumpBackup);  		// allow player jumping
+				}
+
+				if (StillDrawing > 0)
+				{
+					DrawString(GoodbyeText);
+				}
+				else Terminate;
+				break;
+
+//1
+			case atm_intro:
+				if (StillDrawing > 0)
+				{
+					DrawString(IntroText);
+					DrawString(IntroText);
+				}
+				else
+				{
+
+					if (buttons & (BT_USE))			// use button
+					{
+						MenuState = atm_menu; StringPos = 0; StillDrawing = 1;
+						PlaySound(mapspotid, "atm/success");
+						delay(8);
+					}
+				}
+				break;
+//2
+			case atm_menu:
+				if (StillDrawing > 0)
+				{
+					DrawString(BaseMenuText);
+					DrawString(BaseMenuText);
+				}
+				else
+				{
+					if (buttons & BT_FORWARD)			// up
+					{
+						SelectedItem = (SelectedItem == 0) ? 2 : SelectedItem - 1; // syntax is (expression) ? do this if true : do this if false
+						PlaySound(mapspotid, "atm/select");
+						delay(8);
+						log(i:SelectedItem);
+					}
+
+					if (buttons & BT_BACK)			// down
+					{
+						SelectedItem = (SelectedItem == 2) ? 0 : SelectedItem + 1;
+						PlaySound(mapspotid, "atm/select");
+						delay(8);
+						log(i:SelectedItem);
+					}
+
+					else if (buttons & (BT_USE))			// use
+					{
+						MenuState = atm_intro; StringPos = 0; StillDrawing = 1; SelectedItem = 0;
+						PlaySound(mapspotid, "atm/success");
+						delay(8);
+					}
+
+				}
+				break;
+		}
+		Delay(1);
+
+	}
+}
+
+
+function void DrawString(str StringtoDraw)
+{
+
+	if(StillDrawing == 1) // 1 is init value
+	{
+		if ( !cursorXstart )	// if cursor doesn't already have a position saved, save it now
+		{
+			cursorXstart = GetActorX(9);
+			cursorYstart = GetActorY(9);
+			cursorZstart = GetActorZ(9);
+		}
+
+		SetActorPosition(9,cursorXstart,cursorYstart,cursorZstart,0); //position cursor at top left
+
+		for (int i = 9000; i < 9100; i++)	// destroy all existing letters
+		{
+			Thing_Remove(i);
+		}
+
+		StillDrawing = 2;
+	}
+
+
+	if ( StringPos < StrLen(StringtoDraw) )
+	{
+
+		int character = GetChar(StringtoDraw,StringPos);
+
+	// if character is "#", act as a line break
+		if (character == 35)
+		{
+			SetActorPosition(9,cursorXstart,cursorYstart,GetActorZ(9)-12.0,0);//advance cursor to next line
+		}
+
+	// if character is a space
+		else if (character == 32)
+		{
+			SetActorPosition(9,GetActorX(9)+14.0,cursorYstart,GetActorZ(9),0);//advance cursor
+		}
+
+		else
+		{
+			SpawnSpotForced("ComputerText",9,9000 + character - 65, 192);
+			SetActorPosition(9,GetActorX(9)+14.0,cursorYstart,GetActorZ(9),0);//advance cursor
+		}
+	 StringPos ++;
+	//	Log(c:character);
+	}
+	else
+	{
+		StillDrawing = 0;
+
+	}
+
+}
