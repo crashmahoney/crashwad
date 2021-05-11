@@ -7,8 +7,6 @@
 #include "decorate/Models.txt"
 #include "decorate/nuspark.txt"
 #include "decorate/Scientists.txt"
-#include "decorate/TeleSpark.txt"
-#include "decorate/Vegetation.txt"
 #include "decorate/Weather.txt"
 
 

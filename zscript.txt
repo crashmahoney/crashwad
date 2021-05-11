@@ -9,12 +9,17 @@ version "4.2"
 #include "zscript/c_money.zs"
 #include "zscript/c_food.zs"
 
+#include "zscript/z_Models.zs"
+
 #include "zscript/z_Props.zs"
 #include "zscript/z_Props_Explosive.zs"
 #include "zscript/z_Props_Furniture.zs"
 #include "zscript/z_Props_Glass.zs"
 #include "zscript/z_Props_Lights.zs"
-#include "zscript/z_Models.zs"
+#include "zscript/z_Props_Vegetation.zs"
+
+#include "zscript/z_Particles.zs"
+
 
 class IncreaseMonsterScale : EventHandler
 	{
