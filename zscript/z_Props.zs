@@ -81,7 +81,8 @@ Class ManholeCover : Actor
 		+SOLID
 		+FLATSPRITE
 		+ROLLCENTER
-		+SHOOTABLE
+		//+SHOOTABLE
+		+VULNERABLE
 		+NOBLOOD	
 		+NOTARGET
 		+DONTTHRUST
@@ -96,7 +97,7 @@ Class ManholeCover : Actor
 			MANH A -1;
 			Stop;
 		Death:
-            MANH B 3		
+            MANH B 1		
             {
             	A_Scream();		
 				A_SpawnDebris("ShrapnelCrash",FALSE,2,2);

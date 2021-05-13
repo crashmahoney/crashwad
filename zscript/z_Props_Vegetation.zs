@@ -151,6 +151,8 @@ Class GrassTuft1 : Actor // green grass
 		+NOTARGET
 		+NOBLOCKMAP
 		+NOINTERACTION
+		+CLIENTSIDEONLY
+
 	}
 
     override void PostBeginPlay()
@@ -242,7 +244,6 @@ Class Tree3 : Tree1
 	}
 }
 
-
 Class Tree4 : Tree1
 {
 	Default
@@ -257,7 +258,6 @@ Class Tree4 : Tree1
 			Stop;
 	}
 }
-
 
 Class Tree5 : Tree1
 {
@@ -289,7 +289,6 @@ Class Tree6 : Tree1
 	}
 }
 
-
 Class Tree7 : Tree1
 {
 	Default
@@ -304,8 +303,6 @@ Class Tree7 : Tree1
 			Stop;
 	}
 }
-
-
 
 // --------------------------------------------------------------------------
 Class Waterlily : Actor

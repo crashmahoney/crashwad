@@ -1,4 +1,4 @@
-Class SolidModelBase : Actor {
+class SolidModelBase : Actor {
 	Default {
 		Radius 32;
 		Height 96;
@@ -20,7 +20,7 @@ Class SolidModelBase : Actor {
 }
 //=======================================================
 
-Class ATM : Actor {
+class ATM : Actor {
 	Default {
 		Radius 28;
 		Height 120;
@@ -39,7 +39,7 @@ Class ATM : Actor {
 }
 
 //=======================================================
-Class Barrier1 : Actor {
+class Barrier1 : Actor {
 	Default {
 		Radius 32;
 		Height 64;
@@ -81,7 +81,7 @@ class InvisibleBridgeBarrier1 : InvisibleBridge
 
 
 //=======================================================
-Class Crane3 : SolidModelBase {
+class Crane3 : SolidModelBase {
 	Default
 	{
 		Radius 78;
@@ -89,7 +89,7 @@ Class Crane3 : SolidModelBase {
 	}
 }
 //=======================================================
-Class Grate128 : SolidModelBase {
+class Grate128 : SolidModelBase {
 	Default
 	{
 		Radius 64;
@@ -98,7 +98,7 @@ Class Grate128 : SolidModelBase {
 }
 //=======================================================
 
-Class IVStand : SolidModelBase {
+class IVStand : SolidModelBase {
 	Default
 	{
 		Radius 8;

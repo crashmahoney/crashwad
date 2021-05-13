@@ -312,3 +312,30 @@ Class LightYellow : LightBase
 		Super.PostBeginPlay();
 	}
 }
+
+
+// --------------------------------------------------------------------------
+Class Torch : Actor
+{
+	Default
+	{
+		height 32;
+		radius 16;
+
+		+SOLID
+		+NOGRAVITY
+	}
+
+	States
+	{
+		Spawn:
+			TORC A 0 A_PlaySound("DSCHAFIR", CHAN_BODY, 1, 1, 3);
+			TORC A 0 A_CheckSight("NoLos");
+			//TORC A 0 A_SpawnItemEx("RedCorona", 8,0,32, 0,0,0, 0, 0, 0 );
+			TORC A 2 A_SpawnItemEx("FireParticleSmall", Random(0,4)+2, Random(0,4)-2, 22+Random(0, 4), (0.001)*Random(10, 400), (0.001)*Random(10, 400), (0.0004)*Random(1500, 3000), 0, SXF_CLIENTSIDE, 64);
+			Goto Spawn;
+		NoLOS:
+			TORC A 5;
+			Goto Spawn;
+	}
+}

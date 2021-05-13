@@ -64,6 +64,7 @@ Class ShrapnelCrash : Actor
 		Height 1;
 		Gravity 1;
 
+		+CLIENTSIDEONLY
 		//+TOUCHY
 		//+NOCLIP
 		//+NOBLOCKMAP

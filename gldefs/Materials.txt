@@ -497,6 +497,15 @@ material texture KPBROWN
     glossiness 0.2
 }
 
+material texture KPTX0096
+{
+    shader                  "shaders/paraboloid.fp"
+    texture enviromap       "textures/spheremap8.png"
+    texture enviromask      "textures/normals/KP0096_m.png"
+    texture sunmask         "textures/black.png"
+
+}
+
 material texture KPTX0598
 {
     normal carpet_n
@@ -1023,6 +1032,15 @@ material texture WALL1
     ao wall1_o
 }
 
+material texture window3
+{
+    shader                  "shaders/paraboloid.fp"
+    texture enviromap       "textures/spheremap8.png"
+    texture enviromask      "textures/normals/window3_m.png"
+    texture sunmask         "textures/black.png"
+
+}
+
 material texture "windows1"
 {
 	normal 					"textures/normals/carpet_n.png"
@@ -1056,6 +1074,27 @@ material texture "WINDOWE3"
 	specularlevel 0.1
 }
 
+material texture "windows4"
+{
+    normal                  "textures/normals/windo3_n.png"
+    specular                "textures/normals/windo3_s.png"
+    shader                  "shaders/displacement.fp"
+    texture displacement    "textures/normals/windo3_h.png"
+    brightmap               "materials/brightmaps/auto/windows2.png"
+    glossiness 10.0
+    specularlevel 0.1
+}
+
+material texture "WINDOWE4"
+{
+    normal                  "textures/normals/windo3_n.png"
+    specular                "textures/normals/windo3_s.png"
+    shader                  "shaders/displacement.fp"
+    texture displacement    "textures/normals/wind3e_h.png"
+    brightmap               "materials/brightmaps/auto/windows2.png"
+    glossiness 10.0
+    specularlevel 0.1
+}
 material texture wood
 {
     normal wood_n
