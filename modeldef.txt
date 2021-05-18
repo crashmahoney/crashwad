@@ -264,7 +264,8 @@ Model IVStand
 
 	USEACTORPITCH
 	USEACTORROLL
-   
+	AngleOffset 90
+
 	FrameIndex PLAY A 0 0
 }
 //--------------------------------------------------------------------------J

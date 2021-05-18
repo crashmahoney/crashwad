@@ -1,22 +1,22 @@
 ########################BEGIN########################
 Exporting Soy
 Exported UVMap coordinates for Soy
-Exported 250 frame(s) for Soy
+Exported 1 frame(s) for Soy
 Header Information
 Ident: IDP3
 Version: 15
 Name: 
 Flags: 0
-Number of Frames: 250
+Number of Frames: 1
 Number of Tags: 0
 Number of Surfaces: 1
 Number of Skins: 0
 Offset Frames: 108
-Offset Tags: 14108
-Offset Surfaces: 14108
-Offset end: 86908
+Offset Tags: 164
+Offset Surfaces: 164
+Offset end: 1252
 Total Shaders: 1
 Total Triangles: 28
 Total Vertices: 36
 MD3 saved to D:\Games\Doom\crashwad\models\soy.md3
-Elapsed 0.18186 seconds
+Elapsed 0.003 seconds
