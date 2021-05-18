@@ -1,5 +1,5 @@
 //=======================================================
-Class BedH1 : SolidModelBase {
+class BedH1 : SolidModelBase {
 	Default
 	{
 		Radius 33;
@@ -16,7 +16,7 @@ Class BedH1 : SolidModelBase {
 }
 
 // --------------------------------------------------------------------------
-Class Chair : Actor
+class Chair : LiftableActor
 {
 	Default
 	{
@@ -46,11 +46,18 @@ Class Chair : Actor
 			CHAI A 0 A_FaceTarget;
 			TNT1 A 0 A_Recoil(50);
 			Goto Spawn;
+		Active:
+ 			CHAI A 0 A_PickUp;
+			CHAI A 1 A_WarpToCarrier;
+			Wait;   
+		Inactive:
+ 			CHAI A 0 A_PutDown;		
+			Goto Spawn; 			
 	}
 }
 
 //=======================================================
-Class Chair1 : SolidModelBase {
+class Chair1 : SolidModelBase {
 	Default
 	{
 		Radius 34;
@@ -168,38 +175,42 @@ Class Chairback3 : InvisibleBridge8
 }
 
 //=======================================================
-Class Stool1 : SolidModelBase {
+class Stool1 : LiftableActor {
 	Default
 	{
 		Radius 10;
 		Height 32;
 		Mass 25;
-		PushFactor 0.75;	
+		PushFactor 0.25;	
 		
-		+PUSHABLE;
-		+SLIDESONWALLS;
-		+WINDTHRUST;
-		+Shootable;
-		+NOTARGET;
-		+NOTAUTOAIMED;
-		+NOBLOOD;
-		+NODROPOFF;
-		-NOGRAVITY;
-		-NODAMAGETHRUST
-
-		MaxDropOffHeight 999999;
+		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+Shootable
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD
+		+NODROPOFF
 	}
 
 	States
 	{
-	Spawn:
-		PLAY A -1;
-		Stop;
-		
-	Pain:
-		PLAY A 0 A_FaceTarget;
-		PLAY A 0 A_Recoil(20); 
-		Goto Spawn;
+		Spawn:
+			PLAY A -1;
+			Stop;
+			
+		Pain:
+			PLAY A 0 A_FaceTarget;
+			PLAY A 0 A_Recoil(20); 
+			Goto Spawn;
+		Active:
+ 			PLAY A 0 A_PickUp;
+			PLAY A 1 A_WarpToCarrier;
+			Wait;   
+		Inactive:
+ 			PLAY A 0 A_PutDown;		
+			Goto Spawn; 		
 	}
 }
 

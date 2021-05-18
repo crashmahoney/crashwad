@@ -96,39 +96,9 @@ class Grate128 : SolidModelBase {
 		Height 3;
 	}
 }
-//=======================================================
-
-class IVStand : SolidModelBase {
-	Default
-	{
-		Radius 8;
-		Height 64;
-		RenderStyle "Translucent";
-		Mass 25;
-		PushFactor 0.75;
-		+PUSHABLE;
-		+SLIDESONWALLS
-	}
-
-	States
-	{
-	Spawn:
-		PLAY A -1;
-		Stop;
-	}
-}
-//=======================================================
-
-Class Keyboard : SolidModelBase {
-	Default
-	{
-		Radius 12;
-		Height 3;
-	}
-}
 
 //=======================================================
-Class Monkey : SolidModelBase {
+class Monkey : SolidModelBase {
 	Default
 	{
 		Radius 32;
@@ -136,7 +106,7 @@ Class Monkey : SolidModelBase {
 	}
 }
 //=======================================================
-Class Orb : SolidModelBase {
+class Orb : SolidModelBase {
 	Default
 	{
 		Radius 72;
@@ -144,12 +114,12 @@ Class Orb : SolidModelBase {
 	}
 }
 
-Class Orb2 : Orb {
+class Orb2 : Orb {
 
 }
 
 //=======================================================
-Class Rail_B : SolidModelBase {
+class Rail_B : SolidModelBase {
 	Default {
 		Radius 2;
 		Height 3;
@@ -169,7 +139,7 @@ Class Rail_B : SolidModelBase {
 
 //=======================================================
 
-Class Toilet : SolidModelBase {
+class Toilet : SolidModelBase {
 	Default
 	{
 		Radius 16;
@@ -184,7 +154,7 @@ Class Toilet : SolidModelBase {
 }
 //=======================================================
 
-Class VendingMachine1 : SolidModelBase {
+class VendingMachine1 : SolidModelBase {
 	Default
 	{
 		Radius 32;

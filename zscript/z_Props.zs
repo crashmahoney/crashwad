@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------
-Class DeskLamp : SwitchableDecoration
+class DeskLamp : SwitchableDecoration
 {
 	Default
 	{
@@ -35,7 +35,7 @@ Class DeskLamp : SwitchableDecoration
 }
 
 // --------------------------------------------------------------------------
-Class DingBell : SwitchableDecoration
+class DingBell : SwitchableDecoration
 {
 	Default
 	{
@@ -68,9 +68,61 @@ Class DingBell : SwitchableDecoration
 			Wait;
 	}
 }
+//=======================================================
+class IVStand : LiftableActor {
+	Default
+	{
+		Radius 8;
+		Height 64;
+		RenderStyle "Translucent";
+		Mass 25;
+		PushFactor 0.25;
+
+		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+	}
+
+	States
+	{
+		Spawn:
+			PLAY A -1;
+			Stop;
+		Active:
+ 			PLAY A 0 A_PickUp;
+			PLAY A 1 A_WarpToCarrier;
+			Wait;   
+		Inactive:
+ 			PLAY A 0 A_PutDown;		
+			Goto Spawn; 
+	}
+}
+//=======================================================
+
+class Keyboard : LiftableActor {
+	Default
+	{
+		Radius 12;
+		Height 3;
+	}
+
+	States
+	{
+		Spawn:
+			PLAY A -1;
+			Stop;
+		Active:
+ 			PLAY A 0 A_PickUp;
+			PLAY A 1 A_WarpToCarrier;
+			Wait;   
+		Inactive:
+ 			PLAY A 0 A_PutDown;		
+			Goto Spawn; 
+	}	
+}
 
 // --------------------------------------------------------------------------
-Class ManholeCover : Actor
+class ManholeCover : Actor
 {
 	Default
 	{
@@ -109,7 +161,7 @@ Class ManholeCover : Actor
 }
 
 // --------------------------------------------------------------------------
-Class PotPlant : Actor
+class PotPlant : LiftableActor
 {
 	Default
 	{
@@ -126,11 +178,17 @@ Class PotPlant : Actor
 		Spawn:
 			POTP A -1;
 			stop;
-	}
+		Active:
+ 			POTP A 0 A_PickUp;
+			POTP A 1 A_WarpToCarrier;
+			Wait;   
+		Inactive:
+ 			POTP A 0 A_PutDown;		
+			Goto Spawn; 	}
 }
 
 // --------------------------------------------------------------------------
-Class Stapler : Actor
+class Stapler : Actor
 {
 	Default
 	{

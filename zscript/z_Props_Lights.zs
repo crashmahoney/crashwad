@@ -67,6 +67,13 @@ Class CoronaGreenFaded : CoronaGreen
     	+NoClip
 		+WallSprite
 	}
+
+	States
+	{
+		Spawn:
+			WFLR B 5 Bright;
+			Stop;
+	}	
 }
 
 // --------------------------------------------------------------------------

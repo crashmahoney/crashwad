@@ -1,4 +1,4 @@
-Class ExplosionCrash : Actor //Spawnable Explosion
+class ExplosionCrash : Actor //Spawnable Explosion
 {
 	Default
 	{
@@ -23,40 +23,6 @@ Class ExplosionCrash : Actor //Spawnable Explosion
    }
 }
 
-class LiftableActor : SwitchableDecoration
-{
-    Default
-    {
-		+USESPECIAL
-		Activation THINGSPEC_Switch | THINGSPEC_ThingTargets | THINGSPEC_TriggerTargets;
-	}
-
-	void A_PickUp()
-	{
-		A_PlaySound("switch/lampon");
-		A_FadeOut(0.3);
-		A_GiveToTarget("HoldingObjectWeapon", 1);
-		target.A_SelectWeapon("HoldingObjectWeapon");
-		bNOTARGETSWITCH = TRUE;
-	}
-
-	void A_WarpToCarrier()
-	{
-		A_Warp(AAPTR_TARGET, 32, 0, 16, 0, WARPF_INTERPOLATE, "Active", 0, 1 );
-	}
-
-	void A_PutDown()
-	{
-		A_PlaySound("switch/lampon");
-		A_FadeIn(0.3);
-		A_TakeInventory("HoldingObjectWeapon", 0, AAPTR_TARGET );
-		bNOTARGETSWITCH = FALSE;
-		target.A_ClearTarget();
-		A_ClearTarget();
-	}
-
-}
-
 class GasCan : LiftableActor
 {
 
@@ -67,14 +33,16 @@ class GasCan : LiftableActor
         Radius 10;
         Height 48;
         Scale 0.8;
+        Mass 50;
 
         +SOLID
         +SHOOTABLE
         +NOBLOOD
-        +ACTIVATEMCROSS
+        +ACTIVATEPCROSS
         +DONTGIB
         +NOICEDEATH
-
+        +DROPOFF
+		Species "Explosive";
         DeathSound "world/barrelx";
         Obituary "$OB_BARREL"; // "%o went boom."
     }
@@ -97,7 +65,7 @@ class GasCan : LiftableActor
             XCAN C 5 Bright;
             #### # 0 A_QuakeEx( 9, 9, 9, 15, 0, 1024, "", QF_SCALEDOWN, 1,1,1, 256, 0, 2 );
             FEXT C 4 Bright A_SpawnDebris("ShrapnelCrash", 5,5);
-            FEXT C 2 Bright A_Explode;      //(128,192)
+            FEXT C 2 Bright A_Explode(128,192);
             FEXT C 5 Bright A_SetScale(1.2);
             FEXT D 5 Bright;
             FEXT D 5 Bright A_SetScale(1.4);
@@ -117,6 +85,7 @@ class FireExtinguisher : LiftableActor
         Height 24;
         Gravity 0;
         Scale 0.5;
+        Mass 25;
 
         +SOLID
         +SHOOTABLE
@@ -125,6 +94,7 @@ class FireExtinguisher : LiftableActor
         +DONTGIB
         +NOICEDEATH
 
+		Species "Explosive";
         DeathSound "world/barrelx";
         Obituary "$OB_BARREL"; // "%o went boom."
     }
@@ -156,7 +126,86 @@ class FireExtinguisher : LiftableActor
 }
 
 // --------------------------------------------------------------------------
-Class WallBreaker : Actor
+class LiftableActor : SwitchableDecoration
+{
+    Default
+    {
+    	Damage 1000;
+
+    	BounceType "None";
+    	BounceFactor 0.4;
+    	WallBounceFactor 0.4;
+		+INTERPOLATEANGLES 
+    	+CANPASS
+		+USESPECIAL
+		Activation THINGSPEC_Switch | THINGSPEC_ThingTargets | THINGSPEC_TriggerTargets;
+	}
+
+
+	States
+	{
+		Bounce:
+			#### # 0
+			{
+				SetDamage(mass * vel.length() * 0.01);
+				A_Logfloat(damage);
+				if (vel.x < 5 && vel.y < 5 && vel.z < 5)
+				{
+					bMISSILE = FALSE;
+					bUSEBOUNCESTATE = FALSE;
+					bBOUNCEONFLOORS = FALSE;
+					bBOUNCEONCEILINGS = FALSE;
+					bBOUNCEONWALLS = FALSE;
+					bALLOWBOUNCEONACTORS = FALSE;
+					bBOUNCEONACTORS = FALSE;	
+					SetStateLabel("Inactive");
+				}
+			}
+			#### # 1;
+			wait;
+		Active:
+ 			#### # 0 A_PickUp;
+			#### # 1 A_WarpToCarrier;
+			Wait;   
+		Inactive:
+ 			#### # 0 A_PutDown;		
+			Goto Spawn;	
+	}
+
+
+	void A_PickUp()
+	{
+		A_PlaySound("switch/lampon");
+		A_FadeOut(0.3);
+		A_GiveToTarget("HoldingObjectWeapon", 1);
+		target.A_SelectWeapon("HoldingObjectWeapon");
+		bNOTARGETSWITCH = TRUE;
+		bACTIVATEIMPACT = FALSE;
+		bACTIVATEPCROSS = FALSE;
+	}
+
+	void A_WarpToCarrier()
+	{
+		A_Warp(AAPTR_TARGET, 32, 0, 42-(height/2), 0, WARPF_INTERPOLATE, "Active", 0, 1 );
+	}
+
+	void A_PutDown()
+	{
+		A_PlaySound("switch/lampon");
+		A_SetRenderStyle(1.0, STYLE_Normal);
+		A_TakeInventory("HoldingObjectWeapon", 0, AAPTR_TARGET );
+		bNOTARGETSWITCH = FALSE;
+		activationtype &= ~THINGSPEC_Deactivate; // clear flag
+		activationtype |= THINGSPEC_Activate;	// set flag
+		target.A_ClearTarget();
+		//A_ClearTarget();
+	}
+
+}
+
+
+// --------------------------------------------------------------------------
+class WallBreaker : Actor
 {
     Default
     {
