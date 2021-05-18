@@ -53,11 +53,15 @@ class HoldingObjectWeapon : CrashWeapon
 		Fire:
 			TNT1 A 15
 			{
-				//A_Log("pressed fire");
 				if (target != null)
 				{
-					target.Vel3DFromAngle(30-(target.mass/10), angle, pitch-5.0);
+					target.Vel3DFromAngle(30-(target.mass*0.1), angle, pitch-5.0);
+					target.SetDamage(target.mass * target.vel.length() * 0.015 + random(0,10));
+					A_Logfloat(target.damage);
 					target.bMISSILE = TRUE;
+					target.bACTIVATEIMPACT = TRUE;
+					target.bACTIVATEPCROSS = TRUE;
+					target.bNOGRAVITY = FALSE;			
 					if ( target.Species != "Explosive" ) 
 					{
 						target.bUSEBOUNCESTATE = TRUE;
@@ -67,13 +71,7 @@ class HoldingObjectWeapon : CrashWeapon
 						target.bALLOWBOUNCEONACTORS = TRUE;
 						target.bBOUNCEONACTORS = TRUE;						
 					}
-					target.SetDamage(target.mass * target.vel.length() * 0.01);
-					A_Logfloat(target.damage);
-					target.bACTIVATEIMPACT = TRUE;
-					target.bACTIVATEPCROSS = TRUE;
-					target.bNOGRAVITY = FALSE;			
 					target.SetStateLabel("Inactive");
-
 				}
 			}
 			TNT1 A 4 A_TakeInventory("HoldingObjectWeapon");

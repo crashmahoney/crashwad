@@ -147,7 +147,7 @@ class LiftableActor : SwitchableDecoration
 		Bounce:
 			#### # 0
 			{
-				SetDamage(mass * vel.length() * 0.01);
+				SetDamage(mass * vel.length() * 0.015 + random(0,10));
 				A_Logfloat(damage);
 				if (vel.x < 5 && vel.y < 5 && vel.z < 5)
 				{
