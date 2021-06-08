@@ -64,7 +64,8 @@ map SELECT "Episode Select"
 	cluster = 1
 	
 	//outsidefog = "20 00 18"
-	//fogdensity  = 8
+	fade = "10 00 20"
+	fogdensity  = 8
 	lightmode = 3
 }
 

@@ -57,7 +57,7 @@ class HoldingObjectWeapon : CrashWeapon
 				{
 					target.Vel3DFromAngle(30-(target.mass*0.1), angle, pitch-5.0);
 					target.SetDamage(target.mass * target.vel.length() * 0.015 + random(0,10));
-					A_Logfloat(target.damage);
+				//	A_Logfloat(target.damage);
 					target.bMISSILE = TRUE;
 					target.bACTIVATEIMPACT = TRUE;
 					target.bACTIVATEPCROSS = TRUE;
