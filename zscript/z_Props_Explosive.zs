@@ -44,7 +44,8 @@ class GasCan : LiftableActor
         +DROPOFF
 		Species "Explosive";
         DeathSound "world/barrelx";
-        Obituary "$OB_BARREL"; // "%o went boom."
+        Obituary "$OB_BARREL"; // "%o went boom.";
+        Tag "Gas Cylinder";
     }
 
     States
@@ -97,6 +98,7 @@ class FireExtinguisher : LiftableActor
 		Species "Explosive";
         DeathSound "world/barrelx";
         Obituary "$OB_BARREL"; // "%o went boom."
+        Tag "Fire Extinguisher";
     }
 
     States

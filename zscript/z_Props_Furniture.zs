@@ -35,6 +35,7 @@ class Chair : LiftableActor
 		+NOTARGET
 		+NOTAUTOAIMED
 		+NOBLOOD
+        Tag "Swivel Chair";
 	}
 
 	States
@@ -192,6 +193,7 @@ class Stool1 : LiftableActor {
 		+NOTAUTOAIMED
 		+NOBLOOD
 		+NODROPOFF
+        Tag "Stool";
 	}
 
 	States

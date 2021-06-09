@@ -8,7 +8,9 @@ defaultmap
 gameinfo
 {
 	playerclasses = "CrashPlayer"
-	
+
+	StatusBarClass = "CrashStatusBar"
+
 	AddEventHandlers = "IncreaseMonsterScale", "WaterHandler", "DynamicDifficulty",
 						"LevelTrans_Load"
 						

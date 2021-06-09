@@ -15,13 +15,26 @@ class CrashPlayer : PlayerPawn
 	int cooldash;
 	bool sounddash;
 	int slidetime;
-	
+	FLineTraceData useable;
+
     Override void Tick()
     {
 //		CVar weapbobspeed = CVar.GetCVar('wbobspeed',self);
 //		CVar firebobspeed = CVar.GetCVar('wbobfire ',self);
 //		firebobspeed.SetFloat(weapbobspeed.GetFloat());
 	
+
+    	// check for useable stuff in front of player
+    	
+            LineTrace(
+               angle,
+               UseRange,
+               pitch,
+               flags: TRF_SOLIDACTORS, 
+               offsetz: AttackZOffset,
+               data: useable
+            );
+
         Super.Tick();
         If(health>0){DoDash();}
     }
