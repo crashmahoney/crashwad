@@ -219,77 +219,48 @@ class CrashStatusBar : BaseStatusBar
 	}
 
 
-	
+const FLAGS = DI_SCREEN_LEFT_BOTTOM | DI_ITEM_LEFT | DI_TEXT_ALIGN_LEFT ;
+const TRANS = Font.CR_UNTRANSLATED;
+const ALPHA = 0.8;
 
 	protected virtual void DrawUsePrompt()
 	{
 		let plr = CrashPlayer(CPlayer.mo);
+		string text;
 
-	// with object picked up
-		
-		if ( CheckWeaponSelected("HoldingObjectWeapon") == TRUE ) 		
+	// with object picked up		
+		if ( CheckWeaponSelected("HoldingObjectWeapon") == TRUE )
 		{
-			if (plr.target)		DrawStrDropShadow(	GetStrKeyBinds("+attack").." - throw "..plr.target.GetTag().."\n"..
-								GetStrKeyBinds("+use").." - drop "..plr.target.GetTag() );
+			if (plr.target)		text =	String.Format("%s - throw %s\n%s - drop %s",
+														GetStrKeyBinds("+attack"), plr.target.GetTag(),
+														GetStrKeyBinds("+use"),plr.target.GetTag());
 		}
-
 	// if looking at actor
-
-		else if (plr.useable.HitType == TRACE_HitActor)  						
-		{
-
+		else if (plr.useable.HitType == TRACE_HitActor) 
+		{						
 	        if (plr.useable.HitActor is "LiftableActor")				// looking at liftable object	
-	        {
-				DrawStrDropShadow(	GetStrKeyBinds("+use").." - pick up "..plr.useable.HitActor.GetTag() );
-	        }
+				text = String.Format("%s - pick up %s", GetStrKeyBinds("+use"), plr.useable.HitActor.GetTag());
 	        else if (plr.useable.HitActor.bUseSpecial == TRUE)				// looking at activatible object	
-	        {
-				DrawStrDropShadow(	GetStrKeyBinds("+use").." - use "..plr.useable.HitActor.GetTag() );
-	        }
-	    }
-
+				text = String.Format("%s - use %s", GetStrKeyBinds("+use"), plr.useable.HitActor.GetTag());
+		}
     // if looking at activatible linedef 
-
         else if (plr.useable.HitType == TRACE_HitWall && plr.useable.HitLine.activation == SPAC_Use)
-        {
-			DrawStrDropShadow(	GetStrKeyBinds("+use").." - activate " );
-        }
+			text = String.Format("%s - activate ", GetStrKeyBinds("+use"));
 
+		Screen.DrawText(mSmallFont.mfont, TRANS, xPercent(3), yPercent(75), text, DTA_CleanNoMove_1, true, DTA_Alpha, ALPHA );
 
     //    DrawString(mConFont,FormatNumber(plr.useable.HitType, 0, 100), location);
     //    Screen.Dim(888888,0.5,40,40,40,40);
-
-
-    }
-
-
-		const FLAGS = DI_SCREEN_LEFT_BOTTOM | DI_ITEM_LEFT | DI_TEXT_ALIGN_LEFT ;
-		const TRANS = Font.CR_UNTRANSLATED;
-		const ALPHA = 0.6;
-		const WRAPWIDTH = 9999;
-		const LINESPACING = 3;		
-    private void DrawStrDropShadow(string text)
-    {
-    	vector2 location = (8 , -50);
-		vector2 scale = (.5, .5);
-	//	DrawString(mHUDFont, text, location + (1,1), FLAGS, Font.CR_BLACK, ALPHA, WRAPWIDTH, LINESPACING, scale);
-	//	DrawString(mSmallFont, text, location, FLAGS, TRANS, 1.0, WRAPWIDTH, LINESPACING, scale);
-	//	DrawString(mSmallFont, FormatNumber(CleanHeight_1,  10), location, FLAGS, TRANS, 1.0, WRAPWIDTH, LINESPACING, scale);
-		Screen.DrawText(mSmallFont.mfont, TRANS, xPercent(3), yPercent(75), text, DTA_CleanNoMove_1, true, DTA_Alpha, ALPHA );
-    
-
     }
 
     private string GetStrKeyBinds(string command)
     {
 		int bindingKeys[2];
 		[bindingKeys[0], bindingKeys[1]] = Bindings.GetKeysForCommand(command);
-	//	return KeyBindings.NameKeys(bindingKeys[0], bindingKeys[1]);
-
+	//	return KeyBindings.NameKeys(bindingKeys[0], bindingKeys[1]); // text version
 		if (bindingKeys[0] < 255) bindingKeys[0] += 512; // stop conflicts with normal ascii by adding $200
 		if (bindingKeys[1] < 255) bindingKeys[1] += 512; // same
 		return String.Format("%c / %c", bindingKeys[0], bindingKeys[1]);
-
 	}
 
 	private float xPercent (float percent)
