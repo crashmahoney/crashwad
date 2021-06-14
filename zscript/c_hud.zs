@@ -26,16 +26,16 @@ class CrashStatusBar : BaseStatusBar
 	{
 		Super.Draw (state, TicFrac);
 
-		if (state == HUD_StatusBar)
-		{
-			BeginStatusBar();
-			DrawMainBar (TicFrac);
-		}
-		else if (state == HUD_Fullscreen)
-		{
+		// if (state == HUD_StatusBar)
+		// {
+		// 	BeginStatusBar();
+		// 	DrawMainBar (TicFrac);
+		// }
+		// else if (state == HUD_Fullscreen)
+		// {
 			BeginHUD();
 			DrawFullScreenStuff ();
-		}
+		// }
 	}
 
 	protected void DrawMainBar (double TicFrac)
@@ -255,12 +255,18 @@ const ALPHA = 0.8;
 
     private string GetStrKeyBinds(string command)
     {
+	//  reference for the key codes
+	//	https://github.com/coelckers/gzdoom/blob/4bcea0ab783c667940008a5cab6910b7a826f08c/src/common/console/c_bind.cpp#L54
 		int bindingKeys[2];
 		[bindingKeys[0], bindingKeys[1]] = Bindings.GetKeysForCommand(command);
-	//	return KeyBindings.NameKeys(bindingKeys[0], bindingKeys[1]); // text version
+		//return KeyBindings.NameKeys(bindingKeys[0], bindingKeys[1]); // text version
+		//return FormatNumber(bindingKeys[0],3).." / "..FormatNumber(bindingKeys[1],3);
+		if (bindingKeys[0] == 0) return "unassigned";
 		if (bindingKeys[0] < 255) bindingKeys[0] += 512; // stop conflicts with normal ascii by adding $200
+		if (bindingKeys[1] == 0) return String.Format("%c", bindingKeys[0]);	
 		if (bindingKeys[1] < 255) bindingKeys[1] += 512; // same
 		return String.Format("%c / %c", bindingKeys[0], bindingKeys[1]);
+
 	}
 
 	private float xPercent (float percent)
