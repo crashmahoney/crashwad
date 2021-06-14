@@ -189,6 +189,7 @@ class LiftableActor : SwitchableDecoration
 	void A_WarpToCarrier()
 	{
 		A_Warp(AAPTR_TARGET, 32, 0, 42-(height/2), 0, WARPF_INTERPOLATE, "Active", 0, 1 );
+        if (target.target != self) SetStateLabel("Inactive");
 	}
 
 	void A_PutDown()
