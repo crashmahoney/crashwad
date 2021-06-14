@@ -76,7 +76,7 @@ class IVStand : LiftableActor {
 		Height 64;
 		RenderStyle "Translucent";
 		Mass 25;
-		PushFactor 0.25;
+		PushFactor 0.50;
 
 		+SOLID
 		+PUSHABLE

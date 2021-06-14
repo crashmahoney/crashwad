@@ -137,6 +137,7 @@ class LiftableActor : SwitchableDecoration
     	BounceType "None";
     	BounceFactor 0.4;
     	WallBounceFactor 0.4;
+        ProjectileKickBack 300;
 		+INTERPOLATEANGLES 
     	+CANPASS
 		+USESPECIAL

@@ -7,7 +7,7 @@ class Bottle1 : LiftableActor
 		Height 16;
 		Health 1;
 		Scale 0.7;
-		Mass 10;
+		Mass 5;
 
 		+SOLID
 		+SHOOTABLE
