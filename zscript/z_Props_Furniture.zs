@@ -192,7 +192,7 @@ class Stool1 : LiftableActor {
 		+NOTARGET
 		+NOTAUTOAIMED
 		+NOBLOOD
-		+NODROPOFF
+    	+CANPASS
         Tag "Stool";
 	}
 

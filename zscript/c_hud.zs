@@ -18,7 +18,7 @@ class CrashStatusBar : BaseStatusBar
 		fnt = "INDEXFONT_DOOM";
 		mIndexFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 		mAmountFont = HUDFont.Create("INDEXFONT");
-		mSmallFont = HUDFont.Create("smallfont", 0, false, 1, 1); // drop shadow font
+		mSmallFont = HUDFont.Create("smallfont");
 		diparms = InventoryBarState.Create();
 	}
 
@@ -225,16 +225,20 @@ class CrashStatusBar : BaseStatusBar
 	{
 		let plr = CrashPlayer(CPlayer.mo);
 
+	// with object picked up
+		
+		if ( CheckWeaponSelected("HoldingObjectWeapon") == TRUE ) 		
+		{
+			if (plr.target)		DrawStrDropShadow(	GetStrKeyBinds("+attack").." - throw "..plr.target.GetTag().."\n"..
+								GetStrKeyBinds("+use").." - drop "..plr.target.GetTag() );
+		}
+
 	// if looking at actor
 
-		if (plr.useable.HitType == TRACE_HitActor)  						
+		else if (plr.useable.HitType == TRACE_HitActor)  						
 		{
-			if ( CheckWeaponSelected("HoldingObjectWeapon") == TRUE ) 		// with object picked up
-			{
-				if (plr.target)		DrawStrDropShadow(	GetStrKeyBinds("+attack").." - throw "..plr.target.GetTag().."\n"..
-									GetStrKeyBinds("+use").." - drop "..plr.target.GetTag() );
-			}
-	        else if (plr.useable.HitActor is "LiftableActor")				// looking at liftable object	
+
+	        if (plr.useable.HitActor is "LiftableActor")				// looking at liftable object	
 	        {
 				DrawStrDropShadow(	GetStrKeyBinds("+use").." - pick up "..plr.useable.HitActor.GetTag() );
 	        }
@@ -260,24 +264,42 @@ class CrashStatusBar : BaseStatusBar
 
 
 		const FLAGS = DI_SCREEN_LEFT_BOTTOM | DI_ITEM_LEFT | DI_TEXT_ALIGN_LEFT ;
-		const TRANSLATION = Font.CR_GREEN;
+		const TRANS = Font.CR_UNTRANSLATED;
 		const ALPHA = 0.6;
 		const WRAPWIDTH = 9999;
-		const LINESPACING = 3;
+		const LINESPACING = 3;		
     private void DrawStrDropShadow(string text)
     {
-    	vector2 location = (10 , -60);
-		vector2 scale = (0.7, 0.7);
+    	vector2 location = (8 , -50);
+		vector2 scale = (.5, .5);
 	//	DrawString(mHUDFont, text, location + (1,1), FLAGS, Font.CR_BLACK, ALPHA, WRAPWIDTH, LINESPACING, scale);
-		DrawString(mSmallFont, text, location, FLAGS, TRANSLATION, 1.0, WRAPWIDTH, LINESPACING, scale);
-    }
+	//	DrawString(mSmallFont, text, location, FLAGS, TRANS, 1.0, WRAPWIDTH, LINESPACING, scale);
+	//	DrawString(mSmallFont, FormatNumber(CleanHeight_1,  10), location, FLAGS, TRANS, 1.0, WRAPWIDTH, LINESPACING, scale);
+		Screen.DrawText(mSmallFont.mfont, TRANS, xPercent(3), yPercent(75), text, DTA_CleanNoMove_1, true, DTA_Alpha, ALPHA );
+    
 
+    }
 
     private string GetStrKeyBinds(string command)
     {
 		int bindingKeys[2];
 		[bindingKeys[0], bindingKeys[1]] = Bindings.GetKeysForCommand(command);
-		return KeyBindings.NameKeys(bindingKeys[0], bindingKeys[1]);
+
+		if (bindingKeys[0] < 255) bindingKeys[0] += 512;
+		if (bindingKeys[1] < 255) bindingKeys[1] += 512;
+		string keys = String.Format("%c / %c", bindingKeys[0], bindingKeys[1]);
+		return keys;
+	//	return KeyBindings.NameKeys(bindingKeys[0], bindingKeys[1]);
+	//	return FormatNumber(bindingKeys[0],3).." / "..FormatNumber(bindingKeys[1],3);
+
 	}
 
+	private float xPercent (float percent)
+	{
+		return Screen.Getwidth() * 0.01 * percent;
+	}
+	private float yPercent (float percent)
+	{
+		return Screen.GetHeight() * 0.01 * percent;
+	}
 }
