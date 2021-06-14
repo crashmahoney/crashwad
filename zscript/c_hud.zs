@@ -284,13 +284,11 @@ class CrashStatusBar : BaseStatusBar
     {
 		int bindingKeys[2];
 		[bindingKeys[0], bindingKeys[1]] = Bindings.GetKeysForCommand(command);
-
-		if (bindingKeys[0] < 255) bindingKeys[0] += 512;
-		if (bindingKeys[1] < 255) bindingKeys[1] += 512;
-		string keys = String.Format("%c / %c", bindingKeys[0], bindingKeys[1]);
-		return keys;
 	//	return KeyBindings.NameKeys(bindingKeys[0], bindingKeys[1]);
-	//	return FormatNumber(bindingKeys[0],3).." / "..FormatNumber(bindingKeys[1],3);
+
+		if (bindingKeys[0] < 255) bindingKeys[0] += 512; // stop conflicts with normal ascii by adding $200
+		if (bindingKeys[1] < 255) bindingKeys[1] += 512; // same
+		return String.Format("%c / %c", bindingKeys[0], bindingKeys[1]);
 
 	}
 
