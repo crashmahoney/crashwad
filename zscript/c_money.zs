@@ -177,7 +177,7 @@ class NoteBundle : Cash
 
 //===========================================================================
 
-Class CashRegister : SolidModelBase {
+class CashRegister : LiftableActor {
 	Default {
 		Radius 12;
 		Height 13;
@@ -187,6 +187,13 @@ Class CashRegister : SolidModelBase {
 		Spawn:
 			PLAY A -1;
 			Stop;
+		Active:
+ 			PLAY A 0 A_PickUp;
+			PLAY A 1 A_WarpToCarrier;
+			Wait;   
+		Inactive:
+ 			PLAY A 0 A_PutDown;		
+			Goto Spawn; 			
 	}
 }
 
