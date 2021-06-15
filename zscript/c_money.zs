@@ -177,23 +177,96 @@ class NoteBundle : Cash
 
 //===========================================================================
 
-class CashRegister : LiftableActor {
-	Default {
+class CashRegister : LiftableActor
+{
+
+	int alreadypaidout;
+
+	Default
+	{
 		Radius 12;
 		Height 13;
+		Health 10;
+
+        +SOLID
+        +SHOOTABLE
+        +NOBLOOD
+        +ACTIVATEPCROSS
+        +DONTGIB
+        +NOICEDEATH
+        +DROPOFF
+		Species "Explosive";
+		DeathSound "break/vent";
+		Tag "Cash Register";
 	}
 
-	States {
+		const CASH_THROW_MAX_DIST = 3.0;
+		const CASH_THROW_MIN_HEIGHT = 8.0;
+		const CASH_THROW_MAX_HEIGHT = 15.0;
+		const CASH_SPAWN_OFFSET = 24.0;	
+
+	//---------------------------------------------------------------------------
+	// function to spawn and throw cash actor
+	//---------------------------------------------------------------------------	
+	static void SpawnCash(Actor self, string spawnclass)
+	{
+
+
+		let mo = actor.Spawn( spawnclass, (self.pos.x, self.pos.y, self.pos.z + CASH_SPAWN_OFFSET), NO_REPLACE );
+		if (mo)
+		{
+			mo.Angle = self.angle;
+			mo.vel.x = frandom( - CASH_THROW_MAX_DIST, CASH_THROW_MAX_DIST );
+			mo.vel.y = frandom( - CASH_THROW_MAX_DIST, CASH_THROW_MAX_DIST );
+			mo.vel.z = frandom( CASH_THROW_MIN_HEIGHT, CASH_THROW_MAX_HEIGHT );
+		}
+	}
+
+
+	States
+	{
 		Spawn:
-			PLAY A -1;
+			PLAY # -1;
 			Stop;
 		Active:
- 			PLAY A 0 A_PickUp;
-			PLAY A 1 A_WarpToCarrier;
+ 			PLAY # 0 A_PickUp;
+			PLAY # 1 A_WarpToCarrier;
 			Wait;   
 		Inactive:
- 			PLAY A 0 A_PutDown;		
-			Goto Spawn; 			
+ 			PLAY # 0 A_PutDown;		
+			Goto Spawn; 
+		Death:
+			PLAY A 10;
+			PLAY B 5
+			{
+				if (!alreadypaidout)
+				{	
+					alreadypaidout = 1;
+					switch (random(0,8))
+					{
+						case 0: 
+							SpawnCash(self, "NoteBundle");
+						case 1:	
+						case 2:
+							SpawnCash(self, "NoteBundle");
+						case 3:						
+						case 4:						
+						case 5:						
+						case 6:						
+							SpawnCash(self, "NoteBundle");
+						case 7:						
+						case 8:						
+							SpawnCash(self, "Cash");
+							SpawnCash(self, "Cash");							SpawnCash(self, "NoteBundle");
+							SpawnCash(self, "Cash");
+							SpawnCash(self, "Cash");						case 4:
+						default:
+							break;		
+					}
+				}
+			}
+			PLAY B 5;
+			Wait;			
 	}
 }
 

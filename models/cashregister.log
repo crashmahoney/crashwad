@@ -1,0 +1,25 @@
+########################BEGIN########################
+Exporting CashRegBody
+Exported UVMap coordinates for CashRegBody
+Exported 1 frame(s) for CashRegBody
+Exporting CashRegBody.001
+Exported UVMap coordinates for CashRegBody.001
+Exported 1 frame(s) for CashRegBody.001
+Header Information
+Ident: IDP3
+Version: 15
+Name: 
+Flags: 0
+Number of Frames: 2
+Number of Tags: 0
+Number of Surfaces: 2
+Number of Skins: 0
+Offset Frames: 108
+Offset Tags: 332
+Offset Surfaces: 332
+Offset end: 7008
+Total Shaders: 2
+Total Triangles: 145
+Total Vertices: 191
+MD3 saved to D:\Games\Doom\crashwad\models\cashregister.md3
+Elapsed 0.01584 seconds

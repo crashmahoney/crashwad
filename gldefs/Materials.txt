@@ -126,6 +126,15 @@ material texture CARPRED
     ao carpet_o
 }
 
+material texture CashReg
+{
+    shader                  "shaders/paraboloid.fp"
+    texture enviromap       "textures/spheremap8.png"
+    texture enviromask      "textures/normals/brass_m.png"
+    texture sunmask         "textures/black.png"
+
+}
+
 material texture CEIL4_1
 {
     normal carpet_n
