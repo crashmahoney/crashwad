@@ -236,7 +236,7 @@ const ALPHA = 0.8;
 														GetStrKeyBinds("+use"),plr.target.GetTag());
 		}
 	// if looking at actor
-		else if (plr.useable.HitType == TRACE_HitActor) 
+		else if (plr.useable.HitType == TRACE_HitActor && plr.useable.HitActor) 
 		{						
 	        if (plr.useable.HitActor is "LiftableActor")				// looking at liftable object	
 				text = String.Format("%s - pick up %s", GetStrKeyBinds("+use"), plr.useable.HitActor.GetTag());
