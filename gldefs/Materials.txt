@@ -126,7 +126,7 @@ material texture CARPRED
     ao carpet_o
 }
 
-material texture CashReg
+material texture cashreg
 {
     shader                  "shaders/paraboloid.fp"
     texture enviromap       "textures/spheremap8.png"

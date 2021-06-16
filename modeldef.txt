@@ -60,7 +60,7 @@ Model Cash
 Model CashRegister
 {
 	Model 0 "models/cashregister.md3"
-	Skin 0 "textures/skins/CashReg.png"
+//	Skin 0 "textures/skins/CashReg.png"
 
 	USEACTORPITCH
 	USEACTORROLL

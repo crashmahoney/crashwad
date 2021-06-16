@@ -251,15 +251,15 @@ class CashRegister : LiftableActor
 							SpawnCash(self, "NoteBundle");
 						case 3:						
 						case 4:						
+							SpawnCash(self, "NoteBundle");
 						case 5:						
 						case 6:						
-							SpawnCash(self, "NoteBundle");
+							SpawnCash(self, "Cash");
 						case 7:						
+							SpawnCash(self, "Cash");						case 4:
 						case 8:						
 							SpawnCash(self, "Cash");
 							SpawnCash(self, "Cash");							SpawnCash(self, "NoteBundle");
-							SpawnCash(self, "Cash");
-							SpawnCash(self, "Cash");						case 4:
 						default:
 							break;		
 					}
