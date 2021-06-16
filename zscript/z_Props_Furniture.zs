@@ -139,39 +139,108 @@ Class Chairback2 : InvisibleBridge8
 }
 
 //=======================================================
-Class Chair3 : SolidModelBase {
+class Chair3 : LiftableActor {
 	Default
 	{
 		Radius 13;
 		Height 24;
+		Mass 25;
+		PushFactor 0.75;
+
+		-NOINTERACTION
+		+NOTARGET
+		+SHOOTABLE
+		+SOLID
+		+NOTAUTOAIMED
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+NOTAUTOAIMED
+		+NOBLOOD
+        Tag "Chair";		
 	}
 	
-	override void PostBeginPlay()
+	override void Tick()
 	{		
-		actor mo = Actor.Spawn("Chairback3", Vec3Angle( -16, self.Angle, 24, false ), NO_REPLACE);
-		if (mo)
+		if (InStateSequence(CurState, ResolveState("Spawn")))
 		{
-			mo.Angle = self.Angle;
+			actor mo = Actor.Spawn("ChairbackMain", Vec3Angle( -16, self.Angle, 24, false ), NO_REPLACE);
+			if (mo)
+			{
+				mo.Angle = self.Angle;
+			}
 		}
-		
-		Super.PostBeginPlay();
+
+		Super.Tick();
 	}
+
+	override bool CanCollideWith(actor other,bool passive)
+	{
+        if (other.GetClassName() == "ChairbackMain" || other.GetClassName() == "ChairbackChild")
+        {
+        	return false;
+        }
+			return true;
+	}
+
+	States
+	{
+		Spawn:
+			PLAY A -1;
+			stop;
+		Pain:
+			#### # 0 A_FaceTarget;
+			#### # 0 A_Recoil(50);
+			Goto Spawn;
+		Active:
+ 			#### # 0 A_PickUp;
+			#### # 1 A_WarpToCarrier;
+			Wait;   
+		Inactive:
+ 			#### # 0 A_PutDown;		
+			Goto Spawn; 			
+	}
+
 }
 
-Class Chairback3 : InvisibleBridge8
+class ChairbackMain : InvisibleBridge8
 {
 	override void PostBeginPlay()
 	{
 		for ( int i = -14; i <14; i += 7 )
 		{
-			actor mo = Actor.Spawn("InvisibleBridge8", Vec3Angle( i, self.Angle - 90.0, 0, false ), NO_REPLACE);
+			actor mo = Actor.Spawn("ChairbackChild", Vec3Angle( i, self.Angle - 90.0, 0, false ), NO_REPLACE);
 		}
 		Super.PostBeginPlay();
 	}
+
 	Default
 	{
 		Radius 4;
 		Height 24;
+	}
+
+	States
+	{
+		Spawn:
+			TNT1 A 2;
+			Stop;
+	}
+}
+
+class ChairbackChild : InvisibleBridge8
+{
+	Default
+	{
+		Radius 4;
+		Height 24;
+	}
+
+	States
+	{
+		Spawn:
+			TNT1 A 2;
+			Stop;
 	}
 }
 
