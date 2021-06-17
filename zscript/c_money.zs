@@ -191,6 +191,7 @@ class CashRegister : LiftableActor
         +SOLID
         +SHOOTABLE
         +NOBLOOD
+        +NOTARGET
         +ACTIVATEPCROSS
         +DONTGIB
         +NOICEDEATH
@@ -247,19 +248,21 @@ class CashRegister : LiftableActor
 						case 0: 
 							SpawnCash(self, "NoteBundle");
 						case 1:	
+							SpawnCash(self, "Cash");
 						case 2:
 							SpawnCash(self, "NoteBundle");
 						case 3:						
+							SpawnCash(self, "Cash");
 						case 4:						
-							SpawnCash(self, "NoteBundle");
+							SpawnCash(self, "Cash");
 						case 5:						
+							SpawnCash(self, "Cash");
 						case 6:						
 							SpawnCash(self, "Cash");
 						case 7:						
-							SpawnCash(self, "Cash");						case 4:
-						case 8:						
 							SpawnCash(self, "Cash");
-							SpawnCash(self, "Cash");							SpawnCash(self, "NoteBundle");
+						case 8:						
+							SpawnCash(self, "NoteBundle");
 						default:
 							break;		
 					}
