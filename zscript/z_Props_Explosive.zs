@@ -191,7 +191,7 @@ class LiftableActor : SwitchableDecoration
 	{
 		A_Warp(AAPTR_TARGET, (target.radius + radius) * 2, 0, clamp((target.height*0.8)-(height*0.5), 8, 56), 0,
             WARPF_INTERPOLATE | WARPF_COPYVELOCITY, "Active");
-        if (target.target != self || GetDistance(TRUE,AAPTR_TARGET) > 80) SetStateLabel("Inactive");
+        if (target.target != self || Distance3d(target) > 80) SetStateLabel("Inactive");
 	}
 
 	void A_PutDown()
