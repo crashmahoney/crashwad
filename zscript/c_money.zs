@@ -1,4 +1,3 @@
-
 //===========================================================================
 class Cash : Inventory
 {
@@ -179,7 +178,6 @@ class NoteBundle : Cash
 
 class CashRegister : LiftableActor
 {
-
 	int alreadypaidout;
 
 	Default
@@ -200,29 +198,6 @@ class CashRegister : LiftableActor
 		DeathSound "break/vent";
 		Tag "Cash Register";
 	}
-
-		const CASH_THROW_MAX_DIST = 3.0;
-		const CASH_THROW_MIN_HEIGHT = 8.0;
-		const CASH_THROW_MAX_HEIGHT = 15.0;
-		const CASH_SPAWN_OFFSET = 24.0;	
-
-	//---------------------------------------------------------------------------
-	// function to spawn and throw cash actor
-	//---------------------------------------------------------------------------	
-	static void SpawnCash(Actor self, string spawnclass)
-	{
-
-
-		let mo = actor.Spawn( spawnclass, (self.pos.x, self.pos.y, self.pos.z + CASH_SPAWN_OFFSET), NO_REPLACE );
-		if (mo)
-		{
-			mo.Angle = self.angle;
-			mo.vel.x = frandom( - CASH_THROW_MAX_DIST, CASH_THROW_MAX_DIST );
-			mo.vel.y = frandom( - CASH_THROW_MAX_DIST, CASH_THROW_MAX_DIST );
-			mo.vel.z = frandom( CASH_THROW_MIN_HEIGHT, CASH_THROW_MAX_HEIGHT );
-		}
-	}
-
 
 	States
 	{
@@ -246,23 +221,23 @@ class CashRegister : LiftableActor
 					switch (random(0,8))
 					{
 						case 0: 
-							SpawnCash(self, "NoteBundle");
+							Crash.SpawnCash(self, "NoteBundle");
 						case 1:	
-							SpawnCash(self, "Cash");
+							Crash.SpawnCash(self, "Cash");
 						case 2:
-							SpawnCash(self, "NoteBundle");
+							Crash.SpawnCash(self, "NoteBundle");
 						case 3:						
-							SpawnCash(self, "Cash");
+							Crash.SpawnCash(self, "Cash");
 						case 4:						
-							SpawnCash(self, "Cash");
+							Crash.SpawnCash(self, "Cash");
 						case 5:						
-							SpawnCash(self, "Cash");
+							Crash.SpawnCash(self, "Cash");
 						case 6:						
-							SpawnCash(self, "Cash");
+							Crash.SpawnCash(self, "Cash");
 						case 7:						
-							SpawnCash(self, "Cash");
+							Crash.SpawnCash(self, "Cash");
 						case 8:						
-							SpawnCash(self, "NoteBundle");
+							Crash.SpawnCash(self, "NoteBundle");
 						default:
 							break;		
 					}

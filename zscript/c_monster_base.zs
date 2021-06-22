@@ -7,11 +7,6 @@
 mixin class CrashMonsterBase
 {
 	int zap_timer;
-	
-		const CASH_THROW_MAX_DIST = 3.0;
-		const CASH_THROW_MIN_HEIGHT = 8.0;
-		const CASH_THROW_MAX_HEIGHT = 15.0;
-		const CASH_SPAWN_OFFSET = 24.0;
 
 	//---------------------------------------------------------------------------
 	// Do things that should happen every single gametic.
@@ -57,21 +52,6 @@ mixin class CrashMonsterBase
 	}
 	
 	//---------------------------------------------------------------------------
-	// function to spawn and throw cash actor
-	//---------------------------------------------------------------------------	
-	static void SpawnCash(Actor self, string spawnclass)
-	{
-		
-		let mo = actor.Spawn( spawnclass, (self.pos.x, self.pos.y, self.pos.z + CASH_SPAWN_OFFSET), NO_REPLACE );
-		if (mo)
-		{
-			mo.Angle = self.angle;
-			mo.vel.x = frandom( - CASH_THROW_MAX_DIST, CASH_THROW_MAX_DIST );
-			mo.vel.y = frandom( - CASH_THROW_MAX_DIST, CASH_THROW_MAX_DIST );
-			mo.vel.z = frandom( CASH_THROW_MIN_HEIGHT, CASH_THROW_MAX_HEIGHT );
-		}
-	}
-	//---------------------------------------------------------------------------
 	// do stuff when dying
 	//---------------------------------------------------------------------------
 	override void Die(Actor source, Actor inflictor, int dmgflags)
@@ -86,16 +66,16 @@ mixin class CrashMonsterBase
 		case 4:
 		case 5:
 		case 6:
-			SpawnCash(self, "Cash");
+			Crash.SpawnCash(self, "Cash");
 			break;
 		case 10:
 		case 11:
 		case 12:
-			SpawnCash(self, "Cash");
-			SpawnCash(self, "Cash");
+			Crash.SpawnCash(self, "Cash");
+			Crash.SpawnCash(self, "Cash");
 			break;
 		case 19:
-			SpawnCash(self, "NoteBundle");
+			Crash.SpawnCash(self, "NoteBundle");
 			break;
 		default:
 			break;		
