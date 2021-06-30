@@ -55,6 +55,7 @@ class HoldingObjectWeapon : CrashWeapon
 			{
 				if (target != null)
 				{
+					A_StartSound("Fist/Swing", CHAN_WEAPON, 0, 0.7, ATTN_NORM, frandom(0.9,1.1));
 					target.Vel3DFromAngle(30-(target.mass*0.1), angle, pitch-5.0);
 					target.SetDamage(target.mass * target.vel.length() * 0.015 + random(0,10));
 				//	A_Logfloat(target.damage);

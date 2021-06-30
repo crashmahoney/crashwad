@@ -16,6 +16,8 @@ class DeskLamp : SwitchableDecoration
 		+NOTARGET
 		+NOTAUTOAIMED
 		+NOBLOOD
+		+PUSHABLE
+		+SLIDESONWALLS		
 	}
 
 	States
@@ -53,6 +55,8 @@ class DingBell : SwitchableDecoration
 		+NOTARGET
 		+NOTAUTOAIMED
 		+NOBLOOD
+		+PUSHABLE
+		+SLIDESONWALLS		
 	}
 
 
@@ -76,11 +80,19 @@ class IVStand : LiftableActor {
 		Height 64;
 		RenderStyle "Translucent";
 		Mass 25;
-		PushFactor 0.50;
+		PushFactor 0.75;
 
+		+FLOORCLIP
 		+SOLID
 		+PUSHABLE
 		+SLIDESONWALLS
+		+WINDTHRUST
+		+SHOOTABLE
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD
+		Tag "IV Stand";
+
 	}
 
 	States
@@ -89,12 +101,9 @@ class IVStand : LiftableActor {
 			PLAY A -1;
 			Stop;
 		Active:
- 			PLAY A 0 A_PickUp;
-			PLAY A 1 A_WarpToCarrier;
-			Wait;   
+ 			goto Super::Active; 
 		Inactive:
- 			PLAY A 0 A_PutDown;		
-			Goto Spawn; 
+ 			goto Super::Inactive; 
 	}
 }
 //=======================================================
@@ -104,6 +113,15 @@ class Keyboard : LiftableActor {
 	{
 		Radius 12;
 		Height 3;
+		+FLOORCLIP
+		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+SHOOTABLE
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD		
 	}
 
 	States
@@ -169,7 +187,15 @@ class PotPlant : LiftableActor
 		Height 48;
 		Scale 0.75;
 
+		+FLOORCLIP
 		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+SHOOTABLE
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD	
 	}
 
 
@@ -179,22 +205,31 @@ class PotPlant : LiftableActor
 			POTP A -1;
 			stop;
 		Active:
- 			POTP A 0 A_PickUp;
-			POTP A 1 A_WarpToCarrier;
-			Wait;   
+ 			goto Super::Active; 
 		Inactive:
- 			POTP A 0 A_PutDown;		
-			Goto Spawn; 	}
+ 			goto Super::Inactive; 
+ 	}
 }
 
 // --------------------------------------------------------------------------
-class Stapler : Actor
+class Stapler : LiftableActor
 {
 	Default
 	{
 		Radius 4;
 		Height 4;
 		Scale 0.25;
+
+		+FLOORCLIP
+		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+SHOOTABLE
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD
+
 	}
 	
 	States
@@ -202,5 +237,9 @@ class Stapler : Actor
 		Spawn:
 			STAP A -1;
 			stop;
+		Active:
+ 			goto Super::Active; 
+		Inactive:
+ 			goto Super::Inactive; 		
 	}
 }

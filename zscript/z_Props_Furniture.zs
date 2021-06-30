@@ -4,7 +4,15 @@ class BedH1 : SolidModelBase {
 	{
 		Radius 33;
 		Height 37;
-		-NODAMAGETHRUST
+		+FLOORCLIP
+		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+SHOOTABLE
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD
 	}
 	
 	override void PostBeginPlay()
@@ -48,12 +56,9 @@ class Chair : LiftableActor
 			TNT1 A 0 A_Recoil(50);
 			Goto Spawn;
 		Active:
- 			CHAI A 0 A_PickUp;
-			CHAI A 1 A_WarpToCarrier;
-			Wait;   
+ 			goto Super::Active; 
 		Inactive:
- 			CHAI A 0 A_PutDown;		
-			Goto Spawn; 			
+ 			goto Super::Inactive; 			
 	}
 }
 
@@ -63,6 +68,15 @@ class Chair1 : SolidModelBase {
 	{
 		Radius 34;
 		Height 24;
+		+FLOORCLIP
+		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+SHOOTABLE
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD
 	}
 	
 	override void PostBeginPlay()
@@ -193,12 +207,9 @@ class Chair3 : LiftableActor {
 			#### # 0 A_Recoil(50);
 			Goto Spawn;
 		Active:
- 			#### # 0 A_PickUp;
-			#### # 1 A_WarpToCarrier;
-			Wait;   
+ 			goto Super::Active; 
 		Inactive:
- 			#### # 0 A_PutDown;		
-			Goto Spawn; 			
+ 			goto Super::Inactive; 			
 	}
 
 }
@@ -276,12 +287,9 @@ class Stool1 : LiftableActor {
 			PLAY A 0 A_Recoil(20); 
 			Goto Spawn;
 		Active:
- 			PLAY A 0 A_PickUp;
-			PLAY A 1 A_WarpToCarrier;
-			Wait;   
+ 			goto Super::Active; 
 		Inactive:
- 			PLAY A 0 A_PutDown;		
-			Goto Spawn; 		
+ 			goto Super::Inactive; 		
 	}
 }
 
@@ -291,6 +299,15 @@ Class Table1 : SolidModelBase {
 	{
 		Radius 4;
 		Height 36;
+		+FLOORCLIP
+		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+SHOOTABLE
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD		
 	}
 	
 	override void PostBeginPlay()

@@ -184,8 +184,8 @@ class CashRegister : LiftableActor
 	{
 		Radius 12;
 		Height 13;
-		Health 10;
-
+		Health 9999999;
+		PainChance 100;
         +SOLID
         +SHOOTABLE
         +NOBLOOD
@@ -194,8 +194,9 @@ class CashRegister : LiftableActor
         +DONTGIB
         +NOICEDEATH
         +DROPOFF
-		Species "Explosive";
-		DeathSound "break/vent";
+		+PUSHABLE
+		+SLIDESONWALLS        
+		BounceSound "break/vent";
 		Tag "Cash Register";
 	}
 
@@ -205,15 +206,13 @@ class CashRegister : LiftableActor
 			PLAY # -1;
 			Stop;
 		Active:
- 			PLAY # 0 A_PickUp;
-			PLAY # 1 A_WarpToCarrier;
-			Wait;   
+ 			goto Super::Active;  
 		Inactive:
- 			PLAY # 0 A_PutDown;		
-			Goto Spawn; 
-		Death:
-			PLAY A 10;
-			PLAY B 5
+ 			goto Super::Inactive;
+		Bounce:
+			#### # 4 A_BounceThrown();
+		Pain:
+			#### B 1
 			{
 				if (!alreadypaidout)
 				{	
@@ -243,7 +242,6 @@ class CashRegister : LiftableActor
 					}
 				}
 			}
-			PLAY B 5;
 			Wait;			
 	}
 }

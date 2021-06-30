@@ -42,6 +42,8 @@ class GasCan : LiftableActor
         +DONTGIB
         +NOICEDEATH
         +DROPOFF
+        +PUSHABLE
+        +SLIDESONWALLS
 		Species "Explosive";
         DeathSound "world/barrelx";
         Obituary "$OB_BARREL"; // "%o went boom.";
@@ -54,13 +56,10 @@ class GasCan : LiftableActor
             XCAN A 4 { if ( Args[0] == 0 ) bDONTTHRUST= TRUE;}		// if arg1 is set in doombuilder don't allow it to be pushed by explosions
 			XCAN A 4;
             Wait;
- 		Active:
- 			XCAN A 0 A_PickUp;
-			XCAN A 1 A_WarpToCarrier;
-			Wait;   
-		Inactive:
- 			XCAN A 0 A_PutDown;		
-			Goto Spawn;        
+        Active:
+            goto Super::Active; 
+        Inactive:
+            goto Super::Inactive;       
         Death:
             XCAN B 5 Bright A_Scream;
             XCAN C 5 Bright;
@@ -106,13 +105,10 @@ class FireExtinguisher : LiftableActor
         Spawn:
             FEXT A -1;
             Stop;
- 		Active:
- 			FEXT A 0 A_PickUp;
-			FEXT A 1 A_WarpToCarrier;
-			Wait;   
-		Inactive:
- 			FEXT A 0 A_PutDown;		
-			Goto Spawn;  
+        Active:
+            goto Super::Active; 
+        Inactive:
+            goto Super::Inactive; 
 	    Death:
             FEXT B 8 Bright
             {
@@ -130,11 +126,15 @@ class FireExtinguisher : LiftableActor
 // --------------------------------------------------------------------------
 class LiftableActor : SwitchableDecoration
 {
+
+	int clangdelay; // timeout for sound when hitting wall while held
+
     Default
     {
     	Damage 1000;
 
     	BounceType "None";
+        BounceSound "KnifeHit";
     	BounceFactor 0.4;
     	WallBounceFactor 0.4;
         ProjectileKickBack 300;
@@ -147,59 +147,84 @@ class LiftableActor : SwitchableDecoration
 
 	States
 	{
+        Spawn:
+            #### # -1;
+            Stop;
 		Bounce:
-			#### # 0
-			{
-				SetDamage(mass * vel.length() * 0.015 + random(0,10));
-			//	A_Logfloat(damage);
-				if (vel.x < 5 && vel.y < 5 && vel.z < 5)
-				{
-					bMISSILE = FALSE;
-					bUSEBOUNCESTATE = FALSE;
-					bBOUNCEONFLOORS = FALSE;
-					bBOUNCEONCEILINGS = FALSE;
-					bBOUNCEONWALLS = FALSE;
-					bALLOWBOUNCEONACTORS = FALSE;
-					bBOUNCEONACTORS = FALSE;	
-					SetStateLabel("Inactive");
-				}
-			}
-			#### # 1;
+			#### # 1 A_BounceThrown();
 			wait;
 		Active:
  			#### # 0 A_PickUp;
 			#### # 1 A_WarpToCarrier;
-			Wait;   
+			Wait;
 		Inactive:
  			#### # 0 A_PutDown;		
-			Goto Spawn;	
+			Goto Spawn;
+
 	}
 
+	void A_BounceThrown()
+	{
+		SetDamage(mass * vel.length() * 0.015 + random(0,10));
+		if (vel.x < 5 && vel.y < 5 && vel.z < 5)
+		{
+			bMISSILE = FALSE;
+			bUSEBOUNCESTATE = FALSE;
+			bBOUNCEONFLOORS = FALSE;
+			bBOUNCEONCEILINGS = FALSE;
+			bBOUNCEONWALLS = FALSE;
+			bALLOWBOUNCEONACTORS = FALSE;
+			bBOUNCEONACTORS = FALSE;	
+			SetStateLabel("Inactive");
+		}
+	}
 
 	void A_PickUp()
 	{
-		A_PlaySound("switch/lampon");
 		A_FadeOut(0.3);
 		A_GiveToTarget("HoldingObjectWeapon", 1);
 		target.A_SelectWeapon("HoldingObjectWeapon");
 		bNOTARGETSWITCH = TRUE;
 		bACTIVATEIMPACT = FALSE;
 		bACTIVATEPCROSS = FALSE;
+        bNOGRAVITY = TRUE;
+
 	}
 
 	void A_WarpToCarrier()
 	{
-		A_Warp(AAPTR_TARGET, (target.radius + radius) * 2, 0, clamp((target.height*0.8)-(height*0.5), 8, 56), 0,
-            WARPF_INTERPOLATE | WARPF_COPYVELOCITY, "Active");
-        if (target.target != self || Distance3d(target) > 80) SetStateLabel("Inactive");
+		vector3 oldpos = pos;
+		int oldangle = angle;
+		int floordif = floorz - target.floorz;
+
+		vector3 offset;
+		offset.x = (target.radius + radius + 8) * 2 - (abs(target.pitch) * 0.7);
+		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch, 1 + floordif , 80);
+
+		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_WARPINTERPOLATION | WARPF_COPYVELOCITY);
+
+		if (!CheckSight(target))
+		{
+			A_Warp(AAPTR_TARGET, oldpos.x, oldpos.y, oldpos.z, 0, WARPF_ABSOLUTEPOSITION );
+			angle = oldangle;
+			clangdelay --;
+
+			if (clangdelay < 0)
+			{
+				A_StartSound(BounceSound, CHAN_WEAPON, 0, 0.7, ATTN_NORM, frandom(0.9,1.1));
+				clangdelay = 3;
+			}
+		}
+
+		if (target.target != self || Distance2d(target) > 80 || Distance3d(target) > 120) SetStateLabel("Inactive");
 	}
 
 	void A_PutDown()
 	{
-		A_PlaySound("switch/lampon");
 		A_SetRenderStyle(1.0, STYLE_Normal);
 		A_TakeInventory("HoldingObjectWeapon", 0, AAPTR_TARGET );
 		bNOTARGETSWITCH = FALSE;
+        bNOGRAVITY = FALSE;
 		activationtype &= ~THINGSPEC_Deactivate; // clear flag
 		activationtype |= THINGSPEC_Activate;	// set flag
 		target.A_ClearTarget();

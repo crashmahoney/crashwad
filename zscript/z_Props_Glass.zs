@@ -30,13 +30,7 @@ class Bottle1 : LiftableActor
 			#### # 0 A_SpawnDebris("GlassShrapnel",FALSE,2,2);
 			#### # 1 A_Scream;
 			Stop;
-		Active:
- 			#### # 0 A_PickUp;
-			#### # 1 A_WarpToCarrier;
-			Wait;   
-		Inactive:
- 			#### # 0 A_PutDown;		
-			Goto Spawn;
+
  	}
 }
 
