@@ -193,20 +193,26 @@ class LiftableActor : SwitchableDecoration
 
 	void A_WarpToCarrier()
 	{
+		// remember old position in case the new one is invalid
 		vector3 oldpos = pos;
 		int oldangle = angle;
 		int floordif = floorz - target.floorz;
 
+		// calculate offsets
 		vector3 offset;
 		offset.x = (target.radius + radius + 8) * 2 - (abs(target.pitch) * 0.7);
 		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch, 1 + floordif , 80);
 
 		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_WARPINTERPOLATION | WARPF_COPYVELOCITY);
 
+		// use line of sight check to see if it's in a valid location (maybe not the best way)
 		if (!CheckSight(target))
 		{
+			// restore position
 			A_Warp(AAPTR_TARGET, oldpos.x, oldpos.y, oldpos.z, 0, WARPF_ABSOLUTEPOSITION );
 			angle = oldangle;
+
+			// things get too noisy if we do this every frame
 			clangdelay --;
 
 			if (clangdelay < 0)
@@ -216,6 +222,7 @@ class LiftableActor : SwitchableDecoration
 			}
 		}
 
+		// drop object if the player is somehow holding another, or if player is too far away
 		if (target.target != self || Distance2d(target) > 80 || Distance3d(target) > 120) SetStateLabel("Inactive");
 	}
 
