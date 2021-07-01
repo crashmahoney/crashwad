@@ -11,6 +11,7 @@ class Cash : Inventory
 	const HOMING_MAX_TURN = 20;
 	const HOMING_MAX_PITCH = 20;
 	const HOMING_SPEED = 1.0;
+	const NO_COLL_TIMER = 20;
 	//---------------------------------------------------------------------------
 	
 	Default
@@ -22,6 +23,7 @@ class Cash : Inventory
 		Inventory.InterHubAmount 20000;
 		+INVENTORY.INVBAR
 		+INVENTORY.KEEPDEPLETED;
+		+NOCLIP;
 		Inventory.Icon "COINA0";
 		Inventory.PickupMessage "$GOTCASH";
 		BounceType "Grenade";
@@ -51,6 +53,9 @@ class Cash : Inventory
 
     override void Tick()
     {
+
+    	if (GetAge() == NO_COLL_TIMER) bNOCLIP = FALSE;
+
 		//----------------------------------------------------------------------
         // set actor angle / pitch / roll when not homing
 		//----------------------------------------------------------------------
@@ -242,7 +247,7 @@ class CashRegister : LiftableActor
 					}
 				}
 			}
-			Wait;			
+			Goto Inactive;			
 	}
 }
 

@@ -128,6 +128,7 @@ class LiftableActor : SwitchableDecoration
 {
 
 	int clangdelay; // timeout for sound when hitting wall while held
+	int pickupangle; // angle when picked up
 
     Default
     {
@@ -144,6 +145,15 @@ class LiftableActor : SwitchableDecoration
 		Activation THINGSPEC_Switch | THINGSPEC_ThingTargets | THINGSPEC_TriggerTargets;
 	}
 
+
+	override bool CanCollideWith(actor other,bool passive)
+	{
+        if (other && passive && other == target && !TestMobjLocation())
+        {
+        	return false;
+        }
+			return true;
+	}
 
 	States
 	{
@@ -181,14 +191,14 @@ class LiftableActor : SwitchableDecoration
 
 	void A_PickUp()
 	{
-		A_FadeOut(0.3);
+		//A_FadeOut(0.3);
 		A_GiveToTarget("HoldingObjectWeapon", 1);
 		target.A_SelectWeapon("HoldingObjectWeapon");
 		bNOTARGETSWITCH = TRUE;
 		bACTIVATEIMPACT = FALSE;
 		bACTIVATEPCROSS = FALSE;
         bNOGRAVITY = TRUE;
-
+        pickupangle = angle - target.angle; // save original angle
 	}
 
 	void A_WarpToCarrier()
@@ -200,10 +210,11 @@ class LiftableActor : SwitchableDecoration
 
 		// calculate offsets
 		vector3 offset;
-		offset.x = (target.radius + radius + 8) * 2 - (abs(target.pitch) * 0.7);
-		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch, 1 + floordif , 80);
+		offset.x = (target.radius + radius + 11.) * 2. - (abs(target.pitch) * 0.7);
+		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch, 1. + floordif , 80.);
 
-		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_WARPINTERPOLATION | WARPF_COPYVELOCITY);
+		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_INTERPOLATE | WARPF_COPYVELOCITY);
+		angle = pickupangle + target.angle;
 
 		// use line of sight check to see if it's in a valid location (maybe not the best way)
 		if (!CheckSight(target))
@@ -223,8 +234,21 @@ class LiftableActor : SwitchableDecoration
 		}
 
 		// drop object if the player is somehow holding another, or if player is too far away
-		if (target.target != self || Distance2d(target) > 80 || Distance3d(target) > 120) SetStateLabel("Inactive");
+		if (target.target != self || !target || Distance2d(target) > 80 || Distance3d(target) > 120) SetStateLabel("Inactive");
+/*
+		bool ok; Actor below;
+		[ok, below] = TestMobjZ(true);
+		if (below) A_PutDown();
+*/
+/*
+	// 2d overlap
+	double blockdist = radius + target.radius;
+	if (abs(target.pos.x - pos.x) < blockdist && abs(target.pos.y - pos.y) < blockdist)
+				A_StartSound(BounceSound, CHAN_WEAPON, 0, 0.7, ATTN_NORM, frandom(0.9,1.1));
+*/
 	}
+
+
 
 	void A_PutDown()
 	{

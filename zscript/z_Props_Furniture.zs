@@ -194,6 +194,7 @@ class Chair3 : LiftableActor {
         {
         	return false;
         }
+			Super.CanCollideWith(other, passive);
 			return true;
 	}
 
