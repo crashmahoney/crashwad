@@ -32,6 +32,18 @@ Model BedH1
 	FrameIndex PLAY A 0 0
 }
 
+Model Bed2
+{
+	Model 0 "models/Bed2.md3"
+	Skin 0 "textures/skins/bed2_albedo.md3"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
+	FrameIndex PLAY B 0 1
+	FrameIndex PLAY C 0 2
+}
 //--------------------------------------------------------------------------C
 Model Can1
 {
@@ -362,6 +374,16 @@ Model LightYellow
    useactorroll
 
    FrameIndex PIPE A 0 0
+}
+
+Model Lite2
+{
+	Model 0 "models/Lite2.obj"
+
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PLAY A 0 0
 }
 
 Model LiteF

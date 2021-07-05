@@ -202,6 +202,30 @@ Class LiteF : SolidModelBase
 }
 
 //=======================================================
+Class Lite2 : Actor {
+	Default {
+		Radius 16;
+		Height 72;
+		RenderStyle "Add";
+		+NOGRAVITY
+		+SPAWNCEILING
+		+SOLID
+		+INVULNERABLE
+		+NODAMAGE
+		+SHOOTABLE
+		+NOTAUTOAIMED
+		+NEVERTARGET
+		+DONTTHRUST
+	}
+
+	States {
+		Spawn:
+			PLAY A -1;
+			Stop;
+	}
+}
+
+//=======================================================
 Class LiteR : Actor
 {
 	Default {

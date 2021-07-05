@@ -34,6 +34,13 @@ material texture Bebm64_Y
     glossiness 0.3
 }
 
+material texture "textures/skins/bed2_albedo.png"
+{
+    normal "textures/skins/bed2_normal.png"
+    metallic "textures/skins/bed2_metallic.png"
+    roughness "textures/skins/bed2_roughness.png"
+    ao "textures/skins/bed2_ambient occlusion.png"
+}
 
 material texture "BIGDOOR1"
 {

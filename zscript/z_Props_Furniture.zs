@@ -23,6 +23,15 @@ class BedH1 : SolidModelBase {
 	}
 }
 
+class Bed2 : BedH1
+{
+	override void PostBeginPlay()
+	{
+		frame = random(0,2);
+		Super.PostBeginPlay();
+	}
+}
+
 // --------------------------------------------------------------------------
 class Chair : LiftableActor
 {

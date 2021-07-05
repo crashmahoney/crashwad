@@ -1,0 +1,28 @@
+########################BEGIN########################
+Exporting separate
+Exported UVMap coordinates for separate
+Exported 2 frame(s) for separate
+Exporting bed.002
+Exported UVMap coordinates for bed.002
+Exported 2 frame(s) for bed.002
+Exporting separate.001
+Exported UVMap coordinates for separate.001
+Exported 2 frame(s) for separate.001
+Header Information
+Ident: IDP3
+Version: 15
+Name: 
+Flags: 0
+Number of Frames: 3
+Number of Tags: 0
+Number of Surfaces: 3
+Number of Skins: 0
+Offset Frames: 108
+Offset Tags: 612
+Offset Surfaces: 612
+Offset end: 69200
+Total Shaders: 3
+Total Triangles: 917
+Total Vertices: 1783
+MD3 saved to D:\Games\Doom\crashwad\models\bed2.md3
+Elapsed 0.34768 seconds
