@@ -210,7 +210,7 @@ class LiftableActor : SwitchableDecoration
 
 		// calculate offsets
 		vector3 offset;
-		offset.x = (target.radius + radius + 11.) * 2. - (abs(target.pitch) * 0.7);
+		offset.x = (target.radius + radius + 8.) * 2. - (abs(target.pitch) * 0.7);
 		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch, 1. + floordif , 80.);
 
 		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_INTERPOLATE | WARPF_COPYVELOCITY);
@@ -258,8 +258,11 @@ class LiftableActor : SwitchableDecoration
         bNOGRAVITY = FALSE;
 		activationtype &= ~THINGSPEC_Deactivate; // clear flag
 		activationtype |= THINGSPEC_Activate;	// set flag
-		target.A_ClearTarget();
-		//A_ClearTarget();
+		if (target) 
+		{
+			target.A_ClearTarget();
+			A_ClearTarget();
+		}
 	}
 
 }
