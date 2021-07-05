@@ -4,6 +4,7 @@ class BedH1 : SolidModelBase {
 	{
 		Radius 33;
 		Height 37;
+		-NOGRAVITY
 		+FLOORCLIP
 		+SOLID
 		+PUSHABLE
@@ -180,30 +181,33 @@ class Chair3 : LiftableActor {
 		+WINDTHRUST
 		+NOTAUTOAIMED
 		+NOBLOOD
-        Tag "Chair";		
+        Tag "Wooden Chair";		
 	}
 	
 	override void Tick()
 	{		
-		if (InStateSequence(CurState, ResolveState("Spawn")))
+		Super.Tick();
+		if (InStateSequence(CurState, ResolveState("Spawn")) || InStateSequence(CurState, ResolveState("Inactive")))
 		{
-			actor mo = Actor.Spawn("ChairbackMain", Vec3Angle( -16, self.Angle, 24, false ), NO_REPLACE);
+			actor mo = Actor.Spawn("CollisionSpawner", Vec3Angle( -16, self.Angle, 24, false ), NO_REPLACE);
 			if (mo)
 			{
-				mo.Angle = self.Angle;
+				A_SetSize(4, 24, false);
+				mo.vel = vel;
+				mo.master = self;
+				mo.Angle = self.Angle - 90;
+				mo.mass = mass;
+				mo.pushfactor = pushfactor;
 			}
 		}
-
-		Super.Tick();
 	}
 
 	override bool CanCollideWith(actor other,bool passive)
 	{
-        if (other.GetClassName() == "ChairbackMain" || other.GetClassName() == "ChairbackChild")
+        if (other.GetClassName() == "CollisionSpawner" || other.GetClassName() == "CollisionChild")
         {
         	return false;
         }
-			Super.CanCollideWith(other, passive);
 			return true;
 	}
 
@@ -224,37 +228,65 @@ class Chair3 : LiftableActor {
 
 }
 
-class ChairbackMain : InvisibleBridge8
+// ------
+class CollisionSpawner : CollisionChild
 {
+
 	override void PostBeginPlay()
 	{
-		for ( int i = -14; i <14; i += 7 )
+		for ( int i = -14; i < 14; i += 7 )
 		{
-			actor mo = Actor.Spawn("ChairbackChild", Vec3Angle( i, self.Angle - 90.0, 0, false ), NO_REPLACE);
+			actor mo = Actor.Spawn("CollisionChild", Vec3Angle( i, self.Angle, 0, false ), NO_REPLACE);
+			if (mo)
+			{
+				A_SetSize(self.radius, self.height, false);
+				mo.Angle = self.Angle;
+				mo.master = master;
+				mo.vel = vel;
+				mo.mass = mass;
+				mo.pushfactor = pushfactor;
+			}
 		}
 		Super.PostBeginPlay();
 	}
-
-	Default
-	{
-		Radius 4;
-		Height 24;
-	}
-
-	States
-	{
-		Spawn:
-			TNT1 A 2;
-			Stop;
-	}
 }
 
-class ChairbackChild : InvisibleBridge8
+// ------
+class CollisionChild : InvisibleBridge8
 {
+
+	override void Tick()
+	{	
+	// if velocity is greater than the parent object, transfer velocity to it
+		if (master)
+		{
+			master.vel.x = (vel.x > master.vel.x) ? vel.x : master.vel.x;
+			master.vel.y = (vel.y > master.vel.y) ? vel.y : master.vel.y;
+		}
+
+		Super.Tick();
+	}
+
+	override bool CanCollideWith(actor other,bool passive)
+	{
+        if (other.GetClassName() == "CollisionSpawner" || other.GetClassName() == "CollisionChild" || other == master )
+        {
+        	return false;
+        }
+			return true;
+	}
+
 	Default
 	{
-		Radius 4;
-		Height 24;
+		+NOTARGET
+		+SHOOTABLE
+		+SOLID
+		+NOTAUTOAIMED
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+NOTAUTOAIMED
+		+NOBLOOD
 	}
 
 	States

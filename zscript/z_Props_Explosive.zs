@@ -252,7 +252,7 @@ class LiftableActor : SwitchableDecoration
 
 	void A_PutDown()
 	{
-		A_SetRenderStyle(1.0, STYLE_Normal);
+		//A_SetRenderStyle(1.0, STYLE_Normal);
 		A_TakeInventory("HoldingObjectWeapon", 0, AAPTR_TARGET );
 		bNOTARGETSWITCH = FALSE;
         bNOGRAVITY = FALSE;
