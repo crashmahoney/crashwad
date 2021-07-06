@@ -129,6 +129,7 @@ class LiftableActor : SwitchableDecoration
 
 	int clangdelay; // timeout for sound when hitting wall while held
 	int pickupangle; // angle when picked up
+    int oldangle;
 
     Default
     {
@@ -148,9 +149,9 @@ class LiftableActor : SwitchableDecoration
 
 	override bool CanCollideWith(actor other,bool passive)
 	{
-        if (other && passive && other == target && !TestMobjLocation())
+        if (other && passive && other == target)
         {
-        	return false;
+            if (!TestMobjLocation()) 	return false;
         }
 			return true;
 	}
@@ -176,6 +177,7 @@ class LiftableActor : SwitchableDecoration
 	void A_BounceThrown()
 	{
 		SetDamage(mass * vel.length() * 0.015 + random(0,10));
+        angle = oldangle;
 		if (vel.x < 5 && vel.y < 5 && vel.z < 5)
 		{
 			bMISSILE = FALSE;
@@ -205,12 +207,12 @@ class LiftableActor : SwitchableDecoration
 	{
 		// remember old position in case the new one is invalid
 		vector3 oldpos = pos;
-		int oldangle = angle;
+		oldangle = angle;
 		int floordif = floorz - target.floorz;
 
 		// calculate offsets
 		vector3 offset;
-		offset.x = (target.radius + radius + 8.) * 2. - (abs(target.pitch) * 0.7);
+		offset.x = (target.radius + radius + 8.) * 2. - (abs(target.pitch) * 0.7) + Threshold;
 		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch, 1. + floordif , 80.);
 
 		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_INTERPOLATE | WARPF_COPYVELOCITY);
@@ -234,7 +236,9 @@ class LiftableActor : SwitchableDecoration
 		}
 
 		// drop object if the player is somehow holding another, or if player is too far away
-		if (target.target != self || !target || Distance2d(target) > 80 || Distance3d(target) > 120) SetStateLabel("Inactive");
+		if (target.target != self || !target ||
+            Distance2d(target) > radius * 2 + 80 ||
+            Distance3d(target) > radius * 2 + 120) SetStateLabel("Inactive");
 /*
 		bool ok; Actor below;
 		[ok, below] = TestMobjZ(true);

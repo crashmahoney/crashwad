@@ -1,9 +1,11 @@
 //=======================================================
-class BedH1 : SolidModelBase {
+class BedH1 : LiftableActor {
 	Default
 	{
 		Radius 33;
 		Height 37;
+		Mass 200;
+		PushFactor 0.2;
 		-NOGRAVITY
 		+FLOORCLIP
 		+SOLID
@@ -16,12 +18,33 @@ class BedH1 : SolidModelBase {
 		+NOBLOOD
 	}
 	
-	override void PostBeginPlay()
+	override void Tick()
 	{
-		Actor.Spawn("InvisibleBridge32", Vec3Angle( 32, self.Angle, 24, false ), NO_REPLACE);
-		Actor.Spawn("InvisibleBridge32", Vec3Angle( -32, self.Angle, 24, false ), NO_REPLACE);
-		Super.PostBeginPlay();
+		if (!target && LookForPlayers(true) == true)
+		{
+			A_ClearTarget(); // checking for player gives a target, so we clear it		
+			for (int i = -32; i <= 32; i += 64)
+			{
+				actor mo = Actor.Spawn("CollisionChild", Vec3Angle( i, self.Angle, 0, false ), NO_REPLACE);
+				if (mo)
+				{
+					mo.A_SetSize(33, 37, false);
+					mo.Angle = self.Angle;
+					mo.master = self;
+					mo.mass = mass;
+					mo.pushfactor = pushfactor;
+				}
+			}
+		}
+		Super.Tick();
 	}
+
+	States
+	{
+        Spawn:
+            PLAY # -1;
+            Stop;
+    }
 }
 
 class Bed2 : BedH1
@@ -127,38 +150,33 @@ Class Chairback1 : InvisibleBridge8
 }
 
 //=======================================================
-Class Chair2 : SolidModelBase {
+class Chair2 : LiftableActor {
 	Default
 	{
 		Radius 34;
 		Height 24;
+		+SOLID
+		+PUSHABLE
+		+SLIDESONWALLS
+		+WINDTHRUST
+		+SHOOTABLE
+		+NOTARGET
+		+NOTAUTOAIMED
+		+NOBLOOD
 	}
-	
-	override void PostBeginPlay()
-	{		
-		actor mo = Actor.Spawn("Chairback2", Vec3Angle( -24, self.Angle, 24, false ), NO_REPLACE);
-		if (mo)
-		{
-			mo.Angle = self.Angle;
-		}
-		
-		Super.PostBeginPlay();
-	}
-}
 
-Class Chairback2 : InvisibleBridge8
-{
-	override void PostBeginPlay()
-	{
-		for ( int i = -32; i <32; i += 16 )
-		{
-			Actor.Spawn("InvisibleBridge8", Vec3Angle( i, self.Angle - 90.0, 16, false ), NO_REPLACE);
-		}
-		Super.PostBeginPlay();
+	override void Tick()
+	{		
+		Super.Tick();
+		Crash.SpawnCollisionChild(self, -24, -32, 32, 16, 16, 8, 24);
+		if (pos.z + height > ceilingz) self.destroy();
 	}
-	Default
+
+	States
 	{
-		Height 24;
+		Spawn:
+			PLAY A -1;
+			stop;			
 	}
 }
 
@@ -187,95 +205,23 @@ class Chair3 : LiftableActor {
 	override void Tick()
 	{		
 		Super.Tick();
-		if (InStateSequence(CurState, ResolveState("Spawn")) || InStateSequence(CurState, ResolveState("Inactive")))
-		{
-			actor mo = Actor.Spawn("CollisionSpawner", Vec3Angle( -16, self.Angle, 24, false ), NO_REPLACE);
-			if (mo)
-			{
-				A_SetSize(4, 24, false);
-				mo.vel = vel;
-				mo.master = self;
-				mo.Angle = self.Angle - 90;
-				mo.mass = mass;
-				mo.pushfactor = pushfactor;
-			}
-		}
-	}
 
-	override bool CanCollideWith(actor other,bool passive)
-	{
-        if (other.GetClassName() == "CollisionSpawner" || other.GetClassName() == "CollisionChild")
-        {
-        	return false;
-        }
-			return true;
+		Crash.SpawnCollisionChild(self, -16, -14, 14, 14, 32, 4, 16);
+		if (pos.z + height > ceilingz) self.destroy();
 	}
 
 	States
 	{
 		Spawn:
 			PLAY A -1;
-			stop;
-		Pain:
-			#### # 0 A_FaceTarget;
-			#### # 0 A_Recoil(50);
-			Goto Spawn;
-		Active:
- 			goto Super::Active; 
-		Inactive:
- 			goto Super::Inactive; 			
+			stop;			
 	}
 
 }
 
-// ------
-class CollisionSpawner : CollisionChild
-{
-
-	override void PostBeginPlay()
-	{
-		for ( int i = -14; i < 14; i += 7 )
-		{
-			actor mo = Actor.Spawn("CollisionChild", Vec3Angle( i, self.Angle, 0, false ), NO_REPLACE);
-			if (mo)
-			{
-				A_SetSize(self.radius, self.height, false);
-				mo.Angle = self.Angle;
-				mo.master = master;
-				mo.vel = vel;
-				mo.mass = mass;
-				mo.pushfactor = pushfactor;
-			}
-		}
-		Super.PostBeginPlay();
-	}
-}
-
-// ------
+// --------------------------------------------------------
 class CollisionChild : InvisibleBridge8
 {
-
-	override void Tick()
-	{	
-	// if velocity is greater than the parent object, transfer velocity to it
-		if (master)
-		{
-			master.vel.x = (vel.x > master.vel.x) ? vel.x : master.vel.x;
-			master.vel.y = (vel.y > master.vel.y) ? vel.y : master.vel.y;
-		}
-
-		Super.Tick();
-	}
-
-	override bool CanCollideWith(actor other,bool passive)
-	{
-        if (other.GetClassName() == "CollisionSpawner" || other.GetClassName() == "CollisionChild" || other == master )
-        {
-        	return false;
-        }
-			return true;
-	}
-
 	Default
 	{
 		+NOTARGET
@@ -283,11 +229,34 @@ class CollisionChild : InvisibleBridge8
 		+SOLID
 		+NOTAUTOAIMED
 		+PUSHABLE
-		+SLIDESONWALLS
-		+WINDTHRUST
 		+NOTAUTOAIMED
 		+NOBLOOD
+		+THRUSPECIES
 	}
+
+	override void Tick()
+	{	
+	// if velocity is greater than the parent object, transfer velocity to it
+		if (vel != (0,0,0) && master && master.vel == (0,0,0))
+		{
+			master.vel.x = vel.x * PushFactor;
+			master.vel.y = vel.y * PushFactor;
+			self.destroy();
+		}
+		Super.Tick();
+	}
+
+	override bool CanCollideWith(actor other,bool passive)
+	{
+        if (other && passive && other == master)
+        {
+        //	if (master is "Chair3") a_log("self collision chair3");
+        	return false;
+        }
+			return true;
+	}
+
+
 
 	States
 	{
@@ -295,6 +264,7 @@ class CollisionChild : InvisibleBridge8
 			TNT1 A 2;
 			Stop;
 	}
+
 }
 
 //=======================================================
@@ -336,11 +306,14 @@ class Stool1 : LiftableActor {
 }
 
 //=======================================================
-Class Table1 : SolidModelBase {
+Class Table1 : LiftableActor {
 	Default
 	{
 		Radius 4;
-		Height 36;
+		Height 31;
+		PushFactor 0.2;
+		Mass 70;
+		Threshold 32;
 		+FLOORCLIP
 		+SOLID
 		+PUSHABLE
@@ -352,11 +325,20 @@ Class Table1 : SolidModelBase {
 		+NOBLOOD		
 	}
 	
-	override void PostBeginPlay()
-	{
-		actor mo = Actor.Spawn("InvisibleBridgeTable1", Vec3Angle( 0, 0, 32, false ), NO_REPLACE);
-		Super.PostBeginPlay();
+	override void Tick()
+	{		
+		Super.Tick();
+		Crash.SpawnCollisionChild(self, 0, 0, 2, 1, 32, 40, 8);
+		if (pos.z + height > ceilingz) self.destroy();
 	}
+
+	States
+	{
+		Spawn:
+			PLAY A -1;
+			stop;			
+	}
+
 }
 
 class InvisibleBridgeTable1 : InvisibleBridge
