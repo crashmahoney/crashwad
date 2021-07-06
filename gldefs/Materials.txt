@@ -495,6 +495,13 @@ material texture H2WOOD6
 }
 
 //--------------------------------------------------------------------------I
+material texture "textures/skins/iv_albedo.png"
+{
+    normal "textures/skins/iv_normal.png"
+    metallic "textures/skins/iv_metallic.png"
+    roughness "textures/skins/iv_roughness.png"
+    ao "textures/skins/iv_ambient occlusion.png"
+}
 //--------------------------------------------------------------------------J
 //--------------------------------------------------------------------------K
 material texture Keys

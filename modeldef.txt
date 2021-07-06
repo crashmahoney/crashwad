@@ -277,7 +277,10 @@ Model Grate128
 
 Model IVStand
 {
-	Model 0 "models/IVStand.obj"
+	Model 0 "models/IVStand.md3"
+	SurfaceSkin 0 0 "textures/skins/iv_albedo.png"
+	SurfaceSkin 0 1 glassenv
+	SurfaceSkin 0 2 water
 
 	USEACTORPITCH
 	USEACTORROLL

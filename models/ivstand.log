@@ -1,0 +1,28 @@
+########################BEGIN########################
+Exporting IV
+Exported UVMap coordinates for IV
+Exported 0 frame(s) for IV
+Exporting IV Bag
+Exported UVMap coordinates for IV Bag
+Exported 0 frame(s) for IV Bag
+Exporting IV Fluid
+Exported UVMap coordinates for IV Fluid
+Exported 0 frame(s) for IV Fluid
+Header Information
+Ident: IDP3
+Version: 15
+Name: 
+Flags: 0
+Number of Frames: 1
+Number of Tags: 0
+Number of Surfaces: 3
+Number of Skins: 0
+Offset Frames: 108
+Offset Tags: 276
+Offset Surfaces: 276
+Offset end: 16892
+Total Shaders: 3
+Total Triangles: 298
+Total Vertices: 782
+MD3 saved to D:\Games\Doom\crashwad\models\ivstand
+Elapsed 0.04883 seconds
