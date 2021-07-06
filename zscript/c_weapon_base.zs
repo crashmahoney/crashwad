@@ -40,7 +40,10 @@ class HoldingObjectWeapon : CrashWeapon
 		Ready:
 			TNT1 A 1
 			{
-				if (target == null)	A_TakeInventory("HoldingObjectWeapon");
+				// drop if use button pressed
+				if (target && GetPlayerInput(INPUT_BUTTONS)&BT_USE ) target.SetStateLabel("Inactive"); 
+				// if no object held, remove this weapon
+				if (!target)	A_TakeInventory("HoldingObjectWeapon");
 				else A_WeaponReady();
 			}
 			Loop;
