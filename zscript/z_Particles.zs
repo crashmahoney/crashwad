@@ -31,21 +31,18 @@ Class GlassShrapnel : Actor
 		Frame1:
 			GLsS ABCABCABCABC 3;
 			GLsS A -1;
-			Stop;
-	//		Goto Death;
+			Goto Death;
 		Frame2:
 			GLsS BCABCABCABCA 3;
 			GLsS B -1;
-			Stop;
-	//		Goto Death;
+			Goto Death;
 		Frame3:
 			GLsS CABCABCABCAB 3;
 			GLsS C -1;
-			Stop;
-	//		Goto Death;
-	//	Death:
-	//    	"----" A 1 A_FadeOut(0.06);
- 	//   			Wait
+			Goto Death;
+		Death:
+	    	#### # -1 {bNOINTERACTION = true;}
+ 	   		Stop;
 	}
 }
 

@@ -18,15 +18,19 @@ class SteamSpawner : Actor
 		Spawn:
 			TNT1 A 8
 			{
-				A_SetTics(Args[2]);		
-				A_SpawnItemEx("Fog",
-								frandom(-3.0,3.0) * (Args[0] / 10.0),
-								frandom(-3.0,3.0) * (Args[0] / 10.0),
-								0,
-								frandom(-0.2,1.0) * (Args[1] / 10.0),
-								frandom(-0.2,1.0) * (Args[1] / 10.0),
-								frandom(1.0,3.0) * (Args[1] / 10.0),
-								0,SXF_NOCHECKPOSITION|SXF_TRANSFERSCALE|SXF_TRANSFERALPHA,0,0);
+				if (LookForPlayers(true) == true)
+				{
+					A_ClearTarget(); // checking for player gives a target, so we clear it
+					A_SetTics(Args[2]);		
+					A_SpawnItemEx("Fog",
+									frandom(-3.0,3.0) * (Args[0] / 10.0),
+									frandom(-3.0,3.0) * (Args[0] / 10.0),
+									0,
+									frandom(-0.2,1.0) * (Args[1] / 10.0),
+									frandom(-0.2,1.0) * (Args[1] / 10.0),
+									frandom(1.0,3.0) * (Args[1] / 10.0),
+									0,SXF_NOCHECKPOSITION|SXF_TRANSFERSCALE|SXF_TRANSFERALPHA,0,0);
+				}
 			}
 		Loop;
 	}
