@@ -139,12 +139,33 @@ class LiftableActor : SwitchableDecoration
         BounceSound "KnifeHit";
     	BounceFactor 0.4;
     	WallBounceFactor 0.4;
+        // DefThreshold is added to x offset of held objects,
+        // for small objects that need to be held further away
+        DefThreshold 0;
         ProjectileKickBack 300;
 		+INTERPOLATEANGLES 
     	+CANPASS
 		+USESPECIAL
 		Activation THINGSPEC_Switch | THINGSPEC_ThingTargets | THINGSPEC_TriggerTargets;
 	}
+
+    override void Tick()
+    {     
+        if (!target)  
+        {
+            if (abs(vel.x) > 5 || abs(vel.y) > 5)
+            {
+                bACTIVATEIMPACT = TRUE;
+                bACTIVATEPCROSS = TRUE;
+            }
+            else
+            {
+                bACTIVATEIMPACT = false;
+                bACTIVATEPCROSS = false;           
+            }
+        }
+        Super.Tick();
+    }
 
 
 	override bool CanCollideWith(actor other,bool passive)
@@ -212,7 +233,7 @@ class LiftableActor : SwitchableDecoration
 
 		// calculate offsets
 		vector3 offset;
-		offset.x = (target.radius + radius + 8.) * 2. - (abs(target.pitch) * 0.7) + Threshold;
+		offset.x = (target.radius + radius + 8.) * 2. - (abs(target.pitch) * 0.7) + DefThreshold;
 		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch, 1. + floordif , 80.);
 
 		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_INTERPOLATE | WARPF_COPYVELOCITY);

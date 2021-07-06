@@ -155,6 +155,7 @@ class Chair2 : LiftableActor {
 	{
 		Radius 34;
 		Height 24;
+		Mass 150;
 		+SOLID
 		+PUSHABLE
 		+SLIDESONWALLS
@@ -312,8 +313,8 @@ Class Table1 : LiftableActor {
 		Radius 4;
 		Height 31;
 		PushFactor 0.2;
-		Mass 70;
-		Threshold 32;
+		Mass 100;
+		DefThreshold 32;
 		+FLOORCLIP
 		+SOLID
 		+PUSHABLE
