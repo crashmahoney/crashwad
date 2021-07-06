@@ -77,7 +77,7 @@ class IVStand : LiftableActor {
 	Default
 	{
 		Radius 8;
-		Height 64;
+		Height 56;
 		RenderStyle "Translucent";
 		Mass 25;
 		PushFactor 0.75;

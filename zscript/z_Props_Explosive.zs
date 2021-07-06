@@ -142,6 +142,9 @@ class LiftableActor : SwitchableDecoration
         // DefThreshold is added to x offset of held objects,
         // for small objects that need to be held further away
         DefThreshold 0;
+        // FloatSpeed is added to z offset of held objects,
+        // for objects that need to be held higher or lower
+        FloatSpeed 0;
         ProjectileKickBack 300;
 		+INTERPOLATEANGLES 
     	+CANPASS
@@ -151,19 +154,19 @@ class LiftableActor : SwitchableDecoration
 
     override void Tick()
     {     
-        if (!target)  
+        if (!target)
         {
-            if (abs(vel.x) > 5 || abs(vel.y) > 5)
-            {
-                bACTIVATEIMPACT = TRUE;
-                bACTIVATEPCROSS = TRUE;
-            }
-            else
-            {
-                bACTIVATEIMPACT = false;
-                bACTIVATEPCROSS = false;           
-            }
-        }
+	        if (abs(vel.x) > 5 || abs(vel.y) > 5)
+	        {
+	            bACTIVATEIMPACT = TRUE;
+	            bACTIVATEPCROSS = TRUE;
+	        }
+	        else
+	        {
+	            bACTIVATEIMPACT = false;
+	            bACTIVATEPCROSS = false;           
+	        }
+	    }
         Super.Tick();
     }
 
@@ -234,17 +237,32 @@ class LiftableActor : SwitchableDecoration
 		// calculate offsets
 		vector3 offset;
 		offset.x = (target.radius + radius + 8.) * 2. - (abs(target.pitch) * 0.7) + DefThreshold;
-		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch, 1. + floordif , 80.);
+		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch + FloatSpeed, 1. + floordif , 80.);
 
 		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_INTERPOLATE | WARPF_COPYVELOCITY);
-		angle = pickupangle + target.angle;
 
-		// use line of sight check to see if it's in a valid location (maybe not the best way)
-		if (!CheckSight(target))
+		// look at player and fire a linetrace to check for a clear line of sight
+		A_FaceTarget(0,0,0,0, FAF_TOP);
+    	FLineTraceData LosToPlayer;
+        LineTrace(
+           self.AngleTo(target,true), // gets absolute angle from caller to target
+           128, // distance
+           pitch, // pitch
+           flags: TRF_THRUACTORS | TRF_BLOCKSELF, 
+           offsetz: 0,
+           data: LosToPlayer
+            );
+
+        // restore previous angle and pitch
+		angle = pickupangle + target.AngleTo(self,true);
+        pitch = 0;
+
+		// if linetrace didn't hit the player
+		if (LosToPlayer.HitActor != target )
 		{
-			// restore position
-			A_Warp(AAPTR_TARGET, oldpos.x, oldpos.y, oldpos.z, 0, WARPF_ABSOLUTEPOSITION );
-			angle = oldangle;
+			// restore previous position
+			A_Warp(AAPTR_TARGET, oldpos.x, oldpos.y, oldpos.z, angle, WARPF_ABSOLUTEPOSITION | WARPF_ABSOLUTEANGLE );
+			//angle = oldangle;
 
 			// things get too noisy if we do this every frame
 			clangdelay --;

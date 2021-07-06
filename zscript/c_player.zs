@@ -49,10 +49,10 @@ class CrashPlayer : PlayerPawn
 		PainChance 255;
 		Player.DisplayName "Marine";
 		Player.CrouchSprite "PLYC";
-		Player.StartItem "TaserPistol";
-		Player.StartItem "Fist";
-		Player.StartItem "Clip", 50;
-		Player.StartItem "Cash", 23;		
+//		Player.StartItem "TaserPistol";
+//		Player.StartItem "Fist";
+//		Player.StartItem "Clip", 50;
+//		Player.StartItem "Cash", 23;		
 		Player.WeaponSlot 1, "Fist", "Chainsaw";
 		Player.WeaponSlot 2, "TaserPistol";
 		Player.WeaponSlot 3, "Shotgun", "SuperShotgun";

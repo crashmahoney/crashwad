@@ -6,7 +6,6 @@ class BedH1 : LiftableActor {
 		Height 37;
 		Mass 200;
 		PushFactor 0.2;
-		-NOGRAVITY
 		+FLOORCLIP
 		+SOLID
 		+PUSHABLE
@@ -96,11 +95,14 @@ class Chair : LiftableActor
 }
 
 //=======================================================
-class Chair1 : SolidModelBase {
+class Chair1 : LiftableActor {
 	Default
 	{
-		Radius 34;
+		Radius 32;
 		Height 24;
+		Mass 250;
+		PushFactor .2;
+		FloatSpeed -16; // z height offset when held
 		+FLOORCLIP
 		+SOLID
 		+PUSHABLE
@@ -110,19 +112,15 @@ class Chair1 : SolidModelBase {
 		+NOTARGET
 		+NOTAUTOAIMED
 		+NOBLOOD
+        Tag "Couch";		
 	}
 	
-	override void PostBeginPlay()
+	override void Tick()
 	{
-		Actor.Spawn("InvisibleBridge32", Vec3Angle( 64, self.Angle - 90.0, 16, false ), NO_REPLACE);
-		Actor.Spawn("InvisibleBridge32", Vec3Angle( -64, self.Angle - 90.0, 16, false ), NO_REPLACE);
-		
-		actor mo = Actor.Spawn("Chairback1", Vec3Angle( -24, self.Angle, 24, false ), NO_REPLACE);
-		if (mo)
-		{
-			mo.Angle = self.Angle;
-		}
-		Super.PostBeginPlay();
+		Super.Tick();
+		Crash.SpawnCollisionChild(self, 0, -64, 64, 128, 0, 32, 24); // bottom
+		Crash.SpawnCollisionChild(self, -28, -96, 96, 16, 25, 8, 23); // back
+		if (pos.z + height > ceilingz) self.destroy();
 	}
 	
 	States
@@ -133,29 +131,14 @@ class Chair1 : SolidModelBase {
 	}
 }
 
-Class Chairback1 : InvisibleBridge8
-{
-	override void PostBeginPlay()
-	{
-		for ( int i = -80; i <80; i += 16 )
-		{
-			Actor.Spawn("InvisibleBridge8", Vec3Angle( i, self.Angle - 90.0, 16, false ), NO_REPLACE);
-		}
-		Super.PostBeginPlay();
-	}
-	Default
-	{
-		Height 24;
-	}
-}
-
 //=======================================================
 class Chair2 : LiftableActor {
 	Default
 	{
-		Radius 34;
+		Radius 32;
 		Height 24;
 		Mass 150;
+		FloatSpeed -16; // z offset when held
 		+SOLID
 		+PUSHABLE
 		+SLIDESONWALLS
@@ -164,6 +147,7 @@ class Chair2 : LiftableActor {
 		+NOTARGET
 		+NOTAUTOAIMED
 		+NOBLOOD
+        Tag "Armchair";		
 	}
 
 	override void Tick()
@@ -274,8 +258,8 @@ class Stool1 : LiftableActor {
 	{
 		Radius 10;
 		Height 32;
-		Mass 25;
-		PushFactor 0.25;	
+		Mass 35;
+		PushFactor 0.5;	
 		
 		+SOLID
 		+PUSHABLE
