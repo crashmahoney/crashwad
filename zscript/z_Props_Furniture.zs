@@ -248,7 +248,7 @@ class Table1 : LiftableActor {
 	override void PostBeginPlay()
 	{		
 		Super.PostBeginPlay();
-		CollisionChild.SpawnChild(self, 0, 0, 2, 1, 32, 40, 8);
+		CollisionChild.SpawnChild(self, 0, 0, 0, 0, 32, 40, 8);
 		if (pos.z + height > ceilingz) self.destroy();
 	}
 

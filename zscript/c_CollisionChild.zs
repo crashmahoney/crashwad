@@ -28,6 +28,9 @@ class CollisionChild : SwitchableDecoration
 		scale.x = radius / 32;
 		scale.y = height / 64;
 
+		// set initial position
+		A_Warp(AAPTR_MASTER, xoff, yoff, zoff, 0, WARPF_NOCHECKPOSITION);
+
 		// destroy if above ceiling
 		if (pos.z + height > ceilingz) self.destroy();
 
@@ -45,14 +48,20 @@ class CollisionChild : SwitchableDecoration
 				A_ChangeLinkFlags(false);
 
 		 		// if velocity is greater than the parent object, transfer velocity to it
-				if (vel != (0,0,0) && master.vel == (0,0,0)) 
+				if (vel != (0,0,0))
 				{
-					master.A_ChangeVelocity(vel.x, vel.y, master.vel.z, CVF_REPLACE);
+					if (vel.x > master.vel.x) master.vel.x = vel.x;
+					if (vel.y > master.vel.y) master.vel.y = vel.y;
+					//master.A_ChangeVelocity(vel.x, vel.y, master.vel.z, CVF_REPLACE);
 				}
 
-				// reposition relative to parent object
-				A_Warp(AAPTR_MASTER, xoff, yoff, zoff, 0, WARPF_NOCHECKPOSITION);
-				angle = 0 ;//AngleTo(master, true);
+				if (master.vel != (0,0,0))// if parent is moving
+				{
+					// reposition relative to parent object
+					A_Warp(AAPTR_MASTER, xoff, yoff, zoff, 0, WARPF_NOCHECKPOSITION);
+					angle = 0 ;//AngleTo(master, true);					
+				}
+
 				vel = vel * PushFactor;
 
 
@@ -141,6 +150,7 @@ class CollisionChild : SwitchableDecoration
 				mo.xoff = xoffset;
 				mo.yoff = i;
 				mo.zoff = zoffset;
+				if (yspacing == 0) return;
 			}
 		}
 	}
