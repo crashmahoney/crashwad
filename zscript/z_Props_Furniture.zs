@@ -188,7 +188,7 @@ class Chair3 : LiftableActor {
 }
 
 // --------------------------------------------------------
-class CollisionChild : Actor
+class CollisionChild : SwitchableDecoration
 {
 
 	double xoff, yoff, zoff;
@@ -207,6 +207,8 @@ class CollisionChild : Actor
 		+NOTAUTOAIMED
 		+NOBLOOD
 		+THRUSPECIES
+		+USESPECIAL
+		Activation THINGSPEC_Activate | THINGSPEC_ThingTargets;
 	}
 
 	override void Tick()
@@ -276,6 +278,22 @@ class CollisionChild : Actor
 			//PLAY A -1;
 			TNT1 A -1;
 			Stop;
+		Active:
+			#### # 1
+				{
+					if (master && target)
+					{
+						A_Log("active");
+						target.target = master; 		// set player target to parent
+						master.target = target; 		// set parent target to player
+						master.SetStateLabel("Active");	// set parent active
+
+						self.activationtype |= THINGSPEC_Activate;	// set flag
+						self.A_ClearTarget();
+					}
+					else { a_log("child didn't have either target or master"); }
+				}
+			Goto Spawn;	
 	}
 
 

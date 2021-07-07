@@ -229,19 +229,35 @@ const ALPHA = 0.8;
 		string text;
 
 	// with object picked up		
-		if ( CheckWeaponSelected("HoldingObjectWeapon") == TRUE )
+		if (plr.target && CheckWeaponSelected("HoldingObjectWeapon") == TRUE )
 		{
-			if (plr.target)		text =	String.Format("%s - throw %s\n%s - drop %s",
-														GetStrKeyBinds("+attack"), plr.target.GetTag(),
-														GetStrKeyBinds("+use"),plr.target.GetTag());
+			text =	String.Format("%s - throw %s\n%s - drop %s",
+									GetStrKeyBinds("+attack"), plr.target.GetTag(),
+									GetStrKeyBinds("+use"),plr.target.GetTag());
 		}
+
 	// if looking at actor
 		else if (plr.useable.HitType == TRACE_HitActor && plr.useable.HitActor) 
-		{						
-	        if (plr.useable.HitActor is "LiftableActor")				// looking at liftable object	
-				text = String.Format("%s - pick up %s", GetStrKeyBinds("+use"), plr.useable.HitActor.GetTag());
-	        else if (plr.useable.HitActor.bUseSpecial == TRUE)				// looking at activatible object	
-				text = String.Format("%s - use %s", GetStrKeyBinds("+use"), plr.useable.HitActor.GetTag());
+		{
+			// looking at activatible object		
+	        if (plr.useable.HitActor.bUseSpecial == TRUE) 
+	        {
+	        	// get object name
+				string thingtag = plr.useable.HitActor.GetTag();
+
+				// get parent object name
+				if (plr.useable.HitActor is "CollisionChild")
+					thingtag = plr.useable.HitActor.master.GetTag();
+
+				// text for looking at liftable object or it's child
+		        if (plr.useable.HitActor is "LiftableActor" ||
+		        	plr.useable.HitActor is "CollisionChild")					
+					text = String.Format("%s - pick up %s", GetStrKeyBinds("+use"), thingtag);
+
+				// text for looking at standard activatable object
+				else text = String.Format("%s - use %s", GetStrKeyBinds("+use"), thingtag);
+
+			}
 		}
     // if looking at activatible linedef 
         else if (plr.useable.HitType == TRACE_HitWall && plr.useable.HitLine.activation == SPAC_Use)
