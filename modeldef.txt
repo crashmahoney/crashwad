@@ -121,7 +121,7 @@ Model Chair2
 Model Chair3
 {
 	Path "models"
-	Model 0 "testbox.obj"//"chair3.obj"
+	Model 0 "chair3.obj"
 	Scale 1 1 1
 
 	USEACTORPITCH

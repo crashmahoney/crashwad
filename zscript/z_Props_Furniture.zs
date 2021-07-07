@@ -17,12 +17,12 @@ class BedH1 : LiftableActor {
 		+NOBLOOD
 	}
 	
-	override void Tick()
+	override void PostBeginPlay()
 	{
 
-		Crash.SpawnCollisionChild(self, -32, 0, 0, 1, 0, 33, 37); // bottom
-		Crash.SpawnCollisionChild(self, 32, 0, 0, 1, 0, 33, 37); // bottom
-		Super.Tick();
+		CollisionChild.SpawnChild(self, -32, 0, 0, 1, 0, 33, 37); // bottom
+		CollisionChild.SpawnChild(self, 32, 0, 0, 1, 0, 33, 37); // bottom
+		Super.PostBeginPlay();
 	}
 
 	States
@@ -102,12 +102,11 @@ class Chair1 : LiftableActor {
         Tag "Couch";		
 	}
 	
-	override void Tick()
+	override void PostBeginPlay()
 	{
-		Super.Tick();
-		Crash.SpawnCollisionChild(self, 0, -64, 64, 128, 0, 32, 24); // bottom
-		Crash.SpawnCollisionChild(self, -28, -96, 96, 16, 25, 8, 23); // back
-		if (pos.z + height > ceilingz) self.destroy();
+		Super.PostBeginPlay();
+		CollisionChild.SpawnChild(self, 0, -64, 64, 128, 0, 32, 24); // bottom
+		CollisionChild.SpawnChild(self, -28, -96, 96, 16, 25, 8, 23); // back
 	}
 	
 	States
@@ -122,7 +121,7 @@ class Chair1 : LiftableActor {
 class Chair2 : LiftableActor {
 	Default
 	{
-		Radius 32;
+		Radius 30;
 		Height 24;
 		Mass 150;
 		FloatSpeed -16; // z offset when held
@@ -137,11 +136,10 @@ class Chair2 : LiftableActor {
         Tag "Armchair";		
 	}
 
-	override void Tick()
+	override void PostBeginPlay()
 	{		
-		Super.Tick();
-		Crash.SpawnCollisionChild(self, -24, -32, 32, 16, 16, 8, 24);
-		if (pos.z + height > ceilingz) self.destroy();
+		Super.PostBeginPlay();
+		CollisionChild.SpawnChild(self, -20, -24, 24, 12, 25, 8, 24);
 	}
 
 	States
@@ -174,12 +172,10 @@ class Chair3 : LiftableActor {
         Tag "Wooden Chair";		
 	}
 	
-	override void Tick()
+	override void PostBeginPlay()
 	{		
-		Super.Tick();
-
-		Crash.SpawnCollisionChild(self, -16, -14, 14, 14, 32, 4, 16);
-		if (pos.z + height > ceilingz) self.destroy();
+		Super.PostBeginPlay();
+		CollisionChild.SpawnChild(self, -16, -14, 14, 14, 32, 2, 16);
 	}
 
 	States
@@ -194,6 +190,9 @@ class Chair3 : LiftableActor {
 // --------------------------------------------------------
 class CollisionChild : Actor
 {
+
+	double xoff, yoff, zoff;
+
 	Default
 	{
 		+SOLID
@@ -216,27 +215,45 @@ class CollisionChild : Actor
 		scale.x = radius / 32;
 		scale.y = height / 64;
 
- 		// if velocity is greater than the parent object, transfer velocity to it
-		if (/*vel != (0,0,0) &&*/ master && !master.target /*&& master.vel == (0,0,0)*/)
+	//	if (pos.z + height > ceilingz) self.destroy();
+
+
+		if (master)
 		{
-/*			// get angle from master to self, like when spawned
-			double getangle = master.AngleTo(self, true);
+			if (!master.target) // if parent not picked up
+			{
+				/*if (bNOINTERACTION = true)*/ A_ChangeLinkFlags(false); // restore collision
+				A_Warp(AAPTR_MASTER, xoff, yoff, zoff, 0, WARPF_NOCHECKPOSITION);
+				angle = 0 ;//AngleTo(master, true);
 
-			// if it has changed
-			if ( getangle != self.angle )
-			{	
-				// add the difference to master
-				master.angle = deltaangle(master.angle, master.AngleTo(self, false));
-				//self.angle = getangle;
-			}*/
+		 		// if velocity is greater than the parent object, transfer velocity to it
+				if (vel != (0,0,0) && master.vel == (0,0,0))
+				{
+/*					// get angle from master to self, like when spawned
+					double getangle = master.AngleTo(self, true);
 
-			master.vel.x = vel.x * PushFactor;
-			master.vel.y = vel.y * PushFactor;
+					// if it has changed
+					if ( getangle != self.angle )
+					{	
+						// add the difference to master
+						master.angle = deltaangle(master.angle, master.AngleTo(self, false));
+						//self.angle = getangle;
+					}*/
 
-			//self.destroy();
+					master.vel.x = vel.x * PushFactor;
+					master.vel.y = vel.y * PushFactor;
 
+				}
+			}
+			else
+			{
+				A_ChangeLinkFlags(true); // nointeraction true
+			}
 		}
-
+		else
+		{
+			self.Destroy();
+		}
 
 		Super.Tick();
 	}
@@ -256,9 +273,36 @@ class CollisionChild : Actor
 	States
 	{
 		Spawn:
-			PLAY A 2;
+			//PLAY A -1;
+			TNT1 A -1;
 			Stop;
 	}
+
+
+
+	//---------------------------------------------------------------------------
+	// function to spawn a row of collision objects along the y axis + angle of given actor
+	//---------------------------------------------------------------------------	
+	static void SpawnChild(Actor parent, double xoffset, double ystart, double yend, double yspacing, double zoffset, int radius, int height)
+	{
+		for ( int i = ystart; i <= yend; i += yspacing )
+		{			
+			Actor mo = actor.Spawn("CollisionChild", parent.pos, NO_REPLACE);
+			if (mo)
+			{
+				let mo = CollisionChild(mo);
+				mo.A_SetSize(radius, height, false);
+				mo.master = parent;
+				mo.mass = parent.mass;
+				mo.pushfactor = parent.pushfactor;
+				mo.angle = mo.AngleTo(parent, true);
+				mo.xoff = xoffset;
+				mo.yoff = i;
+				mo.zoff = zoffset;
+			}
+		}
+	}
+
 
 }
 
@@ -320,10 +364,10 @@ Class Table1 : LiftableActor {
 		+NOBLOOD		
 	}
 	
-	override void Tick()
+	override void PostBeginPlay()
 	{		
-		Super.Tick();
-		Crash.SpawnCollisionChild(self, 0, 0, 2, 1, 32, 40, 8);
+		Super.PostBeginPlay();
+		CollisionChild.SpawnChild(self, 0, 0, 2, 1, 32, 40, 8);
 		if (pos.z + height > ceilingz) self.destroy();
 	}
 

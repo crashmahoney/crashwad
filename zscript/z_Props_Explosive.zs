@@ -148,6 +148,7 @@ class LiftableActor : SwitchableDecoration
         ProjectileKickBack 300;
 		+INTERPOLATEANGLES 
     	+CANPASS
+    	+ACTLIKEBRIDGE
 		+USESPECIAL
 		Activation THINGSPEC_Switch | THINGSPEC_ThingTargets | THINGSPEC_TriggerTargets;
 	}

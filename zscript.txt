@@ -241,30 +241,6 @@ class Crash play
 		}
 	}
 
-	//---------------------------------------------------------------------------
-	// function to spawn a row of collision objects along the y axis + angle of given actor
-	//---------------------------------------------------------------------------	
-	static void SpawnCollisionChild(Actor self, double xoffset, double ystart, double yend, double yspacing, double zoffset, int radius, int height)
-	{
-		if (!self.target && self.LookForPlayers(true) == true)
-		{
-			self.A_ClearTarget(); // checking for player gives a target, so we clear it
-			for ( int i = ystart; i <= yend; i += yspacing )
-			{			
-				let mo = Actor.Spawn("CollisionChild", self.pos, NO_REPLACE);
-				if (mo)
-				{
-					mo.A_SetSize(radius, height, false);
-					mo.master = self;
-					mo.mass = self.mass;
-					mo.pushfactor = self.pushfactor;
-					mo.A_Warp(AAPTR_MASTER, xoffset, i, zoffset, 0, WARPF_NOCHECKPOSITION);
-					mo.angle = mo.AngleTo(self, true);
-				}
-			}
-		}
-	}
-
 }
 
 
