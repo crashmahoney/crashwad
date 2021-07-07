@@ -156,7 +156,8 @@ class LiftableActor : SwitchableDecoration
     {     
         if (!target)
         {
-	        if (abs(vel.x) > 5 || abs(vel.y) > 5)
+        	ResolveState("Inactive");
+	        if (abs(vel.x) > 2 || abs(vel.y) > 2)
 	        {
 	            bACTIVATEIMPACT = TRUE;
 	            bACTIVATEPCROSS = TRUE;
@@ -239,6 +240,7 @@ class LiftableActor : SwitchableDecoration
 		offset.x = (target.radius + radius + 8.) * 2. - (abs(target.pitch) * 0.7) + DefThreshold;
 		offset.z = clamp((target.height*0.8)-(height*0.5) - target.pitch + FloatSpeed, 1. + floordif , 80.);
 
+		// warp to new position
 		A_Warp(AAPTR_TARGET, offset.x, offset.y, offset.z, 0, WARPF_INTERPOLATE | WARPF_COPYVELOCITY);
 
 		// look at player and fire a linetrace to check for a clear line of sight
@@ -262,7 +264,6 @@ class LiftableActor : SwitchableDecoration
 		{
 			// restore previous position
 			A_Warp(AAPTR_TARGET, oldpos.x, oldpos.y, oldpos.z, angle, WARPF_ABSOLUTEPOSITION | WARPF_ABSOLUTEANGLE );
-			//angle = oldangle;
 
 			// things get too noisy if we do this every frame
 			clangdelay --;

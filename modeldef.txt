@@ -121,7 +121,19 @@ Model Chair2
 Model Chair3
 {
 	Path "models"
-	Model 0 "chair3.obj"
+	Model 0 "testbox.obj"//"chair3.obj"
+	Scale 1 1 1
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex PLAY A 0 0
+}
+
+Model CollisionChild
+{
+	Path "models"
+	Model 0 "testbox.obj"
 	Scale 1 1 1
 
 	USEACTORPITCH

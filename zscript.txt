@@ -259,6 +259,7 @@ class Crash play
 					mo.mass = self.mass;
 					mo.pushfactor = self.pushfactor;
 					mo.A_Warp(AAPTR_MASTER, xoffset, i, zoffset, 0, WARPF_NOCHECKPOSITION);
+					mo.angle = mo.AngleTo(self, true);
 				}
 			}
 		}

@@ -19,22 +19,9 @@ class BedH1 : LiftableActor {
 	
 	override void Tick()
 	{
-		if (!target && LookForPlayers(true) == true)
-		{
-			A_ClearTarget(); // checking for player gives a target, so we clear it		
-			for (int i = -32; i <= 32; i += 64)
-			{
-				actor mo = Actor.Spawn("CollisionChild", Vec3Angle( i, self.Angle, 0, false ), NO_REPLACE);
-				if (mo)
-				{
-					mo.A_SetSize(33, 37, false);
-					mo.Angle = self.Angle;
-					mo.master = self;
-					mo.mass = mass;
-					mo.pushfactor = pushfactor;
-				}
-			}
-		}
+
+		Crash.SpawnCollisionChild(self, -32, 0, 0, 1, 0, 33, 37); // bottom
+		Crash.SpawnCollisionChild(self, 32, 0, 0, 1, 0, 33, 37); // bottom
 		Super.Tick();
 	}
 
@@ -205,13 +192,17 @@ class Chair3 : LiftableActor {
 }
 
 // --------------------------------------------------------
-class CollisionChild : InvisibleBridge8
+class CollisionChild : Actor
 {
 	Default
 	{
+		+SOLID
+		+NOGRAVITY
+		+NOLIFTDROP
+		+ACTLIKEBRIDGE
+
 		+NOTARGET
 		+SHOOTABLE
-		+SOLID
 		+NOTAUTOAIMED
 		+PUSHABLE
 		+NOTAUTOAIMED
@@ -221,13 +212,32 @@ class CollisionChild : InvisibleBridge8
 
 	override void Tick()
 	{	
-	// if velocity is greater than the parent object, transfer velocity to it
-		if (vel != (0,0,0) && master && master.vel == (0,0,0))
+		// match size of debug model to radius and height
+		scale.x = radius / 32;
+		scale.y = height / 64;
+
+ 		// if velocity is greater than the parent object, transfer velocity to it
+		if (/*vel != (0,0,0) &&*/ master && !master.target /*&& master.vel == (0,0,0)*/)
 		{
+/*			// get angle from master to self, like when spawned
+			double getangle = master.AngleTo(self, true);
+
+			// if it has changed
+			if ( getangle != self.angle )
+			{	
+				// add the difference to master
+				master.angle = deltaangle(master.angle, master.AngleTo(self, false));
+				//self.angle = getangle;
+			}*/
+
 			master.vel.x = vel.x * PushFactor;
 			master.vel.y = vel.y * PushFactor;
-			self.destroy();
+
+			//self.destroy();
+
 		}
+
+
 		Super.Tick();
 	}
 
@@ -246,7 +256,7 @@ class CollisionChild : InvisibleBridge8
 	States
 	{
 		Spawn:
-			TNT1 A 2;
+			PLAY A 2;
 			Stop;
 	}
 
