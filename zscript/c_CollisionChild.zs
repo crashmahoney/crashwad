@@ -8,7 +8,6 @@ class CollisionChild : SwitchableDecoration
 	{
 		+SOLID
 		+NOGRAVITY
-		+NOLIFTDROP
 		+ACTLIKEBRIDGE
 
 		+NOTARGET
@@ -50,19 +49,40 @@ class CollisionChild : SwitchableDecoration
 		 		// if velocity is greater than the parent object, transfer velocity to it
 				if (vel != (0,0,0))
 				{
-					if (vel.x > master.vel.x) master.vel.x = vel.x;
-					if (vel.y > master.vel.y) master.vel.y = vel.y;
+					if ((master.vel.x >= 0 && vel.x > master.vel.x) || (master.vel.x <= 0 && vel.x < master.vel.x))
+					 master.vel.x = vel.x;
+					if ((master.vel.y >= 0 && vel.y > master.vel.y) || (master.vel.y <= 0 && vel.y < master.vel.y))
+					 master.vel.y = vel.y;
 					//master.A_ChangeVelocity(vel.x, vel.y, master.vel.z, CVF_REPLACE);
 				}
 
 				if (master.vel != (0,0,0))// if parent is moving
 				{
+
+/*					// child actor collision with walls attempt
+					if (TestMobjLocation() == false)
+					{
+						if (master.vel.x != 0 && vel.x == 0)
+						{
+							master.vel.x = 0;
+						}
+				
+						if (master.vel.y != 0 && vel.y == 0)
+						{
+							master.vel.y = 0;
+						}
+					}*/
+
 					// reposition relative to parent object
 					A_Warp(AAPTR_MASTER, xoff, yoff, zoff, 0, WARPF_NOCHECKPOSITION);
-					angle = 0 ;//AngleTo(master, true);					
+					angle = 0 ;//AngleTo(master, true);
+
+					// velocity from outside forces has already been transferred
+					// to the main actor, no need to keep it in the child, it just
+					// causes weird bugs like sliding along the floor forever
+					vel = (0,0,0);		
 				}
 
-				vel = vel * PushFactor;
 
 
 /*					// get angle from master to self, like when spawned
@@ -108,9 +128,18 @@ class CollisionChild : SwitchableDecoration
 	States
 	{
 		Spawn:
-			//PLAY A -1;
-			TNT1 A -1;
-			Stop;
+			TNT1 A 1
+		{
+			// display collision size if debug mode is enabled
+			if ( GetCVar("crash_debug") != 0 )
+			{
+				sprite = GetSpriteIndex("PLAY");
+			}
+			else sprite = GetSpriteIndex("TNT1");
+			
+			A_SetTics(random(100,200));
+		}
+			Loop;
 		Active:
 			// pass pick up attempt on to parent object
 			#### # 1
