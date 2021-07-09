@@ -31,7 +31,7 @@ class GasCan : LiftableActor
         //$Arg0 "don't thrust"
         Health 20;
         Radius 10;
-        Height 48;
+        Height 44;
         Scale 0.8;
         Mass 50;
 
