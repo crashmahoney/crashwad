@@ -115,15 +115,15 @@ class Shotgun3 : CrashWeapon replaces Shotgun
 			Goto Ready;
 
 		Reload:
-			TNT1 A 0
+			TNT1 A 20
 			{
 				if (CountInv("ShellLoaded") >=3) return ResolveState("Ready");
 				return ResolveState(null);				
 			}
 
 			TNT1 A 10 A_TakeInventory("Shell", 3 - CountInv("ShellLoaded"));
-			TNT1 A 10 A_GiveInventory("ShellLoaded",3);
-			TNT1 A 10 A_WeaponReady();
+			TNT1 A 30 A_GiveInventory("ShellLoaded",3);
+			TNT1 A 5 A_WeaponReady();
 			Goto Ready;		
 
 
@@ -168,10 +168,15 @@ class Shotgun3 : CrashWeapon replaces Shotgun
 				if (mo)
 				{
 					mo.A_FaceMovementDirection();
+
+					// add spread
 					mo.angle += random2[Shotgun]() * spread;
 					mo.pitch += random2[Shotgun]() * spread;
 					mo.speed += random2[Shotgun]() * spread;
 					mo.Vel3DFromAngle(mo.speed, mo.angle, mo.pitch);
+
+					// add player velocity to starting position
+					mo.SetOrigin(mo.pos + vel, false);
 				}
 			}
 
@@ -229,7 +234,7 @@ class ShotgunProjectile : FastProjectile
 		Radius 2;
 		Height 2;
 		Scale 0.001;
-		Speed 128;
+		Speed 110;
 		DamageFunction (5 * random[Shotgun]( 1, 3 ));
 		ProjectileKickBack 300;
 

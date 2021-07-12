@@ -220,9 +220,15 @@ class CrashPlayer : PlayerPawn
 		if (slidetime > 0)
 		{
 			slidetime --;
-			Player.ViewHeight = 0;
-		//	Player.AttackZOffset = -16;
+			ViewHeight = Default.ViewHeight * 0.5 ;
+			Height = default.height * 0.5;
+			attackzoffset = 16;
 			if (slidetime & 7 == 0) { A_Punch(); }
+		}
+		else
+		{
+			ViewHeight = Default.ViewHeight;
+			Height = default.height;
 		}
 		
     }

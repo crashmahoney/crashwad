@@ -1,22 +1,37 @@
 ########################BEGIN########################
 Exporting Shotgun Object
 Exported UVMap coordinates for Shotgun Object
-Exported 10 frame(s) for Shotgun Object
+Exported 66 frame(s) for Shotgun Object
+Exporting handL
+Exported UVMap coordinates for handL
+Exported 66 frame(s) for handL
+Exporting handR
+Exported UVMap coordinates for handR
+Exported 66 frame(s) for handR
+Exporting Cartridge B L
+Exported UVMap coordinates for Cartridge B L
+Exported 66 frame(s) for Cartridge B L
+Exporting Cartridge B R
+Exported UVMap coordinates for Cartridge B R
+Exported 66 frame(s) for Cartridge B R
+Exporting Cartridge T
+Exported UVMap coordinates for Cartridge T
+Exported 66 frame(s) for Cartridge T
 Header Information
 Ident: IDP3
 Version: 15
 Name: 
 Flags: 0
-Number of Frames: 11
+Number of Frames: 67
 Number of Tags: 0
-Number of Surfaces: 1
+Number of Surfaces: 6
 Number of Skins: 0
 Offset Frames: 108
-Offset Tags: 724
-Offset Surfaces: 724
-Offset end: 116388
-Total Shaders: 1
-Total Triangles: 1272
-Total Vertices: 1044
+Offset Tags: 22620
+Offset Surfaces: 22620
+Offset end: 1821164
+Total Shaders: 6
+Total Triangles: 4044
+Total Vertices: 3215
 MD3 saved to D:\Games\Doom\crashwad\models\shotgun.md3
-Elapsed 0.69031 seconds
+Elapsed 8.93362 seconds

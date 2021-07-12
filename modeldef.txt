@@ -541,6 +541,7 @@ Model Shotgun3 // 1st person
 {
 	Model 0 "models/shotgun.md3"
 	Skin 0 "textures/skins/shotgun_albedo.png"
+	Skin 3 "textures/skins/handskin.png"
 	Scale -1 1 1.0
 
 	FrameIndex TNT1 A 0 0 // idle1
