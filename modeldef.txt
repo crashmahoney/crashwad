@@ -522,6 +522,62 @@ Model Rail_B
 }
 
 //--------------------------------------------------------------------------S
+Model Shotgun3 // pickup
+{
+	Model 0 "models/shotgun.md3"
+	Skin 0 "textures/skins/shotgun_albedo.png"
+	Scale 1.0 1.0 1.0
+	ZOffset 8.0
+	USEACTORPITCH
+	USEACTORROLL
+	ROTATING
+	Offset 0 0 -2
+	
+	FrameIndex TASR A 0 0 
+
+}
+
+Model Shotgun3 // 1st person
+{
+	Model 0 "models/shotgun.md3"
+	Skin 0 "textures/skins/shotgun_albedo.png"
+	Scale -1 1 1.0
+
+	FrameIndex TNT1 A 0 0 // idle1
+	FrameIndex TNT1 B 0 1 // idle2
+	FrameIndex TNT1 C 0 2 // fire
+	FrameIndex TNT1 D 0 3
+	FrameIndex TNT1 E 0 4
+	FrameIndex TNT1 F 0 5 // idle3
+	FrameIndex TNT1 G 0 6 // idle4
+	FrameIndex TNT1 H 0 7 // idle5
+	
+	
+	
+}
+
+Model Shotgun3 // overlay
+{
+	Model 1 "models/overlay.md3"
+	Skin 1 "textures/skins/flash1.png"
+	//Scale -5 0.5 1.0
+	Offset 72 -128 -32 
+	RollOffset 0
+	FrameIndex PISF A 1 0
+	RollOffset 45
+	FrameIndex PISF B 1 0
+	RollOffset 90
+	FrameIndex PISF C 1 0
+	RollOffset 135
+	FrameIndex PISF D 1 0
+	RollOffset 180
+	FrameIndex PISF E 1 0
+	RollOffset 215
+	FrameIndex PISF F 1 0
+	RollOffset 250
+	FrameIndex PISF G 1 0
+}
+
 Model Soy
 {
 	Model 0 "models/soy.md3"
@@ -534,7 +590,6 @@ Model Soy
 }
 
 
-//--------------------------------------------------------------------------S
 Model Stool1
 {
 	Model 0 "models/Stool1.obj"
@@ -634,6 +689,18 @@ Model Torch
    FrameIndex TORC A 0 0
 }
 
+Model Trail
+{
+	Path "models"
+	Model 0 "trail1.md3"
+	Scale 1.0 1.0 1.2
+
+	USEACTORPITCH
+	USEACTORROLL
+	DONTCULLBACKFACES
+
+   FrameIndex PLAY A 0 0
+}
 //--------------------------------------------------------------------------U
 //--------------------------------------------------------------------------V
 Model VendingMachine1

@@ -12,6 +12,7 @@ version "4.2"
 #include "zscript/c_player.zs"
 #include "zscript/c_weapon_base.zs"
 #include "zscript/c_weapon_pistol.zs"
+#include "zscript/c_weapon_shotgun.zs"
 
 #include "zscript/z_Models.zs"
 

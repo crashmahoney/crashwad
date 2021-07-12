@@ -55,7 +55,7 @@ class CrashPlayer : PlayerPawn
 //		Player.StartItem "Cash", 23;		
 		Player.WeaponSlot 1, "Fist", "Chainsaw";
 		Player.WeaponSlot 2, "TaserPistol";
-		Player.WeaponSlot 3, "Shotgun", "SuperShotgun";
+		Player.WeaponSlot 3, "Shotgun3";
 		Player.WeaponSlot 4, "Chaingun";
 		Player.WeaponSlot 5, "RocketLauncher";
 		Player.WeaponSlot 6, "PlasmaRifle";

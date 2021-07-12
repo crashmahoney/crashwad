@@ -833,6 +833,14 @@ material texture SHAWN2
     ao SHAWN_o
 }
 
+material texture "textures/skins/shotgun_albedo.png"
+{
+    normal "textures/skins/shotgun_normal.png"
+    metallic "textures/skins/shotgun_metallic.png"
+    roughness "textures/skins/shotgun_roughness.png"
+    ao "textures/skins/shotgun_ambient occlusion.png"
+}
+
 material texture soy
 {
     shader                  "shaders/paraboloid.fp"
